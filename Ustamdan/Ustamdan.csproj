@@ -215,6 +215,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -227,14 +228,54 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Admin\animate.min.css" />
+    <Content Include="Content\Admin\custom.css" />
+    <Content Include="Content\Admin\flat\aero%402x.png" />
+    <Content Include="Content\Admin\flat\aero.css" />
+    <Content Include="Content\Admin\flat\aero.png" />
+    <Content Include="Content\Admin\flat\blue%402x.png" />
+    <Content Include="Content\Admin\flat\blue.css" />
+    <Content Include="Content\Admin\flat\blue.png" />
+    <Content Include="Content\Admin\flat\flat%402x.png" />
+    <Content Include="Content\Admin\flat\flat.css" />
+    <Content Include="Content\Admin\flat\flat.png" />
+    <Content Include="Content\Admin\flat\green%402x.png" />
+    <Content Include="Content\Admin\flat\green.css" />
+    <Content Include="Content\Admin\flat\green.png" />
+    <Content Include="Content\Admin\flat\grey%402x.png" />
+    <Content Include="Content\Admin\flat\grey.css" />
+    <Content Include="Content\Admin\flat\grey.png" />
+    <Content Include="Content\Admin\flat\orange%402x.png" />
+    <Content Include="Content\Admin\flat\orange.css" />
+    <Content Include="Content\Admin\flat\orange.png" />
+    <Content Include="Content\Admin\flat\pink%402x.png" />
+    <Content Include="Content\Admin\flat\pink.css" />
+    <Content Include="Content\Admin\flat\pink.png" />
+    <Content Include="Content\Admin\flat\purple%402x.png" />
+    <Content Include="Content\Admin\flat\purple.css" />
+    <Content Include="Content\Admin\flat\purple.png" />
+    <Content Include="Content\Admin\flat\red%402x.png" />
+    <Content Include="Content\Admin\flat\red.css" />
+    <Content Include="Content\Admin\flat\red.png" />
+    <Content Include="Content\Admin\flat\yellow%402x.png" />
+    <Content Include="Content\Admin\flat\yellow.css" />
+    <Content Include="Content\Admin\flat\yellow.png" />
+    <Content Include="Content\Admin\flat\_all.css" />
+    <Content Include="Content\Admin\font-awesome.min.css" />
+    <Content Include="Content\Admin\img.jpg" />
+    <Content Include="Content\Admin\user.png" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\Admin\custom.js" />
+    <Content Include="Scripts\Admin\fastclick.js" />
+    <Content Include="Scripts\Admin\icheck.min.js" />
     <Content Include="Scripts\ai.0.22.19-build00125.js" />
     <Content Include="Scripts\ai.0.22.19-build00125.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -248,6 +289,11 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
     <None Include="Scripts\jquery-3.1.0.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -471,6 +517,7 @@
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\readme.md" />
     <Content Include="Scripts\tinymce\langs\readme.md" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
