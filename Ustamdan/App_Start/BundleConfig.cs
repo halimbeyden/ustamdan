@@ -26,6 +26,26 @@ namespace Ustamdan
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+
+
+
+            bundles.Add(new ScriptBundle("~/Script/Admin").Include(
+                    "~/Scripts/jquery-{version}.js",
+                    "~/Scripts/jquery.validate*",
+                    "~/Scripts/bootstrap.js",
+                    "~/Scripts/respond.js",
+                    "~/Scripts/Admin/fastclick.js",
+                    "~/Scripts/Admin/icheck.min.js",
+                    "~/Scripts/Admin/custom.js"
+                    ));
+
+            bundles.Add(new StyleBundle("~/Css/Admin").Include(
+                      "~/Content/bootstrap.min.css",
+                      "~/Content/Admin/font-awesome.min.css",
+                      "~/Content/Admin/animate.min.css",
+                      "~/Content/Admin/flat/green.css",
+                      "~/Content/Admin/custom.css"));
         }
     }
 }
