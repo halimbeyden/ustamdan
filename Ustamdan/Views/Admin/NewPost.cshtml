@@ -1,0 +1,178 @@
+﻿
+@{
+    ViewBag.Title = "New Post";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<style>
+    .panel_toolbox {
+        min-width: 0px;
+    }
+</style>
+<h2>NewPost</h2>
+<hr />
+<div class="row">
+    <div class="col-lg-8 col-md-8 col-sm-10 col-xs-12">
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label class="control-label">Post Title</label>
+                <input type="text" class="form-control" placeholder="Title">
+            </div>
+            <div class="form-group">
+                <label class="control-label">Post Image</label>
+                <input type="file" class="form-control" placeholder="Image">
+            </div>
+            <div class="form-group">
+                <label class="control-label">Post Video URL</label>
+                <input type="text" class="form-control" placeholder="Video URL">
+            </div>
+        </form>
+        <textarea style="min-height:500px">Easy! You should check out MoxieManager!</textarea>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-2 col-xs-12">
+        <div class="x_panel tile">
+            <div class="x_title">
+                <h2>Language</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li>
+                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <h4>Select Language</h4>
+                <div class="widget_summary">
+                    <form class="form-horizontal form-label-left">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" class="flat" checked name="lang" value="1"> Turkish
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" class="flat" name="lang" value="0"> English
+                            </label>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="x_panel tile">
+            <div class="x_title">
+                <h2>Categories</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li>
+                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <h4>Select Categories</h4>
+                <div class="widget_summary">
+                    <div id="categoryList">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" class="flat" name="categories" value="1"> asdasd
+                            </label>
+                        </div>
+                        @foreach (Category cat in ViewBag.Categories)
+                        {
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" class="flat" name="categories" value="@cat.Id"> @cat.Name
+                                </label>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <div class="widget_summary">
+                    <div class="input-group ">
+                        <input type="text" class="form-control" placeholder="Add New Category">
+                        <span class="input-group-btn">
+                            <button id="addCategory" type="button" class="btn btn-success"><i class="fa fa-plus"></i></button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="x_panel tile">
+            <div class="x_title">
+                <h2>Tags</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li>
+                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <h4>Select Tags</h4>
+                <div class="widget_summary">
+                    <div id="tagList">
+                        @foreach (Tag tag in ViewBag.Tags)
+                        {
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" class="flat" name="tags" value="@tag.Id"> @tag.Name
+                                </label>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <div class="widget_summary">
+                    <div class="input-group ">
+                        <input type="text" class="form-control" placeholder="Add New Tag">
+                        <span class="input-group-btn">
+                            <button id="addTag" type="button" class="btn btn-success"><i class="fa fa-plus"></i></button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/Scripts/tinymce/tinymce.min.js"></script>
+    <script>
+        tinymce.init({
+            selector: 'textarea',
+            theme: 'modern',
+            plugins: [
+               'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+               'searchreplace wordcount visualblocks visualchars code fullscreen',
+               'insertdatetime media nonbreaking save table contextmenu directionality',
+               'template paste textcolor colorpicker textpattern imagetools'
+            ],
+            toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+            toolbar2: 'print preview media | forecolor backcolor',
+            image_advtab: true,
+            templates: [
+              { title: 'Test template 1', content: 'Test 1' },
+              { title: 'Test template 2', content: 'Test 2' }
+            ],
+            content_css: [
+              '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
+              '//www.tinymce.com/css/codepen.min.css'
+            ]
+        });
+    </script>
+    <script>
+        $("#addCategory").on("click", function () {
+            $cat = $(this).parent().parent().find("input").val();
+            if ($cat == "")
+                return;
+            $("#categoryList").append('<div class="checkbox"><label><input type="checkbox" class="flat" name="categories" value="' + 1 + '"> ' + $cat + '</label></div>').iCheck({ checkboxClass: 'icheckbox_flat-green'});
+            $(this).parent().parent().find("input").val('');
+        });
+        $("#addTag").on("click", function () {
+            $cat = $(this).parent().parent().find("input").val();
+            if ($cat == "")
+                return;
+            $("#tagList").append('<div class="checkbox"><label><input type="checkbox" class="flat" name="tags" value="' + 1 + '"> ' + $cat + '</label></div>').iCheck({ checkboxClass: 'icheckbox_flat-green' });
+            $(this).parent().parent().find("input").val('');
+        });
+    </script>
+}
