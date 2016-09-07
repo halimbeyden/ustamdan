@@ -19,6 +19,7 @@ namespace Ustamdan.Models.Blog
     public class Post
     {
         public int Id { get; set; }
+        public string Title { get; set; }
         public string Description { get; set; }
         public string PostContent { get; set; }
         public DateTime DateCreated { get; set; }
@@ -32,5 +33,7 @@ namespace Ustamdan.Models.Blog
 
         [ForeignKey("AuthorId")]
         public virtual ApplicationUser Author { get; set; }
+        public virtual List<Category> Categories { get; set; }
+        public virtual List<Tag> Tags { get; set; }
     }
 }
