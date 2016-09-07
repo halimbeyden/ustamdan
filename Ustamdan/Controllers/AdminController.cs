@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Ustamdan.Models;
 
 namespace Ustamdan.Controllers
 {
@@ -13,5 +14,25 @@ namespace Ustamdan.Controllers
         {
             return View();
         }
+
+
+        #region Post
+
+        public ActionResult PostList()
+        {
+            return View();
+        }
+
+        public ActionResult NewPost()
+        {
+
+            using (var db = new ApplicationDbContext())
+            {
+                ViewBag.Categories = db.Categories.ToList();
+                ViewBag.Tags = db.Tags.ToList();
+            }
+            return View();
+        }
+        #endregion
     }
 }
