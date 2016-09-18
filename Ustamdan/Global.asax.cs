@@ -26,6 +26,7 @@ namespace Ustamdan
                 RoleManager<IdentityRole> roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
                 var r = roleManager.Create(new IdentityRole("Admin"));
                 r = roleManager.Create(new IdentityRole("Author"));
+                r = roleManager.Create(new IdentityRole("Standard"));
             }
         }
     }
