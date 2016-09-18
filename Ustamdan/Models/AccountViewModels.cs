@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using Ustamdan.ViewModels;
 
 namespace Ustamdan.Models
 {
@@ -68,6 +69,14 @@ namespace Ustamdan.Models
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
+
+        [Required]
+        [Display(Name = "Fullname")]
+        public string Fullname { get; set; }
+
+        [Required]
+        [Display(Name = "User Type")]
+        public UserType UserType { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]

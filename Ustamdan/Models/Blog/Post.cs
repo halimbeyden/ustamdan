@@ -24,6 +24,7 @@ namespace Ustamdan.Models.Blog
         public string PostContent { get; set; }
         public DateTime DateCreated { get; set; }
         public DateTime DateModified { get; set; }
+        public string MediaURL { get; set; }
         public string AuthorId { get; set; }
         public PostType Type { get; set; }
         public bool IsPublished { get; set; }

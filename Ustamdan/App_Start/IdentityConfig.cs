@@ -11,6 +11,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using Ustamdan.Models;
+using System.Security.Principal;
 
 namespace Ustamdan
 {
@@ -104,6 +105,24 @@ namespace Ustamdan
         public static ApplicationSignInManager Create(IdentityFactoryOptions<ApplicationSignInManager> options, IOwinContext context)
         {
             return new ApplicationSignInManager(context.GetUserManager<ApplicationUserManager>(), context.Authentication);
+        }
+    }
+    public static class GenericPrincipalExtensions
+    {
+        public static string FullName(this IPrincipal user)
+        {
+            if (user.Identity.IsAuthenticated)
+            {
+                ClaimsIdentity claimsIdentity = user.Identity as ClaimsIdentity;
+                foreach (var claim in claimsIdentity.Claims)
+                {
+                    if (claim.Type == "FullName")
+                        return claim.Value;
+                }
+                return "";
+            }
+            else
+                return "";
         }
     }
 }
