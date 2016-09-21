@@ -3,14 +3,12 @@
     ViewBag.Title = "EditPost";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-
-
-
 <style>
     .panel_toolbox {
         min-width: 0px;
     }
 </style>
+<link href="~/Content/Admin/pnotify.css" rel="stylesheet" />
 <button type="button" onclick="savePost()" class="btn btn-success pull-right">Save Post</button>
 <h2>Edit Post</h2>
 <hr />
@@ -33,6 +31,42 @@
         <textarea style="min-height:500px" id="postBody">@Model.Body</textarea>
     </div>
     <div class="col-lg-4 col-md-4 col-sm-2 col-xs-12">
+        <div class="x_panel tile">
+            <div class="x_title">
+                <h2>Status</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li>
+                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <h4>Select Post Status</h4>
+                <div class="widget_summary">
+                    <form class="form-horizontal form-label-left">
+                        @{
+                            int i = 0;
+                            foreach (PostStatus ps in Enum.GetValues(typeof(PostStatus)))
+                            {
+                                <div class="radio">
+                                    <label>
+                                        @if (Model.PostStatus == ps)
+                                        {
+                                            <input type="radio" class="flat" checked name="status" value="@(i++)"> @ps.ToString()
+                                        }
+                                        else
+                                        {
+                                            <input type="radio" class="flat" name="status" value="@(i++)"> @ps.ToString()
+                                        }
+                                    </label>
+                                </div>
+                            }
+                        }
+                    </form>
+                </div>
+            </div>
+        </div>
         <div class="x_panel tile">
             <div class="x_title">
                 <h2>Language</h2>
@@ -81,11 +115,11 @@
                                 <label>
                                     @if (Model.Categories.Contains(cat.Id))
                                     {
-                                        <input type="checkbox" class="flat" name="categories" value="@cat.Id"> @cat.Name
+                                        <input checked type="checkbox" class="flat" name="categories" value="@cat.Id"> @cat.Name
                                     }
                                     else
                                     {
-                                        <input checked type="checkbox" class="flat" name="categories" value="@cat.Id"> @cat.Name
+                                        <input type="checkbox" class="flat" name="categories" value="@cat.Id"> @cat.Name
                                     }
                                 </label>
                             </div>
@@ -115,39 +149,69 @@
             <div class="x_content">
                 <h4>Select Tags</h4>
                 <div class="widget_summary">
-                    <div id="tagList">
-                        @foreach (Tag tag in ViewBag.Tags)
-                        {
-                            <div class="checkbox">
-                                <label>
-                                    @if (Model.Tags.Contains(tag.Id))
-                                    {
-                                        <input type="checkbox" class="flat" name="tags" value="@tag.Id"> @tag.Name
-                                    }
-                                    else
-                                    {
-                                        <input checked type="checkbox" class="flat" name="tags" value="@tag.Id"> @tag.Name
-                                    }
-                                </label>
-                            </div>
-                        }
+                    <div class="col-md-11 col-sm-11 col-xs-11">
+                        <input id="tags_1" type="text" class="tags form-control flat" value="@(String.Join(",",Model.TagNames))" />
+                        <div id="suggestions-container" style="position: relative; float: left; width: 250px; margin: 10px;"></div>
                     </div>
+                    @*<div id="tagList">
+                            @foreach (Tag tag in ViewBag.Tags)
+                            {
+                                <div class="checkbox">
+                                    <label>
+                                        @if (Model.Tags.Contains(tag.Id))
+                                        {
+                                            <input type="checkbox" class="flat" name="tags" value="@tag.Id"> @tag.Name
+                                        }
+                                        else
+                                        {
+                                            <input checked type="checkbox" class="flat" name="tags" value="@tag.Id"> @tag.Name
+                                        }
+                                    </label>
+                                </div>
+                            }
+                        </div>*@
                 </div>
-                <div class="widget_summary">
-                    <div class="input-group ">
-                        <input type="text" class="form-control" placeholder="Add New Tag">
-                        <span class="input-group-btn">
-                            <button id="addTag" type="button" class="btn btn-success"><i class="fa fa-plus"></i></button>
-                        </span>
-                    </div>
-                </div>
+                @*<div class="widget_summary">
+                        <div class="input-group ">
+                            <input type="text" class="form-control" placeholder="Add New Tag">
+                            <span class="input-group-btn">
+                                <button id="addTag" type="button" class="btn btn-success"><i class="fa fa-plus"></i></button>
+                            </span>
+                        </div>
+                    </div>*@
             </div>
         </div>
     </div>
 </div>
+<style>
+    #loadingDiv {
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        background: rgba(0,0,0,0.3);
+        z-index: 3;
+    }
+</style>
+<div id="loadingDiv" class="cssload-container" style="display:none;">
+    <div class="cssload-item cssload-ventilator"></div>
+</div>
 
 @section scripts{
     <script src="~/Scripts/tinymce/tinymce.min.js"></script>
+    <script src="~/Scripts/Admin/jquery.tagsinput.js"></script>
+    <script src="~/Scripts/Admin/pnotify.js"></script>
+    <!-- jQuery Tags Input -->
+    <script>
+        $(document).ready(function () {
+            $('#tags_1').tagsInput({
+                width: 'auto'
+            });
+        });
+    </script>
+    <!-- /jQuery Tags Input -->
+
     <script>
         tinymce.init({
             selector: '#postBody',
@@ -179,29 +243,29 @@
             $("#categoryList").append('<div class="checkbox"><label><input type="checkbox" class="flat" name="categories" value="' + 1 + '"> ' + $cat + '</label></div>').iCheck({ checkboxClass: 'icheckbox_flat-green' });
             $(this).parent().parent().find("input").val('');
         });
-        $("#addTag").on("click", function () {
-            $cat = $(this).parent().parent().find("input").val();
-            if ($cat == "")
-                return;
-            $("#tagList").append('<div class="checkbox"><label><input type="checkbox" class="flat" name="tags" value="' + 1 + '"> ' + $cat + '</label></div>').iCheck({ checkboxClass: 'icheckbox_flat-green' });
-            $(this).parent().parent().find("input").val('');
-        });
+        //$("#addTag").on("click", function () {
+        //    $cat = $(this).parent().parent().find("input").val();
+        //    if ($cat == "")
+        //        return;
+        //    $("#tagList").append('<div class="checkbox"><label><input type="checkbox" class="flat" name="tags" value="' + 1 + '"> ' + $cat + '</label></div>').iCheck({ checkboxClass: 'icheckbox_flat-green' });
+        //    $(this).parent().parent().find("input").val('');
+        //});
 
         function savePost() {
+            showLoading();
             var title = $("#postTitle").val();
             var imageUrl = $("#postImageUrl").val();
             var videoUrl = $("#postVideUrl").val();
             var body = tinyMCE.get('postBody').getContent();
             var lang = $("input[name='lang']:checked").val();
+            var status = $("input[name='status']:checked").val();
             var categories = [];
             var tags = [];
             try {
                 $("#categoryList input:checked").each(function (index, item) {
                     categories.push($(item).val());
                 });
-                $("#tagList input:checked").each(function (index, item) {
-                    tags.push($(item).val());
-                });
+                tags = $("#tags_1").val().split(",");
             }
             catch (err) {
                 console.log(err);
@@ -212,12 +276,13 @@
                 'Description': "",
                 'Body': body,
                 'Language': lang,
+                'PostStatus': status,
                 'Categories': categories,
-                'Tags': tags,
+                'TagNames': tags,
                 'PostType': isBlank(imageUrl) ? 1 : 0,
                 'MediaURL': isBlank(imageUrl) ? videoUrl : imageUrl
             };
-            console.log(JSON.stringify(data));
+            //console.log(JSON.stringify(data));
             $.ajax({
                 url: "@Url.Action("SavePost")",
                 type: 'POST',
@@ -225,11 +290,27 @@
                 dataType: 'json',
                 data: JSON.stringify(data),
             }).done(function (response) {
-                alert(response);
+                //alert(response);
+                hideLoading();
+                if(response == '@Model.Id'){
+                    new PNotify({
+                        title: 'Success',
+                        text: 'Your post is saved successfully!',
+                        type: 'success',
+                        styling: 'bootstrap3',
+                        delay: 3000
+                    });
+                }
             });
         }
         function isBlank(str) {
             return (!str || /^\s*$/.test(str));
+        }
+        function hideLoading(){
+            $("#loadingDiv").hide();
+        }
+        function showLoading(){
+            $("#loadingDiv").show();
         }
     </script>
 }
