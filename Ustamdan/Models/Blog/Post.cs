@@ -6,6 +6,12 @@ using System.Web;
 
 namespace Ustamdan.Models.Blog
 {
+    public enum PostStatus
+    {
+        Draft,
+        Published,
+        Deleted
+    }
     public enum PostType
     {
         Image,
@@ -31,6 +37,7 @@ namespace Ustamdan.Models.Blog
         public bool IsCommentEnabled { get; set; }
         public bool IsSharingEnabled { get; set; }
         public Language Language { get; set; }
+        public PostStatus Status { get; set; }
 
         [ForeignKey("AuthorId")]
         public virtual ApplicationUser Author { get; set; }

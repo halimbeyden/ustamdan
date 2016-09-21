@@ -275,7 +275,9 @@
     <Content Include="Content\Admin\flat\_all.css" />
     <Content Include="Content\Admin\font-awesome.min.css" />
     <Content Include="Content\Admin\img.jpg" />
+    <Content Include="Content\Admin\jquery.tagsinput.css" />
     <Content Include="Content\Admin\nprogress.css" />
+    <Content Include="Content\Admin\pnotify.css" />
     <Content Include="Content\Admin\user.png" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -283,6 +285,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\img\loading.svg" />
     <Content Include="Content\img\logo.png" />
+    <Content Include="Content\loading.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -296,7 +299,9 @@
     <Content Include="Scripts\Admin\dropzone.min.js" />
     <Content Include="Scripts\Admin\fastclick.js" />
     <Content Include="Scripts\Admin\icheck.min.js" />
+    <Content Include="Scripts\Admin\jquery.tagsinput.js" />
     <Content Include="Scripts\Admin\nprogress.js" />
+    <Content Include="Scripts\Admin\pnotify.js" />
     <Content Include="Scripts\ai.0.22.19-build00125.js" />
     <Content Include="Scripts\ai.0.22.19-build00125.min.js" />
     <Content Include="ApplicationInsights.config">
