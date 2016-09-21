@@ -45,6 +45,7 @@ namespace Ustamdan
                       "~/Content/Admin/font-awesome.min.css",
                       "~/Content/Admin/animate.min.css",
                       "~/Content/Admin/flat/green.css",
+                      "~/Content/loading.css",
                       "~/Content/Admin/custom.css"));
         }
     }

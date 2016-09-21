@@ -80,13 +80,32 @@ namespace Ustamdan.Controllers
                 temp.Description = post.Description;
                 temp.Language = post.Language;
                 temp.MediaURL = post.MediaURL;
+                temp.Type = post.PostType;
+                temp.Status = post.PostStatus;
                 if (post.Categories != null)
                     temp.Categories.AddRange(db.Categories.Where(x => post.Categories.Contains(x.Id)));
-                if (post.Tags != null)
-                    temp.Tags.AddRange(db.Tags.Where(x => post.Tags.Contains(x.Id)));
+                if (post.TagNames != null)
+                    temp.Tags.AddRange(getTags(db,post.TagNames));
                 db.SaveChanges();
                 return Json(temp.Id);
             }
+        }
+        private List<Tag> getTags(ApplicationDbContext db,string []tags)
+        {
+            List<Tag> tagIds = new List<Tag>();
+            foreach (string tag in tags)
+            {
+                Tag tg = db.Tags.FirstOrDefault(x => x.Name.ToLower() == tag.Trim().ToLower());
+                if(tg == null)
+                {
+                    tg = new Tag();
+                    tg.Name = tag;
+                    db.Tags.Add(tg);
+                    db.SaveChanges();
+                }
+                tagIds.Add(tg);
+            }
+            return tagIds;
         }
         #endregion
 

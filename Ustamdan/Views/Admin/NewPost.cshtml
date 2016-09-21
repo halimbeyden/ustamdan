@@ -28,9 +28,45 @@
                 <input type="text" class="form-control" placeholder="Video URL" id="postVideUrl">
             </div>
         </form>
-        <textarea style="min-height:500px" id="postBody">Easy! You should check out MoxieManager!</textarea>
+        <textarea style="min-height:500px" id="postBody"></textarea>
     </div>
     <div class="col-lg-4 col-md-4 col-sm-2 col-xs-12">
+        <div class="x_panel tile">
+            <div class="x_title">
+                <h2>Status</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li>
+                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <h4>Select Post Status</h4>
+                <div class="widget_summary">
+                    <form class="form-horizontal form-label-left">
+                        @{
+                            int i = 0;
+                            foreach (PostStatus ps in Enum.GetValues(typeof(PostStatus)))
+                            {
+                                <div class="radio">
+                                    <label>
+                                        @if (ps == PostStatus.Draft)
+                                        {
+                                            <input type="radio" class="flat" checked name="status" value="@(i++)"> @ps.ToString()
+                                        }
+                                        else
+                                        {
+                                            <input type="radio" class="flat" name="status" value="@(i++)"> @ps.ToString()
+                                        }
+                                    </label>
+                                </div>
+                            }
+                        }
+                    </form>
+                </div>
+            </div>
+        </div>
         <div class="x_panel tile">
             <div class="x_title">
                 <h2>Language</h2>
@@ -104,27 +140,29 @@
                 <div class="clearfix"></div>
             </div>
             <div class="x_content">
-                <h4>Select Tags</h4>
+                <h4>Input Tags</h4>
                 <div class="widget_summary">
-                    <div id="tagList">
-                        @foreach (Tag tag in ViewBag.Tags)
-                        {
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" class="flat" name="tags" value="@tag.Id"> @tag.Name
-                                </label>
-                            </div>
-                        }
+                    <div class="col-md-11 col-sm-11 col-xs-11">
+                        <input id="tags_1" type="text" class="tags form-control flat" value="Ustamdan" />
+                        <div id="suggestions-container" style="position: relative; float: left; width: 250px; margin: 10px;"></div>
                     </div>
                 </div>
-                <div class="widget_summary">
-                    <div class="input-group ">
-                        <input type="text" class="form-control" placeholder="Add New Tag">
-                        <span class="input-group-btn">
-                            <button id="addTag" type="button" class="btn btn-success"><i class="fa fa-plus"></i></button>
-                        </span>
-                    </div>
-                </div>
+                @*@foreach (Tag tag in ViewBag.Tags)
+                    {
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" class="flat" name="tags" value="@tag.Id"> @tag.Name
+                            </label>
+                        </div>
+                    }*@
+                @*<div class="widget_summary">
+                        <div class="input-group ">
+                            <input type="text" class="form-control" placeholder="Add New Tag">
+                            <span class="input-group-btn">
+                                <button id="addTag" type="button" class="btn btn-success"><i class="fa fa-plus"></i></button>
+                            </span>
+                        </div>
+                    </div>*@
             </div>
         </div>
     </div>
@@ -132,6 +170,16 @@
 
 @section scripts{
     <script src="~/Scripts/tinymce/tinymce.min.js"></script>
+    <script src="~/Scripts/Admin/jquery.tagsinput.js"></script>
+    <!-- jQuery Tags Input -->
+    <script>
+        $(document).ready(function () {
+            $('#tags_1').tagsInput({
+                width: 'auto'
+            });
+        });
+    </script>
+    <!-- /jQuery Tags Input -->
     <script>
         tinymce.init({
             selector: '#postBody',
@@ -171,13 +219,13 @@
             });
             $(this).parent().parent().find("input").val('');
         });
-        $("#addTag").on("click", function () {
-            $cat = $(this).parent().parent().find("input").val();
-            if ($cat == "")
-                return;
-            $("#tagList").append('<div class="checkbox"><label><input type="checkbox" class="flat" name="tags" value="' + 1 + '"> ' + $cat + '</label></div>').iCheck({ checkboxClass: 'icheckbox_flat-green' });
-            $(this).parent().parent().find("input").val('');
-        });
+        //$("#addTag").on("click", function () {
+        //    $cat = $(this).parent().parent().find("input").val();
+        //    if ($cat == "")
+        //        return;
+        //    $("#tagList").append('<div class="checkbox"><label><input type="checkbox" class="flat" name="tags" value="' + 1 + '"> ' + $cat + '</label></div>').iCheck({ checkboxClass: 'icheckbox_flat-green' });
+        //    $(this).parent().parent().find("input").val('');
+        //});
 
         function savePost() {
             var title = $("#postTitle").val();
@@ -185,15 +233,14 @@
             var videoUrl = $("#postVideUrl").val();
             var body = tinyMCE.get('postBody').getContent();
             var lang = $("input[name='lang']:checked").val();
+            var status = $("input[name='status']:checked").val();
             var categories = [];
             var tags = [];
             try {
                 $("#categoryList input:checked").each(function (index, item) {
                     categories.push($(item).val());
                 });
-                $("#tagList input:checked").each(function (index, item) {
-                    tags.push($(item).val());
-                });
+                tags = $("#tags_1").val().split(",");
             }
             catch (err) {
                 console.log(err);
@@ -203,6 +250,7 @@
                 'Description': "",
                 'Body': body,
                 'Language': lang,
+                'PostStatus': status,
                 'Categories': categories,
                 'Tags': tags,
                 'PostType': isBlank(imageUrl) ? 1 : 0,
