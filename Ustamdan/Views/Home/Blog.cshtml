@@ -1,0 +1,363 @@
+﻿
+@{
+    ViewBag.Title = "Blog";
+}
+<header id="header" class="full-header semi-transparent dark">
+
+    <div id="header-wrap">
+
+        <div class="container clearfix">
+
+            <div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
+
+            <!-- Logo
+            ============================================= -->
+            <div id="logo">
+                <a href="index.html" class="standard-logo" data-dark-logo="/Content/img/iconlogowhite.png"><img src="~/Content/img/iconlogowhite.png" alt="Canvas Logo"></a>
+                <a href="index.html" class="retina-logo" data-dark-logo="/Content/img/iconlogowhite.png"><img src="~/Content/img/iconlogowhite.png" alt="Canvas Logo"></a>
+            </div><!-- #logo end -->
+            <!-- Primary Navigation
+            ============================================= -->
+            <nav id="primary-menu">
+
+                <ul>
+                    <li>
+                        <a href="@Url.Action("Index","Home")"><div>USTAMDAN</div></a>
+                    </li>
+                    <li class="current">
+                        <a href="@Url.Action("Blog","Home")"><div>YAZIHANE</div></a>
+                    </li>
+                    <li class="current">
+                        <a href="@Url.Action("About","Home")"><div>HİKAYEMİZ</div></a>
+                    </li>
+                    <li class="current">
+                        <a href="@Url.Action("Contact","Home")"><div>İLETİŞİM</div></a>
+                    </li>
+                    <li class="current">
+                        <a href="@Url.Action("Index","Home")"><div>EN</div></a>
+                    </li>
+                </ul>
+
+                <!-- Top Search
+                ============================================= -->
+                <div id="top-search">
+                    <a href="#" id="top-search-trigger"><i class="icon-search3"></i><i class="icon-line-cross"></i></a>
+                    <form action="search.html" method="get">
+                        <input type="text" name="q" class="form-control" value="" placeholder="Type &amp; Hit Enter..">
+                    </form>
+                </div><!-- #top-search end -->
+
+            </nav><!-- #primary-menu end -->
+
+        </div>
+
+    </div>
+
+</header>
+<section id="page-title" style="padding:25px 0">
+    <div class="container clearfix text-center">
+        <h3>Anadolu Kültür Bloğu</h3>
+    </div>
+</section><!-- #page-title end -->
+<!-- Google Map
+============================================= -->
+<section id="google-map" class="gmap slider-parallax"></section>
+
+<section id="page-title" style="padding:25px 0">
+    <div class="container clearfix text-center">
+        <h3>Yazılar</h3>
+    </div>
+</section><!-- #page-title end -->
+<!-- Content
+============================================= -->
+<section id="content">
+
+    <div class="content-wrap">
+
+        <div class="container clearfix">
+
+            <!-- Post Content
+            ============================================= -->
+            <div class="postcontent nobottommargin clearfix">
+
+                <!-- Posts
+                ============================================= -->
+                <div id="posts" class="post-grid grid-container grid-3 clearfix" data-layout="fitRows">
+
+                    <div class="entry clearfix">
+                        <div class="entry-image">
+                            <a href="/Content/images/blog/full/17.jpg" data-lightbox="image"><img class="image_fade" src="/Content/images/blog/grid/17.jpg" alt="Standard Post with Image"></a>
+                        </div>
+                        <div class="entry-title">
+                            <h2><a href="blog-single.html">This is a Standard post with a Preview Image</a></h2>
+                        </div>
+                        <ul class="entry-meta clearfix">
+                            <li><i class="icon-calendar3"></i> 10th Feb 2014</li>
+                            <li><a href="blog-single.html#comments"><i class="icon-comments"></i> 13</a></li>
+                            <li><a href="#"><i class="icon-camera-retro"></i></a></li>
+                        </ul>
+                        <div class="entry-content">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione, voluptatem, dolorem animi nisi autem blanditiis enim culpa reiciendis et explicabo tenetur!</p>
+                            <a href="blog-single.html" class="more-link">Read More</a>
+                        </div>
+                    </div>
+
+                    <div class="entry clearfix">
+                        <div class="entry-image">
+                            <iframe src="http://player.vimeo.com/video/87701971" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                        </div>
+                        <div class="entry-title">
+                            <h2><a href="blog-single-full.html">This is a Standard post with a Vimeo Video</a></h2>
+                        </div>
+                        <ul class="entry-meta clearfix">
+                            <li><i class="icon-calendar3"></i> 16th Feb 2014</li>
+                            <li><a href="blog-single-full.html#comments"><i class="icon-comments"></i> 19</a></li>
+                            <li><a href="#"><i class="icon-film"></i></a></li>
+                        </ul>
+                        <div class="entry-content">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione, voluptatem, dolorem animi nisi autem blanditiis enim culpa reiciendis et explicabo tenetur!</p>
+                            <a href="blog-single-full.html" class="more-link">Read More</a>
+                        </div>
+                    </div>
+
+
+                    <div class="entry clearfix">
+                        <div class="entry-image">
+                            <iframe width="560" height="315" src="http://www.youtube.com/embed/SZEflIVnhH8" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                        <div class="entry-title">
+                            <h2><a href="blog-single-full.html">This is a Standard post with a Youtube Video</a></h2>
+                        </div>
+                        <ul class="entry-meta clearfix">
+                            <li><i class="icon-calendar3"></i> 30th Apr 2014</li>
+                            <li><a href="blog-single-full.html#comments"><i class="icon-comments"></i> 34</a></li>
+                            <li><a href="#"><i class="icon-film"></i></a></li>
+                        </ul>
+                        <div class="entry-content">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione, voluptatem, dolorem animi nisi autem blanditiis enim culpa reiciendis et explicabo tenetur!</p>
+                            <a href="blog-single-full.html" class="more-link">Read More</a>
+                        </div>
+                    </div>
+
+                    <div class="entry clearfix">
+                        <div class="entry-image">
+                            <a href="/Content/images/blog/full/1.jpg" data-lightbox="image"><img class="image_fade" src="/Content/images/blog/grid/1.jpg" alt="Standard Post with Image"></a>
+                        </div>
+                        <div class="entry-title">
+                            <h2><a href="blog-single.html">This is a Standard post with another Preview Image</a></h2>
+                        </div>
+                        <ul class="entry-meta clearfix">
+                            <li><i class="icon-calendar3"></i> 5th May 2014</li>
+                            <li><a href="blog-single.html#comments"><i class="icon-comments"></i> 6</a></li>
+                            <li><a href="#"><i class="icon-camera-retro"></i></a></li>
+                        </ul>
+                        <div class="entry-content">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione, voluptatem, dolorem animi nisi autem blanditiis enim culpa reiciendis et explicabo tenetur!</p>
+                            <a href="blog-single.html" class="more-link">Read More</a>
+                        </div>
+                    </div>
+
+                    <div class="entry clearfix">
+                        <div class="entry-image">
+                            <iframe frameborder="0" width="480" height="270" src="http://www.dailymotion.com/embed/video/x18murk" allowfullscreen></iframe>
+                        </div>
+                        <div class="entry-title">
+                            <h2><a href="blog-single-full.html">This is a Standard post with a Dailymotion Video</a></h2>
+                        </div>
+                        <ul class="entry-meta clearfix">
+                            <li><i class="icon-calendar3"></i> 11th May 2014</li>
+                            <li><a href="blog-single-full.html#comments"><i class="icon-comments"></i> 9</a></li>
+                            <li><a href="#"><i class="icon-film"></i></a></li>
+                        </ul>
+                        <div class="entry-content">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione, voluptatem, dolorem animi nisi autem blanditiis enim culpa reiciendis et explicabo tenetur!</p>
+                            <a href="blog-single-full.html" class="more-link">Read More</a>
+                        </div>
+                    </div>
+
+                </div><!-- #posts end -->
+                <!-- Pagination
+                ============================================= -->
+                <ul class="pager nomargin">
+                    <li class="previous"><a href="#">&larr; Older</a></li>
+                    <li class="next"><a href="#">Newer &rarr;</a></li>
+                </ul><!-- .pager end -->
+
+            </div><!-- .postcontent end -->
+            <!-- Sidebar
+            ============================================= -->
+            <div class="sidebar nobottommargin col_last clearfix">
+                <div class="sidebar-widgets-wrap">
+                    <div class="widget clearfix">
+
+                        <div class="tabs nobottommargin clearfix" id="sidebar-tabs">
+
+                            <ul class="tab-nav clearfix">
+                                <li><a href="#tabs-1">Popular</a></li>
+                                <li><a href="#tabs-2">Recent</a></li>
+                            </ul>
+
+                            <div class="tab-container">
+
+                                <div class="tab-content clearfix" id="tabs-1">
+                                    <div id="popular-post-list-sidebar">
+
+                                        <div class="spost clearfix">
+                                            <div class="entry-image">
+                                                <a href="#" class="nobg"><img class="img-circle" src="images/magazine/small/3.jpg" alt=""></a>
+                                            </div>
+                                            <div class="entry-c">
+                                                <div class="entry-title">
+                                                    <h4><a href="#">Debitis nihil placeat, illum est nisi</a></h4>
+                                                </div>
+                                                <ul class="entry-meta">
+                                                    <li><i class="icon-comments-alt"></i> 35 Comments</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                        <div class="spost clearfix">
+                                            <div class="entry-image">
+                                                <a href="#" class="nobg"><img class="img-circle" src="images/magazine/small/2.jpg" alt=""></a>
+                                            </div>
+                                            <div class="entry-c">
+                                                <div class="entry-title">
+                                                    <h4><a href="#">Elit Assumenda vel amet dolorum quasi</a></h4>
+                                                </div>
+                                                <ul class="entry-meta">
+                                                    <li><i class="icon-comments-alt"></i> 24 Comments</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                        <div class="spost clearfix">
+                                            <div class="entry-image">
+                                                <a href="#" class="nobg"><img class="img-circle" src="images/magazine/small/1.jpg" alt=""></a>
+                                            </div>
+                                            <div class="entry-c">
+                                                <div class="entry-title">
+                                                    <h4><a href="#">Lorem ipsum dolor sit amet, consectetur</a></h4>
+                                                </div>
+                                                <ul class="entry-meta">
+                                                    <li><i class="icon-comments-alt"></i> 19 Comments</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="tab-content clearfix" id="tabs-2">
+                                    <div id="recent-post-list-sidebar">
+
+                                        <div class="spost clearfix">
+                                            <div class="entry-image">
+                                                <a href="#" class="nobg"><img class="img-circle" src="images/magazine/small/1.jpg" alt=""></a>
+                                            </div>
+                                            <div class="entry-c">
+                                                <div class="entry-title">
+                                                    <h4><a href="#">Lorem ipsum dolor sit amet, consectetur</a></h4>
+                                                </div>
+                                                <ul class="entry-meta">
+                                                    <li>10th July 2014</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                        <div class="spost clearfix">
+                                            <div class="entry-image">
+                                                <a href="#" class="nobg"><img class="img-circle" src="images/magazine/small/2.jpg" alt=""></a>
+                                            </div>
+                                            <div class="entry-c">
+                                                <div class="entry-title">
+                                                    <h4><a href="#">Elit Assumenda vel amet dolorum quasi</a></h4>
+                                                </div>
+                                                <ul class="entry-meta">
+                                                    <li>10th July 2014</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                        <div class="spost clearfix">
+                                            <div class="entry-image">
+                                                <a href="#" class="nobg"><img class="img-circle" src="images/magazine/small/3.jpg" alt=""></a>
+                                            </div>
+                                            <div class="entry-c">
+                                                <div class="entry-title">
+                                                    <h4><a href="#">Debitis nihil placeat, illum est nisi</a></h4>
+                                                </div>
+                                                <ul class="entry-meta">
+                                                    <li>10th July 2014</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="widget clearfix">
+
+                        <h4>Tag Cloud</h4>
+                        <div class="tagcloud">
+                            <a href="#">general</a>
+                            <a href="#">videos</a>
+                            <a href="#">music</a>
+                            <a href="#">media</a>
+                            <a href="#">photography</a>
+                            <a href="#">parallax</a>
+                            <a href="#">ecommerce</a>
+                            <a href="#">terms</a>
+                            <a href="#">coupons</a>
+                            <a href="#">modern</a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div><!-- .sidebar end -->
+
+        </div>
+
+    </div>
+
+</section><!-- #content end -->
+
+@section Scripts{
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBo6xedQToKACcfN2BzV54-3br245ytkBo&sensor=false"></script>
+    <script src="~/Scripts/theme/jquery.gmap.js"></script>
+    <script type="text/javascript">
+
+        $('#google-map').gMap({
+            address: 'Melbourne, Australia',
+            maptype: 'ROADMAP',
+            zoom: 14,
+            markers: [
+				{
+				    address: "Melbourne, Australia",
+				    html: '<div style="width: 300px;"><h4 style="margin-bottom: 8px;">Hi, we\'re <span>Envato</span></h4><p class="nobottommargin">Our mission is to help people to <strong>earn</strong> and to <strong>learn</strong> online. We operate <strong>marketplaces</strong> where hundreds of thousands of people buy and sell digital goods every day, and a network of educational blogs where millions learn <strong>creative skills</strong>.</p></div>',
+				    icon: {
+				        image: "/Content/images/icons/map-icon-red.png",
+				        iconsize: [32, 39],
+				        iconanchor: [13, 39]
+				    }
+				}
+            ],
+            doubleclickzoom: false,
+            controls: {
+                panControl: true,
+                zoomControl: true,
+                mapTypeControl: true,
+                scaleControl: false,
+                streetViewControl: false,
+                overviewMapControl: false
+            }
+        });
+
+    </script>
+}

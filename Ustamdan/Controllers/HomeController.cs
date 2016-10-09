@@ -12,7 +12,14 @@ namespace Ustamdan.Controllers
         {
             return View();
         }
-
+        public ActionResult Blog()
+        {
+            return View();
+        }
+        public ActionResult Post()
+        {
+            return View();
+        }
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
