@@ -1,7 +1,258 @@
 ﻿@{
     ViewBag.Title = "About";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+<style>
+    .section{
+        background-color:white;
+    }
+</style>
+<header id="header" class="full-header semi-transparent dark">
 
-<p>Use this area to provide additional information.</p>
+    <div id="header-wrap">
+
+        <div class="container clearfix">
+
+            <div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
+
+            <!-- Logo
+            ============================================= -->
+            <div id="logo">
+                <a href="index.html" class="standard-logo" data-dark-logo="/Content/img/iconlogowhite.png"><img src="~/Content/img/iconlogowhite.png" alt="Canvas Logo"></a>
+                <a href="index.html" class="retina-logo" data-dark-logo="/Content/img/iconlogowhite.png"><img src="~/Content/img/iconlogowhite.png" alt="Canvas Logo"></a>
+            </div><!-- #logo end -->
+            <!-- Primary Navigation
+            ============================================= -->
+            <nav id="primary-menu">
+
+                <ul>
+                    <li>
+                        <a href="@Url.Action("Index","Home")"><div>USTAMDAN</div></a>
+                    </li>
+                    <li class="current">
+                        <a href="@Url.Action("Blog","Home")"><div>YAZIHANE</div></a>
+                    </li>
+                    <li class="current">
+                        <a href="@Url.Action("About","Home")"><div>HİKAYEMİZ</div></a>
+                    </li>
+                    <li class="current">
+                        <a href="@Url.Action("Contact","Home")"><div>İLETİŞİM</div></a>
+                    </li>
+                    <li class="current">
+                        <a href="@Url.Action("Index","Home")"><div>EN</div></a>
+                    </li>
+                </ul>
+
+                <!-- Top Search
+                ============================================= -->
+                <div id="top-search">
+                    <a href="#" id="top-search-trigger"><i class="icon-search3"></i><i class="icon-line-cross"></i></a>
+                    <form action="search.html" method="get">
+                        <input type="text" name="q" class="form-control" value="" placeholder="Type &amp; Hit Enter..">
+                    </form>
+                </div><!-- #top-search end -->
+            </nav><!-- #primary-menu end -->
+        </div>
+
+    </div>
+
+</header>
+<div class="container clearfix">
+
+    <div class="col_three_fifth topmargin-sm bottommargin">
+        <img data-animate="fadeInLeftBig" src="~/Content/img/hikayemiz.jpg" alt="Hikayemiz">
+    </div>
+
+    <div class="col_two_fifth topmargin-sm bottommargin-lg col_last">
+
+        <div class="heading-block">
+            <h2>HİKAYEMİZ</h2>
+        </div>
+        <p>
+            Ustamdan… Yıllar önce Gaziantep’te tanıştığımız Mehmet Usta ile başladı bu serüven. Mehmet Usta’nın zanaatına olan aşkı, tutkusu  ve misafirine bahşettiği sohbeti ile bindik bu Anadolu teknesine. Bir hoş sohbetle başlayan, yerel değerlerimizi araştırdıkça demlenen ve ekip olunca güçlenen beraberlikten Ustamdan doğdu.
+        </p>
+        <p>
+            Ustamdan, kültür ve yerel emeği yaratıcı fikirlerle buluşturarak insanlara ulaştıran , ürün ve yazılar ile inşa edilen bir değer köprüsüdür.  Bu köprünün bir başında bakır döven eller öte başında emeğe kıymet veren eller uzanır.
+        </p>
+        <p>
+            Ustamdan’ı  kalıcı ve evrensel bir mecraya dönüştürmek için çalışıyor, Anadolu kültürüne şevkle emek veriyoruz.
+        </p>
+        <p>
+            <i>
+                Kültür harmanında buluşmak üzere…
+            </i>
+        </p>
+    </div>
+    <div class="clear"></div>
+    <div class="section topmargin-lg">
+        <div class="heading-block center">
+            <h2>HİZMETLERİMİZ</h2>
+        </div>
+
+        <div class="clear bottommargin-sm"></div>
+
+        <div class="container clearfix">
+            <div class="col_one_fourth nobottommargin">
+                <div class="feature-box fbox-center fbox-light fbox-effect nobottomborder">
+                    <div class="fbox-icon">
+                        <a href="#"><i class="i-alt noborder icon-shop"></i></a>
+                    </div>
+                    <h3>e-Commerce Solutions<span class="subtitle">Start your Own Shop today</span></h3>
+                </div>
+            </div>
+
+            <div class="col_one_fourth nobottommargin">
+                <div class="feature-box fbox-center fbox-light fbox-effect nobottomborder">
+                    <div class="fbox-icon">
+                        <a href="#"><i class="i-alt noborder icon-wallet"></i></a>
+                    </div>
+                    <h3>Easy Payment Options<span class="subtitle">Credit Cards &amp; PayPal Support</span></h3>
+                </div>
+            </div>
+
+            <div class="col_one_fourth nobottommargin">
+                <div class="feature-box fbox-center fbox-light fbox-effect nobottomborder">
+                    <div class="fbox-icon">
+                        <a href="#"><i class="i-alt noborder icon-megaphone"></i></a>
+                    </div>
+                    <h3>Instant Notifications<span class="subtitle">Realtime Email &amp; SMS Support</span></h3>
+                </div>
+            </div>
+
+            <div class="col_one_fourth nobottommargin col_last">
+                <div class="feature-box fbox-center fbox-light fbox-effect nobottomborder">
+                    <div class="fbox-icon">
+                        <a href="#"><i class="i-alt noborder icon-fire"></i></a>
+                    </div>
+                    <h3>Hot Offers Daily<span class="subtitle">Upto 50% Discounts</span></h3>
+                </div>
+            </div>
+
+            <div class="clear"></div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="clear"></div>
+
+    <div class="heading-block center">
+        <h3>EKİBİMİZ</h3>
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-3 col-sm-6 bottommargin">
+
+            <div class="team">
+                <div class="team-image">
+                    <img src="/Content/images/team/3.jpg" alt="John Doe">
+                </div>
+                <div class="team-desc">
+                    <div class="team-title"><h4>John Doe</h4><span>CEO</span></div>
+                    <a href="#" class="social-icon inline-block si-small si-light si-rounded si-facebook">
+                        <i class="icon-facebook"></i>
+                        <i class="icon-facebook"></i>
+                    </a>
+                    <a href="#" class="social-icon inline-block si-small si-light si-rounded si-twitter">
+                        <i class="icon-twitter"></i>
+                        <i class="icon-twitter"></i>
+                    </a>
+                    <a href="#" class="social-icon inline-block si-small si-light si-rounded si-gplus">
+                        <i class="icon-gplus"></i>
+                        <i class="icon-gplus"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-3 col-sm-6 bottommargin">
+
+            <div class="team">
+                <div class="team-image">
+                    <img src="/Content/images/team/2.jpg" alt="Josh Clark">
+                </div>
+                <div class="team-desc">
+                    <div class="team-title"><h4>Josh Clark</h4><span>Co-Founder</span></div>
+                    <a href="#" class="social-icon inline-block si-small si-light si-rounded si-facebook">
+                        <i class="icon-facebook"></i>
+                        <i class="icon-facebook"></i>
+                    </a>
+                    <a href="#" class="social-icon inline-block si-small si-light si-rounded si-twitter">
+                        <i class="icon-twitter"></i>
+                        <i class="icon-twitter"></i>
+                    </a>
+                    <a href="#" class="social-icon inline-block si-small si-light si-rounded si-gplus">
+                        <i class="icon-gplus"></i>
+                        <i class="icon-gplus"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-3 col-sm-6 bottommargin">
+
+            <div class="team">
+                <div class="team-image">
+                    <img src="/Content/images/team/8.jpg" alt="Mary Jane">
+                </div>
+                <div class="team-desc">
+                    <div class="team-title"><h4>Mary Jane</h4><span>Sales</span></div>
+                    <a href="#" class="social-icon inline-block si-small si-light si-rounded si-facebook">
+                        <i class="icon-facebook"></i>
+                        <i class="icon-facebook"></i>
+                    </a>
+                    <a href="#" class="social-icon inline-block si-small si-light si-rounded si-twitter">
+                        <i class="icon-twitter"></i>
+                        <i class="icon-twitter"></i>
+                    </a>
+                    <a href="#" class="social-icon inline-block si-small si-light si-rounded si-gplus">
+                        <i class="icon-gplus"></i>
+                        <i class="icon-gplus"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-3 col-sm-6 bottommargin">
+
+            <div class="team">
+                <div class="team-image">
+                    <img src="/Content/images/team/4.jpg" alt="Nix Maxwell">
+                </div>
+                <div class="team-desc">
+                    <div class="team-title"><h4>Nix Maxwell</h4><span>Support</span></div>
+                    <a href="#" class="social-icon inline-block si-small si-light si-rounded si-facebook">
+                        <i class="icon-facebook"></i>
+                        <i class="icon-facebook"></i>
+                    </a>
+                    <a href="#" class="social-icon inline-block si-small si-light si-rounded si-twitter">
+                        <i class="icon-twitter"></i>
+                        <i class="icon-twitter"></i>
+                    </a>
+                    <a href="#" class="social-icon inline-block si-small si-light si-rounded si-gplus">
+                        <i class="icon-gplus"></i>
+                        <i class="icon-gplus"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="clear"></div>
+    <div class="section nobottommargin notopmargin ">
+        <div class="container clearfix">
+            <div class="heading-block center">
+                <h3>ZANAAT DOSTU ŞİRKETLER AİLESİ</h3>
+            </div>
+
+            <div id="oc-clients" class="section nobgcolor notopmargin owl-carousel owl-carousel-full image-carousel footer-stick carousel-widget dark" data-margin="80" data-loop="false" data-nav="false" data-autoplay="5000" data-pagi="false" data-items-xxs="2" data-items-xs="3" data-items-sm="3" data-items-md="3" data-items-lg="3">
+                <div class="oc-item"><a href="#"><img src="~/Content/images/clients/1.png" alt="Clients"></a></div>
+                <div class="oc-item"><a href="#"><img src="~/Content/images/clients/2.png" alt="Clients"></a></div>
+                <div class="oc-item"><a href="#"><img src="~/Content/images/clients/3.png" alt="Clients"></a></div>
+            </div>
+        </div>
+    </div>
+
+</div>
