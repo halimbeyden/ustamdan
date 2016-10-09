@@ -118,6 +118,18 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="BlogTitle" xml:space="preserve">
-    <value>Ustamdan</value>
+    <value>Weekly</value>
+  </data>
+  <data name="ContactTitle" xml:space="preserve">
+    <value>Contact</value>
+  </data>
+  <data name="LanguageTitle" xml:space="preserve">
+    <value>tr</value>
+  </data>
+  <data name="OurStoryTitle" xml:space="preserve">
+    <value>Our Story</value>
+  </data>
+  <data name="SearchText" xml:space="preserve">
+    <value>Type &amp; Hit Enter..</value>
   </data>
 </root>
