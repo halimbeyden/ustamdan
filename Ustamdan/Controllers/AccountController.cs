@@ -136,7 +136,7 @@ namespace Ustamdan.Controllers
 
         //
         // GET: /Account/Register
-        [AllowAnonymous]
+        //[AllowAnonymous]
         [Authorize(Roles = "Admin")]
         public ActionResult Register()
         {
