@@ -1,30 +1,330 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Home";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+<!-- Header
+       ============================================= -->
+<header id="header" class="transparent-header dark">
+
+    <div id="header-wrap">
+
+        <div class="container clearfix">
+
+            <div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
+
+            <!-- Logo
+            ============================================= -->
+            <div id="logo">
+                <a href="index.html" class="standard-logo" data-dark-logo="/Content/img/iconlogowhite.png"><img src="~/Content/img/iconlogowhite.png" alt="Canvas Logo"></a>
+                <a href="index.html" class="retina-logo" data-dark-logo="/Content/img/iconlogowhite.png"><img src="~/Content/img/iconlogowhite.png" alt="Canvas Logo"></a>
+            </div><!-- #logo end -->
+            <!-- Primary Navigation
+            ============================================= -->
+            <nav id="primary-menu">
+
+                <ul>
+                    <li>
+                        <a href="@Url.Action("Index","Home")"><div>Ustamdan</div></a>
+                    </li>
+                    <li class="current">
+                        <a href="@Url.Action("Blog","Home")"><div>YAZIHANE</div></a>
+                    </li>
+                    <li class="current">
+                        <a href="@Url.Action("About","Home")"><div>HİKAYEMİZ</div></a>
+                    </li>
+                    <li class="current">
+                        <a href="@Url.Action("Contact","Home")"><div>İLETİŞİM</div></a>
+                    </li>
+                    <li class="current">
+                        <a href="@Url.Action("Index","Home")"><div>EN</div></a>
+                    </li>
+                </ul>
+
+                <!-- Top Search
+                ============================================= -->
+                <div id="top-search">
+                    <a href="#" id="top-search-trigger"><i class="icon-search3"></i><i class="icon-line-cross"></i></a>
+                    <form action="search.html" method="get">
+                        <input type="text" name="q" class="form-control" value="" placeholder="Type &amp; Hit Enter..">
+                    </form>
+                </div><!-- #top-search end -->
+
+            </nav><!-- #primary-menu end -->
+
+        </div>
+
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+
+</header><!-- #header end -->
+<section id="slider" class="slider-parallax swiper_wrapper full-screen clearfix" data-loop="true">
+
+    <div class="slider-parallax-inner">
+
+        <div class="swiper-container swiper-parent">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide dark" style="background-image: url('/Content/images/slides/slide1.png');">
+                    <div class="container clearfix">
+                        <div class="slider-caption slider-caption-center">
+                            <h2 data-caption-animate="fadeInUp">"BİR KÜLTÜR MOZAİĞİ"</h2>
+                            <p data-caption-animate="fadeInUp" data-caption-delay="200">Ustamdan, kültürü yaratıcı fikirlerle buluşturarak insanlara ulaştıran bir köprüdür.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+
+</section>
+
+<!-- Content
+============================================= -->
+<section id="content">
+
+    <div class="content-wrap">
+        <div class="section notopmargin notopborder">
+            <div class="container clearfix">
+                <div class="heading-block center nomargin">
+                    <h3>Latest from the Blog</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="container clear-bottommargin clearfix">
+            <div class="row">
+
+                <div class="col-md-3 col-sm-6 bottommargin">
+                    <div class="ipost clearfix">
+                        <div class="entry-image">
+                            <a href="#"><img class="image_fade" src="images/magazine/thumb/1.jpg" alt="Image"></a>
+                        </div>
+                        <div class="entry-title">
+                            <h3><a href="blog-single.html">Bloomberg smart cities; change-makers economic security</a></h3>
+                        </div>
+                        <ul class="entry-meta clearfix">
+                            <li><i class="icon-calendar3"></i> 13th Jun 2014</li>
+                            <li><a href="blog-single.html#comments"><i class="icon-comments"></i> 53</a></li>
+                        </ul>
+                        <div class="entry-content">
+                            <p>Prevention effect, advocate dialogue rural development lifting people up community civil society. Catalyst, grantees leverage.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6 bottommargin">
+                    <div class="ipost clearfix">
+                        <div class="entry-image">
+                            <a href="#"><img class="image_fade" src="images/magazine/thumb/2.jpg" alt="Image"></a>
+                        </div>
+                        <div class="entry-title">
+                            <h3><a href="blog-single.html">Medicine new approaches communities, outcomes partnership</a></h3>
+                        </div>
+                        <ul class="entry-meta clearfix">
+                            <li><i class="icon-calendar3"></i> 24th Feb 2014</li>
+                            <li><a href="blog-single.html#comments"><i class="icon-comments"></i> 17</a></li>
+                        </ul>
+                        <div class="entry-content">
+                            <p>Cross-agency coordination clean water rural, promising development turmoil inclusive education transformative community.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6 bottommargin">
+                    <div class="ipost clearfix">
+                        <div class="entry-image">
+                            <a href="#"><img class="image_fade" src="images/magazine/thumb/3.jpg" alt="Image"></a>
+                        </div>
+                        <div class="entry-title">
+                            <h3><a href="blog-single.html">Significant altruism planned giving insurmountable challenges liberal</a></h3>
+                        </div>
+                        <ul class="entry-meta clearfix">
+                            <li><i class="icon-calendar3"></i> 30th Dec 2014</li>
+                            <li><a href="blog-single.html#comments"><i class="icon-comments"></i> 13</a></li>
+                        </ul>
+                        <div class="entry-content">
+                            <p>Micro-finance; vaccines peaceful contribution citizens of change generosity. Measures design thinking accelerate progress medical initiative.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6 bottommargin">
+                    <div class="ipost clearfix">
+                        <div class="entry-image">
+                            <a href="#"><img class="image_fade" src="images/magazine/thumb/4.jpg" alt="Image"></a>
+                        </div>
+                        <div class="entry-title">
+                            <h3><a href="blog-single.html">Compassion conflict resolution, progressive; tackle</a></h3>
+                        </div>
+                        <ul class="entry-meta clearfix">
+                            <li><i class="icon-calendar3"></i> 15th Jan 2014</li>
+                            <li><a href="blog-single.html#comments"><i class="icon-comments"></i> 54</a></li>
+                        </ul>
+                        <div class="entry-content">
+                            <p>Community health workers best practices, effectiveness meaningful work The Elders fairness. Our ambitions local solutions globalization.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="section topmargin-lg dark">
+
+            <div class="heading-block center">
+                <h2>HİZMETLERİMİZ</h2>
+            </div>
+
+            <div class="clear bottommargin-sm"></div>
+
+            <div class="container clearfix">
+                <div class="col_one_fourth nobottommargin">
+                    <div class="feature-box fbox-center fbox-light fbox-effect nobottomborder">
+                        <div class="fbox-icon">
+                            <a href="#"><i class="i-alt noborder icon-shop"></i></a>
+                        </div>
+                        <h3>e-Commerce Solutions<span class="subtitle">Start your Own Shop today</span></h3>
+                    </div>
+                </div>
+
+                <div class="col_one_fourth nobottommargin">
+                    <div class="feature-box fbox-center fbox-light fbox-effect nobottomborder">
+                        <div class="fbox-icon">
+                            <a href="#"><i class="i-alt noborder icon-wallet"></i></a>
+                        </div>
+                        <h3>Easy Payment Options<span class="subtitle">Credit Cards &amp; PayPal Support</span></h3>
+                    </div>
+                </div>
+
+                <div class="col_one_fourth nobottommargin">
+                    <div class="feature-box fbox-center fbox-light fbox-effect nobottomborder">
+                        <div class="fbox-icon">
+                            <a href="#"><i class="i-alt noborder icon-megaphone"></i></a>
+                        </div>
+                        <h3>Instant Notifications<span class="subtitle">Realtime Email &amp; SMS Support</span></h3>
+                    </div>
+                </div>
+
+                <div class="col_one_fourth nobottommargin col_last">
+                    <div class="feature-box fbox-center fbox-light fbox-effect nobottomborder">
+                        <div class="fbox-icon">
+                            <a href="#"><i class="i-alt noborder icon-fire"></i></a>
+                        </div>
+                        <h3>Hot Offers Daily<span class="subtitle">Upto 50% Discounts</span></h3>
+                    </div>
+                </div>
+
+                <div class="clear"></div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <div class="section topmargin-lg">
+            <div class="container clearfix">
+
+                <div class="heading-block center">
+                    <h2>BASINDA BİZ</h2>
+                </div>
+
+                <div class="clear bottommargin-sm"></div>
+
+                <div class="col_one_third">
+                    <div class="feature-box fbox-small fbox-plain" data-animate="fadeIn">
+                        <div class="fbox-icon">
+                            <a href="#"><i class="icon-phone2"></i></a>
+                        </div>
+                        <h3>Responsive Layout</h3>
+                        <p>Powerful Layout with Responsive functionality that can be adapted to any screen size.</p>
+                    </div>
+                </div>
+
+                <div class="col_one_third">
+                    <div class="feature-box fbox-small fbox-plain" data-animate="fadeIn" data-delay="200">
+                        <div class="fbox-icon">
+                            <a href="#"><i class="icon-eye"></i></a>
+                        </div>
+                        <h3>Retina Ready Graphics</h3>
+                        <p>Looks beautiful &amp; ultra-sharp on Retina Displays with Retina Icons, Fonts &amp; Images.</p>
+                    </div>
+                </div>
+
+                <div class="col_one_third col_last">
+                    <div class="feature-box fbox-small fbox-plain" data-animate="fadeIn" data-delay="400">
+                        <div class="fbox-icon">
+                            <a href="#"><i class="icon-star2"></i></a>
+                        </div>
+                        <h3>Powerful Performance</h3>
+                        <p>Optimized code that are completely customizable and deliver unmatched fast performance.</p>
+                    </div>
+                </div>
+
+                <div class="clear"></div>
+
+                <div class="col_one_third">
+                    <div class="feature-box fbox-small fbox-plain" data-animate="fadeIn" data-delay="600">
+                        <div class="fbox-icon">
+                            <a href="#"><i class="icon-video"></i></a>
+                        </div>
+                        <h3>HTML5 Video</h3>
+                        <p>Canvas provides support for Native HTML5 Videos that can be added to a Full Width Background.</p>
+                    </div>
+                </div>
+
+                <div class="col_one_third">
+                    <div class="feature-box fbox-small fbox-plain" data-animate="fadeIn" data-delay="800">
+                        <div class="fbox-icon">
+                            <a href="#"><i class="icon-params"></i></a>
+                        </div>
+                        <h3>Parallax Support</h3>
+                        <p>Display your Content attractively using Parallax Sections that have unlimited customizable areas.</p>
+                    </div>
+                </div>
+
+                <div class="col_one_third col_last">
+                    <div class="feature-box fbox-small fbox-plain" data-animate="fadeIn" data-delay="1000">
+                        <div class="fbox-icon">
+                            <a href="#"><i class="icon-fire"></i></a>
+                        </div>
+                        <h3>Endless Possibilities</h3>
+                        <p>Complete control on each &amp; every element that provides endless customization possibilities.</p>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
     </div>
-</div>
+    <div class="section nobottommargin notopmargin dark">
+        <div class="container clearfix">
+            <div class="heading-block center">
+                <h3>ZANAAT DOSTU ŞİRKETLER AİLESİ</h3>
+            </div>
+
+            <div id="oc-clients" class="section nobgcolor notopmargin owl-carousel owl-carousel-full image-carousel footer-stick carousel-widget dark" data-margin="80" data-loop="false" data-nav="false" data-autoplay="5000" data-pagi="false" data-items-xxs="2" data-items-xs="3" data-items-sm="3" data-items-md="3" data-items-lg="3">
+                <div class="oc-item"><a href="#"><img src="~/Content/images/clients/1.png" alt="Clients"></a></div>
+                <div class="oc-item"><a href="#"><img src="~/Content/images/clients/2.png" alt="Clients"></a></div>
+                <div class="oc-item"><a href="#"><img src="~/Content/images/clients/3.png" alt="Clients"></a></div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="section nobottommargin notopmargin">
+        <div class="container clearfix">
+            <div class="heading-block center">
+                <h3>BÜLTENİMİZE ÜYE OLUN</h3>
+            </div>
+
+            <div class="subscribe-widget">
+                <div class="widget-subscribe-form-result"></div>
+                <form id="widget-subscribe-form2" action="include/subscribe.php" role="form" method="post" class="nobottommargin">
+                    <div class="input-group input-group-lg divcenter" style="max-width:600px;">
+                        <span class="input-group-addon"><i class="icon-email2"></i></span>
+                        <input type="email" name="widget-subscribe-form-email" class="form-control required email" placeholder="Enter your Email">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="submit">Subscribe Now</button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+</section><!-- #content end -->
+

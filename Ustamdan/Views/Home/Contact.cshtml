@@ -1,17 +1,189 @@
 ﻿@{
     ViewBag.Title = "Contact";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+<header id="header" class="full-header semi-transparent dark">
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
+    <div id="header-wrap">
 
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+        <div class="container clearfix">
+
+            <div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
+
+            <!-- Logo
+            ============================================= -->
+            <div id="logo">
+                <a href="@Url.Action("Index")" class="standard-logo" data-dark-logo="/Content/img/iconlogowhite.png"><img src="~/Content/img/iconlogowhite.png" alt="Canvas Logo"></a>
+                <a href="@Url.Action("Index")" class="retina-logo" data-dark-logo="/Content/img/iconlogowhite.png"><img src="~/Content/img/iconlogowhite.png" alt="Canvas Logo"></a>
+            </div><!-- #logo end -->
+            <!-- Primary Navigation
+            ============================================= -->
+            <nav id="primary-menu">
+
+                <ul>
+                    <li>
+                        <a href="@Url.Action("Index","Home")"><div>USTAMDAN</div></a>
+                    </li>
+                    <li class="current">
+                        <a href="@Url.Action("Blog","Home")"><div>YAZIHANE</div></a>
+                    </li>
+                    <li class="current">
+                        <a href="@Url.Action("About","Home")"><div>HİKAYEMİZ</div></a>
+                    </li>
+                    <li class="current">
+                        <a href="@Url.Action("Contact","Home")"><div>İLETİŞİM</div></a>
+                    </li>
+                    <li class="current">
+                        <a href="@Url.Action("Index","Home")"><div>EN</div></a>
+                    </li>
+                </ul>
+
+                <!-- Top Search
+                ============================================= -->
+                <div id="top-search">
+                    <a href="#" id="top-search-trigger"><i class="icon-search3"></i><i class="icon-line-cross"></i></a>
+                    <form action="search.html" method="get">
+                        <input type="text" name="q" class="form-control" value="" placeholder="Type &amp; Hit Enter..">
+                    </form>
+                </div><!-- #top-search end -->
+
+            </nav><!-- #primary-menu end -->
+
+        </div>
+
+    </div>
+
+</header>
+<!-- Google Map
+============================================= -->
+<section id="google-map" class="gmap slider-parallax"></section>
+
+<section id="content">
+    <div class="content-wrap" style="padding-top:0px">
+        <div id="page-title" style="padding:25px 0">
+            <div class="container clearfix text-center">
+                <h3>İLETİŞİM</h3>
+            </div>
+        </div><!-- #page-title end -->
+        <!-- Contact Form============================================= -->
+        <div class="topmargin-sm"></div>
+        <div class="container clearfix">
+            <div class="col_half">
+                <div class="fancy-title title-border">
+                    <h3>Send us an Email</h3>
+                </div>
+
+                <div class="contact-widget">
+
+                    <div class="contact-form-result"></div>
+
+                    <form class="nobottommargin" id="template-contactform" name="template-contactform" action="include/sendemail.php" method="post">
+
+                        <div class="form-process"></div>
+
+                        <div class="col_half">
+                            <label for="template-contactform-name">Name <small>*</small></label>
+                            <input type="text" id="template-contactform-name" name="template-contactform-name" value="" class="sm-form-control required" />
+                        </div>
+
+                        <div class="col_half col_last">
+                            <label for="template-contactform-email">Email <small>*</small></label>
+                            <input type="email" id="template-contactform-email" name="template-contactform-email" value="" class="required email sm-form-control" />
+                        </div>
+
+                        <div class="clear"></div>
+
+                        <div class="col_full">
+                            <label for="template-contactform-subject">Subject <small>*</small></label>
+                            <input type="text" id="template-contactform-subject" name="template-contactform-subject" value="" class="required sm-form-control" />
+                        </div>
+
+                        <div class="clear"></div>
+
+                        <div class="col_full">
+                            <label for="template-contactform-message">Message <small>*</small></label>
+                            <textarea style="resize:none" class="required sm-form-control" id="template-contactform-message" name="template-contactform-message" rows="6" cols="30"></textarea>
+                        </div>
+
+                        <div class="col_full hidden">
+                            <input type="text" id="template-contactform-botcheck" name="template-contactform-botcheck" value="" class="sm-form-control" />
+                        </div>
+
+                        <div class="col_full">
+                            <button name="submit" type="submit" id="submit-button" tabindex="5" value="Submit" class="button button-3d nomargin">Submit Comment</button>
+                        </div>
+
+                    </form>
+                </div>
+
+            </div><!-- Contact Form End -->
+            <div class="col_half col_last">
+
+                <div class="fancy-title title-border">
+                    <h3>Adres Bilgilerimiz</h3>
+                </div>
+
+                <div class="contact-widget">
+                    <p>We believe in <strong>Simple</strong>, <strong>Creative</strong> &amp; <strong>Flexible</strong> Design Standards.</p>
+
+                    <div style="background: url('/Content/images/world-map.png') no-repeat center center; background-size: 100%;">
+                        <address>
+                            <strong>İTÜ ARI Teknokent San Francisco :</strong><br>
+                            Branch Office Galvanize
+                            44 Tehama St, Suite 303<br>
+                            San Francisco, CA 94105<br>
+                        </address>
+                        <address>
+                            <strong>ITÜ ArıTeknokent :</strong><br>
+                            Reşit Paşa Mah. Katar Cad.
+                            No:4 Iç Kapi No:1101 <br>
+                            Sariyer – Istanbul<br>
+                        </address>
+                        <abbr title="Email Address"><strong>Email:</strong></abbr> info@ustamdan.com<br>
+                        <abbr title="Web Site"><strong>Web Site:</strong></abbr> <a href="/">http://www.ustamdan.com</a>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</section>
+@section Scripts{
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBo6xedQToKACcfN2BzV54-3br245ytkBo&sensor=false"></script>
+    <script src="~/Scripts/theme/jquery.gmap.js"></script>
+    <script type="text/javascript">
+        var latlng = new google.maps.LatLng();
+        var myLatlng = new google.maps.LatLng();
+
+        $('#google-map').gMap({
+            maptype: 'ROADMAP',
+            markers: [
+                {
+                    latitude: 41.1077358,
+                    longitude: 29.030274,
+                    html: '<div style="width: 300px;"><h4 style="margin-bottom: 8px;">Hi, we\'re <span>Ustamdan</span></h4><p class="nobottommargin">Our mission is to help people to <strong>earn</strong> and to <strong>learn</strong> online. We operate <strong>marketplaces</strong> where hundreds of thousands of people buy and sell digital goods every day, and a network of educational blogs where millions learn <strong>creative skills</strong>.</p></div>',
+                    icon: {
+                        image: "/Content/images/icons/map-icon-red.png",
+                        iconsize: [32, 39],
+                        iconanchor: [13, 39]
+                    }
+                }
+            ],
+            doubleclickzoom: false,
+            controls: {
+                panControl: true,
+                zoomControl: true,
+                mapTypeControl: true,
+                scaleControl: false,
+                streetViewControl: false,
+                overviewMapControl: false
+            }
+        });
+        $('#google-map').gMap('centerAt', {
+            latitude: 41.1077358,
+            longitude: 29.030274,
+            zoom: 14
+        });
+    </script>
+}
