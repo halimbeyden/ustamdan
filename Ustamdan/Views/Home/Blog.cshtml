@@ -1,6 +1,5 @@
-﻿
-@{
-    ViewBag.Title = "Blog";
+﻿@{
+    ViewBag.Title = Resource.BlogTitle;
 }
 <header id="header" class="full-header semi-transparent dark">
 
@@ -25,16 +24,17 @@
                         <a href="@Url.Action("Index","Home")"><div>USTAMDAN</div></a>
                     </li>
                     <li class="current">
-                        <a href="@Url.Action("Blog","Home")"><div>YAZIHANE</div></a>
+                        <a href="@Url.Action("Blog","Home")"><div>@Resource.BlogTitle</div></a>
                     </li>
                     <li class="current">
-                        <a href="@Url.Action("About","Home")"><div>HİKAYEMİZ</div></a>
+                        <a href="@Url.Action("About","Home")"><div>@Resource.OurStoryTitle</div></a>
                     </li>
                     <li class="current">
-                        <a href="@Url.Action("Contact","Home")"><div>İLETİŞİM</div></a>
+                        <a href="@Url.Action("Contact","Home")"><div>@Resource.ContactTitle</div></a>
                     </li>
                     <li class="current">
-                        <a href="@Url.Action("Index","Home")"><div>EN</div></a>
+                        @Url.LangSwitcher(Resource.LanguageTitle, ViewContext.RouteData, Resource.LanguageTitle)
+                        @*<a href="@Url.Action("Index","Home")"><div>EN</div></a>*@
                     </li>
                 </ul>
 
@@ -43,7 +43,7 @@
                 <div id="top-search">
                     <a href="#" id="top-search-trigger"><i class="icon-search3"></i><i class="icon-line-cross"></i></a>
                     <form action="search.html" method="get">
-                        <input type="text" name="q" class="form-control" value="" placeholder="Type &amp; Hit Enter..">
+                        <input type="text" name="q" class="form-control" value="" placeholder="@Resource.SearchText">
                     </form>
                 </div><!-- #top-search end -->
 
