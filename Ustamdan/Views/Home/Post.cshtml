@@ -1,4 +1,4 @@
-﻿
+﻿@model PostViewModel
 @{
     ViewBag.Title = "Post";
 }
@@ -11,30 +11,31 @@
             <div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
 
             <!-- Logo
-            ============================================= -->
+            ============================================= dummy -->
             <div id="logo">
-                <a href="index.html" class="standard-logo" data-dark-logo="/Content/img/iconlogowhite.png"><img src="~/Content/img/iconlogowhite.png" alt="Canvas Logo"></a>
-                <a href="index.html" class="retina-logo" data-dark-logo="/Content/img/iconlogowhite.png"><img src="~/Content/img/iconlogowhite.png" alt="Canvas Logo"></a>
+                <a href="/" class="standard-logo" data-dark-logo="/Content/img/iconlogowhite.png"><img src="~/Content/img/iconlogowhite.png" alt="Canvas Logo"></a>
+                <a href="/" class="retina-logo" data-dark-logo="/Content/img/iconlogowhite.png"><img src="~/Content/img/iconlogowhite.png" alt="Canvas Logo"></a>
             </div><!-- #logo end -->
             <!-- Primary Navigation
             ============================================= -->
             <nav id="primary-menu">
-
+            
                 <ul>
                     <li>
                         <a href="@Url.Action("Index","Home")"><div>USTAMDAN</div></a>
                     </li>
                     <li class="current">
-                        <a href="@Url.Action("Blog","Home")"><div>YAZIHANE</div></a>
+                        <a href="@Url.Action("Blog","Home")"><div>@Resource.BlogTitle</div></a>
                     </li>
                     <li class="current">
-                        <a href="@Url.Action("About","Home")"><div>HİKAYEMİZ</div></a>
+                        <a href="@Url.Action("About","Home")"><div>@Resource.OurStoryTitle</div></a>
                     </li>
                     <li class="current">
-                        <a href="@Url.Action("Contact","Home")"><div>İLETİŞİM</div></a>
+                        <a href="@Url.Action("Contact","Home")"><div>@Resource.ContactTitle</div></a>
                     </li>
                     <li class="current">
-                        <a href="@Url.Action("Index","Home")"><div>EN</div></a>
+                        @Url.LangSwitcher(Resource.LanguageTitle, ViewContext.RouteData, Resource.LanguageTitle)
+                        @*<a href="@Url.Action("Index","Home")"><div>EN</div></a>*@
                     </li>
                 </ul>
 
@@ -43,7 +44,7 @@
                 <div id="top-search">
                     <a href="#" id="top-search-trigger"><i class="icon-search3"></i><i class="icon-line-cross"></i></a>
                     <form action="search.html" method="get">
-                        <input type="text" name="q" class="form-control" value="" placeholder="Type &amp; Hit Enter..">
+                        <input type="text" name="q" class="form-control" value="" placeholder="@Resource.SearchText">
                     </form>
                 </div><!-- #top-search end -->
 
@@ -76,56 +77,47 @@
                         <!-- Entry Title
                         ============================================= -->
                         <div class="entry-title">
-                            <h2>This is a Standard post with a Preview Image</h2>
+                            <h2>@Model.Title</h2>
                         </div><!-- .entry-title end -->
                         <!-- Entry Meta
                         ============================================= -->
                         <ul class="entry-meta clearfix">
-                            <li><i class="icon-calendar3"></i> 10th July 2014</li>
-                            <li><a href="#"><i class="icon-user"></i> admin</a></li>
-                            <li><i class="icon-folder-open"></i> <a href="#">General</a>, <a href="#">Media</a></li>
-                            <li><a href="#"><i class="icon-comments"></i> 43 Comments</a></li>
-                            <li><a href="#"><i class="icon-camera-retro"></i></a></li>
+                            <li><i class="icon-calendar3"></i> @Model.DateCreated.ToShortDateString()</li>
+                            <li><a href="#"><i class="icon-user"></i> @Model.Author</a></li>
+                            <li>
+                                <i class="icon-folder-open"></i>
+                                @foreach (var cat in Model.CategoryNames)
+                                {
+                                    <a href="#">@cat</a>
+                                }
+                            </li>
+                            @*<li><a href="#"><i class="icon-comments"></i> 43 Comments</a></li>*@
+                            @*<li><a href="#"><i class="icon-camera-retro"></i></a></li>*@
                         </ul><!-- .entry-meta end -->
                         <!-- Entry Image
                         ============================================= -->
                         <div class="entry-image">
-                            <a href="#"><img src="/Content/images/blog/full/1.jpg" alt="Blog Single"></a>
+                            @if (Model.PostType == PostType.Image)
+                            {
+                                <a href="#"><img src="@Model.MediaURL" alt="@Model.Title"></a>
+                            }
+                            else
+                            {
+                                <iframe src="@Model.MediaURL" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                            }
                         </div><!-- .entry-image end -->
                         <!-- Entry Content
                         ============================================= -->
                         <div class="entry-content notopmargin">
-
-                            <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>
-
-                            <p>Nullam id dolor id nibh ultricies vehicula ut id elit. <a href="#">Curabitur blandit tempus porttitor</a>. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Donec id elit non mi porta gravida at eget metus. Vestibulum id ligula porta felis euismod semper.</p>
-
-                            <blockquote><p>Vestibulum id ligula porta felis euismod semper. Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper.</p></blockquote>
-
-                            <p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Cras mattis consectetur purus sit amet fermentum. Donec id elit non mi porta gravida at eget metus.</p>
-
-                            <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Aenean lacinia bibendum nulla sed consectetur. Cras justo odio, dapibus ac facilisis in, egestas eget quam. <a href="#">Nullam quis risus eget urna</a> mollis ornare vel eu leo. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
-
-<pre>
-#header-inner {
-	width: 940px;
-	margin: 0 auto;
-	padding-top: 40px;
-}</pre>
-
-                            <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>
-
-                            <p>Nullam id dolor id nibh ultricies vehicula ut id elit. Curabitur blandit tempus porttitor. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Donec id elit non mi porta gravida at eget metus. Vestibulum id ligula porta felis euismod semper.</p>
+                            @MvcHtmlString.Create(Model.Body)
                             <!-- Post Single - Content End -->
                             <!-- Tag Cloud
                             ============================================= -->
                             <div class="tagcloud clearfix bottommargin">
-                                <a href="#">general</a>
-                                <a href="#">information</a>
-                                <a href="#">media</a>
-                                <a href="#">press</a>
-                                <a href="#">gallery</a>
-                                <a href="#">illustration</a>
+                                @foreach (var tag in Model.TagNames)
+                                {
+                                    <a href="#">@tag</a>
+                                }
                             </div><!-- .tagcloud end -->
 
                             <div class="clear"></div>
@@ -164,114 +156,44 @@
 
                         </div>
                     </div><!-- .entry end -->
-                    <!-- Post Navigation
-                    ============================================= -->
-                    <div class="post-navigation clearfix">
-
-                        <div class="col_half nobottommargin">
-                            <a href="#">&lArr; This is a Standard post with a Slider Gallery</a>
-                        </div>
-
-                        <div class="col_half col_last tright nobottommargin">
-                            <a href="#">This is an Embedded Audio Post &rArr;</a>
-                        </div>
-
-                    </div><!-- .post-navigation end -->
-
-                    <div class="line"></div>
-
-                    <!-- Post Author Info
-                    ============================================= -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Posted by <span><a href="#">John Doe</a></span></h3>
-                        </div>
-                        <div class="panel-body">
-                            <div class="author-image">
-                                <img src="/Content/images/author/1.jpg" alt="" class="img-circle">
-                            </div>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, eveniet, eligendi et nobis neque minus mollitia sit repudiandae ad repellendus recusandae blanditiis praesentium vitae ab sint earum voluptate velit beatae alias fugit accusantium laboriosam nisi reiciendis deleniti tenetur molestiae maxime id quaerat consequatur fugiat aliquam laborum nam aliquid. Consectetur, perferendis?
-                        </div>
-                    </div><!-- Post Single - Author End -->
-
-                    <div class="line"></div>
 
                     <h4>Related Posts:</h4>
 
-                    <div class="related-posts clearfix">
-
-                        <div class="col_half nobottommargin">
-
-                            <div class="mpost clearfix">
-                                <div class="entry-image">
-                                    <a href="#"><img src="/Content/images/blog/small/10.jpg" alt="Blog Single"></a>
-                                </div>
-                                <div class="entry-c">
+                    <div class="row">
+                        @foreach (PostViewModel post in ViewBag.RelatedPosts)
+                        {
+                            <div class="col-md-4 col-sm-6 bottommargin">
+                                <div class="ipost clearfix">
+                                    <div class="entry-image">
+                                        @if (post.PostType == PostType.Image)
+                                        {
+                                            <a href="#"><img class="image_fade" src="@post.MediaURL" alt="@post.Title"></a>
+                                        }
+                                        else
+                                        {
+                                            <iframe src="@post.MediaURL" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                                        }
+                                    </div>
                                     <div class="entry-title">
-                                        <h4><a href="#">This is an Image Post</a></h4>
+                                        <h3><a href="@Url.Action("Post",new {id=post.Id })">@post.Title</a></h3>
                                     </div>
                                     <ul class="entry-meta clearfix">
-                                        <li><i class="icon-calendar3"></i> 10th July 2014</li>
-                                        <li><a href="#"><i class="icon-comments"></i> 12</a></li>
+                                        <li><i class="icon-calendar3"></i> @post.DateCreated.ToShortDateString()</li>
+                                        <li>
+                                            <i class="icon-folder-open"></i>
+                                            @foreach (var cat in post.CategoryNames)
+                                            {
+                                                <a href="#">@cat</a>
+                                            }
+                                        </li>
+                                        @*<li><a href="blog-single.html#comments"><i class="icon-comments"></i> 53</a></li>*@
                                     </ul>
-                                    <div class="entry-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia nisi perferendis.</div>
-                                </div>
-                            </div>
-
-                            <div class="mpost clearfix">
-                                <div class="entry-image">
-                                    <a href="#"><img src="/Content/images/blog/small/20.jpg" alt="Blog Single"></a>
-                                </div>
-                                <div class="entry-c">
-                                    <div class="entry-title">
-                                        <h4><a href="#">This is a Video Post</a></h4>
+                                    <div class="entry-content">
+                                        <p>@MvcHtmlString.Create(post.Body.Substring(0, 100))...</p>
                                     </div>
-                                    <ul class="entry-meta clearfix">
-                                        <li><i class="icon-calendar3"></i> 24th July 2014</li>
-                                        <li><a href="#"><i class="icon-comments"></i> 16</a></li>
-                                    </ul>
-                                    <div class="entry-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia nisi perferendis.</div>
                                 </div>
                             </div>
-
-                        </div>
-
-                        <div class="col_half nobottommargin col_last">
-
-                            <div class="mpost clearfix">
-                                <div class="entry-image">
-                                    <a href="#"><img src="/Content/images/blog/small/21.jpg" alt="Blog Single"></a>
-                                </div>
-                                <div class="entry-c">
-                                    <div class="entry-title">
-                                        <h4><a href="#">This is a Gallery Post</a></h4>
-                                    </div>
-                                    <ul class="entry-meta clearfix">
-                                        <li><i class="icon-calendar3"></i> 8th Aug 2014</li>
-                                        <li><a href="#"><i class="icon-comments"></i> 8</a></li>
-                                    </ul>
-                                    <div class="entry-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia nisi perferendis.</div>
-                                </div>
-                            </div>
-
-                            <div class="mpost clearfix">
-                                <div class="entry-image">
-                                    <a href="#"><img src="/Content/images/blog/small/22.jpg" alt="Blog Single"></a>
-                                </div>
-                                <div class="entry-c">
-                                    <div class="entry-title">
-                                        <h4><a href="#">This is an Audio Post</a></h4>
-                                    </div>
-                                    <ul class="entry-meta clearfix">
-                                        <li><i class="icon-calendar3"></i> 22nd Aug 2014</li>
-                                        <li><a href="#"><i class="icon-comments"></i> 21</a></li>
-                                    </ul>
-                                    <div class="entry-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia nisi perferendis.</div>
-                                </div>
-                            </div>
-
-                        </div>
-
+                        }
                     </div>
                 </div>
 
@@ -285,104 +207,62 @@
                         <div class="tabs nobottommargin clearfix" id="sidebar-tabs">
 
                             <ul class="tab-nav clearfix">
-                                <li><a href="#tabs-1">Popular</a></li>
-                                <li><a href="#tabs-2">Recent</a></li>
+                                <li><a href="#tabs-1">Recent</a></li>
+                                <li><a href="#tabs-2">Related</a></li>
                             </ul>
 
                             <div class="tab-container">
 
                                 <div class="tab-content clearfix" id="tabs-1">
                                     <div id="popular-post-list-sidebar">
-
-                                        <div class="spost clearfix">
-                                            <div class="entry-image">
-                                                <a href="#" class="nobg"><img class="img-circle" src="/Content/images/magazine/small/3.jpg" alt=""></a>
-                                            </div>
-                                            <div class="entry-c">
-                                                <div class="entry-title">
-                                                    <h4><a href="#">Debitis nihil placeat, illum est nisi</a></h4>
+                                        @foreach (PostViewModel post in ViewBag.RecentPosts)
+                                        {
+                                            <div class="spost clearfix">
+                                                <div class="entry-image">
+                                                    @if (post.PostType == PostType.Image)
+                                                    {
+                                                        <a href="#" class="nobg"><img class="img-circle" src="@post.MediaURL" alt="@post.Title"></a>
+                                                    }
                                                 </div>
-                                                <ul class="entry-meta">
-                                                    <li><i class="icon-comments-alt"></i> 35 Comments</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-
-                                        <div class="spost clearfix">
-                                            <div class="entry-image">
-                                                <a href="#" class="nobg"><img class="img-circle" src="/Content/images/magazine/small/2.jpg" alt=""></a>
-                                            </div>
-                                            <div class="entry-c">
-                                                <div class="entry-title">
-                                                    <h4><a href="#">Elit Assumenda vel amet dolorum quasi</a></h4>
+                                                <div class="entry-c">
+                                                    <div class="entry-title">
+                                                        <h4><a href="@Url.Action("Post",new { id=post.Id})">@post.Title</a></h4>
+                                                    </div>
+                                                    <ul class="entry-meta">
+                                                        <li>
+                                                            <i class="icon-folder-open"></i>
+                                                            @foreach (var cat in post.CategoryNames)
+                                                            {
+                                                                <a href="#">@cat</a>
+                                                            }
+                                                        </li>
+                                                    </ul>
                                                 </div>
-                                                <ul class="entry-meta">
-                                                    <li><i class="icon-comments-alt"></i> 24 Comments</li>
-                                                </ul>
                                             </div>
-                                        </div>
-
-                                        <div class="spost clearfix">
-                                            <div class="entry-image">
-                                                <a href="#" class="nobg"><img class="img-circle" src="/Content/images/magazine/small/1.jpg" alt=""></a>
-                                            </div>
-                                            <div class="entry-c">
-                                                <div class="entry-title">
-                                                    <h4><a href="#">Lorem ipsum dolor sit amet, consectetur</a></h4>
-                                                </div>
-                                                <ul class="entry-meta">
-                                                    <li><i class="icon-comments-alt"></i> 19 Comments</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-
+                                        }
                                     </div>
                                 </div>
                                 <div class="tab-content clearfix" id="tabs-2">
                                     <div id="recent-post-list-sidebar">
-
-                                        <div class="spost clearfix">
-                                            <div class="entry-image">
-                                                <a href="#" class="nobg"><img class="img-circle" src="/Content/images/magazine/small/1.jpg" alt=""></a>
-                                            </div>
-                                            <div class="entry-c">
-                                                <div class="entry-title">
-                                                    <h4><a href="#">Lorem ipsum dolor sit amet, consectetur</a></h4>
+                                        @foreach (PostViewModel post in ViewBag.RelatedPosts)
+                                        {
+                                            <div class="spost clearfix">
+                                                <div class="entry-image">
+                                                    @if (post.PostType == PostType.Image)
+                                                    {
+                                                        <a href="#" class="nobg"><img class="img-circle" src="@post.MediaURL" alt="@post.Title"></a>
+                                                    }
                                                 </div>
-                                                <ul class="entry-meta">
-                                                    <li>10th July 2014</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-
-                                        <div class="spost clearfix">
-                                            <div class="entry-image">
-                                                <a href="#" class="nobg"><img class="img-circle" src="/Content/images/magazine/small/2.jpg" alt=""></a>
-                                            </div>
-                                            <div class="entry-c">
-                                                <div class="entry-title">
-                                                    <h4><a href="#">Elit Assumenda vel amet dolorum quasi</a></h4>
+                                                <div class="entry-c">
+                                                    <div class="entry-title">
+                                                        <h4><a href="@Url.Action("Post",new { id=post.Id})">@post.Title</a></h4>
+                                                    </div>
+                                                    <ul class="entry-meta">
+                                                        <li>@Model.DateCreated.ToShortDateString()</li>
+                                                    </ul>
                                                 </div>
-                                                <ul class="entry-meta">
-                                                    <li>10th July 2014</li>
-                                                </ul>
                                             </div>
-                                        </div>
-
-                                        <div class="spost clearfix">
-                                            <div class="entry-image">
-                                                <a href="#" class="nobg"><img class="img-circle" src="/Content/images/magazine/small/3.jpg" alt=""></a>
-                                            </div>
-                                            <div class="entry-c">
-                                                <div class="entry-title">
-                                                    <h4><a href="#">Debitis nihil placeat, illum est nisi</a></h4>
-                                                </div>
-                                                <ul class="entry-meta">
-                                                    <li>10th July 2014</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-
+                                        }
                                     </div>
                                 </div>
 

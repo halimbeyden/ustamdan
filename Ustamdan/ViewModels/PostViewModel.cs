@@ -20,6 +20,7 @@ namespace Ustamdan.ViewModels
         public DateTime DateCreated { get; set; }
         public DateTime DateModified { get; set; }
         public int[] Categories { get; set; }
+        public string[] CategoryNames { get; set; }
         public int[] Tags { get; set; }
         public string[] TagNames { get; set; }
 
@@ -40,11 +41,12 @@ namespace Ustamdan.ViewModels
             try
             {
                 this.Categories = post.Categories.Select(x => x.Id).ToArray();
+                this.CategoryNames = post.Categories.Select(x => x.Name).ToArray();
                 this.Tags = post.Tags.Select(x => x.Id).ToArray();
                 this.TagNames = post.Tags.Select(x => x.Name).ToArray();
                 this.DateCreated = post.DateCreated;
                 this.DateModified = post.DateModified;
-                this.Author = post.Author.UserName;
+                this.Author = post.Author.Fullname;
             }
             catch (Exception ex)
             {
