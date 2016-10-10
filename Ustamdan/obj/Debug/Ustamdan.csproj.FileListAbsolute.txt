@@ -300,3 +300,11 @@ C:\Users\halim\Projects\Ustamdan\Ustamdan\bin\PagedList.dll
 C:\Users\halim\Projects\Ustamdan\Ustamdan\bin\PagedList.Mvc.dll
 C:\Users\halim\Projects\Ustamdan\Ustamdan\bin\PagedList.xml
 C:\Users\halim\Projects\Ustamdan\Ustamdan\bin\PagedList.Mvc.xml
+C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\en\Ustamdan.resources.dll
+C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\PagedList.dll
+C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\PagedList.Mvc.dll
+C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\PagedList.xml
+C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\PagedList.Mvc.xml
+C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\obj\Debug\Ustamdan.App_GlobalResources.Resource.en.resources
+C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\obj\Debug\Ustamdan.csproj.GenerateResource.Cache
+C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\obj\Debug\en\Ustamdan.resources.dll

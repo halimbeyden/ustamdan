@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using Ustamdan.Models;
 using PagedList;
 using Ustamdan.Models.Blog;
+using Ustamdan.ViewModels;
 
 namespace Ustamdan.Controllers
 {
@@ -14,11 +15,12 @@ namespace Ustamdan.Controllers
     {
         public ActionResult Index()
         {
+            var model = new HomeViewModel();
             using (var db = new ApplicationDbContext())
             {
-                var posts = db.Posts.OrderByDescending(x => x.DateCreated).Take(4);
+                model.Posts = db.Posts.OrderByDescending(x => x.DateCreated).Take(4).ToList().Select(x => new PostViewModel(x)).ToList();
             }
-            return View();
+            return View(model);
         }
         public ActionResult Blog(int? page)
         {
@@ -28,23 +30,32 @@ namespace Ustamdan.Controllers
             {
                 posts = db.Posts.OrderByDescending(x => x.DateCreated).ToList();
             }
-            return View(posts.ToPagedList(page.Value,10));
+            return View(posts.ToPagedList(page.Value, 10));
         }
         public ActionResult Post(int id)
         {
+            PostViewModel model;
             using (var db = new ApplicationDbContext())
             {
                 var post = db.Posts.Find(id);
                 if (post == null)
                     return HttpNotFound();
-                var recentPosts = db.Posts.OrderByDescending(x => x.DateCreated).Take(4);
-                var cats = db.Posts.Where(x => post.Categories.Any(y => x.Categories.Contains(y)));
-                var tags = db.Posts.Where(x => post.Tags.Any(y => x.Tags.Contains(y)));
-                var list = cats.Union(tags).ToList() ;
+                model = new PostViewModel(post);
+                ViewBag.RecentPosts = db.Posts
+                    .Include("Categories")
+                    .Include("Tags")
+                    .OrderByDescending(x => x.DateCreated).Take(4)
+                    .ToList()
+                    .Select(x => new PostViewModel(x));
+
                 Random rand = new Random();
-                var relatedPosts = list.OrderBy(c => rand.Next()).Take(4).ToList();
+                ViewBag.RelatedPosts = db.Posts.Include("Categories")
+                    .Include("Tags").ToList()
+                    .OrderBy(c => rand.Next()).Take(4)
+                    .ToList()
+                    .Select(x => new PostViewModel(x));
             }
-            return View();
+            return View(model);
         }
         public ActionResult About()
         {

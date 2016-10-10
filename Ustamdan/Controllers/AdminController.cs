@@ -82,10 +82,17 @@ namespace Ustamdan.Controllers
                 temp.MediaURL = post.MediaURL;
                 temp.Type = post.PostType;
                 temp.Status = post.PostStatus;
-                if (post.Categories != null)
+                temp.Categories = new List<Category>();
+                temp.Tags = new List<Tag>();
+                try
+                {
                     temp.Categories.AddRange(db.Categories.Where(x => post.Categories.Contains(x.Id)));
-                if (post.TagNames != null)
-                    temp.Tags.AddRange(getTags(db,post.TagNames));
+                    temp.Tags.AddRange(getTags(db, post.TagNames));
+                }
+                catch
+                {
+
+                }
                 db.SaveChanges();
                 return Json(temp.Id);
             }
