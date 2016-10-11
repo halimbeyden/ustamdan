@@ -19,7 +19,6 @@
             <!-- Primary Navigation
             ============================================= -->
             <nav id="primary-menu">
-            
                 <ul>
                     <li>
                         <a href="@Url.Action("Index","Home")"><div>USTAMDAN</div></a>
@@ -77,7 +76,7 @@
                         <!-- Entry Title
                         ============================================= -->
                         <div class="entry-title">
-                            <h2>@Model.Title</h2>
+                            <h2 style="text-transform:none">@Model.Title</h2>
                         </div><!-- .entry-title end -->
                         <!-- Entry Meta
                         ============================================= -->
@@ -223,6 +222,10 @@
                                                     {
                                                         <a href="#" class="nobg"><img class="img-circle" src="@post.MediaURL" alt="@post.Title"></a>
                                                     }
+                                                    else
+                                                    {
+                                                        <a href="@Url.Action("Post",new { id=post.Id})" class="nobg"><i class="icon icon-play-circle"></i></a>
+                                                    }
                                                 </div>
                                                 <div class="entry-c">
                                                     <div class="entry-title">
@@ -252,6 +255,10 @@
                                                     {
                                                         <a href="#" class="nobg"><img class="img-circle" src="@post.MediaURL" alt="@post.Title"></a>
                                                     }
+                                                    else
+                                                    {
+                                                        <a href="@Url.Action("Post",new { id=post.Id})" class="nobg"><i class="icon icon-play-circle"></i></a>
+                                                    }
                                                 </div>
                                                 <div class="entry-c">
                                                     <div class="entry-title">
@@ -277,16 +284,10 @@
 
                         <h4>Tag Cloud</h4>
                         <div class="tagcloud">
-                            <a href="#">general</a>
-                            <a href="#">videos</a>
-                            <a href="#">music</a>
-                            <a href="#">media</a>
-                            <a href="#">photography</a>
-                            <a href="#">parallax</a>
-                            <a href="#">ecommerce</a>
-                            <a href="#">terms</a>
-                            <a href="#">coupons</a>
-                            <a href="#">modern</a>
+                            @foreach (var tag in Model.TagNames)
+                            {
+                                <a href="#">@tag</a>
+                            }
                         </div>
 
                     </div>
