@@ -25,10 +25,22 @@ namespace Ustamdan.Controllers
         public ActionResult Blog(int? page)
         {
             page = page ?? 1;
-            List<Post> posts;
+            List<PostViewModel> posts;
             using (var db = new ApplicationDbContext())
             {
-                posts = db.Posts.OrderByDescending(x => x.DateCreated).ToList();
+                posts = db.Posts
+                    .Include("Categories")
+                    .Include("Tags")
+                    .OrderByDescending(x => x.DateCreated)
+                    .ToList()
+                    .Select(x=>new PostViewModel(x))
+                    .ToList();
+                ViewBag.RecentPosts = db.Posts
+                   .Include("Categories")
+                   .Include("Tags")
+                   .OrderByDescending(x => x.DateCreated).Take(4)
+                   .ToList()
+                   .Select(x => new PostViewModel(x));
             }
             return View(posts.ToPagedList(page.Value, 10));
         }
