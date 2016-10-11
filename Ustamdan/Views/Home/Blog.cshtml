@@ -1,7 +1,8 @@
-﻿@{
+﻿@model PagedList.IPagedList<PostViewModel>
+@{
     ViewBag.Title = Resource.BlogTitle;
 }
-<header id="header" class="full-header semi-transparent dark">
+<header id="header" class="semi-transparent dark">
 
     <div id="header-wrap">
 
@@ -61,7 +62,7 @@
 </section><!-- #page-title end -->
 <!-- Google Map
 ============================================= -->
-<section id="google-map" class="gmap slider-parallax"></section>
+<section id="google-map" class="slider-parallax"></section>
 
 <section id="page-title" style="padding:25px 0">
     <div class="container clearfix text-center">
@@ -83,97 +84,38 @@
                 <!-- Posts
                 ============================================= -->
                 <div id="posts" class="post-grid grid-container grid-3 clearfix" data-layout="fitRows">
-
-                    <div class="entry clearfix">
-                        <div class="entry-image">
-                            <a href="/Content/images/blog/full/17.jpg" data-lightbox="image"><img class="image_fade" src="/Content/images/blog/grid/17.jpg" alt="Standard Post with Image"></a>
+                    @foreach (var post in Model)
+                    {
+                        <div class="entry clearfix">
+                            <div class="entry-image">
+                                @if (post.PostType == PostType.Image)
+                                {
+                                    <a href="@post.MediaURL" data-lightbox="image"><img class="image_fade" src="@post.MediaURL" alt="@post.Title"></a>
+                                }
+                                else
+                                {
+                                    <iframe src="@post.MediaURL" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                                }
+                            </div>
+                            <div class="entry-title">
+                                <h2><a href="@Url.Action("Post",new {id = post.Id })">@post.Title</a></h2>
+                            </div>
+                            <ul class="entry-meta clearfix">
+                                <li><i class="icon-calendar3"></i> @post.DateCreated.ToShortDateString()</li>
+                                <li>
+                                    <i class="icon-folder-open"></i>
+                                    @foreach (var cat in post.CategoryNames)
+                                    {
+                                        <a href="#">@cat</a>
+                                    }
+                                </li>
+                            </ul>
+                            <div class="entry-content">
+                                <p>@MvcHtmlString.Create(post.Body.Substring(0, 100))...</p>
+                                <a href="@Url.Action("Post",new {id = post.Id })" class="more-link">Read More</a>
+                            </div>
                         </div>
-                        <div class="entry-title">
-                            <h2><a href="blog-single.html">This is a Standard post with a Preview Image</a></h2>
-                        </div>
-                        <ul class="entry-meta clearfix">
-                            <li><i class="icon-calendar3"></i> 10th Feb 2014</li>
-                            <li><a href="blog-single.html#comments"><i class="icon-comments"></i> 13</a></li>
-                            <li><a href="#"><i class="icon-camera-retro"></i></a></li>
-                        </ul>
-                        <div class="entry-content">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione, voluptatem, dolorem animi nisi autem blanditiis enim culpa reiciendis et explicabo tenetur!</p>
-                            <a href="blog-single.html" class="more-link">Read More</a>
-                        </div>
-                    </div>
-
-                    <div class="entry clearfix">
-                        <div class="entry-image">
-                            <iframe src="http://player.vimeo.com/video/87701971" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-                        </div>
-                        <div class="entry-title">
-                            <h2><a href="blog-single-full.html">This is a Standard post with a Vimeo Video</a></h2>
-                        </div>
-                        <ul class="entry-meta clearfix">
-                            <li><i class="icon-calendar3"></i> 16th Feb 2014</li>
-                            <li><a href="blog-single-full.html#comments"><i class="icon-comments"></i> 19</a></li>
-                            <li><a href="#"><i class="icon-film"></i></a></li>
-                        </ul>
-                        <div class="entry-content">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione, voluptatem, dolorem animi nisi autem blanditiis enim culpa reiciendis et explicabo tenetur!</p>
-                            <a href="blog-single-full.html" class="more-link">Read More</a>
-                        </div>
-                    </div>
-
-
-                    <div class="entry clearfix">
-                        <div class="entry-image">
-                            <iframe width="560" height="315" src="http://www.youtube.com/embed/SZEflIVnhH8" frameborder="0" allowfullscreen></iframe>
-                        </div>
-                        <div class="entry-title">
-                            <h2><a href="blog-single-full.html">This is a Standard post with a Youtube Video</a></h2>
-                        </div>
-                        <ul class="entry-meta clearfix">
-                            <li><i class="icon-calendar3"></i> 30th Apr 2014</li>
-                            <li><a href="blog-single-full.html#comments"><i class="icon-comments"></i> 34</a></li>
-                            <li><a href="#"><i class="icon-film"></i></a></li>
-                        </ul>
-                        <div class="entry-content">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione, voluptatem, dolorem animi nisi autem blanditiis enim culpa reiciendis et explicabo tenetur!</p>
-                            <a href="blog-single-full.html" class="more-link">Read More</a>
-                        </div>
-                    </div>
-
-                    <div class="entry clearfix">
-                        <div class="entry-image">
-                            <a href="/Content/images/blog/full/1.jpg" data-lightbox="image"><img class="image_fade" src="/Content/images/blog/grid/1.jpg" alt="Standard Post with Image"></a>
-                        </div>
-                        <div class="entry-title">
-                            <h2><a href="blog-single.html">This is a Standard post with another Preview Image</a></h2>
-                        </div>
-                        <ul class="entry-meta clearfix">
-                            <li><i class="icon-calendar3"></i> 5th May 2014</li>
-                            <li><a href="blog-single.html#comments"><i class="icon-comments"></i> 6</a></li>
-                            <li><a href="#"><i class="icon-camera-retro"></i></a></li>
-                        </ul>
-                        <div class="entry-content">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione, voluptatem, dolorem animi nisi autem blanditiis enim culpa reiciendis et explicabo tenetur!</p>
-                            <a href="blog-single.html" class="more-link">Read More</a>
-                        </div>
-                    </div>
-
-                    <div class="entry clearfix">
-                        <div class="entry-image">
-                            <iframe frameborder="0" width="480" height="270" src="http://www.dailymotion.com/embed/video/x18murk" allowfullscreen></iframe>
-                        </div>
-                        <div class="entry-title">
-                            <h2><a href="blog-single-full.html">This is a Standard post with a Dailymotion Video</a></h2>
-                        </div>
-                        <ul class="entry-meta clearfix">
-                            <li><i class="icon-calendar3"></i> 11th May 2014</li>
-                            <li><a href="blog-single-full.html#comments"><i class="icon-comments"></i> 9</a></li>
-                            <li><a href="#"><i class="icon-film"></i></a></li>
-                        </ul>
-                        <div class="entry-content">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione, voluptatem, dolorem animi nisi autem blanditiis enim culpa reiciendis et explicabo tenetur!</p>
-                            <a href="blog-single-full.html" class="more-link">Read More</a>
-                        </div>
-                    </div>
+                    }
 
                 </div><!-- #posts end -->
                 <!-- Pagination
@@ -193,8 +135,8 @@
                         <div class="tabs nobottommargin clearfix" id="sidebar-tabs">
 
                             <ul class="tab-nav clearfix">
-                                <li><a href="#tabs-1">Popular</a></li>
-                                <li><a href="#tabs-2">Recent</a></li>
+                                <li><a href="#tabs-1">Son Eklenenler</a></li>
+                                @*<li><a href="#tabs-2">Recent</a></li>*@
                             </ul>
 
                             <div class="tab-container">
@@ -202,51 +144,39 @@
                                 <div class="tab-content clearfix" id="tabs-1">
                                     <div id="popular-post-list-sidebar">
 
-                                        <div class="spost clearfix">
-                                            <div class="entry-image">
-                                                <a href="#" class="nobg"><img class="img-circle" src="images/magazine/small/3.jpg" alt=""></a>
-                                            </div>
-                                            <div class="entry-c">
-                                                <div class="entry-title">
-                                                    <h4><a href="#">Debitis nihil placeat, illum est nisi</a></h4>
+                                        @foreach (PostViewModel post in ViewBag.RecentPosts)
+                                        {
+                                            <div class="spost clearfix">
+                                                <div class="entry-image">
+                                                    @if (post.PostType == PostType.Image)
+                                                    {
+                                                        <a href="@Url.Action("Post",new { id=post.Id})" class="nobg"><img class="img-circle" src="@post.MediaURL" alt="@post.Title"></a>
+                                                    }
+                                                    else
+                                                    {
+                                                        <a href="@Url.Action("Post",new { id=post.Id})" class="nobg"><i class="icon icon-play-circle"></i></a>
+                                                    }
                                                 </div>
-                                                <ul class="entry-meta">
-                                                    <li><i class="icon-comments-alt"></i> 35 Comments</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-
-                                        <div class="spost clearfix">
-                                            <div class="entry-image">
-                                                <a href="#" class="nobg"><img class="img-circle" src="images/magazine/small/2.jpg" alt=""></a>
-                                            </div>
-                                            <div class="entry-c">
-                                                <div class="entry-title">
-                                                    <h4><a href="#">Elit Assumenda vel amet dolorum quasi</a></h4>
+                                                <div class="entry-c">
+                                                    <div class="entry-title">
+                                                        <h4><a href="@Url.Action("Post",new { id=post.Id})">@post.Title</a></h4>
+                                                    </div>
+                                                    <ul class="entry-meta">
+                                                        <li>
+                                                            <i class="icon-folder-open"></i>
+                                                            @foreach (var cat in post.CategoryNames)
+                                                            {
+                                                                <a href="#">@cat</a>
+                                                            }
+                                                        </li>
+                                                    </ul>
                                                 </div>
-                                                <ul class="entry-meta">
-                                                    <li><i class="icon-comments-alt"></i> 24 Comments</li>
-                                                </ul>
                                             </div>
-                                        </div>
-
-                                        <div class="spost clearfix">
-                                            <div class="entry-image">
-                                                <a href="#" class="nobg"><img class="img-circle" src="images/magazine/small/1.jpg" alt=""></a>
-                                            </div>
-                                            <div class="entry-c">
-                                                <div class="entry-title">
-                                                    <h4><a href="#">Lorem ipsum dolor sit amet, consectetur</a></h4>
-                                                </div>
-                                                <ul class="entry-meta">
-                                                    <li><i class="icon-comments-alt"></i> 19 Comments</li>
-                                                </ul>
-                                            </div>
-                                        </div>
+                                        }
 
                                     </div>
                                 </div>
-                                <div class="tab-content clearfix" id="tabs-2">
+                                @*<div class="tab-content clearfix" id="tabs-2">
                                     <div id="recent-post-list-sidebar">
 
                                         <div class="spost clearfix">
@@ -292,32 +222,13 @@
                                         </div>
 
                                     </div>
-                                </div>
+                                </div>*@
 
                             </div>
 
                         </div>
 
                     </div>
-
-                    <div class="widget clearfix">
-
-                        <h4>Tag Cloud</h4>
-                        <div class="tagcloud">
-                            <a href="#">general</a>
-                            <a href="#">videos</a>
-                            <a href="#">music</a>
-                            <a href="#">media</a>
-                            <a href="#">photography</a>
-                            <a href="#">parallax</a>
-                            <a href="#">ecommerce</a>
-                            <a href="#">terms</a>
-                            <a href="#">coupons</a>
-                            <a href="#">modern</a>
-                        </div>
-
-                    </div>
-
                 </div>
 
             </div><!-- .sidebar end -->
@@ -329,35 +240,281 @@
 </section><!-- #content end -->
 
 @section Scripts{
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBo6xedQToKACcfN2BzV54-3br245ytkBo&sensor=false"></script>
-    <script src="~/Scripts/theme/jquery.gmap.js"></script>
-    <script type="text/javascript">
+    <script>
+        function initMap() {
 
-        $('#google-map').gMap({
-            address: 'Melbourne, Australia',
-            maptype: 'ROADMAP',
-            zoom: 14,
-            markers: [
-				{
-				    address: "Melbourne, Australia",
-				    html: '<div style="width: 300px;"><h4 style="margin-bottom: 8px;">Hi, we\'re <span>Envato</span></h4><p class="nobottommargin">Our mission is to help people to <strong>earn</strong> and to <strong>learn</strong> online. We operate <strong>marketplaces</strong> where hundreds of thousands of people buy and sell digital goods every day, and a network of educational blogs where millions learn <strong>creative skills</strong>.</p></div>',
-				    icon: {
-				        image: "/Content/images/icons/map-icon-red.png",
-				        iconsize: [32, 39],
-				        iconanchor: [13, 39]
-				    }
-				}
-            ],
-            doubleclickzoom: false,
-            controls: {
-                panControl: true,
-                zoomControl: true,
-                mapTypeControl: true,
-                scaleControl: false,
-                streetViewControl: false,
-                overviewMapControl: false
+            // Create a new StyledMapType object, passing it an array of styles,
+            // and the name to be displayed on the map type control.
+            var styledMapType = new google.maps.StyledMapType(
+                [
+            {
+                "elementType": "geometry",
+                "stylers": [
+                  {
+                      "color": "#ebe3cd"
+                  }
+                ]
+            },
+            {
+                "elementType": "labels.text.fill",
+                "stylers": [
+                  {
+                      "color": "#523735"
+                  }
+                ]
+            },
+            {
+                "elementType": "labels.text.stroke",
+                "stylers": [
+                  {
+                      "color": "#f5f1e6"
+                  }
+                ]
+            },
+            {
+                "featureType": "administrative",
+                "elementType": "geometry.stroke",
+                "stylers": [
+                  {
+                      "color": "#c9b2a6"
+                  }
+                ]
+            },
+            {
+                "featureType": "administrative.land_parcel",
+                "elementType": "geometry.stroke",
+                "stylers": [
+                  {
+                      "color": "#dcd2be"
+                  }
+                ]
+            },
+            {
+                "featureType": "administrative.land_parcel",
+                "elementType": "labels.text.fill",
+                "stylers": [
+                  {
+                      "color": "#ae9e90"
+                  }
+                ]
+            },
+            {
+                "featureType": "landscape.natural",
+                "elementType": "geometry",
+                "stylers": [
+                  {
+                      "color": "#dfd2ae"
+                  }
+                ]
+            },
+            {
+                "featureType": "poi",
+                "elementType": "geometry",
+                "stylers": [
+                  {
+                      "color": "#dfd2ae"
+                  }
+                ]
+            },
+            {
+                "featureType": "poi",
+                "elementType": "labels.text.fill",
+                "stylers": [
+                  {
+                      "color": "#93817c"
+                  }
+                ]
+            },
+            {
+                "featureType": "poi.park",
+                "elementType": "geometry.fill",
+                "stylers": [
+                  {
+                      "color": "#a5b076"
+                  }
+                ]
+            },
+            {
+                "featureType": "poi.park",
+                "elementType": "labels.text.fill",
+                "stylers": [
+                  {
+                      "color": "#447530"
+                  }
+                ]
+            },
+            {
+                "featureType": "road",
+                "stylers": [
+                  {
+                      "visibility": "off"
+                  }
+                ]
+            },
+            {
+                "featureType": "road",
+                "elementType": "geometry",
+                "stylers": [
+                  {
+                      "color": "#f5f1e6"
+                  }
+                ]
+            },
+            {
+                "featureType": "road.arterial",
+                "elementType": "geometry",
+                "stylers": [
+                  {
+                      "color": "#fdfcf8"
+                  }
+                ]
+            },
+            {
+                "featureType": "road.highway",
+                "elementType": "geometry",
+                "stylers": [
+                  {
+                      "color": "#f8c967"
+                  }
+                ]
+            },
+            {
+                "featureType": "road.highway",
+                "elementType": "geometry.stroke",
+                "stylers": [
+                  {
+                      "color": "#e9bc62"
+                  }
+                ]
+            },
+            {
+                "featureType": "road.highway.controlled_access",
+                "elementType": "geometry",
+                "stylers": [
+                  {
+                      "color": "#e98d58"
+                  }
+                ]
+            },
+            {
+                "featureType": "road.highway.controlled_access",
+                "elementType": "geometry.stroke",
+                "stylers": [
+                  {
+                      "color": "#db8555"
+                  }
+                ]
+            },
+            {
+                "featureType": "road.local",
+                "elementType": "labels.text.fill",
+                "stylers": [
+                  {
+                      "color": "#806b63"
+                  }
+                ]
+            },
+            {
+                "featureType": "transit.line",
+                "elementType": "geometry",
+                "stylers": [
+                  {
+                      "color": "#dfd2ae"
+                  }
+                ]
+            },
+            {
+                "featureType": "transit.line",
+                "elementType": "labels.text.fill",
+                "stylers": [
+                  {
+                      "color": "#8f7d77"
+                  }
+                ]
+            },
+            {
+                "featureType": "transit.line",
+                "elementType": "labels.text.stroke",
+                "stylers": [
+                  {
+                      "color": "#ebe3cd"
+                  }
+                ]
+            },
+            {
+                "featureType": "transit.station",
+                "elementType": "geometry",
+                "stylers": [
+                  {
+                      "color": "#dfd2ae"
+                  }
+                ]
+            },
+            {
+                "featureType": "water",
+                "elementType": "geometry.fill",
+                "stylers": [
+                  {
+                      "color": "#b9d3c2"
+                  }
+                ]
+            },
+            {
+                "featureType": "water",
+                "elementType": "labels.text.fill",
+                "stylers": [
+                  {
+                      "color": "#92998d"
+                  }
+                ]
             }
-        });
+                ],
+                { name: 'Styled Map' });
 
+            // Create a map object, and include the MapTypeId to add
+            // to the map type control.
+            var map = new google.maps.Map(document.getElementById('google-map'), {
+                center: { lat: 38.939, lng: 35.406 },
+                zoom: 6,
+                mapTypeControlOptions: {
+                    mapTypeIds: ['roadmap', 'satellite', 'hybrid', 'terrain',
+                            'styled_map']
+                }
+            });
+            //Associate the styled map with the MapTypeId and set it to display.
+            map.mapTypes.set('styled_map', styledMapType);
+            map.setMapTypeId('styled_map');
+            var contentString = '<div id="content">' +
+                '<div class="spost clearfix">' +
+                '<div class="entry-image">' +
+                '<a href="@Url.Action("Post", new { id = Model.Last().Id })" class="nobg"><img src="@Model.Last().MediaURL" alt=""></a>' +
+                '</div>' +
+                '<div class="entry-c">' +
+                '<div class="entry-title">' +
+                '<h4><a href="@Url.Action("Post", new { id = Model.Last().Id })">@Model.Last().Title</a></h4>' +
+                '</div>' +
+                '<ul class="entry-meta">' +
+                '<li>@Model.Last().DateCreated.ToShortDateString()</li>' +
+                '</ul>' +
+                '</div>' +
+                '</div>';
+            var infowindow = new google.maps.InfoWindow({
+                content: contentString
+            });
+            var myLatlng = new google.maps.LatLng(38.939, 35.406);
+            var marker = new google.maps.Marker({
+                position: myLatlng,
+                clickable: true,
+                map: map,
+                icon: "/Content/images/icons/map-icon-red.png",
+                title: '@Model.Last().Title'
+            });
+            marker.addListener('click', function () {
+                infowindow.open(map, marker);
+            });
+        }
+    </script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBo6xedQToKACcfN2BzV54-3br245ytkBo&callback=initMap">
     </script>
 }
