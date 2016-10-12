@@ -78,7 +78,7 @@ namespace Ustamdan.Controllers
                 temp.Title = post.Title;
                 temp.PostContent = post.Body;
                 temp.Description = post.Description;
-                temp.Language = post.Language;
+                temp.Language = post.Language.GetStringValue();
                 temp.MediaURL = post.MediaURL;
                 temp.Type = post.PostType;
                 temp.Status = post.PostStatus;

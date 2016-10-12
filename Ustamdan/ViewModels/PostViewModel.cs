@@ -34,7 +34,7 @@ namespace Ustamdan.ViewModels
             this.Title = post.Title;
             this.Description = post.Description;
             this.Body = post.PostContent;
-            this.Language = post.Language;
+            this.Language = LanguageHelper.getEnumValue(post.Language);
             this.PostType = post.Type;
             this.PostStatus = post.Status;
             this.MediaURL = post.MediaURL;

@@ -15,10 +15,15 @@ namespace Ustamdan.Controllers
     {
         public ActionResult Index()
         {
+            string lang = RouteData.Values["lang"].ToString();
             var model = new HomeViewModel();
             using (var db = new ApplicationDbContext())
             {
-                model.Posts = db.Posts.OrderByDescending(x => x.DateCreated).Take(4).ToList().Select(x => new PostViewModel(x)).ToList();
+                model.Posts = db.Posts
+                    .Where(x => x.Status == PostStatus.Published && x.Language == lang)
+                    .OrderByDescending(x => x.DateCreated)
+                    .Take(4).ToList()
+                    .Select(x => new PostViewModel(x)).ToList();
             }
             return View(model);
         }
@@ -26,18 +31,21 @@ namespace Ustamdan.Controllers
         {
             page = page ?? 1;
             List<PostViewModel> posts;
+            string lang = RouteData.Values["lang"].ToString();
             using (var db = new ApplicationDbContext())
             {
                 posts = db.Posts
                     .Include("Categories")
                     .Include("Tags")
+                    .Where(x => x.Status == PostStatus.Published && x.Language == lang)
                     .OrderByDescending(x => x.DateCreated)
                     .ToList()
-                    .Select(x=>new PostViewModel(x))
+                    .Select(x => new PostViewModel(x))
                     .ToList();
                 ViewBag.RecentPosts = db.Posts
                    .Include("Categories")
                    .Include("Tags")
+                   .Where(x => x.Status == PostStatus.Published && x.Language == lang)
                    .OrderByDescending(x => x.DateCreated).Take(4)
                    .ToList()
                    .Select(x => new PostViewModel(x));
@@ -46,6 +54,7 @@ namespace Ustamdan.Controllers
         }
         public ActionResult Post(int id)
         {
+            string lang = RouteData.Values["lang"].ToString();
             PostViewModel model;
             using (var db = new ApplicationDbContext())
             {
@@ -56,6 +65,7 @@ namespace Ustamdan.Controllers
                 ViewBag.RecentPosts = db.Posts
                     .Include("Categories")
                     .Include("Tags")
+                    .Where(x=>x.Status == PostStatus.Published && x.Language == lang)
                     .OrderByDescending(x => x.DateCreated).Take(4)
                     .ToList()
                     .Select(x => new PostViewModel(x));
@@ -63,6 +73,7 @@ namespace Ustamdan.Controllers
                 Random rand = new Random();
                 ViewBag.RelatedPosts = db.Posts.Include("Categories")
                     .Include("Tags").ToList()
+                    .Where(x=>x.Status == PostStatus.Published && x.Language == lang)
                     .OrderBy(c => rand.Next()).Take(4)
                     .ToList()
                     .Select(x => new PostViewModel(x));
@@ -71,15 +82,23 @@ namespace Ustamdan.Controllers
         }
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
-
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
-
+            return View();
+        }
+        public ActionResult Category()
+        {
+            return View();
+        }
+        public ActionResult Tag()
+        {
+            return View();
+        }
+        public ActionResult Search()
+        {
             return View();
         }
     }

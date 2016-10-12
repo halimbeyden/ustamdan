@@ -113,7 +113,8 @@
                             </div>
                             <ul class="entry-meta clearfix">
                                 <li><i class="icon-calendar3"></i> @post.DateCreated.ToShortDateString()</li>
-                                <li><i class="icon-folder-open"></i> 
+                                <li>
+                                    <i class="icon-folder-open"></i>
                                     @foreach (var cat in post.CategoryNames)
                                     {
                                         <a href="#">@cat</a>
@@ -122,7 +123,7 @@
                                 @*<li><a href="blog-single.html#comments"><i class="icon-comments"></i> 53</a></li>*@
                             </ul>
                             <div class="entry-content">
-                                <p>@MvcHtmlString.Create(post.Body.Substring(0,200))...</p>
+                                <p>@MvcHtmlString.Create(post.Body.Substring(0, 200))...</p>
                             </div>
                         </div>
                     </div>
@@ -258,10 +259,17 @@
                 <h3>ZANAAT DOSTU ŞİRKETLER AİLESİ</h3>
             </div>
 
-            <div id="oc-clients" class="section nobgcolor notopmargin owl-carousel owl-carousel-full image-carousel footer-stick carousel-widget dark" data-margin="80" data-loop="false" data-nav="false" data-autoplay="5000" data-pagi="false" data-items-xxs="2" data-items-xs="3" data-items-sm="3" data-items-md="3" data-items-lg="3">
-                <div class="oc-item"><a href="#"><img src="~/Content/images/clients/1.png" alt="Clients"></a></div>
-                <div class="oc-item"><a href="#"><img src="~/Content/images/clients/2.png" alt="Clients"></a></div>
-                <div class="oc-item"><a href="#"><img src="~/Content/images/clients/3.png" alt="Clients"></a></div>
+            <div id="oc-clients" class="section nobgcolor notopmargin owl-carousel owl-carousel-full image-carousel footer-stick carousel-widget dark" data-margin="80" data-loop="false" data-nav="false" data-autoplay="5000" data-pagi="true" data-items-xxs="3" data-items-xs="4" data-items-sm="4" data-items-md="4" data-items-lg="4">
+                <div class="oc-item"><a href="#"><img src="~/Content/img/destekciler/gir.gif"></a></div>
+                <div class="oc-item"><a href="#"><img src="~/Content/img/destekciler/things.gif"></a></div>
+                <div class="oc-item"><a href="#"><img src="~/Content/img/destekciler/trpe.gif"></a></div>
+                <div class="oc-item"><a href="#"><img src="~/Content/img/destekciler/ay.gif"></a></div>
+                <div class="oc-item"><a href="#"><img src="~/Content/img/destekciler/bilgi.gif"></a></div>
+                <div class="oc-item"><a href="#"><img src="~/Content/img/destekciler/cek.gif"></a></div>
+                <div class="oc-item"><a href="#"><img src="~/Content/img/destekciler/end.gif"></a></div>
+                <div class="oc-item"><a href="#"><img src="~/Content/img/destekciler/bilgi.jpg"></a></div>
+                <div class="oc-item"><a href="#"><img src="~/Content/img/destekciler/slyvian.jpg"></a></div>
+                <div class="oc-item"><a href="#"><img src="~/Content/img/destekciler/tbt.jpg"></a></div>
             </div>
         </div>
     </div>
@@ -274,13 +282,16 @@
 
             <div class="subscribe-widget">
                 <div class="widget-subscribe-form-result"></div>
-                <form id="widget-subscribe-form2" action="include/subscribe.php" role="form" method="post" class="nobottommargin">
+                <form id="widget-subscribe-form2" role="form" method="post" class="nobottommargin">
                     <div class="input-group input-group-lg divcenter" style="max-width:600px;">
                         <span class="input-group-addon"><i class="icon-email2"></i></span>
                         <input type="email" name="widget-subscribe-form-email" class="form-control required email" placeholder="Enter your Email">
                         <span class="input-group-btn">
                             <button class="btn btn-default" type="submit">Subscribe Now</button>
                         </span>
+                    </div>
+                    <div class="success divcenter hidden">
+                        <h4 style="color:#5cb85c;text-align:center">Thank you for subscribe!</h4>
                     </div>
                 </form>
             </div>
@@ -289,3 +300,25 @@
     </div>
 
 </section><!-- #content end -->
+@section scripts{
+
+    <script>
+        $("#widget-subscribe-form2").on("submit", function (e) {
+            e.preventDefault();
+            var form = $(this);
+            var email = form.find(".email").val();
+            if (validateEmail(email)) {
+                $.post("http://app.mailerlite.com/webforms/submit/i5f6k3", { 'fields[email]': email, 'ml-submit': 1 }, function (data) {
+                    form.find(".success").removeClass("hidden");
+                    form.find("div.input-group").remove();
+                });
+            }
+            return true;
+        });
+        function validateEmail(email) {
+            var re = /^(([^<>()[\]\\.,;:\s@@\"]+(\.[^<>()[\]\\.,;:\s@@\"]+)*)|(\".+\"))@@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(email);
+        }
+
+    </script>
+}

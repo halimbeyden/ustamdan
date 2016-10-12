@@ -296,6 +296,27 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\img\destekciler\ay.gif" />
+    <Content Include="Content\img\destekciler\bilgi.gif" />
+    <Content Include="Content\img\destekciler\bilgi.jpg" />
+    <Content Include="Content\img\destekciler\cek.gif" />
+    <Content Include="Content\img\destekciler\end.gif" />
+    <Content Include="Content\img\destekciler\gir.gif" />
+    <Content Include="Content\img\destekciler\slyvian.jpg" />
+    <Content Include="Content\img\destekciler\tbt.jpg" />
+    <Content Include="Content\img\destekciler\things.gif" />
+    <Content Include="Content\img\destekciler\trpe.gif" />
+    <Content Include="Content\img\ekip\baris_dikici.png" />
+    <Content Include="Content\img\ekip\berkin.png" />
+    <Content Include="Content\img\ekip\bilal.png" />
+    <Content Include="Content\img\ekip\burcu.gif" />
+    <Content Include="Content\img\ekip\gokce.gif" />
+    <Content Include="Content\img\ekip\merve.gif" />
+    <Content Include="Content\img\ekip\pelin.gif" />
+    <Content Include="Content\img\ekip\rey-1.gif" />
+    <Content Include="Content\img\ekip\sinem.gif" />
+    <Content Include="Content\img\ekip\ust1.png" />
+    <Content Include="Content\img\ekip\ust2.png" />
     <Content Include="Content\img\hikayemiz.jpg" />
     <Content Include="Content\images\about\1.jpg" />
     <Content Include="Content\images\about\2.jpg" />
@@ -1173,6 +1194,16 @@
     <Content Include="Content\img\iconlogowhite.png" />
     <Content Include="Content\img\loading.svg" />
     <Content Include="Content\img\logo.png" />
+    <Content Include="Content\img\ustalar\Arif-Usta.jpg" />
+    <Content Include="Content\img\ustalar\Ethem-Usta.jpg" />
+    <Content Include="Content\img\ustalar\Husameddin-Usta.jpg" />
+    <Content Include="Content\img\ustalar\ibrahim-Usta.jpg" />
+    <Content Include="Content\img\ustalar\ismail-Usta.jpg" />
+    <Content Include="Content\img\ustalar\Kazim-Usta.jpg" />
+    <Content Include="Content\img\ustalar\Mehmet-Usta.jpg" />
+    <Content Include="Content\img\ustalar\Munise-Usta-1.jpg" />
+    <Content Include="Content\img\ustalar\Munteka-Usta.jpg" />
+    <Content Include="Content\img\ustalar\selma.jpg" />
     <Content Include="Content\loading.css" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\theme\animate.css" />
@@ -1435,7 +1466,9 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Views\Web.config" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
