@@ -27,6 +27,16 @@ namespace Ustamdan
                 var r = roleManager.Create(new IdentityRole("Admin"));
                 r = roleManager.Create(new IdentityRole("Author"));
                 r = roleManager.Create(new IdentityRole("Standard"));
+                var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
+                var usr = context.Users.FirstOrDefault(x => x.Email == "halimbeyden@gmail.com");
+                if (usr == null)
+                {
+                    var user = new ApplicationUser { UserName = "halimbeyden@gmail.com", Email = "halimbeyden@gmail.com", Fullname = "Halim Beyden" };
+                    var result = UserManager.Create(user, "123455");
+                    UserManager.AddToRole(user.Id, "Admin");
+                }
+                else
+                    UserManager.AddToRole(usr.Id, "Admin");
             }
         }
     }

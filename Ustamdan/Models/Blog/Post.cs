@@ -19,8 +19,41 @@ namespace Ustamdan.Models.Blog
     }
     public enum Language
     {
+        [StringValue("en")]
         English,
+        [StringValue("tr")]
         Turkish
+
+    }
+    /// <summary>
+    /// This attribute is used to represent a string value
+    /// for a value in an enum.
+    /// </summary>
+    public class StringValueAttribute : Attribute
+    {
+
+        #region Properties
+
+        /// <summary>
+        /// Holds the stringvalue for a value in an enum.
+        /// </summary>
+        public string StringValue { get; protected set; }
+
+        #endregion
+
+        #region Constructor
+
+        /// <summary>
+        /// Constructor used to init a StringValue Attribute
+        /// </summary>
+        /// <param name="value"></param>
+        public StringValueAttribute(string value)
+        {
+            this.StringValue = value;
+        }
+
+        #endregion
+
     }
     public class Post
     {
@@ -36,7 +69,7 @@ namespace Ustamdan.Models.Blog
         public bool IsPublished { get; set; }
         public bool IsCommentEnabled { get; set; }
         public bool IsSharingEnabled { get; set; }
-        public Language Language { get; set; }
+        public string Language { get; set; }
         public PostStatus Status { get; set; }
 
         [ForeignKey("AuthorId")]
