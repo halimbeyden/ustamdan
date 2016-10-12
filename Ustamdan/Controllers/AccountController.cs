@@ -137,7 +137,7 @@ namespace Ustamdan.Controllers
         //
         // GET: /Account/Register
         //[AllowAnonymous]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public ActionResult Register()
         {
             return View();
@@ -146,7 +146,7 @@ namespace Ustamdan.Controllers
         //
         // POST: /Account/Register
         [HttpPost]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         //[AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)

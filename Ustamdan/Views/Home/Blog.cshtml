@@ -13,8 +13,8 @@
             <!-- Logo
             ============================================= -->
             <div id="logo">
-                <a href="index.html" class="standard-logo" data-dark-logo="/Content/img/iconlogowhite.png"><img src="~/Content/img/iconlogowhite.png" alt="Canvas Logo"></a>
-                <a href="index.html" class="retina-logo" data-dark-logo="/Content/img/iconlogowhite.png"><img src="~/Content/img/iconlogowhite.png" alt="Canvas Logo"></a>
+                <a href="@Url.Action("Index")" class="standard-logo" data-dark-logo="/Content/img/iconlogowhite.png"><img src="~/Content/img/iconlogowhite.png" alt="Canvas Logo"></a>
+                <a href="@Url.Action("Index")" class="retina-logo" data-dark-logo="/Content/img/iconlogowhite.png"><img src="~/Content/img/iconlogowhite.png" alt="Canvas Logo"></a>
             </div><!-- #logo end -->
             <!-- Primary Navigation
             ============================================= -->
@@ -476,6 +476,11 @@
             var map = new google.maps.Map(document.getElementById('google-map'), {
                 center: { lat: 38.939, lng: 35.406 },
                 zoom: 6,
+                scrollwheel: false,
+                navigationControl: false,
+                mapTypeControl: false,
+                scaleControl: false,
+                draggable: true,
                 mapTypeControlOptions: {
                     mapTypeIds: ['roadmap', 'satellite', 'hybrid', 'terrain',
                             'styled_map']
@@ -487,14 +492,14 @@
             var contentString = '<div id="content">' +
                 '<div class="spost clearfix">' +
                 '<div class="entry-image">' +
-                '<a href="@Url.Action("Post", new { id = Model.Last().Id })" class="nobg"><img src="@Model.Last().MediaURL" alt=""></a>' +
+                '<a href="@Url.Action("Post", new { id = 1 })" class="nobg"><img src="Model.Last().MediaURL" alt=""></a>' +
                 '</div>' +
                 '<div class="entry-c">' +
                 '<div class="entry-title">' +
-                '<h4><a href="@Url.Action("Post", new { id = Model.Last().Id })">@Model.Last().Title</a></h4>' +
+                '<h4><a href="@Url.Action("Post", new { id = 1 })">Model.Last().Title</a></h4>' +
                 '</div>' +
                 '<ul class="entry-meta">' +
-                '<li>@Model.Last().DateCreated.ToShortDateString()</li>' +
+                '<li>Model.Last().DateCreated.ToShortDateString()</li>' +
                 '</ul>' +
                 '</div>' +
                 '</div>';
@@ -507,7 +512,7 @@
                 clickable: true,
                 map: map,
                 icon: "/Content/images/icons/map-icon-red.png",
-                title: '@Model.Last().Title'
+                title: 'Model.Last().Title'
             });
             marker.addListener('click', function () {
                 infowindow.open(map, marker);
