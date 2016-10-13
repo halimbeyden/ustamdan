@@ -8,6 +8,7 @@
 /// <reference path="admin/fastclick.js" />
 /// <reference path="admin/icheck.min.js" />
 /// <reference path="admin/jquery.tagsinput.js" />
+/// <reference path="admin/locationpicker.jquery.js" />
 /// <reference path="admin/nprogress.js" />
 /// <reference path="admin/pnotify.js" />
 /// <reference path="ai.0.22.19-build00125.min.js" />

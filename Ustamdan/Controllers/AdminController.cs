@@ -82,6 +82,9 @@ namespace Ustamdan.Controllers
                 temp.MediaURL = post.MediaURL;
                 temp.Type = post.PostType;
                 temp.Status = post.PostStatus;
+                temp.HasLocation = post.HasLocation;
+                temp.Latitude = post.Latitude;
+                temp.Longitude = post.Longitude;
                 temp.Categories = new List<Category>();
                 temp.Tags = new List<Tag>();
                 try

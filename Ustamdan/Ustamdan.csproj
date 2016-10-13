@@ -1232,6 +1232,7 @@
     <Content Include="Scripts\Admin\fastclick.js" />
     <Content Include="Scripts\Admin\icheck.min.js" />
     <Content Include="Scripts\Admin\jquery.tagsinput.js" />
+    <Content Include="Scripts\Admin\locationpicker.jquery.js" />
     <Content Include="Scripts\Admin\nprogress.js" />
     <Content Include="Scripts\Admin\pnotify.js" />
     <Content Include="Scripts\ai.0.22.19-build00125.js" />

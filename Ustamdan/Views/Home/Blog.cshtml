@@ -489,34 +489,39 @@
             //Associate the styled map with the MapTypeId and set it to display.
             map.mapTypes.set('styled_map', styledMapType);
             map.setMapTypeId('styled_map');
-            var contentString = '<div id="content">' +
-                '<div class="spost clearfix">' +
-                '<div class="entry-image">' +
-                '<a href="@Url.Action("Post", new { id = 1 })" class="nobg"><img src="Model.Last().MediaURL" alt=""></a>' +
-                '</div>' +
-                '<div class="entry-c">' +
-                '<div class="entry-title">' +
-                '<h4><a href="@Url.Action("Post", new { id = 1 })">Model.Last().Title</a></h4>' +
-                '</div>' +
-                '<ul class="entry-meta">' +
-                '<li>Model.Last().DateCreated.ToShortDateString()</li>' +
-                '</ul>' +
-                '</div>' +
-                '</div>';
-            var infowindow = new google.maps.InfoWindow({
-                content: contentString
-            });
-            var myLatlng = new google.maps.LatLng(38.939, 35.406);
-            var marker = new google.maps.Marker({
-                position: myLatlng,
-                clickable: true,
-                map: map,
-                icon: "/Content/images/icons/map-icon-red.png",
-                title: 'Model.Last().Title'
-            });
-            marker.addListener('click', function () {
-                infowindow.open(map, marker);
-            });
+            @foreach (var p in Model.Where(x=>x.HasLocation))
+            {
+                string imgContent = p.PostType == PostType.Image ? "<a href='" + Url.Action("Post", new { id = p.Id }) + "' class='nobg'><img src='" + p.MediaURL+ "' alt=''></a>"
+                    :"<a href='" + Url.Action("Post",new { id=p.Id}) + "' class='nobg'><i class='icon icon-play-circle'></i></a>";
+                @:var contentString = '<div id="content">' +
+                @:'<div class="spost clearfix">' +
+                @:'<div class="entry-image">' +
+                @:"@(MvcHtmlString.Create(imgContent))" +
+                @:'</div>' +
+                @:'<div class="entry-c">' +
+                @:'<div class="entry-title">' +
+                @:'<h4><a href="@Url.Action("Post", new { id = p.Id })">@p.Title</a></h4>' +
+                @:'</div>' +
+                @:'<ul class="entry-meta">' +
+                @:'<li>@p.DateCreated.ToShortDateString()</li>' +
+                @:'</ul>' +
+                @:'</div>' +
+                @:'</div>';
+                                        @:var infowindow = new google.maps.InfoWindow({
+                                                @:    content: contentString
+                                                @:});
+                                        @:var myLatlng = new google.maps.LatLng(@(MvcHtmlString.Create(Json.Encode(p.Latitude))),@(MvcHtmlString.Create(Json.Encode(p.Longitude))));
+                                        @:var marker = new google.maps.Marker({
+                                                @:    position: myLatlng,
+                                                @:    clickable: true,
+                                                @:    map: map,
+                                                @:    icon: "/Content/images/icons/map-icon-red.png",
+                                                @:    title: '@p.Title'
+                                                @:});
+                                        @:marker.addListener('click', function () {
+                                                @:    infowindow.open(map, marker);
+                                                @:});
+                                    }
         }
     </script>
     <script async defer

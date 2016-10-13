@@ -71,6 +71,10 @@ namespace Ustamdan.Models.Blog
         public bool IsSharingEnabled { get; set; }
         public string Language { get; set; }
         public PostStatus Status { get; set; }
+        public bool HasLocation { get; set; }
+        public double Latitude { get; set; }
+        public double Longitude { get; set; }
+
 
         [ForeignKey("AuthorId")]
         public virtual ApplicationUser Author { get; set; }
