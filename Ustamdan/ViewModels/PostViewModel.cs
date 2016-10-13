@@ -19,6 +19,9 @@ namespace Ustamdan.ViewModels
         public Language Language { get; set; }
         public DateTime DateCreated { get; set; }
         public DateTime DateModified { get; set; }
+        public bool HasLocation { get; set; }
+        public double Latitude { get; set; }
+        public double Longitude { get; set; }
         public int[] Categories { get; set; }
         public string[] CategoryNames { get; set; }
         public int[] Tags { get; set; }
@@ -38,6 +41,9 @@ namespace Ustamdan.ViewModels
             this.PostType = post.Type;
             this.PostStatus = post.Status;
             this.MediaURL = post.MediaURL;
+            this.HasLocation = post.HasLocation;
+            this.Latitude = post.Latitude;
+            this.Longitude = post.Longitude;
             try
             {
                 this.Categories = post.Categories.Select(x => x.Id).ToArray();
