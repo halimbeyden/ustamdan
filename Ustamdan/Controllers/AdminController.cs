@@ -37,6 +37,7 @@ namespace Ustamdan.Controllers
             using (var db = new ApplicationDbContext())
             {
                 ViewBag.Categories = db.Categories.ToList();
+                ViewBag.Areas = db.Areas.ToList();
                 ViewBag.Tags = db.Tags.ToList();
             }
             return View();
@@ -50,6 +51,7 @@ namespace Ustamdan.Controllers
                 if (post == null)
                     return HttpNotFound();
                 postVM = new PostViewModel(post);
+                ViewBag.Areas = db.Areas.ToList();
                 ViewBag.Categories = db.Categories.ToList();
                 ViewBag.Tags = db.Tags.ToList();
             }
@@ -87,6 +89,7 @@ namespace Ustamdan.Controllers
                 temp.Longitude = post.Longitude;
                 temp.Categories = new List<Category>();
                 temp.Tags = new List<Tag>();
+                temp.AreaId = post.AreaId;
                 try
                 {
                     temp.Categories.AddRange(db.Categories.Where(x => post.Categories.Contains(x.Id)));
@@ -224,5 +227,21 @@ namespace Ustamdan.Controllers
             }
         }
         #endregion
+        public JsonResult AddArea(string name)
+        {
+            name = name.Trim();
+            if (String.IsNullOrEmpty(name))
+                return Json(new { Id = -1, isNew = false });
+            using (var db = new ApplicationDbContext())
+            {
+                Area area = db.Areas.FirstOrDefault(x => x.Name.ToLower() == name.ToLower());
+                if (area != null)
+                    return Json(new { Id = area.Id, isNew = false });
+                area = new Area(name);
+                db.Areas.Add(area);
+                db.SaveChanges();
+                return Json(new { Id = area.Id, isNew = true });
+            }
+        }
     }
 }
