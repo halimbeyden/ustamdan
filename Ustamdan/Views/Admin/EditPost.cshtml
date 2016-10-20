@@ -118,6 +118,47 @@
         </div>
         <div class="x_panel tile">
             <div class="x_title">
+                <h2>Area</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li>
+                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <h4>Select Area</h4>
+                <div class="widget_summary">
+                    <div id="areaList">
+                        @foreach (Area cat in ViewBag.Areas)
+                        {
+                            <div class="checkbox">
+                                <label>
+                                    @if (Model.AreaId == cat.Id)
+                                    {
+                                        <input checked type="radio" class="flat" name="areas" value="@cat.Id"> @cat.Name
+                                    }
+                                    else
+                                    {
+                                        <input type="radio" class="flat" name="areas" value="@cat.Id"> @cat.Name
+                                    }
+                                </label>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <div class="widget_summary">
+                    <div class="input-group ">
+                        <input type="text" class="form-control" placeholder="Add New Area">
+                        <span class="input-group-btn">
+                            <button id="addArea" type="button" class="btn btn-success"><i class="fa fa-plus"></i></button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+          <div class="x_panel tile">
+            <div class="x_title">
                 <h2>Categories</h2>
                 <ul class="nav navbar-right panel_toolbox">
                     <li>
@@ -320,7 +361,30 @@
             $cat = $(this).parent().parent().find("input").val();
             if ($cat == "")
                 return;
-            $("#categoryList").append('<div class="checkbox"><label><input type="checkbox" class="flat" name="categories" value="' + 1 + '"> ' + $cat + '</label></div>').iCheck({ checkboxClass: 'icheckbox_flat-green' });
+            $.post("AddCategory", { name: $cat }, function (data) {
+                if (data.Id == -1)
+                    return;
+                if (data.isNew == true)
+                    $("#categoryList").append('<div class="checkbox"><label><input type="checkbox" checked class="flat" name="categories" value="' + data.Id + '"> ' + $cat + '</label></div>').iCheck({ checkboxClass: 'icheckbox_flat-green' });
+                else {
+                    $("#categoryList input[value='" + data.Id + "']").iCheck('check');
+                }
+            });
+            $(this).parent().parent().find("input").val('');
+        });
+        $("#addArea").on("click", function () {
+            $cat = $(this).parent().parent().find("input").val();
+            if ($cat == "")
+                return;
+            $.post("AddArea", { name: $cat }, function (data) {
+                if (data.Id == -1)
+                    return;
+                if (data.isNew == true)
+                    $("#areaList").append('<div class="radio"><label><input type="radio" checked class="flat" name="areas" value="' + data.Id + '"> ' + $cat + '</label></div>').iCheck({ radioClass: 'iradio_flat-green' });
+                else {
+                    $("#areaList input[value='" + data.Id + "']").iCheck('check');
+                }
+            });
             $(this).parent().parent().find("input").val('');
         });
         //$("#addTag").on("click", function () {
@@ -340,6 +404,7 @@
             var lang = $("input[name='lang']:checked").val();
             var status = $("input[name='status']:checked").val();
             var categories = [];
+            var area = $("input[name='areas']:checked").val();
             var tags = [];
             try {
                 $("#categoryList input:checked").each(function (index, item) {
@@ -357,7 +422,7 @@
                 'Body': body,
                 'Language': lang,
                 'PostStatus': status,
-                'Categories': categories,
+                'AreaId': area,
                 'TagNames': tags,
                 'PostType': isBlank(imageUrl) ? 1 : 0,
                 'MediaURL': isBlank(imageUrl) ? videoUrl : imageUrl,
