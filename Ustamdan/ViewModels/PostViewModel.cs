@@ -15,6 +15,7 @@ namespace Ustamdan.ViewModels
         public PostStatus PostStatus { get; set; }
         public string Description { get; set; }
         public string Author { get; set; }
+        public string AuthorUsername { get; set; }
         public string Body { get; set; }
         public Language Language { get; set; }
         public DateTime DateCreated { get; set; }
@@ -57,6 +58,7 @@ namespace Ustamdan.ViewModels
                 this.DateCreated = post.DateCreated;
                 this.DateModified = post.DateModified;
                 this.Author = post.Author.Fullname;
+                this.AuthorUsername = post.Author.UserName;
             }
             catch (Exception ex)
             {

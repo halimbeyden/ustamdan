@@ -12,7 +12,6 @@ using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Ustamdan.Controllers
 {
-    [Authorize(Roles = "Admin")]
     public class AdminController : Controller
     {
         // GET: Admin
@@ -76,6 +75,8 @@ namespace Ustamdan.Controllers
                 var post = db.Posts.Find(id);
                 if (post == null)
                     return HttpNotFound();
+                if (!User.IsInRole("Admin") && post.Author.Id != User.Identity.GetUserId())
+                    return new HttpUnauthorizedResult();
                 postVM = new PostViewModel(post);
                 ViewBag.Areas = db.Areas.ToList();
                 ViewBag.Categories = db.Categories.ToList();
@@ -188,7 +189,7 @@ namespace Ustamdan.Controllers
         #endregion
 
         #region User
-
+        [Authorize(Roles = "Admin")]
         public ActionResult Users()
         {
             List<UserListViewModel> model;
@@ -198,6 +199,7 @@ namespace Ustamdan.Controllers
             }
             return View(model);
         }
+        [Authorize(Roles = "Admin")]
         public ActionResult EditUser(string id)
         {
             UserListViewModel model;
@@ -211,6 +213,7 @@ namespace Ustamdan.Controllers
             return View(model);
         }
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public ActionResult EditUser(RegisterViewModel model, string id)
         {
             using (var db = new ApplicationDbContext())
@@ -238,6 +241,7 @@ namespace Ustamdan.Controllers
         }
         #endregion
         #region Category
+        [Authorize(Roles = "Admin")]
         public JsonResult AddCategory(string name)
         {
             name = name.Trim();
@@ -255,6 +259,7 @@ namespace Ustamdan.Controllers
             }
         }
         #endregion
+        [Authorize(Roles = "Admin")]
         public JsonResult AddArea(string name)
         {
             name = name.Trim();
