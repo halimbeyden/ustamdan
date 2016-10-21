@@ -20,7 +20,7 @@ namespace Ustamdan.Controllers
             using (var db = new ApplicationDbContext())
             {
                 model.Posts = db.Posts
-                    .Where(x => x.Status == PostStatus.Published && x.Language == lang)
+                    .Where(x => x.IsPublished && x.Language == lang)
                     .OrderByDescending(x => x.DateCreated)
                     .Take(4).ToList()
                     .Select(x => new PostViewModel(x)).ToList();
@@ -37,7 +37,7 @@ namespace Ustamdan.Controllers
                 posts = db.Posts
                     .Include("Categories")
                     .Include("Tags")
-                    .Where(x => x.Status == PostStatus.Published && x.Language == lang)
+                    .Where(x => x.IsPublished && x.Language == lang)
                     .OrderByDescending(x => x.DateCreated)
                     .ToList()
                     .Select(x => new PostViewModel(x))
@@ -45,7 +45,7 @@ namespace Ustamdan.Controllers
                 ViewBag.RecentPosts = db.Posts
                    .Include("Categories")
                    .Include("Tags")
-                   .Where(x => x.Status == PostStatus.Published && x.Language == lang)
+                   .Where(x => x.IsPublished && x.Language == lang)
                    .OrderByDescending(x => x.DateCreated).Take(4)
                    .ToList()
                    .Select(x => new PostViewModel(x));
@@ -65,7 +65,7 @@ namespace Ustamdan.Controllers
                 ViewBag.RecentPosts = db.Posts
                     .Include("Categories")
                     .Include("Tags")
-                    .Where(x=>x.Status == PostStatus.Published && x.Language == lang)
+                    .Where(x=> x.IsPublished && x.Language == lang)
                     .OrderByDescending(x => x.DateCreated).Take(4)
                     .ToList()
                     .Select(x => new PostViewModel(x));
@@ -73,7 +73,7 @@ namespace Ustamdan.Controllers
                 Random rand = new Random();
                 ViewBag.RelatedPosts = db.Posts.Include("Categories")
                     .Include("Tags").ToList()
-                    .Where(x=>x.Status == PostStatus.Published && x.Language == lang)
+                    .Where(x=> x.IsPublished && x.Language == lang)
                     .OrderBy(c => rand.Next()).Take(4)
                     .ToList()
                     .Select(x => new PostViewModel(x));

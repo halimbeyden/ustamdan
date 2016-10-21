@@ -31,6 +31,32 @@ namespace Ustamdan.Controllers
             }
             return View(model);
         }
+        [Authorize(Roles ="Admin")]
+        public ActionResult PendingPosts()
+        {
+            List<PostViewModel> model;
+            using (var db = new ApplicationDbContext())
+            {
+                model = db.Posts
+                    .Where(x=>x.Status == PostStatus.Published && !x.IsPublished)
+                    .OrderByDescending(x => x.DateCreated).ToList()
+                    .Select(x => new PostViewModel(x)).ToList();
+            }
+            return View(model);
+        }
+        [Authorize(Roles ="Admin")]
+        public JsonResult ApprovePost(int id)
+        {
+            using (var db = new ApplicationDbContext())
+            {
+                var post = db.Posts.Find(id);
+                if (post == null)
+                    return Json(1);
+                post.IsPublished = true;
+                db.SaveChanges();
+            }
+            return Json(0);
+        }
 
         public ActionResult NewPost()
         {
@@ -77,6 +103,8 @@ namespace Ustamdan.Controllers
                     temp.Categories.Clear();
                     temp.Tags.Clear();
                 }
+                if (!User.IsInRole("Admin"))
+                    temp.IsPublished = false;
                 temp.Title = post.Title;
                 temp.PostContent = post.Body;
                 temp.Description = post.Description;
