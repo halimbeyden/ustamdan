@@ -140,14 +140,17 @@
                         }
                     </div>
                 </div>
-                <div class="widget_summary">
-                    <div class="input-group ">
-                        <input type="text" class="form-control" placeholder="Add New Area">
-                        <span class="input-group-btn">
-                            <button id="addArea" type="button" class="btn btn-success"><i class="fa fa-plus"></i></button>
-                        </span>
+                @if (User.IsInRole("Admin"))
+                {
+                    <div class="widget_summary">
+                        <div class="input-group ">
+                            <input type="text" class="form-control" placeholder="Add New Area">
+                            <span class="input-group-btn">
+                                <button id="addArea" type="button" class="btn btn-success"><i class="fa fa-plus"></i></button>
+                            </span>
+                        </div>
                     </div>
-                </div>
+                }
             </div>
         </div>
         <div class="x_panel tile">
@@ -166,22 +169,25 @@
                     <div id="categoryList">
                         @foreach (Category cat in ViewBag.Categories)
                         {
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" class="flat" name="categories" value="@cat.Id"> @cat.Name
-                            </label>
-                        </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" class="flat" name="categories" value="@cat.Id"> @cat.Name
+                                </label>
+                            </div>
                         }
                     </div>
                 </div>
-                <div class="widget_summary">
-                    <div class="input-group ">
-                        <input type="text" class="form-control" placeholder="Add New Category">
-                        <span class="input-group-btn">
-                            <button id="addCategory" type="button" class="btn btn-success"><i class="fa fa-plus"></i></button>
-                        </span>
+                @if (User.IsInRole("Admin"))
+                {
+                    <div class="widget_summary">
+                        <div class="input-group ">
+                            <input type="text" class="form-control" placeholder="Add New Category">
+                            <span class="input-group-btn">
+                                <button id="addCategory" type="button" class="btn btn-success"><i class="fa fa-plus"></i></button>
+                            </span>
+                        </div>
                     </div>
-                </div>
+                }
             </div>
         </div>
         <div class="x_panel tile">
@@ -202,22 +208,6 @@
                         <div id="suggestions-container" style="position: relative; float: left; width: 250px; margin: 10px;"></div>
                     </div>
                 </div>
-                @*@foreach (Tag tag in ViewBag.Tags)
-                    {
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" class="flat" name="tags" value="@tag.Id"> @tag.Name
-                            </label>
-                        </div>
-                    }*@
-                @*<div class="widget_summary">
-                        <div class="input-group ">
-                            <input type="text" class="form-control" placeholder="Add New Tag">
-                            <span class="input-group-btn">
-                                <button id="addTag" type="button" class="btn btn-success"><i class="fa fa-plus"></i></button>
-                            </span>
-                        </div>
-                    </div>*@
             </div>
         </div>
     </div>
@@ -310,37 +300,6 @@
             currentLocation.Longitude = 0;
             currentLocation.HasLocation = false;
         });
-
-        $("#addCategory").on("click", function () {
-            $cat = $(this).parent().parent().find("input").val();
-            if ($cat == "")
-                return;
-            $.post("AddCategory", { name: $cat }, function (data) {
-                if (data.Id == -1)
-                    return;
-                if (data.isNew == true)
-                    $("#categoryList").append('<div class="checkbox"><label><input type="checkbox" checked class="flat" name="categories" value="' + data.Id + '"> ' + $cat + '</label></div>').iCheck({ checkboxClass: 'icheckbox_flat-green' });
-                else {
-                    $("#categoryList input[value='" + data.Id + "']").iCheck('check');
-                }
-            });
-            $(this).parent().parent().find("input").val('');
-        });
-        $("#addArea").on("click", function () {
-            $cat = $(this).parent().parent().find("input").val();
-            if ($cat == "")
-                return;
-            $.post("AddArea", { name: $cat }, function (data) {
-                if (data.Id == -1)
-                    return;
-                if (data.isNew == true)
-                    $("#areaList").append('<div class="radio"><label><input type="radio" checked class="flat" name="areas" value="' + data.Id + '"> ' + $cat + '</label></div>').iCheck({ radioClass: 'iradio_flat-green' });
-                else {
-                    $("#areaList input[value='" + data.Id + "']").iCheck('check');
-                }
-            });
-            $(this).parent().parent().find("input").val('');
-        });
         //$("#addTag").on("click", function () {
         //    $cat = $(this).parent().parent().find("input").val();
         //    if ($cat == "")
@@ -398,4 +357,39 @@
             return (!str || /^\s*$/.test(str));
         }
     </script>
+    @if (User.IsInRole("Admin"))
+    {
+        <script>
+            $("#addCategory").on("click", function () {
+                $cat = $(this).parent().parent().find("input").val();
+                if ($cat == "")
+                    return;
+                $.post("AddCategory", { name: $cat }, function (data) {
+                    if (data.Id == -1)
+                        return;
+                    if (data.isNew == true)
+                        $("#categoryList").append('<div class="checkbox"><label><input type="checkbox" checked class="flat" name="categories" value="' + data.Id + '"> ' + $cat + '</label></div>').iCheck({ checkboxClass: 'icheckbox_flat-green' });
+                    else {
+                        $("#categoryList input[value='" + data.Id + "']").iCheck('check');
+                    }
+                });
+                $(this).parent().parent().find("input").val('');
+            });
+            $("#addArea").on("click", function () {
+                $cat = $(this).parent().parent().find("input").val();
+                if ($cat == "")
+                    return;
+                $.post("AddArea", { name: $cat }, function (data) {
+                    if (data.Id == -1)
+                        return;
+                    if (data.isNew == true)
+                        $("#areaList").append('<div class="radio"><label><input type="radio" checked class="flat" name="areas" value="' + data.Id + '"> ' + $cat + '</label></div>').iCheck({ radioClass: 'iradio_flat-green' });
+                    else {
+                        $("#areaList input[value='" + data.Id + "']").iCheck('check');
+                    }
+                });
+                $(this).parent().parent().find("input").val('');
+            });
+        </script>
+    }
 }
