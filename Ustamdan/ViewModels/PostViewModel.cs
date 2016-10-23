@@ -15,6 +15,7 @@ namespace Ustamdan.ViewModels
         public PostStatus PostStatus { get; set; }
         public string Description { get; set; }
         public string Author { get; set; }
+        public string AuthorUsername { get; set; }
         public string Body { get; set; }
         public Language Language { get; set; }
         public DateTime DateCreated { get; set; }
@@ -26,6 +27,8 @@ namespace Ustamdan.ViewModels
         public string[] CategoryNames { get; set; }
         public int[] Tags { get; set; }
         public string[] TagNames { get; set; }
+        public int? AreaId { get; set; }
+        public string Area { get; set; }
 
         public PostViewModel()
         {
@@ -46,6 +49,8 @@ namespace Ustamdan.ViewModels
             this.Longitude = post.Longitude;
             try
             {
+                this.Area = post.AreaId.HasValue?post.Area.Name:"";
+                this.AreaId = post.AreaId;
                 this.Categories = post.Categories.Select(x => x.Id).ToArray();
                 this.CategoryNames = post.Categories.Select(x => x.Name).ToArray();
                 this.Tags = post.Tags.Select(x => x.Id).ToArray();
@@ -53,6 +58,7 @@ namespace Ustamdan.ViewModels
                 this.DateCreated = post.DateCreated;
                 this.DateModified = post.DateModified;
                 this.Author = post.Author.Fullname;
+                this.AuthorUsername = post.Author.UserName;
             }
             catch (Exception ex)
             {

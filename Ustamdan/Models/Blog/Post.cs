@@ -74,10 +74,14 @@ namespace Ustamdan.Models.Blog
         public bool HasLocation { get; set; }
         public double Latitude { get; set; }
         public double Longitude { get; set; }
+        public int? AreaId { get; set; }
 
 
         [ForeignKey("AuthorId")]
         public virtual ApplicationUser Author { get; set; }
+
+        [ForeignKey("AreaId")]
+        public virtual Area Area { get; set; }
         public virtual List<Category> Categories { get; set; }
         public virtual List<Tag> Tags { get; set; }
     }
