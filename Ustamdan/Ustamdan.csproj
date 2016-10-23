@@ -1209,6 +1209,11 @@
     <Content Include="Content\theme\animate.css" />
     <Content Include="Content\theme\dark.css" />
     <Content Include="Content\theme\font-icons.css" />
+    <Content Include="Content\theme\fonts\font-icons-snapchat.svg" />
+    <Content Include="Content\theme\fonts\font-icons.svg" />
+    <Content Include="Content\theme\fonts\lined-icons.svg" />
+    <Content Include="Content\theme\fonts\Simple-Line-Icons.dev.svg" />
+    <Content Include="Content\theme\fonts\Simple-Line-Icons.svg" />
     <Content Include="Content\theme\magnific-popup.css" />
     <Content Include="Content\theme\responsive.css" />
     <Content Include="Content\theme\style.css" />
@@ -1279,6 +1284,19 @@
       <LastGenOutput>Resource.Designer.cs</LastGenOutput>
       <CustomToolNamespace>Resource</CustomToolNamespace>
     </Content>
+    <Content Include="Content\theme\fonts\font-icons-snapchat.eot" />
+    <Content Include="Content\theme\fonts\font-icons-snapchat.ttf" />
+    <Content Include="Content\theme\fonts\font-icons-snapchat.woff" />
+    <Content Include="Content\theme\fonts\font-icons.eot" />
+    <Content Include="Content\theme\fonts\font-icons.ttf" />
+    <Content Include="Content\theme\fonts\font-icons.woff" />
+    <Content Include="Content\theme\fonts\lined-icons.eot" />
+    <Content Include="Content\theme\fonts\lined-icons.ttf" />
+    <Content Include="Content\theme\fonts\lined-icons.woff" />
+    <Content Include="Content\theme\fonts\Simple-Line-Icons.eot" />
+    <Content Include="Content\theme\fonts\Simple-Line-Icons.ttf" />
+    <Content Include="Content\theme\fonts\Simple-Line-Icons.woff" />
+    <None Include="Properties\PublishProfiles\halim azure.pubxml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />
@@ -1520,7 +1538,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\Media\" />
-    <Folder Include="Content\theme\fonts\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

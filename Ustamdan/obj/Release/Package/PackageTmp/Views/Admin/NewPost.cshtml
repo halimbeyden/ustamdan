@@ -1,0 +1,350 @@
+﻿
+@{
+    ViewBag.Title = "New Post";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<style>
+    .panel_toolbox {
+        min-width: 0px;
+    }
+</style>
+<button type="button" onclick="savePost()" class="btn btn-success pull-right">Save Post</button>
+<h2>NewPost</h2>
+<hr />
+<div class="row">
+    <div class="col-lg-8 col-md-8 col-sm-10 col-xs-12">
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label class="control-label">Post Title</label>
+                <input type="text" class="form-control" placeholder="Title" id="postTitle">
+            </div>
+            <div class="form-group">
+                <label class="control-label">Post Image URL</label>
+                <input type="text" class="form-control" placeholder="Image URL" id="postImageUrl">
+            </div>
+            <div class="form-group">
+                <label class="control-label">Post Video URL</label>
+                <input type="text" class="form-control" placeholder="Video URL" id="postVideUrl">
+            </div>
+        </form>
+        <textarea style="min-height:500px" id="postBody"></textarea>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-2 col-xs-12">
+        <div class="x_panel tile">
+            <div class="x_title">
+                <h2>Location</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li>
+                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="widget_summary">
+                    <div class="location">
+                        <p>Latitude: <span id="lat">Not Selected</span></p>
+                        <p>Longitude: <span id="long">Not Selected</span></p>
+                        <button type="button" class="btn btn-sm btn-default" data-target="#locationModal" data-toggle="modal">Select Location</button>
+                        <button id="clearLocationBtn" type="button" class="btn btn-sm btn-warning">Clear Location</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="x_panel tile">
+            <div class="x_title">
+                <h2>Status</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li>
+                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <h4>Select Post Status</h4>
+                <div class="widget_summary">
+                    <form class="form-horizontal form-label-left">
+                        @{
+                            int i = 0;
+                            foreach (PostStatus ps in Enum.GetValues(typeof(PostStatus)))
+                            {
+                                <div class="radio">
+                                    <label>
+                                        @if (ps == PostStatus.Draft)
+                                        {
+                                            <input type="radio" class="flat" checked name="status" value="@(i++)"> @ps.ToString()
+                                        }
+                                        else
+                                        {
+                                            <input type="radio" class="flat" name="status" value="@(i++)"> @ps.ToString()
+                                        }
+                                    </label>
+                                </div>
+                            }
+                        }
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="x_panel tile">
+            <div class="x_title">
+                <h2>Language</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li>
+                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <h4>Select Language</h4>
+                <div class="widget_summary">
+                    <form class="form-horizontal form-label-left">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" class="flat" checked name="lang" value="1"> Turkish
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" class="flat" name="lang" value="0"> English
+                            </label>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="x_panel tile">
+            <div class="x_title">
+                <h2>Categories</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li>
+                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <h4>Select Categories</h4>
+                <div class="widget_summary">
+                    <div id="categoryList">
+                        @foreach (Category cat in ViewBag.Categories)
+                        {
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" class="flat" name="categories" value="@cat.Id"> @cat.Name
+                                </label>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <div class="widget_summary">
+                    <div class="input-group ">
+                        <input type="text" class="form-control" placeholder="Add New Category">
+                        <span class="input-group-btn">
+                            <button id="addCategory" type="button" class="btn btn-success"><i class="fa fa-plus"></i></button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="x_panel tile">
+            <div class="x_title">
+                <h2>Tags</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li>
+                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <h4>Input Tags</h4>
+                <div class="widget_summary">
+                    <div class="col-md-11 col-sm-11 col-xs-11">
+                        <input id="tags_1" type="text" class="tags form-control flat" value="Ustamdan" />
+                        <div id="suggestions-container" style="position: relative; float: left; width: 250px; margin: 10px;"></div>
+                    </div>
+                </div>
+                @*@foreach (Tag tag in ViewBag.Tags)
+                    {
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" class="flat" name="tags" value="@tag.Id"> @tag.Name
+                            </label>
+                        </div>
+                    }*@
+                @*<div class="widget_summary">
+                        <div class="input-group ">
+                            <input type="text" class="form-control" placeholder="Add New Tag">
+                            <span class="input-group-btn">
+                                <button id="addTag" type="button" class="btn btn-success"><i class="fa fa-plus"></i></button>
+                            </span>
+                        </div>
+                    </div>*@
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="locationModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-body">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Select Location</h4>
+                </div>
+                <div class="modal-body">
+                    <div id="locationDiv" style="width: 500px; height: 400px;"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <button id="selectLocationBtn" type="button" class="btn btn-primary">Okey</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script src="~/Scripts/tinymce/tinymce.min.js"></script>
+    <script src="~/Scripts/Admin/jquery.tagsinput.js"></script>
+    <script type="text/javascript" src='http://maps.google.com/maps/api/js?key=AIzaSyBo6xedQToKACcfN2BzV54-3br245ytkBo&sensor=false&libraries=places'></script>
+    <script src="~/Scripts/Admin/locationpicker.jquery.js"></script>
+    <!-- jQuery Tags Input -->
+    <script>
+        $(document).ready(function () {
+            $('#tags_1').tagsInput({
+                width: 'auto'
+            });
+        });
+    </script>
+    <!-- /jQuery Tags Input -->
+    <script>
+        tinymce.init({
+            selector: '#postBody',
+            theme: 'modern',
+            plugins: [
+               'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+               'searchreplace wordcount visualblocks visualchars code fullscreen',
+               'insertdatetime media nonbreaking save table contextmenu directionality',
+               'template paste textcolor colorpicker textpattern imagetools'
+            ],
+            toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+            toolbar2: 'print preview media | forecolor backcolor',
+            image_advtab: true,
+            templates: [
+              { title: 'Test template 1', content: 'Test 1' },
+              { title: 'Test template 2', content: 'Test 2' }
+            ],
+            content_css: [
+              '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
+              '//www.tinymce.com/css/codepen.min.css'
+            ]
+        });
+    </script>
+    <script>
+        var currentLocation = { HasLocation: false, Latitude: 0, Longitude: 0 };
+
+        $('#locationDiv').locationpicker({
+            location: {
+                latitude: 38.939,
+                longitude: 35.406
+            },
+            locationName: "Turkey",
+            radius: 0,
+            zoom: 5,
+        });
+        $('#locationModal').on("shown.bs.modal", function () {
+            $('#locationDiv').locationpicker('autosize');
+        });
+        $('#locationModal #selectLocationBtn').on("click", function () {
+            $("#lat").text($('#locationDiv').locationpicker("location").latitude);
+            $("#long").text($('#locationDiv').locationpicker("location").longitude);
+            currentLocation.Latitude = $('#locationDiv').locationpicker("location").latitude;
+            currentLocation.Longitude = $('#locationDiv').locationpicker("location").longitude;
+            currentLocation.HasLocation = true;
+            $('#locationModal').modal("hide");
+        });
+        $("#clearLocationBtn").on("click", function () {
+            $("#lat").text("Not Selected");
+            $("#long").text("Not Selected");
+            currentLocation.Latitude = 0;
+            currentLocation.Longitude = 0;
+            currentLocation.HasLocation = false;
+        });
+
+        $("#addCategory").on("click", function () {
+            $cat = $(this).parent().parent().find("input").val();
+            if ($cat == "")
+                return;
+            $.post("AddCategory", { name: $cat }, function (data) {
+                if (data.Id == -1)
+                    return;
+                if (data.isNew == true)
+                    $("#categoryList").append('<div class="checkbox"><label><input type="checkbox" checked class="flat" name="categories" value="' + data.Id + '"> ' + $cat + '</label></div>').iCheck({ checkboxClass: 'icheckbox_flat-green' });
+                else {
+                    $("#categoryList input[value='" + data.Id + "']").iCheck('check');
+                }
+            });
+            $(this).parent().parent().find("input").val('');
+        });
+        //$("#addTag").on("click", function () {
+        //    $cat = $(this).parent().parent().find("input").val();
+        //    if ($cat == "")
+        //        return;
+        //    $("#tagList").append('<div class="checkbox"><label><input type="checkbox" class="flat" name="tags" value="' + 1 + '"> ' + $cat + '</label></div>').iCheck({ checkboxClass: 'icheckbox_flat-green' });
+        //    $(this).parent().parent().find("input").val('');
+        //});
+
+        function savePost() {
+            var title = $("#postTitle").val();
+            var imageUrl = $("#postImageUrl").val();
+            var videoUrl = $("#postVideUrl").val();
+            var body = tinyMCE.get('postBody').getContent();
+            var lang = $("input[name='lang']:checked").val();
+            var status = $("input[name='status']:checked").val();
+            var categories = [];
+            var tags = [];
+            try {
+                $("#categoryList input:checked").each(function (index, item) {
+                    categories.push($(item).val());
+                });
+                tags = $("#tags_1").val().split(",");
+            }
+            catch (err) {
+                console.log(err);
+            }
+            var data = {
+                'Title': title,
+                'Description': "",
+                'Body': body,
+                'Language': lang,
+                'PostStatus': status,
+                'Categories': categories,
+                'Tags': tags,
+                'PostType': isBlank(imageUrl) ? 1 : 0,
+                'MediaURL': isBlank(imageUrl) ? videoUrl : imageUrl,
+                'HasLocation': currentLocation.HasLocation,
+                'Latitude': currentLocation.Latitude,
+                'Longitude':currentLocation.Longitude
+            };
+            console.log(JSON.stringify(data));
+            $.ajax({
+                url: "@Url.Action("SavePost")",
+                type: 'POST',
+                contentType: 'application/json; charset=utf-8',
+                dataType: 'json',
+                data: JSON.stringify(data),
+            }).done(function (response) {
+                alert(response);
+            });
+        }
+        function isBlank(str) {
+            return (!str || /^\s*$/.test(str));
+        }
+    </script>
+}
