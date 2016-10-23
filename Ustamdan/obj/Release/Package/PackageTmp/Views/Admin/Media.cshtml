@@ -1,0 +1,142 @@
+﻿@model List<FileInfo>
+@{
+    ViewBag.Title = "Media";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<link href="~/Content/Admin/nprogress.css" rel="stylesheet" />
+<style>
+    .panel_toolbox {
+        min-width: 0px;
+    }
+</style>
+<div class="">
+    <div class="page-title">
+        <div class="title_left">
+            <h3> Media Gallery <small></small> </h3>
+        </div>
+        @*<div class="title_right">
+            <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search...">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button">Go!</button>
+                    </span>
+                </div>
+            </div>
+        </div>*@
+    </div>
+    <div class="clearfix"></div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Media Gallery</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                        <li>
+                            <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                        </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <a href="#" class="btn btn-app" data-toggle="modal" data-target="#addMediaModal">
+                    <i class="fa fa-plus"></i>
+                    New Media
+                </a>
+                <div class="x_content">
+                    <div class="row">
+                        @foreach (var media in Model)
+                        {
+                            <div class="col-md-55">
+                                <div class="thumbnail">
+                                    <div class="image view view-first">
+                                        <img align="middle" style="width: auto; height:100%; display: block;" src="../../Content/Media/@media.Name" alt="image" />
+                                        <div class="mask no-caption">
+                                            <div class="tools tools-bottom">
+                                                <a href="javascript:copyToClipboard('/Content/Media/@media.Name')"><i class="fa fa-link"></i></a>
+                                                <a href="#" data-nm="@media.Name" data-toggle="modal" data-target="#removeMediaModal"><i class="fa fa-times"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="caption">
+                                        <p>/Content/Media/@media.Name</p>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="addMediaModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">Add Media</h4>
+            </div>
+            <form method="post" action="@Url.Action("AddMedia")" enctype="multipart/form-data">
+                <div class="modal-body row">
+                    @*<div class="form-group">
+                            <label class="control-label">Media Description: </label>
+                            <input class="form-control" type="text" name="mediaDesc" value="" required />
+                        </div>*@
+                    <div class="form-group">
+                        <label class="control-label">Media : </label>
+                        <input class="form-control" type="file" name="media" value="" required />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Add Media</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+<div id="removeMediaModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">Are you sure about to remove this media?</h4>
+            </div>
+            <form method="post" action="@Url.Action("RemoveMedia")" enctype="multipart/form-data">
+                <input type="hidden" name="mediaName" value="" />
+                <div class="modal-body row text-center">
+                    <img height="300" src="" alt="" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Yes, Remove It!</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+@section scripts{
+    <script src="~/Scripts/Admin/nprogress.js"></script>
+    <script>
+        function copyToClipboard(data) {
+            var $temp = $("<input>");
+            $("body").append($temp);
+            $temp.val(data).select();
+            document.execCommand("copy");
+            console.log(data);
+            $temp.remove();
+        }
+        $("#removeMediaModal").on("show.bs.modal", function (e) {
+            $(this).find("img").attr("src", "/Content/Media/" + $(e.relatedTarget).attr("data-nm"));
+            $(this).find("input").val($(e.relatedTarget).attr("data-nm"));
+        });
+    </script>
+}
