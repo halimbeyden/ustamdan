@@ -70,7 +70,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to HAKKIMIZDA.
+        ///   Looks up a localized string similar to İLETİŞİM.
         /// </summary>
         public static string ContactTitle {
             get {

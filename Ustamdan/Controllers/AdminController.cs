@@ -12,6 +12,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Ustamdan.Controllers
 {
+    [Authorize]
     public class AdminController : Controller
     {
         // GET: Admin
@@ -44,7 +45,8 @@ namespace Ustamdan.Controllers
             return View(model);
         }
         [Authorize(Roles ="Admin")]
-        public JsonResult ApprovePost(int id)
+        [HttpPost]
+        public ActionResult ApprovePost(int id)
         {
             using (var db = new ApplicationDbContext())
             {
@@ -54,7 +56,7 @@ namespace Ustamdan.Controllers
                 post.IsPublished = true;
                 db.SaveChanges();
             }
-            return Json(0);
+            return RedirectToAction("PendingPosts");
         }
 
         public ActionResult NewPost()
@@ -64,6 +66,7 @@ namespace Ustamdan.Controllers
                 ViewBag.Categories = db.Categories.ToList();
                 ViewBag.Areas = db.Areas.ToList();
                 ViewBag.Tags = db.Tags.ToList();
+                ViewData["MediaModel"] = GetMediaModel();
             }
             return View();
         }
@@ -81,6 +84,7 @@ namespace Ustamdan.Controllers
                 ViewBag.Areas = db.Areas.ToList();
                 ViewBag.Categories = db.Categories.ToList();
                 ViewBag.Tags = db.Tags.ToList();
+                ViewData["MediaModel"] = GetMediaModel();
             }
             return View(postVM);
         }
@@ -154,37 +158,41 @@ namespace Ustamdan.Controllers
         #region Media
         public ActionResult Media()
         {
+            return View(GetMediaModel());
+        }
+        public List<FileInfo> GetMediaModel()
+        {
             string mediaDirectory = HttpContext.Server.MapPath("~/Content/Media/");
             DirectoryInfo dirInfo = new DirectoryInfo(mediaDirectory);
             List<FileInfo> files = dirInfo.GetFiles().ToList();
             string[] imageExtensions = { ".jpg", ".jpeg", ".png", ".gif" };
-            files = files.Where(x => imageExtensions.Contains(x.Extension)).OrderByDescending(x => x.CreationTime).ToList();
-            return View(files);
+            files = files.Where(x => imageExtensions.Contains(x.Extension.ToLower())).OrderByDescending(x => x.CreationTime).ToList();
+            return files;
         }
-        public ActionResult AddMedia(HttpPostedFileBase media)
+        public string AddMedia(HttpPostedFileBase media)
         {
             if (media != null && media.ContentLength > 0)
             {
                 var img = Path.GetFileName(media.FileName);
                 string[] imageExtensions = { ".jpg", ".jpeg", ".png", ".gif" };
                 var extension = Path.GetExtension(media.FileName);
-                if (imageExtensions.Contains(extension))
+                if (imageExtensions.Contains(extension.ToLower()))
                 {
                     var path = Path.Combine(Server.MapPath("~/Content/Media/"),
                                            img);
                     media.SaveAs(path);
                 }
+                return media.FileName;
             }
-            return RedirectToAction("Media");
+            return "";
         }
-        public ActionResult RemoveMedia(string mediaName)
+        public void RemoveMedia(string mediaName)
         {
             string fullPath = Request.MapPath("~/Content/Media/" + mediaName);
             if (System.IO.File.Exists(fullPath))
             {
                 System.IO.File.Delete(fullPath);
             }
-            return RedirectToAction("Media");
         }
         #endregion
 

@@ -103,3 +103,4 @@ C:\Users\halim\Projects\Ustamdan\Ustamdan\obj\Release\Ustamdan.csproj.GenerateRe
 C:\Users\halim\Projects\Ustamdan\Ustamdan\obj\Release\en\Ustamdan.resources.dll
 C:\Users\halim\Projects\Ustamdan\Ustamdan\obj\Release\Ustamdan.dll
 C:\Users\halim\Projects\Ustamdan\Ustamdan\obj\Release\Ustamdan.pdb
+C:\Users\halim\Projects\Ustamdan\Ustamdan\obj\Release\Ustamdan.csprojResolveAssemblyReference.cache
