@@ -1,0 +1,324 @@
+﻿@model HomeViewModel
+@{
+    ViewBag.Title = "Ustamdan";
+}
+
+<!-- Header
+       ============================================= -->
+<header id="header" class="transparent-header dark">
+
+    <div id="header-wrap">
+
+        <div class="container clearfix">
+
+            <div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
+
+            <!-- Logo
+            ============================================= -->
+            <div id="logo" class=".gotoTop">
+                <a href="#" class="standard-logo" data-dark-logo="/Content/img/iconlogowhite.png"><img src="~/Content/img/iconlogowhite.png" alt="Canvas Logo"></a>
+                <a href="#" class="retina-logo" data-dark-logo="/Content/img/iconlogowhite.png"><img src="~/Content/img/iconlogowhite.png" alt="Canvas Logo"></a>
+            </div><!-- #logo end -->
+            <!-- Primary Navigation
+            ============================================= -->
+            <nav id="primary-menu">
+
+                <ul>
+                    <li>
+                        <a href="@Url.Action("Index","Home")"><div>USTAMDAN</div></a>
+                    </li>
+                    <li class="current">
+                        <a href="@Url.Action("Blog","Home")"><div>@Resource.BlogTitle</div></a>
+                    </li>
+                    <li class="current">
+                        <a href="@Url.Action("About","Home")"><div>@Resource.OurStoryTitle</div></a>
+                    </li>
+                    <li class="current">
+                        <a href="@Url.Action("Contact","Home")"><div>@Resource.ContactTitle</div></a>
+                    </li>
+                    <li class="current">
+                        @Url.LangSwitcher(Resource.LanguageTitle, ViewContext.RouteData, Resource.LanguageTitle)
+                        @*<a href="@Url.Action("Index","Home")"><div>EN</div></a>*@
+                    </li>
+                </ul>
+
+                <!-- Top Search
+                ============================================= -->
+                <div id="top-search">
+                    <a href="#" id="top-search-trigger"><i class="icon-search3"></i><i class="icon-line-cross"></i></a>
+                    <form action="search.html" method="get">
+                        <input type="text" name="q" class="form-control" value="" placeholder="@Resource.SearchText">
+                    </form>
+                </div><!-- #top-search end -->
+
+            </nav><!-- #primary-menu end -->
+
+        </div>
+
+    </div>
+
+</header><!-- #header end -->
+<section id="slider" class="slider-parallax swiper_wrapper full-screen clearfix" data-loop="true">
+
+    <div class="slider-parallax-inner">
+
+        <div class="swiper-container swiper-parent">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide dark" style="background-image: url('/Content/images/slides/slide1.png');">
+                    <div class="container clearfix">
+                        <div class="slider-caption slider-caption-center">
+                            <h2 data-caption-animate="fadeInUp">"BİR KÜLTÜR MOZAİĞİ"</h2>
+                            <p data-caption-animate="fadeInUp" data-caption-delay="200">Ustamdan, kültürü yaratıcı fikirlerle buluşturarak insanlara ulaştıran bir köprüdür.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Content
+============================================= -->
+<section id="content">
+
+    <div class="content-wrap">
+        <div class="section notopmargin notopborder">
+            <div class="container clearfix">
+                <div class="heading-block center nomargin">
+                    <h3>Latest from the Blog</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="container clear-bottommargin clearfix">
+            <div class="row">
+                @foreach (var post in Model.Posts)
+                {
+                    <div class="col-md-3 col-sm-6 bottommargin">
+                        <div class="ipost clearfix">
+                            <div class="entry-image">
+                                @if (post.PostType == PostType.Image)
+                                {
+                                    <a href="#"><img class="image_fade" src="@post.MediaURL" alt="@post.Title"></a>
+                                }
+                                else
+                                {
+                                    <iframe src="@post.MediaURL" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                                }
+                            </div>
+                            <div class="entry-title">
+                                <h3><a href="@Url.Action("Post",new {id=post.Id })">@post.Title</a></h3>
+                            </div>
+                            <ul class="entry-meta clearfix">
+                                <li><i class="icon-calendar3"></i> @post.DateCreated.ToShortDateString()</li>
+                                <li>
+                                    <i class="icon-folder-open"></i>
+                                    @foreach (var cat in post.CategoryNames)
+                                    {
+                                        <a href="#">@cat</a>
+                                    }
+                                </li>
+                                @*<li><a href="blog-single.html#comments"><i class="icon-comments"></i> 53</a></li>*@
+                            </ul>
+                            <div class="entry-content">
+                                <p>@MvcHtmlString.Create(post.Body.Substring(0, 200))...</p>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="section topmargin-lg dark">
+
+            <div class="heading-block center">
+                <h2>HİZMETLERİMİZ</h2>
+            </div>
+
+            <div class="clear bottommargin-sm"></div>
+
+            <div class="container clearfix">
+                <div class="col_one_fourth nobottommargin">
+                    <div class="feature-box fbox-center fbox-light fbox-effect nobottomborder">
+                        <div class="fbox-icon">
+                            <a href="#"><i class="i-alt noborder icon-shop"></i></a>
+                        </div>
+                        <h3>Kurum Zanaat Koleksİyonu</h3>
+                    </div>
+                </div>
+
+                <div class="col_one_fourth nobottommargin">
+                    <div class="feature-box fbox-center fbox-light fbox-effect nobottomborder">
+                        <div class="fbox-icon">
+                            <a href="#"><i class="i-alt noborder icon-wallet"></i></a>
+                        </div>
+                        <h3>Kurumsal Hedİye Çözümlerİ</h3>
+                    </div>
+                </div>
+
+                <div class="col_one_fourth nobottommargin">
+                    <div class="feature-box fbox-center fbox-light fbox-effect nobottomborder">
+                        <div class="fbox-icon">
+                            <a href="#"><i class="i-alt noborder icon-megaphone"></i></a>
+                        </div>
+                        <h3>Zanaat Üretİm Danışmanlığı</h3>
+                    </div>
+                </div>
+
+                <div class="col_one_fourth nobottommargin col_last">
+                    <div class="feature-box fbox-center fbox-light fbox-effect nobottomborder">
+                        <div class="fbox-icon">
+                            <a href="#"><i class="i-alt noborder icon-fire"></i></a>
+                        </div>
+                        <h3>Kültürel İçerİk Üretİmİ</h3>
+                    </div>
+                </div>
+
+                <div class="clear"></div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <div class="section topmargin-lg">
+            <div class="container clearfix">
+
+                <div class="heading-block center">
+                    <h2>BASINDA BİZ</h2>
+                </div>
+
+                <div class="clear bottommargin-sm"></div>
+
+                <div class="col_one_third">
+                    <div class="feature-box fbox-small fbox-plain" data-animate="fadeIn">
+                        <div class="fbox-icon">
+                            <a target="_blank" href="http://bigumigu.com/haber/things-hackathon-teknolojiyle-sosyal-fayda-uretmek/"><i class="icon-phone2"></i></a>
+                        </div>
+                        <h3>WEBRAZZİ</h3>
+                        <p>Anadolu zanaatkarları ustamdan.com ile online satışa başladı.</p>
+                    </div>
+                </div>
+
+                <div class="col_one_third">
+                    <div class="feature-box fbox-small fbox-plain" data-animate="fadeIn">
+                        <div class="fbox-icon">
+                            <a href="#"><i class="icon-eye"></i></a>
+                        </div>
+                        <h3>ENDEAVOR</h3>
+                        <p>CaseCampus mentorluk paneli gerçekleşti...</p>
+                    </div>
+                </div>
+
+                <div class="col_one_third col_last">
+                    <div class="feature-box fbox-small fbox-plain" data-animate="fadeIn">
+                        <div class="fbox-icon">
+                            <a href="#"><i class="icon-star2"></i></a>
+                        </div>
+                        <h3>DAİLYSABAH</h3>
+                        <p>Türkiye ustamdan tarafından temsil edildi...</p>
+                    </div>
+                </div>
+
+                <div class="clear"></div>
+
+                <div class="col_one_third">
+                    <div class="feature-box fbox-small fbox-plain" data-animate="fadeIn">
+                        <div class="fbox-icon">
+                            <a href="#"><i class="icon-video"></i></a>
+                        </div>
+                        <h3>DHA.COM.TR</h3>
+                        <p>Endeavot girişimcileri küresel girişimcilik zirveisne damga vurdu...</p>
+                    </div>
+                </div>
+
+                <div class="col_one_third">
+                    <div class="feature-box fbox-small fbox-plain" data-animate="fadeIn">
+                        <div class="fbox-icon">
+                            <a href="#"><i class="icon-params"></i></a>
+                        </div>
+                        <h3>SABAH</h3>
+                        <p>Türk kadın Obama’nın girişimcilik zirvesinde...</p>
+                    </div>
+                </div>
+
+                <div class="col_one_third col_last">
+                    <div class="feature-box fbox-small fbox-plain" data-animate="fadeIn">
+                        <div class="fbox-icon">
+                            <a href="#"><i class="icon-fire"></i></a>
+                        </div>
+                        <h3>İTÜ ÇEKİRDEK</h3>
+                        <p>İTÜ Çekirdek’te bu hafta...</p>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+    <div class="section nobottommargin notopmargin dark">
+        <div class="container clearfix">
+            <div class="heading-block center">
+                <h3>ZANAAT DOSTU ŞİRKETLER AİLESİ</h3>
+            </div>
+
+            <div id="oc-clients" class="section nobgcolor notopmargin owl-carousel owl-carousel-full image-carousel footer-stick carousel-widget dark" data-margin="80" data-loop="false" data-nav="false" data-autoplay="5000" data-pagi="true" data-items-xxs="3" data-items-xs="4" data-items-sm="4" data-items-md="4" data-items-lg="4">
+                <div class="oc-item"><a href="#"><img src="~/Content/img/destekciler/gir.gif"></a></div>
+                <div class="oc-item"><a href="#"><img src="~/Content/img/destekciler/things.gif"></a></div>
+                <div class="oc-item"><a href="#"><img src="~/Content/img/destekciler/trpe.gif"></a></div>
+                <div class="oc-item"><a href="#"><img src="~/Content/img/destekciler/ay.gif"></a></div>
+                <div class="oc-item"><a href="#"><img src="~/Content/img/destekciler/bilgi.gif"></a></div>
+                <div class="oc-item"><a href="#"><img src="~/Content/img/destekciler/cek.gif"></a></div>
+                <div class="oc-item"><a href="#"><img src="~/Content/img/destekciler/end.gif"></a></div>
+                <div class="oc-item"><a href="#"><img src="~/Content/img/destekciler/bilgi.jpg"></a></div>
+                <div class="oc-item"><a href="#"><img src="~/Content/img/destekciler/slyvian.jpg"></a></div>
+                <div class="oc-item"><a href="#"><img src="~/Content/img/destekciler/tbt.jpg"></a></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section nobottommargin notopmargin">
+        <div class="container clearfix">
+            <div class="heading-block center">
+                <h3>BÜLTENİMİZE ÜYE OLUN</h3>
+            </div>
+
+            <div class="subscribe-widget">
+                <div class="widget-subscribe-form-result"></div>
+                <form id="widget-subscribe-form2" role="form" method="post" class="nobottommargin">
+                    <div class="input-group input-group-lg divcenter" style="max-width:600px;">
+                        <span class="input-group-addon"><i class="icon-email2"></i></span>
+                        <input type="email" name="widget-subscribe-form-email" class="form-control required email" placeholder="Enter your Email">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="submit">Subscribe Now</button>
+                        </span>
+                    </div>
+                    <div class="success divcenter hidden">
+                        <h4 style="color:#5cb85c;text-align:center">Thank you for subscribe!</h4>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+</section><!-- #content end -->
+@section scripts{
+
+    <script>
+        $("#widget-subscribe-form2").on("submit", function (e) {
+            e.preventDefault();
+            var form = $(this);
+            var email = form.find(".email").val();
+            if (validateEmail(email)) {
+                $.post("http://app.mailerlite.com/webforms/submit/i5f6k3", { 'fields[email]': email, 'ml-submit': 1 }, function (data) {
+                    form.find(".success").removeClass("hidden");
+                    form.find("div.input-group").remove();
+                });
+            }
+            return true;
+        });
+        function validateEmail(email) {
+            var re = /^(([^<>()[\]\\.,;:\s@@\"]+(\.[^<>()[\]\\.,;:\s@@\"]+)*)|(\".+\"))@@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(email);
+        }
+
+    </script>
+}
