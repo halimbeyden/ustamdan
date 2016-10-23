@@ -11,6 +11,7 @@
 /// <reference path="admin/locationpicker.jquery.js" />
 /// <reference path="admin/nprogress.js" />
 /// <reference path="admin/pnotify.js" />
+/// <reference path="admin/videourlparser.js" />
 /// <reference path="ai.0.22.19-build00125.min.js" />
 /// <reference path="bootstrap.min.js" />
 /// <reference path="jquery.validate.min.js" />

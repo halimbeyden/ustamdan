@@ -21,7 +21,12 @@
             </div>
             <div class="form-group">
                 <label class="control-label">Post Image URL</label>
-                <input type="text" class="form-control" placeholder="Image URL" id="postImageUrl">
+                <div class="input-group ">
+                    <input type="text" class="form-control" placeholder="Image URL" id="postImageUrl">
+                    <span class="input-group-btn">
+                        <button data-toggle="modal" data-target="#mediaModal" type="button" class="btn btn-default"><i class="fa fa-image"></i></button>
+                    </span>
+                </div>
             </div>
             <div class="form-group">
                 <label class="control-label">Post Video URL</label>
@@ -233,6 +238,25 @@
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="mediaModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-body">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Double Click to Select Media</h4>
+                </div>
+                <div class="modal-body">
+                    @Html.Partial("_MediaPartial",ViewData["MediaModel"])
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 @section scripts{
     <script src="~/Scripts/tinymce/tinymce.min.js"></script>
     <script src="~/Scripts/Admin/jquery.tagsinput.js"></script>
@@ -342,7 +366,6 @@
                 'Latitude': currentLocation.Latitude,
                 'Longitude': currentLocation.Longitude
             };
-            console.log(JSON.stringify(data));
             $.ajax({
                 url: "@Url.Action("SavePost")",
                 type: 'POST',
@@ -350,7 +373,7 @@
                 dataType: 'json',
                 data: JSON.stringify(data),
             }).done(function (response) {
-                alert(response);
+                window.location = "/Admin/EditPost/" + response;
             });
         }
         function isBlank(str) {
@@ -392,4 +415,61 @@
             });
         </script>
     }
+
+    <script src="~/Scripts/Admin/nprogress.js"></script>
+    <script>
+        function copyToClipboard(data) {
+            var $temp = $("<input>");
+            $("body").append($temp);
+            $temp.val(data).select();
+            document.execCommand("copy");
+            console.log(data);
+            $temp.remove();
+        }
+        $("#removeMediaModal").on("show.bs.modal", function (e) {
+            $(this).find("img").attr("src", "/Content/Media/" + $(e.relatedTarget).attr("data-nm"));
+            $(this).find("input").val($(e.relatedTarget).attr("data-nm"));
+            $(e.relatedTarget).parent().parent().parent().attr("data-active", 1);
+        });
+        $("#removeMediaModal").on("hide.bs.modal", function (e) {
+            $(".mediaImage").attr("data-active", 0);
+        });
+        $(document).on("click", "#removeMediaBtn", function () {
+            var data = $(this).parent().parent().serialize();
+            $.post("@Url.Action("RemoveMedia")", data, function () {
+                $("[data-active=1]").parent().parent().remove();
+                $("#removeMediaModal").modal("hide");
+            });
+        });
+        $(document).on("click", "#addMediaBtn", function () {
+            var formData = new FormData($("#addMediaModal form")[0]);
+            console.log(formData);
+            $.ajax({
+                url: "@Url.Action("AddMedia")",
+                type: 'POST',
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function (name) {
+                    var template = $(".mediaImage").parent().parent().first().clone();
+                    template.find("img").attr("src", "/Content/Media/" + name);
+                    template.find(".tools a").first().attr("href", "javascript:copyToClipboard('/Content/Media/" + name + "')");
+                    template.find(".tools a").last().attr("data-nm", name);
+                    template.find(".caption p").text(name);
+                    $(".mediaImage").parent().parent().first().before(template);
+                    $("#addMediaModal").modal("hide");
+                }
+            });
+        });
+        $(document).on("dblclick", ".mediaImage", function () {
+            $("#postImageUrl").val($(this).find("img").attr("src"));
+            $("#mediaModal").modal("hide");
+        });
+    </script>
+    <script src="~/Scripts/Admin/videourlparser.js"></script>
+    <script>
+        $("#postVideUrl").on("change", function () {
+            $(this).val(videoEmbed.convertMedia($(this).val()));
+        });
+    </script>
 }
