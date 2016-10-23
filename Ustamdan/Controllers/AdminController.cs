@@ -12,7 +12,6 @@ using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Ustamdan.Controllers
 {
-    [Authorize(Roles = "Admin")]
     public class AdminController : Controller
     {
         // GET: Admin
@@ -31,12 +30,39 @@ namespace Ustamdan.Controllers
             }
             return View(model);
         }
+        [Authorize(Roles ="Admin")]
+        public ActionResult PendingPosts()
+        {
+            List<PostViewModel> model;
+            using (var db = new ApplicationDbContext())
+            {
+                model = db.Posts
+                    .Where(x=>x.Status == PostStatus.Published && !x.IsPublished)
+                    .OrderByDescending(x => x.DateCreated).ToList()
+                    .Select(x => new PostViewModel(x)).ToList();
+            }
+            return View(model);
+        }
+        [Authorize(Roles ="Admin")]
+        public JsonResult ApprovePost(int id)
+        {
+            using (var db = new ApplicationDbContext())
+            {
+                var post = db.Posts.Find(id);
+                if (post == null)
+                    return Json(1);
+                post.IsPublished = true;
+                db.SaveChanges();
+            }
+            return Json(0);
+        }
 
         public ActionResult NewPost()
         {
             using (var db = new ApplicationDbContext())
             {
                 ViewBag.Categories = db.Categories.ToList();
+                ViewBag.Areas = db.Areas.ToList();
                 ViewBag.Tags = db.Tags.ToList();
             }
             return View();
@@ -49,7 +75,10 @@ namespace Ustamdan.Controllers
                 var post = db.Posts.Find(id);
                 if (post == null)
                     return HttpNotFound();
+                if (!User.IsInRole("Admin") && post.Author.Id != User.Identity.GetUserId())
+                    return new HttpUnauthorizedResult();
                 postVM = new PostViewModel(post);
+                ViewBag.Areas = db.Areas.ToList();
                 ViewBag.Categories = db.Categories.ToList();
                 ViewBag.Tags = db.Tags.ToList();
             }
@@ -75,6 +104,8 @@ namespace Ustamdan.Controllers
                     temp.Categories.Clear();
                     temp.Tags.Clear();
                 }
+                if (!User.IsInRole("Admin"))
+                    temp.IsPublished = false;
                 temp.Title = post.Title;
                 temp.PostContent = post.Body;
                 temp.Description = post.Description;
@@ -87,6 +118,7 @@ namespace Ustamdan.Controllers
                 temp.Longitude = post.Longitude;
                 temp.Categories = new List<Category>();
                 temp.Tags = new List<Tag>();
+                temp.AreaId = post.AreaId;
                 try
                 {
                     temp.Categories.AddRange(db.Categories.Where(x => post.Categories.Contains(x.Id)));
@@ -157,7 +189,7 @@ namespace Ustamdan.Controllers
         #endregion
 
         #region User
-
+        [Authorize(Roles = "Admin")]
         public ActionResult Users()
         {
             List<UserListViewModel> model;
@@ -167,6 +199,7 @@ namespace Ustamdan.Controllers
             }
             return View(model);
         }
+        [Authorize(Roles = "Admin")]
         public ActionResult EditUser(string id)
         {
             UserListViewModel model;
@@ -180,6 +213,7 @@ namespace Ustamdan.Controllers
             return View(model);
         }
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public ActionResult EditUser(RegisterViewModel model, string id)
         {
             using (var db = new ApplicationDbContext())
@@ -207,6 +241,7 @@ namespace Ustamdan.Controllers
         }
         #endregion
         #region Category
+        [Authorize(Roles = "Admin")]
         public JsonResult AddCategory(string name)
         {
             name = name.Trim();
@@ -224,5 +259,22 @@ namespace Ustamdan.Controllers
             }
         }
         #endregion
+        [Authorize(Roles = "Admin")]
+        public JsonResult AddArea(string name)
+        {
+            name = name.Trim();
+            if (String.IsNullOrEmpty(name))
+                return Json(new { Id = -1, isNew = false });
+            using (var db = new ApplicationDbContext())
+            {
+                Area area = db.Areas.FirstOrDefault(x => x.Name.ToLower() == name.ToLower());
+                if (area != null)
+                    return Json(new { Id = area.Id, isNew = false });
+                area = new Area(name);
+                db.Areas.Add(area);
+                db.SaveChanges();
+                return Json(new { Id = area.Id, isNew = true });
+            }
+        }
     }
 }
