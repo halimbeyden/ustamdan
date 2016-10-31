@@ -111,7 +111,7 @@
                                 </li>
                             </ul>
                             <div class="entry-content">
-                                <p>@MvcHtmlString.Create(post.Body.Substring(0, 100))...</p>
+                                <p>@MvcHtmlString.Create("")...</p>
                                 <a href="@Url.Action("Post",new {id = post.Id })" class="more-link">Read More</a>
                             </div>
                         </div>
@@ -507,20 +507,23 @@
                 @:'</ul>' +
                 @:'</div>' +
                 @:'</div>';
-                                        @:var infowindow = new google.maps.InfoWindow({
-                                                @:    content: contentString
-                                                @:});
-                                        @:var myLatlng = new google.maps.LatLng(@(MvcHtmlString.Create(Json.Encode(p.Latitude))),@(MvcHtmlString.Create(Json.Encode(p.Longitude))));
-                                        @:var marker = new google.maps.Marker({
-                                                @:    position: myLatlng,
-                                                @:    clickable: true,
-                                                @:    map: map,
-                                                @:    icon: "/Content/images/icons/map-icon-red.png",
-                                                @:    title: '@p.Title'
-                                                @:});
-                                        @:marker.addListener('click', function () {
-                                                @:    infowindow.open(map, marker);
-                                                @:});
+                                                    @:var infowindow = new google.maps.InfoWindow({
+                                                                @:    content: contentString
+                                                                @:});
+                                                    @:var myLatlng = new google.maps.LatLng(@(MvcHtmlString.Create(Json.Encode(p.Latitude))),@(MvcHtmlString.Create(Json.Encode(p.Longitude))));
+                                                    @:console.log(myLatlng.lat());
+                                                    @:var marker = new google.maps.Marker({
+                                                                @:    position: myLatlng,
+                                                                @:    clickable: true,
+                                                                @:    map: map,
+                                                                @:    icon: "/Content/images/icons/map-icon-red.png",
+                                                                @:    title: '@p.Title'
+                                                                    @:});
+                                    @:google.maps.event.addListener(marker,'click', (function(marker,content,infowindow){
+                                    @:return function() {
+                                               @:    infowindow.open(map, marker);
+                                    @:};
+                                    @:})(marker,content,infowindow));
                                     }
         }
     </script>
