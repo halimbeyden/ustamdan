@@ -104,5 +104,14 @@ namespace Resource {
                 return ResourceManager.GetString("SearchText", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Arama Sonuçları.
+        /// </summary>
+        public static string SearchTitle {
+            get {
+                return ResourceManager.GetString("SearchTitle", resourceCulture);
+            }
+        }
     }
 }
