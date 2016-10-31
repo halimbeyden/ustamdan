@@ -237,6 +237,7 @@
     <Compile Include="Models\Blog\Comment.cs" />
     <Compile Include="Models\Blog\Post.cs" />
     <Compile Include="Models\Blog\Tag.cs" />
+    <Compile Include="Models\Dummy.cs" />
     <Compile Include="Models\ErrorLog.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\LocalizationAttribute.cs" />
@@ -1541,6 +1542,7 @@
     <Content Include="Views\Home\Post.cshtml" />
     <Content Include="Views\Admin\PendingPosts.cshtml" />
     <Content Include="Views\Admin\_MediaPartial.cshtml" />
+    <Content Include="Views\Home\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

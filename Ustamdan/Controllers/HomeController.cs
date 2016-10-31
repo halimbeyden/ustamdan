@@ -65,17 +65,16 @@ namespace Ustamdan.Controllers
                 ViewBag.RecentPosts = db.Posts
                     .Include("Categories")
                     .Include("Tags")
-                    .Where(x=> x.IsPublished && x.Language == lang)
+                    .Where(x => x.IsPublished && x.Language == lang)
                     .OrderByDescending(x => x.DateCreated).Take(4)
                     .ToList()
                     .Select(x => new PostViewModel(x));
 
                 Random rand = new Random();
-                ViewBag.RelatedPosts = db.Posts.Include("Categories")
-                    .Include("Tags").ToList()
-                    .Where(x=> x.IsPublished && x.Language == lang)
-                    .OrderBy(c => rand.Next()).Take(4)
-                    .ToList()
+                ViewBag.RelatedPosts = post
+                    .getRelatedPosts(db)
+                    .Where(x => x.IsPublished && x.Language == lang)
+                    .OrderByDescending(x => x.DateCreated)
                     .Select(x => new PostViewModel(x));
             }
             return View(model);
@@ -84,7 +83,6 @@ namespace Ustamdan.Controllers
         {
             return View();
         }
-
         public ActionResult Contact()
         {
             return View();
@@ -97,9 +95,46 @@ namespace Ustamdan.Controllers
         {
             return View();
         }
-        public ActionResult Search()
+        public ActionResult Search(string q, int? a, int? c, int? t)
         {
-            return View();
+            string lang = RouteData.Values["lang"].ToString();
+            using (var db = new ApplicationDbContext())
+            {
+                var posts = db.Posts.Include("Categories")
+                                    .Include("Tags")
+                                    .Where(x => x.IsPublished && x.Language == lang)
+                                    .OrderByDescending(x => x.DateCreated).ToList();
+
+                if (a != null)
+                {
+                    Area area = db.Areas.Find(a);
+                    if (area != null)
+                    {
+                        posts = posts.Where(x => x.Area.Id == a).ToList();
+                    }
+                }
+                if (c != null)
+                {
+                    Category category = db.Categories.Find(c);
+                    if (category != null)
+                    {
+                        posts = posts.Where(x => x.Categories.Any(y => y.Id == a)).ToList();
+                    }
+                }
+                if (t != null)
+                {
+                    Tag tag = db.Tags.Find(t);
+                    if (tag != null)
+                    {
+                        posts = posts.Where(x => x.Tags.Any(y => y.Id == a)).ToList();
+                    }
+                }
+                if (!String.IsNullOrEmpty(q))
+                {
+                    posts = posts.Where(x => (x.Title + x.PostContent).ToLower().Contains(q.ToLower())).ToList();
+                }
+                return View(posts.ToList().Select(x=>new PostViewModel(x)));
+            }
         }
     }
 }

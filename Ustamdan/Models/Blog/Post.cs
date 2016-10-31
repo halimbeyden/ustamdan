@@ -84,5 +84,20 @@ namespace Ustamdan.Models.Blog
         public virtual Area Area { get; set; }
         public virtual List<Category> Categories { get; set; }
         public virtual List<Tag> Tags { get; set; }
+        public List<Post> getRelatedPosts(ApplicationDbContext db)
+        {
+            string myString = String.Join(" ",this.Categories.Select(x=>x.Name).ToList());
+            myString += " " + String.Join(" ", this.Tags.Select(x => x.Name).ToList());
+            myString += " " + this.Area.Name;
+            List<Post> rposts = new List<Post>();
+            foreach (var post in db.Posts.Where(x=>x.Id != this.Id))
+            {
+                if (post.Categories.Any(x => myString.Contains(x.Name))
+                    || post.Tags.Any(x => myString.Contains(x.Name))
+                    || myString.Contains(post.Area.Name))
+                    rposts.Add(post);
+            }
+            return rposts;
+        }
     }
 }
