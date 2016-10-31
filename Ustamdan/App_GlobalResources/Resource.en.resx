@@ -132,4 +132,7 @@
   <data name="SearchText" xml:space="preserve">
     <value>Type &amp; Hit Enter..</value>
   </data>
+  <data name="SearchTitle" xml:space="preserve">
+    <value>Search Results</value>
+  </data>
 </root>

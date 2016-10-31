@@ -132,4 +132,7 @@
   <data name="SearchText" xml:space="preserve">
     <value>Arama Yapın..</value>
   </data>
+  <data name="SearchTitle" xml:space="preserve">
+    <value>Arama Sonuçları</value>
+  </data>
 </root>
