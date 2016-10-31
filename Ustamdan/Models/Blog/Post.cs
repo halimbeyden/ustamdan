@@ -90,11 +90,12 @@ namespace Ustamdan.Models.Blog
             myString += " " + String.Join(" ", this.Tags.Select(x => x.Name).ToList());
             myString += " " + this.Area.Name;
             List<Post> rposts = new List<Post>();
-            foreach (var post in db.Posts.Where(x=>x.Id != this.Id))
+            foreach (var post in db.Posts.Where(x=>x.Id != this.Id).ToList())
             {
-                if (post.Categories.Any(x => myString.Contains(x.Name))
+                if ((post.Categories != null && post.Tags != null && post.Area != null) && 
+                    (post.Categories.Any(x => myString.Contains(x.Name))
                     || post.Tags.Any(x => myString.Contains(x.Name))
-                    || myString.Contains(post.Area.Name))
+                    || myString.Contains(post.Area.Name)))
                     rposts.Add(post);
             }
             return rposts;

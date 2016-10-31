@@ -34,7 +34,7 @@ namespace Ustamdan.Models
                 post.Title = generateRandomString(10);
                 post.PostContent = generateRandomString(300);
                 post.Description = generateRandomString(20);
-                post.Language = ((Language)random.Next(1)).GetStringValue();
+                post.Language = ((Language)random.Next(2)).GetStringValue();
                 post.MediaURL = "/Content/Media/katranci.jpg";
                 post.Type = PostType.Image;
                 post.Status = PostStatus.Published;
@@ -56,6 +56,7 @@ namespace Ustamdan.Models
                     .Where(x => arrTag.Contains(x.i))
                     .Select(x => x.t));
                 post.AreaId = db.Areas.ToList().OrderBy(x => new Guid()).First().Id;
+                post.IsPublished = true;
                 db.Posts.Add(post);
                 db.SaveChanges();
             }
@@ -64,8 +65,7 @@ namespace Ustamdan.Models
         {
             for (int i = 0; i < random.Next(1,7); i++)
             {
-                string d = "sdfgksndflgqerngşmvşzvğcxqwqwerrtytyıtyouıüğpçzöcvçööxczb";
-                Area area = new Area(d.Substring(random.Next(0, 30), 6));
+                Area area = new Area(generateRandomString(20));
                 db.Areas.Add(area);
             }
             db.SaveChanges();
@@ -74,8 +74,7 @@ namespace Ustamdan.Models
         {
             for (int i = 0; i < random.Next(1, 10); i++)
             {
-                string d = "zxcvbnmöçasddfghjkklşiqwertyuyııopüğ";
-                Category cat = new Category(d.Substring(random.Next(0, 30), 6));
+                Category cat = new Category(generateRandomString(10));
                 db.Categories.Add(cat);
             }
             db.SaveChanges();
@@ -84,9 +83,8 @@ namespace Ustamdan.Models
         {
             for (int i = 0; i < random.Next(1, 10); i++)
             {
-                string d = "zxcvbnmöçasddfghjkklşiqwertyuyııopüğ";
                 Tag tag = new Tag();
-                tag.Name = d.Substring(random.Next(0, 30), 6);
+                tag.Name = generateRandomString(10);
                 db.Tags.Add(tag);
             }
             db.SaveChanges();
