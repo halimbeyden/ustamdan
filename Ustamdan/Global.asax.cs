@@ -37,6 +37,11 @@ namespace Ustamdan
                 }
                 else
                     UserManager.AddToRole(usr.Id, "Admin");
+
+                context.Posts.ToList().ForEach(x => x.IsPublished = true);
+                context.SaveChanges();
+                if (context.Posts.Count() < 5)
+                    Dummy.CreateData(context);
             }
         }
     }
