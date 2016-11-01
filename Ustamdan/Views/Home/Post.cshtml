@@ -189,10 +189,7 @@
                                         @*<li><a href="blog-single.html#comments"><i class="icon-comments"></i> 53</a></li>*@
                                     </ul>
                                     <div class="entry-content">
-                                        @*@if (!String.IsNullOrEmpty(post.Body))
-                                            {
-                                                <p>@MvcHtmlString.Create("")...</p>
-                                            }*@
+                                        <p>@MvcHtmlString.Create(new string(post.Body.Take(100).ToArray()))...</p>
                                     </div>
                                 </div>
                             </div>

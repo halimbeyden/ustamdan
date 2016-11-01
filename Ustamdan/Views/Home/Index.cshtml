@@ -125,7 +125,7 @@
                             <div class="entry-content">
                                 @if (!String.IsNullOrEmpty(post.Body))
                                 {
-                                    <p>@MvcHtmlString.Create(post.Body.Substring(0, 200))...</p>
+                                    <p>@MvcHtmlString.Create(new string(post.Body.Take(100).ToArray()))...</p>
                                 }
                             </div>
                         </div>
