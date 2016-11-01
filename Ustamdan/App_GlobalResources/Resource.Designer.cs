@@ -88,7 +88,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to HİKAYEMİZ.
+        ///   Looks up a localized string similar to HAKKIMIZDA.
         /// </summary>
         public static string OurStoryTitle {
             get {
