@@ -111,7 +111,7 @@
                                 </li>
                             </ul>
                             <div class="entry-content">
-                                <p>@MvcHtmlString.Create("")...</p>
+                                <p>@MvcHtmlString.Create(new string(post.Body.Take(100).ToArray()))...</p>
                                 <a href="@Url.Action("Post",new {id = post.Id })" class="more-link">Read More</a>
                             </div>
                         </div>

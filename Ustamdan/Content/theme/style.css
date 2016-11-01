@@ -13525,3 +13525,10 @@ body:not(.no-transition) #wrapper,
 	padding:0!important
 }
 
+.entry-content{
+    word-wrap:break-word;
+}
+.entry-content>p{
+    overflow-y:hidden;
+    height:100px;
+}
