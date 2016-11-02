@@ -298,7 +298,8 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\img\destekciler\ay.gif" />
+    <Content Include="Content\img\destekciler\ay.jpg" />
+    <Content Include="Content\img\destekciler\ay.png" />
     <Content Include="Content\img\destekciler\bilgi.gif" />
     <Content Include="Content\img\destekciler\bilgi.jpg" />
     <Content Include="Content\img\destekciler\cek.gif" />
@@ -1543,6 +1544,7 @@
     <Content Include="Views\Admin\PendingPosts.cshtml" />
     <Content Include="Views\Admin\_MediaPartial.cshtml" />
     <Content Include="Views\Home\Search.cshtml" />
+    <Content Include="Views\Home\_PostPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

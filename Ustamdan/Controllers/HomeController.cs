@@ -50,7 +50,7 @@ namespace Ustamdan.Controllers
                    .ToList()
                    .Select(x => new PostViewModel(x));
             }
-            return View(posts.ToPagedList(page.Value, 10));
+            return View(posts.ToPagedList(page.Value, 9));
         }
         public ActionResult Post(int id)
         {
@@ -134,7 +134,7 @@ namespace Ustamdan.Controllers
                 {
                     posts = posts.Where(x => (x.Title + x.PostContent).ToLower().Contains(q.ToLower())).ToList();
                 }
-                return View(posts.ToList().Select(x=>new PostViewModel(x)));
+                return View(posts.ToList().Select(x=>new PostViewModel(x)).ToList());
             }
         }
     }
