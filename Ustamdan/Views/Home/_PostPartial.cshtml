@@ -1,0 +1,28 @@
+﻿@model PostViewModel
+    <div class="entry-image">
+        @if (Model.PostType == PostType.Image)
+        {
+            <a href="@Model.MediaURL" data-lightbox="image"><img class="image_fade" src="@Model.MediaURL" alt="@Model.Title"></a>
+        }
+        else
+        {
+            <iframe src="@Model.MediaURL" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        }
+    </div>
+    <div class="entry-title">
+        <h2><a href="@Url.Action("Post",new {id = Model.Id })">@Model.Title</a></h2>
+    </div>
+    <ul class="entry-meta clearfix">
+        <li><i class="icon-calendar3"></i> @Model.DateCreated.ToShortDateString()</li>
+        <li>
+            <i class="icon-folder-open"></i>
+            @foreach (var cat in Model.CategoryNames)
+            {
+                <a href="#">@cat</a>
+            }
+        </li>
+    </ul>
+    <div class="entry-content">
+        <p>@MvcHtmlString.Create(new string(Model.Body.Take(100).ToArray()))...</p>
+        <a href="@Url.Action("Post",new {id = Model.Id })" class="more-link">Read More</a>
+    </div>
