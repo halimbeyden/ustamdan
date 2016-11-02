@@ -1,59 +1,7 @@
 ﻿@{
     ViewBag.Title = "Contact";
 }
-<header id="header" class="semi-transparent dark">
 
-    <div id="header-wrap">
-
-        <div class="container clearfix">
-
-            <div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
-
-            <!-- Logo
-            ============================================= -->
-            <div id="logo">
-                <a href="@Url.Action("Index")" class="standard-logo" data-dark-logo="/Content/img/iconlogowhite.png"><img src="~/Content/img/iconlogowhite.png" alt="Canvas Logo"></a>
-                <a href="@Url.Action("Index")" class="retina-logo" data-dark-logo="/Content/img/iconlogowhite.png"><img src="~/Content/img/iconlogowhite.png" alt="Canvas Logo"></a>
-            </div><!-- #logo end -->
-            <!-- Primary Navigation
-            ============================================= -->
-            <nav id="primary-menu">
-
-                <ul>
-                    <li>
-                        <a href="@Url.Action("Index","Home")"><div>USTAMDAN</div></a>
-                    </li>
-                    <li class="current">
-                        <a href="@Url.Action("Blog","Home")"><div>@Resource.BlogTitle</div></a>
-                    </li>
-                    <li class="current">
-                        <a href="@Url.Action("About","Home")"><div>@Resource.OurStoryTitle</div></a>
-                    </li>
-                    <li class="current">
-                        <a href="@Url.Action("Contact","Home")"><div>@Resource.ContactTitle</div></a>
-                    </li>
-                    <li class="current">
-                        @Url.LangSwitcher(Resource.LanguageTitle, ViewContext.RouteData, Resource.LanguageTitle)
-                        @*<a href="@Url.Action("Index","Home")"><div>EN</div></a>*@
-                    </li>
-                </ul>
-
-                <!-- Top Search
-        ============================================= -->
-                <div id="top-search">
-                    <a href="#" id="top-search-trigger"><i class="icon-search3"></i><i class="icon-line-cross"></i></a>
-                    <form action="search.html" method="get">
-                        <input type="text" name="q" class="form-control" value="" placeholder="@Resource.SearchText">
-                    </form>
-                </div><!-- #top-search end -->
-
-            </nav><!-- #primary-menu end -->
-
-        </div>
-
-    </div>
-
-</header>
 <!-- Google Map
 ============================================= -->
 <section id="google-map" class="gmap slider-parallax"></section>

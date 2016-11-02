@@ -1,245 +1,171 @@
 ﻿@model PagedList.IPagedList<PostViewModel>
-@{
+@using PagedList.Mvc;
+    @{
     ViewBag.Title = Resource.BlogTitle;
-}
-<header id="header" class="semi-transparent dark">
+    }
 
-    <div id="header-wrap">
-
-        <div class="container clearfix">
-
-            <div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
-
-            <!-- Logo
-            ============================================= -->
-            <div id="logo">
-                <a href="@Url.Action("Index")" class="standard-logo" data-dark-logo="/Content/img/iconlogowhite.png"><img src="~/Content/img/iconlogowhite.png" alt="Canvas Logo"></a>
-                <a href="@Url.Action("Index")" class="retina-logo" data-dark-logo="/Content/img/iconlogowhite.png"><img src="~/Content/img/iconlogowhite.png" alt="Canvas Logo"></a>
-            </div><!-- #logo end -->
-            <!-- Primary Navigation
-            ============================================= -->
-            <nav id="primary-menu">
-
-                <ul>
-                    <li>
-                        <a href="@Url.Action("Index","Home")"><div>USTAMDAN</div></a>
-                    </li>
-                    <li class="current">
-                        <a href="@Url.Action("Blog","Home")"><div>@Resource.BlogTitle</div></a>
-                    </li>
-                    <li class="current">
-                        <a href="@Url.Action("About","Home")"><div>@Resource.OurStoryTitle</div></a>
-                    </li>
-                    <li class="current">
-                        <a href="@Url.Action("Contact","Home")"><div>@Resource.ContactTitle</div></a>
-                    </li>
-                    <li class="current">
-                        @Url.LangSwitcher(Resource.LanguageTitle, ViewContext.RouteData, Resource.LanguageTitle)
-                        @*<a href="@Url.Action("Index","Home")"><div>EN</div></a>*@
-                    </li>
-                </ul>
-
-                <!-- Top Search
-                ============================================= -->
-                <div id="top-search">
-                    <a href="#" id="top-search-trigger"><i class="icon-search3"></i><i class="icon-line-cross"></i></a>
-                    <form action="search.html" method="get">
-                        <input type="text" name="q" class="form-control" value="" placeholder="@Resource.SearchText">
-                    </form>
-                </div><!-- #top-search end -->
-
-            </nav><!-- #primary-menu end -->
-
+    <section id="page-title" style="padding:25px 0">
+        <div class="container clearfix text-center">
+            <h3>Anadolu Kültür Bloğu</h3>
         </div>
+    </section><!-- #page-title end -->
+    <!-- Google Map
+    ============================================= -->
+    <section id="google-map" class="slider-parallax"></section>
 
-    </div>
+    <section id="page-title" style="padding:25px 0">
+        <div class="container clearfix text-center">
+            <h3>Yazılar</h3>
+        </div>
+    </section><!-- #page-title end -->
+    <!-- Content
+    ============================================= -->
+    <section id="content">
 
-</header>
-<section id="page-title" style="padding:25px 0">
-    <div class="container clearfix text-center">
-        <h3>Anadolu Kültür Bloğu</h3>
-    </div>
-</section><!-- #page-title end -->
-<!-- Google Map
-============================================= -->
-<section id="google-map" class="slider-parallax"></section>
+        <div class="content-wrap">
 
-<section id="page-title" style="padding:25px 0">
-    <div class="container clearfix text-center">
-        <h3>Yazılar</h3>
-    </div>
-</section><!-- #page-title end -->
-<!-- Content
-============================================= -->
-<section id="content">
+            <div class="container clearfix">
 
-    <div class="content-wrap">
-
-        <div class="container clearfix">
-
-            <!-- Post Content
-            ============================================= -->
-            <div class="postcontent nobottommargin clearfix">
-
-                <!-- Posts
+                <!-- Post Content
                 ============================================= -->
-                <div id="posts" class="post-grid grid-container grid-3 clearfix" data-layout="fitRows">
-                    @foreach (var post in Model)
-                    {
+                <div class="postcontent nobottommargin clearfix">
+
+                    <!-- Posts
+                    ============================================= -->
+                    <div id="posts" class="post-grid grid-container grid-3 clearfix" data-layout="fitRows">
+                        @foreach (var post in Model)
+                        {
                         <div class="entry clearfix">
-                            <div class="entry-image">
-                                @if (post.PostType == PostType.Image)
-                                {
-                                    <a href="@post.MediaURL" data-lightbox="image"><img class="image_fade" src="@post.MediaURL" alt="@post.Title"></a>
-                                }
-                                else
-                                {
-                                    <iframe src="@post.MediaURL" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-                                }
-                            </div>
-                            <div class="entry-title">
-                                <h2><a href="@Url.Action("Post",new {id = post.Id })">@post.Title</a></h2>
-                            </div>
-                            <ul class="entry-meta clearfix">
-                                <li><i class="icon-calendar3"></i> @post.DateCreated.ToShortDateString()</li>
-                                <li>
-                                    <i class="icon-folder-open"></i>
-                                    @foreach (var cat in post.CategoryNames)
-                                    {
-                                        <a href="#">@cat</a>
-                                    }
-                                </li>
-                            </ul>
-                            <div class="entry-content">
-                                <p>@MvcHtmlString.Create(new string(post.Body.Take(100).ToArray()))...</p>
-                                <a href="@Url.Action("Post",new {id = post.Id })" class="more-link">Read More</a>
-                            </div>
+                            @Html.Partial("_PostPartial", post)
                         </div>
-                    }
+                        }
 
-                </div><!-- #posts end -->
-                <!-- Pagination
+                    </div><!-- #posts end -->
+                    <!-- Pagination
+                    ============================================= -->
+                <div class="text-center">
+                    @Html.PagedListPager(Model, page => Url.Action("Blog", new { page }))
+                </div>
+                    @*<ul class="pager nomargin">
+                        <li class="previous"><a href="#">&larr; Older</a></li>
+                        <li class="next"><a href="#">Newer &rarr;</a></li>
+                    </ul>*@<!-- .pager end -->
+
+                </div><!-- .postcontent end -->
+                <!-- Sidebar
                 ============================================= -->
-                <ul class="pager nomargin">
-                    <li class="previous"><a href="#">&larr; Older</a></li>
-                    <li class="next"><a href="#">Newer &rarr;</a></li>
-                </ul><!-- .pager end -->
+                <div class="sidebar nobottommargin col_last clearfix">
+                    <div class="sidebar-widgets-wrap">
+                        <div class="widget clearfix">
 
-            </div><!-- .postcontent end -->
-            <!-- Sidebar
-            ============================================= -->
-            <div class="sidebar nobottommargin col_last clearfix">
-                <div class="sidebar-widgets-wrap">
-                    <div class="widget clearfix">
+                            <div class="tabs nobottommargin clearfix" id="sidebar-tabs">
 
-                        <div class="tabs nobottommargin clearfix" id="sidebar-tabs">
+                                <ul class="tab-nav clearfix">
+                                    <li><a href="#tabs-1">Son Eklenenler</a></li>
+                                    @*
+                                    <li><a href="#tabs-2">Recent</a></li>*@
+                                </ul>
 
-                            <ul class="tab-nav clearfix">
-                                <li><a href="#tabs-1">Son Eklenenler</a></li>
-                                @*<li><a href="#tabs-2">Recent</a></li>*@
-                            </ul>
+                                <div class="tab-container">
 
-                            <div class="tab-container">
+                                    <div class="tab-content clearfix" id="tabs-1">
+                                        <div id="popular-post-list-sidebar">
 
-                                <div class="tab-content clearfix" id="tabs-1">
-                                    <div id="popular-post-list-sidebar">
-
-                                        @foreach (PostViewModel post in ViewBag.RecentPosts)
-                                        {
+                                            @foreach (PostViewModel post in ViewBag.RecentPosts)
+                                            {
                                             <div class="spost clearfix">
                                                 <div class="entry-image">
                                                     @if (post.PostType == PostType.Image)
                                                     {
-                                                        <a href="@Url.Action("Post",new { id=post.Id})" class="nobg"><img class="img-circle" src="@post.MediaURL" alt="@post.Title"></a>
+                                                    <a href="@Url.Action(" Post",new { id=post.Id})" class="nobg"><img class="img-circle" src="@post.MediaURL" alt="@post.Title"></a>
                                                     }
                                                     else
                                                     {
-                                                        <a href="@Url.Action("Post",new { id=post.Id})" class="nobg"><i class="icon icon-play-circle"></i></a>
+                                                    <a href="@Url.Action(" Post",new { id=post.Id})" class="nobg"><i class="icon icon-play-circle"></i></a>
                                                     }
                                                 </div>
                                                 <div class="entry-c">
                                                     <div class="entry-title">
-                                                        <h4><a href="@Url.Action("Post",new { id=post.Id})">@post.Title</a></h4>
+                                                        <h4><a href="@Url.Action(" Post",new { id=post.Id})">@post.Title</a></h4>
                                                     </div>
                                                     <ul class="entry-meta">
                                                         <li>
                                                             <i class="icon-folder-open"></i>
                                                             @foreach (var cat in post.CategoryNames)
                                                             {
-                                                                <a href="#">@cat</a>
+                                                            <a href="#">@cat</a>
                                                             }
                                                         </li>
                                                     </ul>
                                                 </div>
                                             </div>
-                                        }
+                                            }
 
+                                        </div>
                                     </div>
+                                    @*<div class="tab-content clearfix" id="tabs-2">
+                                        <div id="recent-post-list-sidebar">
+
+                                            <div class="spost clearfix">
+                                                <div class="entry-image">
+                                                    <a href="#" class="nobg"><img class="img-circle" src="images/magazine/small/1.jpg" alt=""></a>
+                                                </div>
+                                                <div class="entry-c">
+                                                    <div class="entry-title">
+                                                        <h4><a href="#">Lorem ipsum dolor sit amet, consectetur</a></h4>
+                                                    </div>
+                                                    <ul class="entry-meta">
+                                                        <li>10th July 2014</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+
+                                            <div class="spost clearfix">
+                                                <div class="entry-image">
+                                                    <a href="#" class="nobg"><img class="img-circle" src="images/magazine/small/2.jpg" alt=""></a>
+                                                </div>
+                                                <div class="entry-c">
+                                                    <div class="entry-title">
+                                                        <h4><a href="#">Elit Assumenda vel amet dolorum quasi</a></h4>
+                                                    </div>
+                                                    <ul class="entry-meta">
+                                                        <li>10th July 2014</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+
+                                            <div class="spost clearfix">
+                                                <div class="entry-image">
+                                                    <a href="#" class="nobg"><img class="img-circle" src="images/magazine/small/3.jpg" alt=""></a>
+                                                </div>
+                                                <div class="entry-c">
+                                                    <div class="entry-title">
+                                                        <h4><a href="#">Debitis nihil placeat, illum est nisi</a></h4>
+                                                    </div>
+                                                    <ul class="entry-meta">
+                                                        <li>10th July 2014</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>*@
+
                                 </div>
-                                @*<div class="tab-content clearfix" id="tabs-2">
-                                    <div id="recent-post-list-sidebar">
-
-                                        <div class="spost clearfix">
-                                            <div class="entry-image">
-                                                <a href="#" class="nobg"><img class="img-circle" src="images/magazine/small/1.jpg" alt=""></a>
-                                            </div>
-                                            <div class="entry-c">
-                                                <div class="entry-title">
-                                                    <h4><a href="#">Lorem ipsum dolor sit amet, consectetur</a></h4>
-                                                </div>
-                                                <ul class="entry-meta">
-                                                    <li>10th July 2014</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-
-                                        <div class="spost clearfix">
-                                            <div class="entry-image">
-                                                <a href="#" class="nobg"><img class="img-circle" src="images/magazine/small/2.jpg" alt=""></a>
-                                            </div>
-                                            <div class="entry-c">
-                                                <div class="entry-title">
-                                                    <h4><a href="#">Elit Assumenda vel amet dolorum quasi</a></h4>
-                                                </div>
-                                                <ul class="entry-meta">
-                                                    <li>10th July 2014</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-
-                                        <div class="spost clearfix">
-                                            <div class="entry-image">
-                                                <a href="#" class="nobg"><img class="img-circle" src="images/magazine/small/3.jpg" alt=""></a>
-                                            </div>
-                                            <div class="entry-c">
-                                                <div class="entry-title">
-                                                    <h4><a href="#">Debitis nihil placeat, illum est nisi</a></h4>
-                                                </div>
-                                                <ul class="entry-meta">
-                                                    <li>10th July 2014</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>*@
 
                             </div>
 
                         </div>
-
                     </div>
-                </div>
 
-            </div><!-- .sidebar end -->
+                </div><!-- .sidebar end -->
+
+            </div>
 
         </div>
 
-    </div>
-
-</section><!-- #content end -->
-
-@section Scripts{
+    </section><!-- #content end -->
+    @section Scripts{
     <script>
         function initMap() {
 
@@ -507,27 +433,27 @@
                 @:'</ul>' +
                 @:'</div>' +
                 @:'</div>';
-                                                    @:var infowindow = new google.maps.InfoWindow({
-                                                                @:    content: contentString
-                                                                @:});
-                                                    @:var myLatlng = new google.maps.LatLng(@(MvcHtmlString.Create(Json.Encode(p.Latitude))),@(MvcHtmlString.Create(Json.Encode(p.Longitude))));
-                                                    @:console.log(myLatlng.lat());
-                                                    @:var marker = new google.maps.Marker({
-                                                                @:    position: myLatlng,
-                                                                @:    clickable: true,
-                                                                @:    map: map,
-                                                                @:    icon: "/Content/images/icons/map-icon-red.png",
-                                                                @:    title: '@p.Title'
-                                                                    @:});
-                                    @:google.maps.event.addListener(marker,'click', (function(marker,content,infowindow){
-                                    @:return function() {
-                                               @:    infowindow.open(map, marker);
-                                    @:};
-                                    @:})(marker,content,infowindow));
-                                    }
+                                                                @:var infowindow = new google.maps.InfoWindow({
+                                                                                @:    content: contentString
+                                                                                @:});
+                                                                @:var myLatlng = new google.maps.LatLng(@(MvcHtmlString.Create(Json.Encode(p.Latitude))),@(MvcHtmlString.Create(Json.Encode(p.Longitude))));
+                                                                @:console.log(myLatlng.lat());
+                                                                @:var marker = new google.maps.Marker({
+                                                                                @:    position: myLatlng,
+                                                                                @:    clickable: true,
+                                                                                @:    map: map,
+                                                                                @:    icon: "/Content/images/icons/map-icon-red.png",
+                                                                                @:    title: '@p.Title'
+                                                                                    @:});
+                                                @:google.maps.event.addListener(marker,'click', (function(marker,content,infowindow){
+                                                    @:return function() {
+                                                                   @:    infowindow.open(map, marker);
+                                                        @:};
+                                                    @:})(marker,content,infowindow));
+                                                }
         }
     </script>
     <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBo6xedQToKACcfN2BzV54-3br245ytkBo&callback=initMap">
     </script>
-}
+    }
