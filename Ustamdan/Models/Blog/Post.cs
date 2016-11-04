@@ -84,13 +84,14 @@ namespace Ustamdan.Models.Blog
         public virtual Area Area { get; set; }
         public virtual List<Category> Categories { get; set; }
         public virtual List<Tag> Tags { get; set; }
-        public List<Post> getRelatedPosts(ApplicationDbContext db)
+        public List<Post> getRelatedPosts(ApplicationDbContext db,int count)
         {
             string myString = String.Join(" ",this.Categories.Select(x=>x.Name).ToList());
             myString += " " + String.Join(" ", this.Tags.Select(x => x.Name).ToList());
             myString += " " + this.Area.Name;
             List<Post> rposts = new List<Post>();
-            foreach (var post in db.Posts.Where(x=>x.Id != this.Id).ToList())
+            Random r = new Random();
+            foreach (var post in db.Posts.Where(x=>x.Id != this.Id && x.Language == this.Language).ToList())
             {
                 if ((post.Categories != null && post.Tags != null && post.Area != null) && 
                     (post.Categories.Any(x => myString.Contains(x.Name))
@@ -98,7 +99,7 @@ namespace Ustamdan.Models.Blog
                     || myString.Contains(post.Area.Name)))
                     rposts.Add(post);
             }
-            return rposts;
+            return rposts.OrderBy(x => Guid.NewGuid()).Take(count).ToList();
         }
     }
 }

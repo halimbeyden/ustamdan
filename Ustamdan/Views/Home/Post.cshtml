@@ -2,8 +2,6 @@
 @{
     ViewBag.Title = "Post";
 }
-
-
 <!-- Content
 ============================================= -->
 <section id="content">
@@ -130,7 +128,7 @@
 
                             <ul class="tab-nav clearfix">
                                 <li><a href="#tabs-1">@Resource.PostLatestsTitle</a></li>
-                                <li><a href="#tabs-2">@Resource.PostRelatedText</a></li>
+                               @* <li><a href="#tabs-2">@Resource.PostRelatedText</a></li>*@
                             </ul>
 
                             <div class="tab-container">
@@ -168,7 +166,7 @@
                                         }
                                     </div>
                                 </div>
-                                <div class="tab-content clearfix" id="tabs-2">
+                                @*<div class="tab-content clearfix" id="tabs-2">
                                     <div id="recent-post-list-sidebar">
                                         @foreach (PostViewModel post in ViewBag.RelatedPosts)
                                         {
@@ -194,7 +192,7 @@
                                             </div>
                                         }
                                     </div>
-                                </div>
+                                </div>*@
 
                             </div>
 
