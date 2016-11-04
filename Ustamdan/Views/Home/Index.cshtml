@@ -4,22 +4,19 @@
     ViewBag.IsIndex = true;
 }
 <section id="slider" class="slider-parallax swiper_wrapper full-screen clearfix" data-loop="true">
-
     <div class="slider-parallax-inner">
-
         <div class="swiper-container swiper-parent">
             <div class="swiper-wrapper">
                 <div class="swiper-slide dark" style="background-image: url('/Content/images/slides/slide1.png');">
                     <div class="container clearfix">
                         <div class="slider-caption slider-caption-center">
-                            <h2 data-caption-animate="fadeInUp">"BİR KÜLTÜR MOZAİĞİ"</h2>
-                            <p data-caption-animate="fadeInUp" data-caption-delay="200">Ustamdan, kültürü yaratıcı fikirlerle buluşturarak insanlara ulaştıran bir köprüdür.</p>
+                            <h2 data-caption-animate="fadeInUp">@Resource.IndexSliderTitle</h2>
+                            <p data-caption-animate="fadeInUp" data-caption-delay="200">@Resource.IndexSliderText</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
 
 </section>
@@ -32,7 +29,7 @@
         <div class="section notopmargin notopborder">
             <div class="container clearfix">
                 <div class="heading-block center nomargin">
-                    <h3>Latest from the Blog</h3>
+                    <h3>@Resource.IndexLatestPostsTitle</h3>@*Latest from the Weekly*@
                 </div>
             </div>
         </div>
@@ -52,7 +49,7 @@
         <div class="section topmargin-lg dark">
 
             <div class="heading-block center">
-                <h2>HİZMETLERİMİZ</h2>
+                <h2>@Resource.IndexServicesTitle</h2>
             </div>
 
             <div class="clear bottommargin-sm"></div>
@@ -63,7 +60,7 @@
                         <div class="fbox-icon">
                             <a href="#"><i class="i-alt noborder icon-shop"></i></a>
                         </div>
-                        <h3>Kurum Zanaat Koleksİyonu</h3>
+                        <h3>@Resource.IndexService1Title</h3>
                     </div>
                 </div>
 
@@ -72,7 +69,8 @@
                         <div class="fbox-icon">
                             <a href="#"><i class="i-alt noborder icon-wallet"></i></a>
                         </div>
-                        <h3>Kurumsal Hedİye Çözümlerİ</h3>
+                        <h3>@Resource.IndexService2Title</h3>
+
                     </div>
                 </div>
 
@@ -81,7 +79,8 @@
                         <div class="fbox-icon">
                             <a href="#"><i class="i-alt noborder icon-megaphone"></i></a>
                         </div>
-                        <h3>Zanaat Üretİm Danışmanlığı</h3>
+                        <h3>@Resource.IndexService3Title</h3>
+
                     </div>
                 </div>
 
@@ -90,7 +89,7 @@
                         <div class="fbox-icon">
                             <a href="#"><i class="i-alt noborder icon-fire"></i></a>
                         </div>
-                        <h3>Kültürel İçerİk Üretİmİ</h3>
+                        <h3>@Resource.IndexService4Title</h3>
                     </div>
                 </div>
 
@@ -102,7 +101,7 @@
             <div class="container clearfix">
 
                 <div class="heading-block center">
-                    <h2>BASINDA BİZ</h2>
+                    <h2>@Resource.IndexNewsTitle</h2>
                 </div>
 
                 <div class="clear bottommargin-sm"></div>
@@ -175,7 +174,7 @@
     <div class="section nobottommargin notopmargin dark">
         <div class="container clearfix">
             <div class="heading-block center">
-                <h3>ZANAAT DOSTU ŞİRKETLER AİLESİ</h3>
+                <h3>@Resource.IndexPartnersTitle</h3>
             </div>
 
             <div id="oc-clients" class="section nobgcolor notopmargin owl-carousel owl-carousel-full image-carousel footer-stick carousel-widget dark" data-margin="80" data-loop="false" data-nav="false" data-autoplay="5000" data-pagi="true" data-items-xxs="3" data-items-xs="4" data-items-sm="4" data-items-md="4" data-items-lg="4">
@@ -196,7 +195,7 @@
     <div class="section nobottommargin notopmargin">
         <div class="container clearfix">
             <div class="heading-block center">
-                <h3>BÜLTENİMİZE ÜYE OLUN</h3>
+                <h3>@Resource.IndexSubscriptionTitle</h3>
             </div>
 
             <div class="subscribe-widget">
@@ -204,13 +203,13 @@
                 <form id="widget-subscribe-form2" role="form" method="post" class="nobottommargin">
                     <div class="input-group input-group-lg divcenter" style="max-width:600px;">
                         <span class="input-group-addon"><i class="icon-email2"></i></span>
-                        <input type="email" name="widget-subscribe-form-email" class="form-control required email" placeholder="Enter your Email">
+                        <input type="email" name="widget-subscribe-form-email" class="form-control required email" placeholder="@Resource.IndexSubscriptionEmailText">
                         <span class="input-group-btn">
-                            <button class="btn btn-default" type="submit">Subscribe Now</button>
+                            <button class="btn btn-default" type="submit">@Resource.IndexSubscriptionSubmitText</button>
                         </span>
                     </div>
                     <div class="success divcenter hidden">
-                        <h4 style="color:#5cb85c;text-align:center">Thank you for subscribe!</h4>
+                        <h4 style="color:#5cb85c;text-align:center">@Resource.IndexSubscriptionSuccessText</h4>
                     </div>
                 </form>
             </div>

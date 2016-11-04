@@ -61,6 +61,60 @@ namespace Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ustamdan… Yıllar önce Gaziantep’te tanıştığımız Mehmet Usta ile başladı bu serüven. Mehmet Usta’nın zanaatına olan aşkı, tutkusu  ve misafirine bahşettiği sohbeti ile bindik bu Anadolu teknesine. Bir hoş sohbetle başlayan, yerel değerlerimizi araştırdıkça demlenen ve ekip olunca güçlenen beraberlikten Ustamdan doğdu..
+        /// </summary>
+        public static string AboutStoryP1 {
+            get {
+                return ResourceManager.GetString("AboutStoryP1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ustamdan, kültür ve yerel emeği yaratıcı fikirlerle buluşturarak insanlara ulaştıran , ürün ve yazılar ile inşa edilen bir değer köprüsüdür.  Bu köprünün bir başında bakır döven eller öte başında emeğe kıymet veren eller uzanır..
+        /// </summary>
+        public static string AboutStoryP2 {
+            get {
+                return ResourceManager.GetString("AboutStoryP2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ustamdan’ı  kalıcı ve evrensel bir mecraya dönüştürmek için çalışıyor, Anadolu kültürüne şevkle emek veriyoruz..
+        /// </summary>
+        public static string AboutStoryP3 {
+            get {
+                return ResourceManager.GetString("AboutStoryP3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kültür harmanında buluşmak üzere….
+        /// </summary>
+        public static string AboutStoryP4 {
+            get {
+                return ResourceManager.GetString("AboutStoryP4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to HİKAYEMİZ.
+        /// </summary>
+        public static string AboutStoryTitle {
+            get {
+                return ResourceManager.GetString("AboutStoryTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EKİBİMİZ.
+        /// </summary>
+        public static string AboutTeamTitle {
+            get {
+                return ResourceManager.GetString("AboutTeamTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Yazıhane.
         /// </summary>
         public static string BlogTitle {
@@ -70,11 +124,218 @@ namespace Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Adres Bilgilerimiz.
+        /// </summary>
+        public static string ContactAddressTitle {
+            get {
+                return ResourceManager.GetString("ContactAddressTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to İLETİŞİM.
         /// </summary>
         public static string ContactTitle {
             get {
                 return ResourceManager.GetString("ContactTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mesaj.
+        /// </summary>
+        public static string EmailTemplateMessageText {
+            get {
+                return ResourceManager.GetString("EmailTemplateMessageText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ad Soyad.
+        /// </summary>
+        public static string EmailTemplateNameText {
+            get {
+                return ResourceManager.GetString("EmailTemplateNameText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Konu.
+        /// </summary>
+        public static string EmailTemplateSubjectText {
+            get {
+                return ResourceManager.GetString("EmailTemplateSubjectText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gönder.
+        /// </summary>
+        public static string EmailTemplateSubmitText {
+            get {
+                return ResourceManager.GetString("EmailTemplateSubmitText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yazıhaneden Son Yazılar.
+        /// </summary>
+        public static string IndexLatestPostsTitle {
+            get {
+                return ResourceManager.GetString("IndexLatestPostsTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to BASINDA BİZ.
+        /// </summary>
+        public static string IndexNewsTitle {
+            get {
+                return ResourceManager.GetString("IndexNewsTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ZANAAT DOSTU ŞİRKETLER AİLESİ.
+        /// </summary>
+        public static string IndexPartnersTitle {
+            get {
+                return ResourceManager.GetString("IndexPartnersTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kendi kurum çizginize özel zanaat koleksiyonunuzu yaratıyoruz. Hikayesi ve tarihi ile hayat bulan zanaatlar kurumunuzun kimliği ile bütünleşiyor..
+        /// </summary>
+        public static string IndexService1Text {
+            get {
+                return ResourceManager.GetString("IndexService1Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kurum Zanaat Koleksİyonu.
+        /// </summary>
+        public static string IndexService1Title {
+            get {
+                return ResourceManager.GetString("IndexService1Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kurumsal hediyeleriniz için ürün seçkisi oluşturuyoruz. Ustamdan’ın eşsiz ürünleri sayesinde çalışanlarınızı özel hissettirin..
+        /// </summary>
+        public static string IndexService2Text {
+            get {
+                return ResourceManager.GetString("IndexService2Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kurumsal Hedİye Çözümlerİ.
+        /// </summary>
+        public static string IndexService2Title {
+            get {
+                return ResourceManager.GetString("IndexService2Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yurtdışı ve yurtiçi kurumlara özel yerel üretim danışmanlığı veriyor, süreç takibi hizmeti sunuyoruz..
+        /// </summary>
+        public static string IndexService3Text {
+            get {
+                return ResourceManager.GetString("IndexService3Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Zanaat Üretİm Danışmanlığı.
+        /// </summary>
+        public static string IndexService3Title {
+            get {
+                return ResourceManager.GetString("IndexService3Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yazıhane yazar ailemizle kültürel ve yerel değerleri dijitale taşıyor, görünür hale geliyoruz..
+        /// </summary>
+        public static string IndexService4Text {
+            get {
+                return ResourceManager.GetString("IndexService4Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kültürel İçerİk Üretİmİ.
+        /// </summary>
+        public static string IndexService4Title {
+            get {
+                return ResourceManager.GetString("IndexService4Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to HİZMETLERİMİZ.
+        /// </summary>
+        public static string IndexServicesTitle {
+            get {
+                return ResourceManager.GetString("IndexServicesTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ustamdan, kültürü yaratıcı fikirlerle buluşturarak insanlara ulaştıran bir köprüdür..
+        /// </summary>
+        public static string IndexSliderText {
+            get {
+                return ResourceManager.GetString("IndexSliderText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;BİR KÜLTÜR MOZAİĞİ&quot;.
+        /// </summary>
+        public static string IndexSliderTitle {
+            get {
+                return ResourceManager.GetString("IndexSliderTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email&apos;inizi Giriniz.
+        /// </summary>
+        public static string IndexSubscriptionEmailText {
+            get {
+                return ResourceManager.GetString("IndexSubscriptionEmailText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Şimdi Abone Ol.
+        /// </summary>
+        public static string IndexSubscriptionSubmitText {
+            get {
+                return ResourceManager.GetString("IndexSubscriptionSubmitText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Abone olduğunuz için teşekkür ederiz...
+        /// </summary>
+        public static string IndexSubscriptionSuccessText {
+            get {
+                return ResourceManager.GetString("IndexSubscriptionSuccessText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to BÜLTENİMİZE ÜYE OLUN.
+        /// </summary>
+        public static string IndexSubscriptionTitle {
+            get {
+                return ResourceManager.GetString("IndexSubscriptionTitle", resourceCulture);
             }
         }
         
@@ -97,6 +358,51 @@ namespace Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Son Eklenenler.
+        /// </summary>
+        public static string PostLatestsTitle {
+            get {
+                return ResourceManager.GetString("PostLatestsTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Devamını Oku.
+        /// </summary>
+        public static string PostReadMoreText {
+            get {
+                return ResourceManager.GetString("PostReadMoreText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Benzer Yazılar.
+        /// </summary>
+        public static string PostRelatedText {
+            get {
+                return ResourceManager.GetString("PostRelatedText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bu Yazıyı Paylaş:.
+        /// </summary>
+        public static string PostShareText {
+            get {
+                return ResourceManager.GetString("PostShareText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Etiket Bulutu.
+        /// </summary>
+        public static string PostTagCloudText {
+            get {
+                return ResourceManager.GetString("PostTagCloudText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Arama Yapın...
         /// </summary>
         public static string SearchText {
@@ -111,6 +417,33 @@ namespace Resource {
         public static string SearchTitle {
             get {
                 return ResourceManager.GetString("SearchTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bize Email Gönderin.
+        /// </summary>
+        public static string SendUsEmailText {
+            get {
+                return ResourceManager.GetString("SendUsEmailText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Anadolu Kültür Bloğu.
+        /// </summary>
+        public static string WeeklyTitle {
+            get {
+                return ResourceManager.GetString("WeeklyTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yazılar.
+        /// </summary>
+        public static string WeeklyTitle2 {
+            get {
+                return ResourceManager.GetString("WeeklyTitle2", resourceCulture);
             }
         }
     }

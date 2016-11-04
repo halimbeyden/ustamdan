@@ -1,11 +1,11 @@
-﻿@model List<PostViewModel>
+﻿@model PagedList.IPagedList<PostViewModel>
 @{
     ViewBag.Title = Resource.SearchTitle;
 }
 
 <section id="page-title" style="padding:25px 0">
     <div class="container clearfix text-center">
-        <h3>@Resource.SearchTitle</h3>
+        <h3>Arama Sonuçları</h3>
     </div>
 </section><!-- #page-title end -->
 <!-- Content
@@ -51,7 +51,7 @@
                             </ul>
                             <div class="entry-content">
                                 <p>@MvcHtmlString.Create(new string(post.Body.Take(100).ToArray()))...</p>
-                                <a href="@Url.Action("Post",new {id = post.Id })" class="more-link">@Resource.PostReadMoreText</a>
+                                <a href="@Url.Action("Post",new {id = post.Id })" class="more-link">Read More</a>
                             </div>
                         </div>
                     }
@@ -59,10 +59,10 @@
                 </div><!-- #posts end -->
                 <!-- Pagination
                 ============================================= -->
-                @*<ul class="pager nomargin">
+                <ul class="pager nomargin">
                     <li class="previous"><a href="#">&larr; Older</a></li>
                     <li class="next"><a href="#">Newer &rarr;</a></li>
-                </ul>*@<!-- .pager end -->
+                </ul><!-- .pager end -->
 
             </div><!-- .postcontent end -->
             <!-- Sidebar

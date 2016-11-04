@@ -73,7 +73,7 @@
                             <!-- Post Single - Share
                             ============================================= -->
                             <div class="si-share noborder clearfix">
-                                <span>Share this Post:</span>
+                                <span>@Resource.PostShareText</span>
                                 <div>
                                     <a href="#" class="social-icon si-borderless si-facebook">
                                         <i class="icon-facebook"></i>
@@ -105,7 +105,7 @@
                         </div>
                     </div><!-- .entry end -->
 
-                    <h4>Related Posts:</h4>
+                    <h4>@Resource.PostRelatedText:</h4>
 
                     <div class="row">
                         @foreach (PostViewModel post in ViewBag.RelatedPosts)
@@ -129,8 +129,8 @@
                         <div class="tabs nobottommargin clearfix" id="sidebar-tabs">
 
                             <ul class="tab-nav clearfix">
-                                <li><a href="#tabs-1">Recent</a></li>
-                                <li><a href="#tabs-2">Related</a></li>
+                                <li><a href="#tabs-1">@Resource.PostLatestsTitle</a></li>
+                                <li><a href="#tabs-2">@Resource.PostRelatedText</a></li>
                             </ul>
 
                             <div class="tab-container">
@@ -205,7 +205,7 @@
 
                     <div class="widget clearfix">
 
-                        <h4>Tag Cloud</h4>
+                        <h4>@Resource.PostTagCloudText</h4>
                         <div class="tagcloud">
                             @foreach (var tag in Model.TagNames)
                             {

@@ -117,22 +117,133 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AboutStoryP1" xml:space="preserve">
+    <value>Ustamdan… Yıllar önce Gaziantep’te tanıştığımız Mehmet Usta ile başladı bu serüven. Mehmet Usta’nın zanaatına olan aşkı, tutkusu  ve misafirine bahşettiği sohbeti ile bindik bu Anadolu teknesine. Bir hoş sohbetle başlayan, yerel değerlerimizi araştırdıkça demlenen ve ekip olunca güçlenen beraberlikten Ustamdan doğdu.</value>
+  </data>
+  <data name="AboutStoryP2" xml:space="preserve">
+    <value>Ustamdan, kültür ve yerel emeği yaratıcı fikirlerle buluşturarak insanlara ulaştıran , ürün ve yazılar ile inşa edilen bir değer köprüsüdür.  Bu köprünün bir başında bakır döven eller öte başında emeğe kıymet veren eller uzanır.</value>
+  </data>
+  <data name="AboutStoryP3" xml:space="preserve">
+    <value>Ustamdan’ı  kalıcı ve evrensel bir mecraya dönüştürmek için çalışıyor, Anadolu kültürüne şevkle emek veriyoruz.</value>
+  </data>
+  <data name="AboutStoryP4" xml:space="preserve">
+    <value>Kültür harmanında buluşmak üzere…</value>
+  </data>
+  <data name="AboutStoryTitle" xml:space="preserve">
+    <value>HİKAYEMİZ</value>
+  </data>
+  <data name="AboutTeamTitle" xml:space="preserve">
+    <value>EKİBİMİZ</value>
+  </data>
   <data name="BlogTitle" xml:space="preserve">
     <value>Yazıhane</value>
   </data>
   <data name="ContactTitle" xml:space="preserve">
     <value>İLETİŞİM</value>
   </data>
-  <data name="LanguageTitle" xml:space="preserve">
-    <value>en</value>
+  <data name="IndexLatestPostsTitle" xml:space="preserve">
+    <value>Yazıhaneden Son Yazılar</value>
+  </data>
+  <data name="IndexNewsTitle" xml:space="preserve">
+    <value>BASINDA BİZ</value>
+  </data>
+  <data name="IndexPartnersTitle" xml:space="preserve">
+    <value>ZANAAT DOSTU ŞİRKETLER AİLESİ</value>
+  </data>
+  <data name="IndexService1Text" xml:space="preserve">
+    <value>Kendi kurum çizginize özel zanaat koleksiyonunuzu yaratıyoruz. Hikayesi ve tarihi ile hayat bulan zanaatlar kurumunuzun kimliği ile bütünleşiyor.</value>
+  </data>
+  <data name="IndexService1Title" xml:space="preserve">
+    <value>Kurum Zanaat Koleksİyonu</value>
+  </data>
+  <data name="IndexService2Text" xml:space="preserve">
+    <value>Kurumsal hediyeleriniz için ürün seçkisi oluşturuyoruz. Ustamdan’ın eşsiz ürünleri sayesinde çalışanlarınızı özel hissettirin.</value>
+  </data>
+  <data name="IndexService2Title" xml:space="preserve">
+    <value>Kurumsal Hedİye Çözümlerİ</value>
+  </data>
+  <data name="IndexService3Text" xml:space="preserve">
+    <value>Yurtdışı ve yurtiçi kurumlara özel yerel üretim danışmanlığı veriyor, süreç takibi hizmeti sunuyoruz.</value>
+  </data>
+  <data name="IndexService3Title" xml:space="preserve">
+    <value>Zanaat Üretİm Danışmanlığı</value>
+  </data>
+  <data name="IndexService4Text" xml:space="preserve">
+    <value>Yazıhane yazar ailemizle kültürel ve yerel değerleri dijitale taşıyor, görünür hale geliyoruz.</value>
+  </data>
+  <data name="IndexService4Title" xml:space="preserve">
+    <value>Kültürel İçerİk Üretİmİ</value>
+  </data>
+  <data name="IndexServicesTitle" xml:space="preserve">
+    <value>HİZMETLERİMİZ</value>
+  </data>
+  <data name="IndexSliderText" xml:space="preserve">
+    <value>Ustamdan, kültürü yaratıcı fikirlerle buluşturarak insanlara ulaştıran bir köprüdür.</value>
+  </data>
+  <data name="IndexSliderTitle" xml:space="preserve">
+    <value>"BİR KÜLTÜR MOZAİĞİ"</value>
+  </data>
+  <data name="IndexSubscriptionEmailText" xml:space="preserve">
+    <value>Email'inizi Giriniz</value>
+  </data>
+  <data name="IndexSubscriptionSubmitText" xml:space="preserve">
+    <value>Şimdi Abone Ol</value>
+  </data>
+  <data name="IndexSubscriptionSuccessText" xml:space="preserve">
+    <value>Abone olduğunuz için teşekkür ederiz..</value>
+  </data>
+  <data name="IndexSubscriptionTitle" xml:space="preserve">
+    <value>BÜLTENİMİZE ÜYE OLUN</value>
   </data>
   <data name="OurStoryTitle" xml:space="preserve">
     <value>HAKKIMIZDA</value>
+  </data>
+  <data name="PostReadMoreText" xml:space="preserve">
+    <value>Devamını Oku</value>
   </data>
   <data name="SearchText" xml:space="preserve">
     <value>Arama Yapın..</value>
   </data>
   <data name="SearchTitle" xml:space="preserve">
     <value>Arama Sonuçları</value>
+  </data>
+  <data name="LanguageTitle" xml:space="preserve">
+    <value>en</value>
+  </data>
+  <data name="WeeklyTitle" xml:space="preserve">
+    <value>Anadolu Kültür Bloğu</value>
+  </data>
+  <data name="ContactAddressTitle" xml:space="preserve">
+    <value>Adres Bilgilerimiz</value>
+  </data>
+  <data name="EmailTemplateMessageText" xml:space="preserve">
+    <value>Mesaj</value>
+  </data>
+  <data name="EmailTemplateNameText" xml:space="preserve">
+    <value>Ad Soyad</value>
+  </data>
+  <data name="EmailTemplateSubjectText" xml:space="preserve">
+    <value>Konu</value>
+  </data>
+  <data name="EmailTemplateSubmitText" xml:space="preserve">
+    <value>Gönder</value>
+  </data>
+  <data name="PostLatestsTitle" xml:space="preserve">
+    <value>Son Eklenenler</value>
+  </data>
+  <data name="PostRelatedText" xml:space="preserve">
+    <value>Benzer Yazılar</value>
+  </data>
+  <data name="PostShareText" xml:space="preserve">
+    <value>Bu Yazıyı Paylaş:</value>
+  </data>
+  <data name="PostTagCloudText" xml:space="preserve">
+    <value>Etiket Bulutu</value>
+  </data>
+  <data name="SendUsEmailText" xml:space="preserve">
+    <value>Bize Email Gönderin</value>
+  </data>
+  <data name="WeeklyTitle2" xml:space="preserve">
+    <value>Yazılar</value>
   </data>
 </root>
