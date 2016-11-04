@@ -42,7 +42,7 @@ namespace Ustamdan
 
                 context.Posts.ToList().ForEach(x => x.IsPublished = true);
                 context.SaveChanges();
-                if (context.Posts.Count() < 5)
+                if (context.Posts.Count() < 100)
                     Dummy.CreateData(context);
             }
         }

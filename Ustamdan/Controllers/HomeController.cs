@@ -73,10 +73,7 @@ namespace Ustamdan.Controllers
 
                 Random rand = new Random();
                 ViewBag.RelatedPosts = post
-                    .getRelatedPosts(db)
-                    .Where(x => x.IsPublished && x.Language == lang)
-                    .OrderByDescending(x => x.DateCreated)
-                    .Take(3)
+                    .getRelatedPosts(db,3)
                     .Select(x => new PostViewModel(x));
             }
             return View(model);
