@@ -2,59 +2,7 @@
 @{
     ViewBag.Title = Resource.BlogTitle;
 }
-<header id="header" class="semi-transparent dark">
 
-    <div id="header-wrap">
-
-        <div class="container clearfix">
-
-            <div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
-
-            <!-- Logo
-            ============================================= -->
-            <div id="logo">
-                <a href="@Url.Action("Index")" class="standard-logo" data-dark-logo="/Content/img/iconlogowhite.png"><img src="~/Content/img/iconlogowhite.png" alt="Canvas Logo"></a>
-                <a href="@Url.Action("Index")" class="retina-logo" data-dark-logo="/Content/img/iconlogowhite.png"><img src="~/Content/img/iconlogowhite.png" alt="Canvas Logo"></a>
-            </div><!-- #logo end -->
-            <!-- Primary Navigation
-            ============================================= -->
-            <nav id="primary-menu">
-
-                <ul>
-                    <li>
-                        <a href="@Url.Action("Index","Home")"><div>USTAMDAN</div></a>
-                    </li>
-                    <li class="current">
-                        <a href="@Url.Action("Blog","Home")"><div>@Resource.BlogTitle</div></a>
-                    </li>
-                    <li class="current">
-                        <a href="@Url.Action("About","Home")"><div>@Resource.OurStoryTitle</div></a>
-                    </li>
-                    <li class="current">
-                        <a href="@Url.Action("Contact","Home")"><div>@Resource.ContactTitle</div></a>
-                    </li>
-                    <li class="current">
-                        @Url.LangSwitcher(Resource.LanguageTitle, ViewContext.RouteData, Resource.LanguageTitle)
-                        @*<a href="@Url.Action("Index","Home")"><div>EN</div></a>*@
-                    </li>
-                </ul>
-
-                <!-- Top Search
-                ============================================= -->
-                <div id="top-search">
-                    <a href="#" id="top-search-trigger"><i class="icon-search3"></i><i class="icon-line-cross"></i></a>
-                    <form action="search.html" method="get">
-                        <input type="text" name="q" class="form-control" value="" placeholder="@Resource.SearchText">
-                    </form>
-                </div><!-- #top-search end -->
-
-            </nav><!-- #primary-menu end -->
-
-        </div>
-
-    </div>
-
-</header>
 <section id="page-title" style="padding:25px 0">
     <div class="container clearfix text-center">
         <h3>Anadolu Kültür Bloğu</h3>
@@ -111,7 +59,7 @@
                                 </li>
                             </ul>
                             <div class="entry-content">
-                                <p>@MvcHtmlString.Create(post.Body.Substring(0, 100))...</p>
+                                <p>@MvcHtmlString.Create(new string(post.Body.Take(100).ToArray()))...</p>
                                 <a href="@Url.Action("Post",new {id = post.Id })" class="more-link">Read More</a>
                             </div>
                         </div>
@@ -507,20 +455,23 @@
                 @:'</ul>' +
                 @:'</div>' +
                 @:'</div>';
-                                        @:var infowindow = new google.maps.InfoWindow({
-                                                @:    content: contentString
-                                                @:});
-                                        @:var myLatlng = new google.maps.LatLng(@(MvcHtmlString.Create(Json.Encode(p.Latitude))),@(MvcHtmlString.Create(Json.Encode(p.Longitude))));
-                                        @:var marker = new google.maps.Marker({
-                                                @:    position: myLatlng,
-                                                @:    clickable: true,
-                                                @:    map: map,
-                                                @:    icon: "/Content/images/icons/map-icon-red.png",
-                                                @:    title: '@p.Title'
-                                                @:});
-                                        @:marker.addListener('click', function () {
-                                                @:    infowindow.open(map, marker);
-                                                @:});
+                                                    @:var infowindow = new google.maps.InfoWindow({
+                                                                @:    content: contentString
+                                                                @:});
+                                                    @:var myLatlng = new google.maps.LatLng(@(MvcHtmlString.Create(Json.Encode(p.Latitude))),@(MvcHtmlString.Create(Json.Encode(p.Longitude))));
+                                                    @:console.log(myLatlng.lat());
+                                                    @:var marker = new google.maps.Marker({
+                                                                @:    position: myLatlng,
+                                                                @:    clickable: true,
+                                                                @:    map: map,
+                                                                @:    icon: "/Content/images/icons/map-icon-red.png",
+                                                                @:    title: '@p.Title'
+                                                                    @:});
+                                    @:google.maps.event.addListener(marker,'click', (function(marker,content,infowindow){
+                                    @:return function() {
+                                               @:    infowindow.open(map, marker);
+                                    @:};
+                                    @:})(marker,content,infowindow));
                                     }
         }
     </script>

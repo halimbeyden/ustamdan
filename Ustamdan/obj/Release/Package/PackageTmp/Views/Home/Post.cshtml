@@ -2,58 +2,7 @@
 @{
     ViewBag.Title = "Post";
 }
-<header id="header" class="full-header semi-transparent dark">
 
-    <div id="header-wrap">
-
-        <div class="container clearfix">
-
-            <div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
-
-            <!-- Logo
-            ============================================= dummy -->
-            <div id="logo">
-                <a href="@Url.Action("Index")" class="standard-logo" data-dark-logo="/Content/img/iconlogowhite.png"><img src="~/Content/img/iconlogowhite.png" alt="Canvas Logo"></a>
-                <a href="@Url.Action("Index")" class="retina-logo" data-dark-logo="/Content/img/iconlogowhite.png"><img src="~/Content/img/iconlogowhite.png" alt="Canvas Logo"></a>
-            </div><!-- #logo end -->
-            <!-- Primary Navigation
-            ============================================= -->
-            <nav id="primary-menu">
-                <ul>
-                    <li>
-                        <a href="@Url.Action("Index","Home")"><div>USTAMDAN</div></a>
-                    </li>
-                    <li class="current">
-                        <a href="@Url.Action("Blog","Home")"><div>@Resource.BlogTitle</div></a>
-                    </li>
-                    <li class="current">
-                        <a href="@Url.Action("About","Home")"><div>@Resource.OurStoryTitle</div></a>
-                    </li>
-                    <li class="current">
-                        <a href="@Url.Action("Contact","Home")"><div>@Resource.ContactTitle</div></a>
-                    </li>
-                    <li class="current">
-                        @Url.LangSwitcher(Resource.LanguageTitle, ViewContext.RouteData, Resource.LanguageTitle)
-                        @*<a href="@Url.Action("Index","Home")"><div>EN</div></a>*@
-                    </li>
-                </ul>
-
-                <!-- Top Search
-                ============================================= -->
-                <div id="top-search">
-                    <a href="#" id="top-search-trigger"><i class="icon-search3"></i><i class="icon-line-cross"></i></a>
-                    <form action="search.html" method="get">
-                        <input type="text" name="q" class="form-control" value="" placeholder="@Resource.SearchText">
-                    </form>
-                </div><!-- #top-search end -->
-
-            </nav><!-- #primary-menu end -->
-
-        </div>
-
-    </div>
-
-</header>
 
 <!-- Content
 ============================================= -->
@@ -161,7 +110,7 @@
                     <div class="row">
                         @foreach (PostViewModel post in ViewBag.RelatedPosts)
                         {
-                            <div class="col-md-4 col-sm-6 bottommargin">
+                            <div class="col-md-4 col-sm-6 bottommargin fixed_height_320">
                                 <div class="ipost clearfix">
                                     <div class="entry-image">
                                         @if (post.PostType == PostType.Image)
@@ -182,16 +131,14 @@
                                             <i class="icon-folder-open"></i>
                                             @foreach (var cat in post.CategoryNames)
                                             {
-                                                <a href="#">@cat</a>
+                                                <a href="#"> @cat</a>
                                             }
                                         </li>
+
                                         @*<li><a href="blog-single.html#comments"><i class="icon-comments"></i> 53</a></li>*@
                                     </ul>
                                     <div class="entry-content">
-                                        @if (!String.IsNullOrEmpty(post.Body))
-                                        {
-                                            <p>@MvcHtmlString.Create(post.Body.Substring(0, 100))...</p>
-                                        }
+                                        <p>@MvcHtmlString.Create(new string(post.Body.Take(100).ToArray()))...</p>
                                     </div>
                                 </div>
                             </div>
