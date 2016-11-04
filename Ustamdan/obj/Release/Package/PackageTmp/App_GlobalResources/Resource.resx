@@ -121,15 +121,18 @@
     <value>Yazıhane</value>
   </data>
   <data name="ContactTitle" xml:space="preserve">
-    <value>HAKKIMIZDA</value>
+    <value>İLETİŞİM</value>
   </data>
   <data name="LanguageTitle" xml:space="preserve">
     <value>en</value>
   </data>
   <data name="OurStoryTitle" xml:space="preserve">
-    <value>HİKAYEMİZ</value>
+    <value>HAKKIMIZDA</value>
   </data>
   <data name="SearchText" xml:space="preserve">
     <value>Arama Yapın..</value>
+  </data>
+  <data name="SearchTitle" xml:space="preserve">
+    <value>Arama Sonuçları</value>
   </data>
 </root>

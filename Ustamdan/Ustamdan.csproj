@@ -1287,6 +1287,7 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resource.Designer.cs</LastGenOutput>
       <CustomToolNamespace>Resource</CustomToolNamespace>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Content\theme\fonts\font-icons-snapchat.eot" />
     <Content Include="Content\theme\fonts\font-icons-snapchat.ttf" />

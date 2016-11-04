@@ -6,7 +6,7 @@
 
     <section id="page-title" style="padding:25px 0">
         <div class="container clearfix text-center">
-            <h3>Anadolu Kültür Bloğu</h3>
+            <h3>@Resource.WeeklyTitle</h3>
         </div>
     </section><!-- #page-title end -->
     <!-- Google Map
@@ -15,7 +15,7 @@
 
     <section id="page-title" style="padding:25px 0">
         <div class="container clearfix text-center">
-            <h3>Yazılar</h3>
+            <h3>@Resource.WeeklyTitle2</h3>
         </div>
     </section><!-- #page-title end -->
     <!-- Content
@@ -61,7 +61,7 @@
                             <div class="tabs nobottommargin clearfix" id="sidebar-tabs">
 
                                 <ul class="tab-nav clearfix">
-                                    <li><a href="#tabs-1">Son Eklenenler</a></li>
+                                    <li><a href="#tabs-1">@Resource.PostLatestsTitle</a></li>
                                     @*
                                     <li><a href="#tabs-2">Recent</a></li>*@
                                 </ul>
@@ -415,7 +415,7 @@
             //Associate the styled map with the MapTypeId and set it to display.
             map.mapTypes.set('styled_map', styledMapType);
             map.setMapTypeId('styled_map');
-            @foreach (var p in Model.Where(x=>x.HasLocation))
+            @foreach (var p in (ViewBag.AllPosts as List<PostViewModel>))
             {
                 string imgContent = p.PostType == PostType.Image ? "<a href='" + Url.Action("Post", new { id = p.Id }) + "' class='nobg'><img src='" + p.MediaURL+ "' alt=''></a>"
                     :"<a href='" + Url.Action("Post",new { id=p.Id}) + "' class='nobg'><i class='icon icon-play-circle'></i></a>";

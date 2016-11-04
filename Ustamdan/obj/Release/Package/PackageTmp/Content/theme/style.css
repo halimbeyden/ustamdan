@@ -140,7 +140,7 @@ dl, dt, dd, ol, ul, li {
 body {
 	line-height: 1.5;
 	color: #555;
-	font-family: 'Lato', sans-serif;
+	font-family: 'Roboto';
 }
 
 a {
@@ -13525,3 +13525,10 @@ body:not(.no-transition) #wrapper,
 	padding:0!important
 }
 
+.entry-content{
+    word-wrap:break-word;
+}
+.entry-content>p{
+    overflow-y:hidden;
+    height:100px;
+}

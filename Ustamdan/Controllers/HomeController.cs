@@ -50,6 +50,7 @@ namespace Ustamdan.Controllers
                    .ToList()
                    .Select(x => new PostViewModel(x));
             }
+            ViewBag.AllPosts = posts.Where(x=>x.HasLocation).ToList();
             return View(posts.ToPagedList(page.Value, 9));
         }
         public ActionResult Post(int id)

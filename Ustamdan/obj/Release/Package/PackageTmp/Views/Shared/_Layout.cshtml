@@ -30,6 +30,68 @@
     ============================================= -->
     <div id="wrapper" class="clearfix">
 
+    
+<!-- Header
+       ============================================= -->
+    @{ 
+        if (ViewBag.IsIndex == null)
+        {
+            ViewBag.IsIndex = false;
+        }
+    }
+<header id="header" class="@(ViewBag.IsIndex?"":"semi-")transparent-header dark">
+
+    <div id="header-wrap">
+
+        <div class="container clearfix">
+
+            <div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
+
+            <!-- Logo
+            ============================================= -->
+            <div id="logo" class="@(ViewBag.IsIndex?".gotoTop":"")">
+                <a href="@(ViewBag.IsIndex?"#":Url.Action("Index"))" class="standard-logo" data-dark-logo="/Content/img/iconlogowhite.png"><img src="~/Content/img/iconlogowhite.png" alt="Canvas Logo"></a>
+                <a href="@(ViewBag.IsIndex?"#":Url.Action("Index"))" class="retina-logo" data-dark-logo="/Content/img/iconlogowhite.png"><img src="~/Content/img/iconlogowhite.png" alt="Canvas Logo"></a>
+            </div><!-- #logo end -->
+            <!-- Primary Navigation
+            ============================================= -->
+            <nav id="primary-menu">
+
+                <ul>
+                    <li>
+                        <a href="@Url.Action("Index","Home")"><div>USTAMDAN</div></a>
+                    </li>
+                    <li class="current">
+                        <a href="@Url.Action("Blog","Home")"><div>@Resource.BlogTitle</div></a>
+                    </li>
+                    <li class="current">
+                        <a href="@Url.Action("About","Home")"><div>@Resource.OurStoryTitle</div></a>
+                    </li>
+                    <li class="current">
+                        <a href="@Url.Action("Contact","Home")"><div>@Resource.ContactTitle</div></a>
+                    </li>
+                    <li class="current">
+                        @Url.LangSwitcher(Resource.LanguageTitle, ViewContext.RouteData, Resource.LanguageTitle)
+                        @*<a href="@Url.Action("Index","Home")"><div>EN</div></a>*@
+                    </li>
+                </ul>
+
+                <!-- Top Search
+                ============================================= -->
+                <div id="top-search">
+                    <a href="#" id="top-search-trigger"><i class="icon-search3"></i><i class="icon-line-cross"></i></a>
+                    <form action="@Url.Action("Search")" method="get">
+                        <input type="text" name="q" class="form-control" value="" placeholder="@Resource.SearchText">
+                    </form>
+                </div><!-- #top-search end -->
+
+            </nav><!-- #primary-menu end -->
+
+        </div>
+
+    </div>
+
+</header><!-- #header end -->
 
         @RenderBody()
         <!-- Footer
@@ -42,7 +104,7 @@
                 ============================================= -->
                 <div class="footer-widgets-wrap clearfix">
 
-                    <div class="col_two_third">
+                    <div class="">
 
                         <div class="col_one_third">
 
@@ -77,17 +139,8 @@
 
                             <div class="widget widget_links clearfix">
 
-                                <h4>Blogroll</h4>
-
-                                <ul>
-                                    <li><a href="http://codex.wordpress.org/">Documentation</a></li>
-                                    <li><a href="http://wordpress.org/support/forum/requests-and-feedback">Feedback</a></li>
-                                    <li><a href="http://wordpress.org/extend/plugins/">Plugins</a></li>
-                                    <li><a href="http://wordpress.org/support/">Support Forums</a></li>
-                                    <li><a href="http://wordpress.org/extend/themes/">Themes</a></li>
-                                    <li><a href="http://wordpress.org/news/">WordPress Blog</a></li>
-                                    <li><a href="http://planet.wordpress.org/">WordPress Planet</a></li>
-                                </ul>
+                                <h4>Instagram</h4>
+                                <iframe src="//lightwidget.com/widgets/1aa192955fe95f33a33eb83c0ac232a1.html" id="lightwidget_1aa192955f" name="lightwidget_1aa192955f" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width: 100%; border: 0; overflow: hidden;"></iframe>
 
                             </div>
 
@@ -96,41 +149,11 @@
                         <div class="col_one_third col_last">
 
                             <div class="widget clearfix">
-                                <h4>Recent Posts</h4>
+                                <h4>Twitter</h4>
 
                                 <div id="post-list-footer">
-                                    <div class="spost clearfix">
-                                        <div class="entry-c">
-                                            <div class="entry-title">
-                                                <h4><a href="#">Lorem ipsum dolor sit amet, consectetur</a></h4>
-                                            </div>
-                                            <ul class="entry-meta">
-                                                <li>10th July 2014</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-
-                                    <div class="spost clearfix">
-                                        <div class="entry-c">
-                                            <div class="entry-title">
-                                                <h4><a href="#">Elit Assumenda vel amet dolorum quasi</a></h4>
-                                            </div>
-                                            <ul class="entry-meta">
-                                                <li>10th July 2014</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-
-                                    <div class="spost clearfix">
-                                        <div class="entry-c">
-                                            <div class="entry-title">
-                                                <h4><a href="#">Debitis nihil placeat, illum est nisi</a></h4>
-                                            </div>
-                                            <ul class="entry-meta">
-                                                <li>10th July 2014</li>
-                                            </ul>
-                                        </div>
-                                    </div>
+                                    <a class="twitter-timeline" data-lang="tr" data-height="400" data-theme="dark" href="https://twitter.com/ustamdan">Tweets by ustamdan</a>
+                                    <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
                                 </div>
                             </div>
 
@@ -138,7 +161,7 @@
 
                     </div>
 
-                    <div class="col_one_third col_last">
+                    @*<div class="col_one_third col_last">
 
                         <div class="widget clearfix" style="margin-bottom: -20px;">
 
@@ -195,7 +218,7 @@
 
                         </div>
 
-                    </div>
+                    </div>*@
 
                 </div><!-- .footer-widgets-wrap end -->
 
@@ -282,7 +305,8 @@
     ============================================= -->
     <script src="~/Scripts/theme/functions.js"></script>
     @RenderSection("scripts", false)
-
+    <!-- LightWidget WIDGET -->
+    <script src="//lightwidget.com/widgets/lightwidget.js"></script>
 </body>
 
 </html>
