@@ -49,6 +49,7 @@ namespace Ustamdan.Controllers
                    .OrderByDescending(x => x.DateCreated).Take(4)
                    .ToList()
                    .Select(x => new PostViewModel(x));
+                ViewBag.Areas = db.Areas.OrderByDescending(x=>x.Posts.Count).ToList();
             }
             ViewBag.AllPosts = posts.Where(x=>x.HasLocation).ToList();
             return View(posts.ToPagedList(page.Value, 9));
@@ -117,7 +118,7 @@ namespace Ustamdan.Controllers
                     Category category = db.Categories.Find(c);
                     if (category != null)
                     {
-                        posts = posts.Where(x => x.Categories.Any(y => y.Id == a)).ToList();
+                        posts = posts.Where(x => x.Categories.Any(y => y.Id == c)).ToList();
                     }
                 }
                 if (t != null)
@@ -125,7 +126,7 @@ namespace Ustamdan.Controllers
                     Tag tag = db.Tags.Find(t);
                     if (tag != null)
                     {
-                        posts = posts.Where(x => x.Tags.Any(y => y.Id == a)).ToList();
+                        posts = posts.Where(x => x.Tags.Any(y => y.Id == t)).ToList();
                     }
                 }
                 if (!String.IsNullOrEmpty(q))

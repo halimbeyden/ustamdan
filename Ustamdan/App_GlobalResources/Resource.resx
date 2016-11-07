@@ -246,4 +246,7 @@
   <data name="WeeklyTitle2" xml:space="preserve">
     <value>Yazılar</value>
   </data>
+  <data name="AreaTitle" xml:space="preserve">
+    <value>Bölgeler</value>
+  </data>
 </root>

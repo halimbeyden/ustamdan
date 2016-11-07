@@ -414,3 +414,5 @@ C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\obj\Debug\Ustamdan.cs
 C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\obj\Debug\en\Ustamdan.resources.dll
 C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\obj\Debug\Ustamdan.dll
 C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\obj\Debug\Ustamdan.pdb
+C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\NLipsum.Core.dll
+C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\NLipsum.Core.xml
