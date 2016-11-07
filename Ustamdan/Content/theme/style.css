@@ -13528,7 +13528,7 @@ body:not(.no-transition) #wrapper,
 .entry-content{
     word-wrap:break-word;
 }
-.entry-content>p{
+.entry-content>.entry-body{
     overflow-y:hidden;
-    height:100px;
+    max-height:100px;
 }

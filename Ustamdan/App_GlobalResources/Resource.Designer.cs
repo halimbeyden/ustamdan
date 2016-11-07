@@ -115,6 +115,15 @@ namespace Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Bölgeler.
+        /// </summary>
+        public static string AreaTitle {
+            get {
+                return ResourceManager.GetString("AreaTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Yazıhane.
         /// </summary>
         public static string BlogTitle {

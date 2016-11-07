@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NLipsum.Core;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -25,19 +26,18 @@ namespace Ustamdan.Models
         }
         private static void CreatePost(ApplicationDbContext db)
         {
-            for (int j = 0; j < random.Next(0,120); j++)
+            for (int j = 0; j < random.Next(100,120); j++)
             {
                 var post = new Post();
                 post.AuthorId = db.Users.First().Id;
                 post.DateCreated = DateTime.Now;
                 post.DateModified = DateTime.Now;
-                post.Title = generateRandomString(10);
-                post.PostContent = generateRandomString(300);
-                post.Description = generateRandomString(20);
+                post.Title = LipsumGenerator.Generate(1,Features.Sentences,null,Lipsums.TheRaven);
+                post.PostContent = LipsumGenerator.Generate(random.Next(5,15), Features.Paragraphs, null, Lipsums.LoremIpsum);
+                post.Description = LipsumGenerator.Generate(3, Features.Sentences, null, Lipsums.NagyonFaj);
                 post.Language = ((Language)random.Next(2)).GetStringValue();
                 post.MediaURL = "/Content/Media/katranci.jpg";
                 post.Type = PostType.Image;
-                post.Status = PostStatus.Published;
                 post.HasLocation = true;
                 post.Latitude = random.NextDouble() * 10 + 35;
                 post.Longitude = random.NextDouble() * 10 + 30;
@@ -57,6 +57,7 @@ namespace Ustamdan.Models
                     .Select(x => x.t));
                 post.AreaId = db.Areas.ToList().OrderBy(x => new Guid()).First().Id;
                 post.IsPublished = true;
+                post.Status = PostStatus.Published;
                 db.Posts.Add(post);
                 db.SaveChanges();
             }
@@ -65,7 +66,7 @@ namespace Ustamdan.Models
         {
             for (int i = 0; i < random.Next(1,7); i++)
             {
-                Area area = new Area(generateRandomString(20));
+                Area area = new Area(LipsumGenerator.Generate(1, Features.Words, null, Lipsums.TheRaven));
                 db.Areas.Add(area);
             }
             db.SaveChanges();
@@ -74,7 +75,7 @@ namespace Ustamdan.Models
         {
             for (int i = 0; i < random.Next(1, 10); i++)
             {
-                Category cat = new Category(generateRandomString(10));
+                Category cat = new Category(LipsumGenerator.Generate(1, Features.Words, null, Lipsums.LoremIpsum));
                 db.Categories.Add(cat);
             }
             db.SaveChanges();
@@ -84,17 +85,17 @@ namespace Ustamdan.Models
             for (int i = 0; i < random.Next(1, 10); i++)
             {
                 Tag tag = new Tag();
-                tag.Name = generateRandomString(10);
+                tag.Name = LipsumGenerator.Generate(1, Features.Words, null, Lipsums.Faust);
                 db.Tags.Add(tag);
             }
             db.SaveChanges();
         }
-        private static string generateRandomString(int length)
-        {
-            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ ";
-            return new string(Enumerable.Repeat(chars, length)
-              .Select(s => s[random.Next(s.Length)]).ToArray());
-        }
+        //private static string generateRandomString(int length)
+        //{
+        //    const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ ";
+        //    return new string(Enumerable.Repeat(chars, length)
+        //      .Select(s => s[random.Next(s.Length)]).ToArray());
+        //}
         private static int[] generateRandomIntSequence(int max,int min = 0)
         {
             int length = random.Next(min, max);
