@@ -3,7 +3,11 @@
 @{
     ViewBag.Title = Resource.BlogTitle;
 }
-
+<style>
+    .highlight-me{
+        margin-bottom:5px !important;
+    }
+</style>
 <section id="page-title" style="padding:25px 0">
     <div class="container clearfix text-center">
         <h3>@Resource.WeeklyTitle</h3>
@@ -67,6 +71,19 @@
                             </ul>
                         </div>
                       </div>
+                </div>
+                <div class="sidebar-widgets-wrap">
+                    <div id="shortcodes" class="widget widget_links clearfix">
+                        <div class="widget clearfix">
+                            <h4 class="highlight-me">@Resource.CategoryTitle</h4>
+                            <ul>
+                                @foreach (Category c in ViewBag.Categories)
+                                {
+                                    <li><a href="@Url.Action("Search",new { c = c.Id})"><div>@c.Name</div></a></li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
                 </div>
                 <div class="sidebar-widgets-wrap">
                     <div class="widget clearfix">
@@ -450,7 +467,6 @@
                                                                                                 @:    content: contentString
                                                                                                 @:});
                                                                             @:var myLatlng = new google.maps.LatLng(@(MvcHtmlString.Create(Json.Encode(p.Latitude))),@(MvcHtmlString.Create(Json.Encode(p.Longitude))));
-                                                                            @:console.log(myLatlng.lat());
                                                                             @:var marker = new google.maps.Marker({
                                                                                                 @:    position: myLatlng,
                                                                                                 @:    clickable: true,

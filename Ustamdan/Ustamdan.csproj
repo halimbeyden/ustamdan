@@ -1558,6 +1558,9 @@
     <Content Include="Views\Admin\PostPartials\_TagPartial.cshtml" />
     <Content Include="Views\Admin\PostPartials\_LanguagePartial.cshtml" />
     <Content Include="Views\Admin\PostPartials\_StatusPartial.cshtml" />
+    <Content Include="Views\Admin\Category.cshtml" />
+    <Content Include="Views\Admin\Tag.cshtml" />
+    <Content Include="Views\Admin\Area.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
