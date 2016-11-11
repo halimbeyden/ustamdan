@@ -19,7 +19,10 @@
                 <label class="control-label">Post Title</label>
                 <input type="text" class="form-control" placeholder="Title" id="postTitle">
             </div>
-            <div class="form-group">
+            <div class="form-group" id="postMedia">
+                <label class="control-label">Post Media (Add at least one media)</label>
+            </div>
+            @*<div class="form-group">
                 <label class="control-label">Post Image URL</label>
                 <div class="input-group ">
                     <input type="text" class="form-control" placeholder="Image URL" id="postImageUrl">
@@ -30,8 +33,16 @@
             </div>
             <div class="form-group">
                 <label class="control-label">Post Video URL</label>
-                <input type="text" class="form-control" placeholder="Video URL" id="postVideUrl">
-            </div>
+                <input type="text" class="form-control" placeholder="Video URL" id="postVideoUrl">
+            </div>*@
+            <a href="#" data-toggle="modal" data-target="#mediaModal" class="btn btn-app">
+                <i class="fa fa-image"></i>
+                Add Image
+            </a>
+            <a href="#" data-toggle="modal" data-target="#videoModal" class="btn btn-app">
+                <i class="fa fa-play"></i>
+                Add Video
+            </a>
         </form>
         <textarea style="min-height:500px" id="postBody"></textarea>
     </div>
@@ -57,167 +68,13 @@
                 </div>
             </div>
         </div>
-        <div class="x_panel tile">
-            <div class="x_title">
-                <h2>Status</h2>
-                <ul class="nav navbar-right panel_toolbox">
-                    <li>
-                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                    </li>
-                </ul>
-                <div class="clearfix"></div>
-            </div>
-            <div class="x_content">
-                <h4>Select Post Status</h4>
-                <div class="widget_summary">
-                    <form class="form-horizontal form-label-left">
-                        @{
-                            int i = 0;
-                            foreach (PostStatus ps in Enum.GetValues(typeof(PostStatus)))
-                            {
-                                <div class="radio">
-                                    <label>
-                                        @if (ps == PostStatus.Draft)
-                                        {
-                                            <input type="radio" class="flat" checked name="status" value="@(i++)"> @ps.ToString()
-                                        }
-                                        else
-                                        {
-                                            <input type="radio" class="flat" name="status" value="@(i++)"> @ps.ToString()
-                                        }
-                                    </label>
-                                </div>
-                            }
-                        }
-                    </form>
-                </div>
-            </div>
-        </div>
-        <div class="x_panel tile">
-            <div class="x_title">
-                <h2>Language</h2>
-                <ul class="nav navbar-right panel_toolbox">
-                    <li>
-                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                    </li>
-                </ul>
-                <div class="clearfix"></div>
-            </div>
-            <div class="x_content">
-                <h4>Select Language</h4>
-                <div class="widget_summary">
-                    <form class="form-horizontal form-label-left">
-                        <div class="radio">
-                            <label>
-                                <input type="radio" class="flat" checked name="lang" value="1"> Turkish
-                            </label>
-                        </div>
-                        <div class="radio">
-                            <label>
-                                <input type="radio" class="flat" name="lang" value="0"> English
-                            </label>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <div class="x_panel tile">
-            <div class="x_title">
-                <h2>Area</h2>
-                <ul class="nav navbar-right panel_toolbox">
-                    <li>
-                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                    </li>
-                </ul>
-                <div class="clearfix"></div>
-            </div>
-            <div class="x_content">
-                <h4>Select Area</h4>
-                <div class="widget_summary">
-                    <div id="areaList">
-                        @foreach (Area area in ViewBag.Areas)
-                        {
-                            <div class="radio">
-                                <label>
-                                    <input type="radio" class="flat" name="areas" value="@area.Id"> @area.Name
-                                </label>
-                            </div>
-                        }
-                    </div>
-                </div>
-                @if (User.IsInRole("Admin"))
-                {
-                    <div class="widget_summary">
-                        <div class="input-group ">
-                            <input type="text" class="form-control" placeholder="Add New Area">
-                            <span class="input-group-btn">
-                                <button id="addArea" type="button" class="btn btn-success"><i class="fa fa-plus"></i></button>
-                            </span>
-                        </div>
-                    </div>
-                }
-            </div>
-        </div>
-        <div class="x_panel tile">
-            <div class="x_title">
-                <h2>Categories</h2>
-                <ul class="nav navbar-right panel_toolbox">
-                    <li>
-                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                    </li>
-                </ul>
-                <div class="clearfix"></div>
-            </div>
-            <div class="x_content">
-                <h4>Select Categories</h4>
-                <div class="widget_summary">
-                    <div id="categoryList">
-                        @foreach (Category cat in ViewBag.Categories)
-                        {
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" class="flat" name="categories" value="@cat.Id"> @cat.Name
-                                </label>
-                            </div>
-                        }
-                    </div>
-                </div>
-                @if (User.IsInRole("Admin"))
-                {
-                    <div class="widget_summary">
-                        <div class="input-group ">
-                            <input type="text" class="form-control" placeholder="Add New Category">
-                            <span class="input-group-btn">
-                                <button id="addCategory" type="button" class="btn btn-success"><i class="fa fa-plus"></i></button>
-                            </span>
-                        </div>
-                    </div>
-                }
-            </div>
-        </div>
-        <div class="x_panel tile">
-            <div class="x_title">
-                <h2>Tags</h2>
-                <ul class="nav navbar-right panel_toolbox">
-                    <li>
-                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                    </li>
-                </ul>
-                <div class="clearfix"></div>
-            </div>
-            <div class="x_content">
-                <h4>Input Tags</h4>
-                <div class="widget_summary">
-                    <div class="col-md-11 col-sm-11 col-xs-11">
-                        <input id="tags_1" type="text" class="tags form-control flat" value="Ustamdan" />
-                        <div id="suggestions-container" style="position: relative; float: left; width: 250px; margin: 10px;"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        @Html.Partial("/Views/Admin/PostPartials/_StatusPartial.cshtml")
+        @Html.Partial("/Views/Admin/PostPartials/_LanguagePartial.cshtml")
+        @Html.Partial("/Views/Admin/PostPartials/_AreaPartial.cshtml")
+        @Html.Partial("/Views/Admin/PostPartials/_CategoryPartial.cshtml")
+        @Html.Partial("/Views/Admin/PostPartials/_TagPartial.cshtml")
     </div>
 </div>
-
 
 <div class="modal fade" id="locationModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -232,7 +89,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                    <button id="selectLocationBtn" type="button" class="btn btn-primary">Okey</button>
+                    <button id="selectLocationBtn" type="button" class="btn btn-primary">OK</button>
                 </div>
             </div>
         </div>
@@ -257,44 +114,35 @@
         </div>
     </div>
 </div>
+<div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-body">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Copy the youtube video url and paste here!</h4>
+                </div>
+                <div class="modal-body">
+                    <input type="text" class="form-control" placeholder="Video URL" id="postVideoUrl">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <button id="okVideoModal" type="button" class="btn btn-primary">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 @section scripts{
     <script src="~/Scripts/tinymce/tinymce.min.js"></script>
     <script src="~/Scripts/Admin/jquery.tagsinput.js"></script>
     <script type="text/javascript" src='http://maps.google.com/maps/api/js?key=AIzaSyBo6xedQToKACcfN2BzV54-3br245ytkBo&sensor=false&libraries=places'></script>
     <script src="~/Scripts/Admin/locationpicker.jquery.js"></script>
-    <!-- jQuery Tags Input -->
+    <script src="~/Scripts/Admin/nprogress.js"></script>
+    <script src="~/Scripts/Admin/videourlparser.js"></script>
+    <script src="~/Scripts/Admin/savepost.js"></script>
     <script>
-        $(document).ready(function () {
-            $('#tags_1').tagsInput({
-                width: 'auto'
-            });
-        });
-    </script>
-    <!-- /jQuery Tags Input -->
-    <script>
-        tinymce.init({
-            selector: '#postBody',
-            theme: 'modern',
-            plugins: [
-               'advlist autolink lists link image charmap print preview hr anchor pagebreak',
-               'searchreplace wordcount visualblocks visualchars code fullscreen',
-               'insertdatetime media nonbreaking save table contextmenu directionality',
-               'template paste textcolor colorpicker textpattern imagetools'
-            ],
-            toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
-            toolbar2: 'print preview media | forecolor backcolor',
-            image_advtab: true,
-            templates: [
-              { title: 'Test template 1', content: 'Test 1' },
-              { title: 'Test template 2', content: 'Test 2' }
-            ],
-            content_css: [
-              '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
-              '//www.tinymce.com/css/codepen.min.css'
-            ]
-        });
-    </script>
-    <script>
+
         var currentLocation = { HasLocation: false, Latitude: 0, Longitude: 0 };
 
         $('#locationDiv').locationpicker({
@@ -306,36 +154,9 @@
             radius: 0,
             zoom: 5,
         });
-        $('#locationModal').on("shown.bs.modal", function () {
-            $('#locationDiv').locationpicker('autosize');
-        });
-        $('#locationModal #selectLocationBtn').on("click", function () {
-            $("#lat").text($('#locationDiv').locationpicker("location").latitude);
-            $("#long").text($('#locationDiv').locationpicker("location").longitude);
-            currentLocation.Latitude = $('#locationDiv').locationpicker("location").latitude;
-            currentLocation.Longitude = $('#locationDiv').locationpicker("location").longitude;
-            currentLocation.HasLocation = true;
-            $('#locationModal').modal("hide");
-        });
-        $("#clearLocationBtn").on("click", function () {
-            $("#lat").text("Not Selected");
-            $("#long").text("Not Selected");
-            currentLocation.Latitude = 0;
-            currentLocation.Longitude = 0;
-            currentLocation.HasLocation = false;
-        });
-        //$("#addTag").on("click", function () {
-        //    $cat = $(this).parent().parent().find("input").val();
-        //    if ($cat == "")
-        //        return;
-        //    $("#tagList").append('<div class="checkbox"><label><input type="checkbox" class="flat" name="tags" value="' + 1 + '"> ' + $cat + '</label></div>').iCheck({ checkboxClass: 'icheckbox_flat-green' });
-        //    $(this).parent().parent().find("input").val('');
-        //});
-
         function savePost() {
             var title = $("#postTitle").val();
-            var imageUrl = $("#postImageUrl").val();
-            var videoUrl = $("#postVideUrl").val();
+            var media = [];
             var body = tinyMCE.get('postBody').getContent();
             var lang = $("input[name='lang']:checked").val();
             var status = $("input[name='status']:checked").val();
@@ -346,10 +167,23 @@
                 $("#categoryList input:checked").each(function (index, item) {
                     categories.push($(item).val());
                 });
+                $("#postMedia blockquote").each(function (index, item) {
+                    media.push({ MediaUrl: $(item).attr("data-value"), Type: ($(item).attr("data-type") == "image" ? 0 : 1) });
+                });
                 tags = $("#tags_1").val().split(",");
             }
             catch (err) {
                 console.log(err);
+            }
+            if (media.length < 1) {
+                new PNotify({
+                    title: 'Error',
+                    text: 'Please add at least one media!',
+                    type: 'error',
+                    styling: 'bootstrap3',
+                    delay: 3000
+                });
+                return;
             }
             var data = {
                 'Title': title,
@@ -359,9 +193,8 @@
                 'PostStatus': status,
                 'Categories': categories,
                 'AreaId': area,
-                'Tags': tags,
-                'PostType': isBlank(imageUrl) ? 1 : 0,
-                'MediaURL': isBlank(imageUrl) ? videoUrl : imageUrl,
+                'TagNames': tags,
+                'PostMedia':media,
                 'HasLocation': currentLocation.HasLocation,
                 'Latitude': currentLocation.Latitude,
                 'Longitude': currentLocation.Longitude
@@ -376,11 +209,8 @@
                 window.location = "/Admin/EditPost/" + response;
             });
         }
-        function isBlank(str) {
-            return (!str || /^\s*$/.test(str));
-        }
     </script>
-    @if (User.IsInRole("Admin"))
+    @*@if (User.IsInRole("Admin"))
     {
         <script>
             $("#addCategory").on("click", function () {
@@ -414,62 +244,6 @@
                 $(this).parent().parent().find("input").val('');
             });
         </script>
-    }
+    }*@
 
-    <script src="~/Scripts/Admin/nprogress.js"></script>
-    <script>
-        function copyToClipboard(data) {
-            var $temp = $("<input>");
-            $("body").append($temp);
-            $temp.val(data).select();
-            document.execCommand("copy");
-            console.log(data);
-            $temp.remove();
-        }
-        $("#removeMediaModal").on("show.bs.modal", function (e) {
-            $(this).find("img").attr("src", "/Content/Media/" + $(e.relatedTarget).attr("data-nm"));
-            $(this).find("input").val($(e.relatedTarget).attr("data-nm"));
-            $(e.relatedTarget).parent().parent().parent().attr("data-active", 1);
-        });
-        $("#removeMediaModal").on("hide.bs.modal", function (e) {
-            $(".mediaImage").attr("data-active", 0);
-        });
-        $(document).on("click", "#removeMediaBtn", function () {
-            var data = $(this).parent().parent().serialize();
-            $.post("@Url.Action("RemoveMedia")", data, function () {
-                $("[data-active=1]").parent().parent().remove();
-                $("#removeMediaModal").modal("hide");
-            });
-        });
-        $(document).on("click", "#addMediaBtn", function () {
-            var formData = new FormData($("#addMediaModal form")[0]);
-            console.log(formData);
-            $.ajax({
-                url: "@Url.Action("AddMedia")",
-                type: 'POST',
-                data: formData,
-                contentType: false,
-                processData: false,
-                success: function (name) {
-                    var template = $(".mediaImage").parent().parent().first().clone();
-                    template.find("img").attr("src", "/Content/Media/" + name);
-                    template.find(".tools a").first().attr("href", "javascript:copyToClipboard('/Content/Media/" + name + "')");
-                    template.find(".tools a").last().attr("data-nm", name);
-                    template.find(".caption p").text(name);
-                    $(".mediaImage").parent().parent().first().before(template);
-                    $("#addMediaModal").modal("hide");
-                }
-            });
-        });
-        $(document).on("dblclick", ".mediaImage", function () {
-            $("#postImageUrl").val($(this).find("img").attr("src"));
-            $("#mediaModal").modal("hide");
-        });
-    </script>
-    <script src="~/Scripts/Admin/videourlparser.js"></script>
-    <script>
-        $("#postVideUrl").on("change", function () {
-            $(this).val(videoEmbed.convertMedia($(this).val()));
-        });
-    </script>
 }

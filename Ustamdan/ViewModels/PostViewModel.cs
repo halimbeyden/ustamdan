@@ -29,7 +29,7 @@ namespace Ustamdan.ViewModels
         public string[] TagNames { get; set; }
         public int? AreaId { get; set; }
         public string Area { get; set; }
-
+        public List<PostMedia> PostMedia { get; set; }
         public PostViewModel()
         {
 
@@ -59,6 +59,7 @@ namespace Ustamdan.ViewModels
                 this.DateModified = post.DateModified;
                 this.Author = post.Author.Fullname;
                 this.AuthorUsername = post.Author.UserName;
+                this.PostMedia = post.CarouselMedia.ToList();
             }
             catch (Exception ex)
             {

@@ -49,7 +49,8 @@ namespace Ustamdan.Controllers
                    .OrderByDescending(x => x.DateCreated).Take(4)
                    .ToList()
                    .Select(x => new PostViewModel(x));
-                ViewBag.Areas = db.Areas.OrderByDescending(x=>x.Posts.Count).ToList();
+                ViewBag.Areas = db.Areas.Where(x=>x.Language == lang).OrderByDescending(x=>x.Posts.Count).ToList();
+                ViewBag.Categories = db.Categories.Where(x => x.Language == lang).OrderByDescending(x => x.Posts.Count).ToList();
             }
             ViewBag.AllPosts = posts.Where(x=>x.HasLocation).ToList();
             return View(posts.ToPagedList(page.Value, 9));
