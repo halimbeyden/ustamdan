@@ -249,4 +249,7 @@
   <data name="AreaTitle" xml:space="preserve">
     <value>Bölgeler</value>
   </data>
+  <data name="CategoryTitle" xml:space="preserve">
+    <value>KATEGORİLER</value>
+  </data>
 </root>

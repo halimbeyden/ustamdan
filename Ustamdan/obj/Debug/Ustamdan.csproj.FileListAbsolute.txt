@@ -1,199 +1,3 @@
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\ApplicationInsights.config
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\roslyn\csc.exe
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\roslyn\csc.exe.config
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\roslyn\csc.rsp
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\roslyn\csi.exe
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\roslyn\csi.rsp
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\roslyn\Microsoft.CodeAnalysis.dll
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\roslyn\Microsoft.CSharp.Core.targets
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\roslyn\Microsoft.VisualBasic.Core.targets
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\roslyn\System.AppContext.dll
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\roslyn\System.Collections.Immutable.dll
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\roslyn\System.Diagnostics.StackTrace.dll
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\roslyn\System.IO.FileSystem.dll
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\roslyn\System.IO.FileSystem.Primitives.dll
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\roslyn\System.Reflection.Metadata.dll
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\roslyn\vbc.exe
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\roslyn\vbc.exe.config
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\roslyn\vbc.rsp
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\roslyn\VBCSCompiler.exe
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\roslyn\VBCSCompiler.exe.config
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\Ustamdan.dll.config
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\Ustamdan.dll
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\Ustamdan.pdb
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\Antlr3.Runtime.dll
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\Elmah.dll
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\Elmah.Mvc.dll
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\EntityFramework.dll
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\EntityFramework.SqlServer.dll
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\Microsoft.AI.Agent.Intercept.dll
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\Microsoft.AI.DependencyCollector.dll
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\Microsoft.AI.PerfCounterCollector.dll
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\Microsoft.AI.ServerTelemetryChannel.dll
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\Microsoft.AI.Web.dll
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\Microsoft.AI.WindowsServer.dll
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\Microsoft.ApplicationInsights.dll
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\Microsoft.AspNet.Identity.Core.dll
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\Microsoft.AspNet.Identity.EntityFramework.dll
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\Microsoft.AspNet.Identity.Owin.dll
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\Microsoft.Owin.dll
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\Microsoft.Owin.Host.SystemWeb.dll
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\Microsoft.Owin.Security.Cookies.dll
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\Microsoft.Owin.Security.dll
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\Microsoft.Owin.Security.Facebook.dll
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\Microsoft.Owin.Security.Google.dll
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\Microsoft.Owin.Security.OAuth.dll
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\Microsoft.Owin.Security.Twitter.dll
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\Microsoft.Web.Infrastructure.dll
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\Newtonsoft.Json.dll
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\Owin.dll
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\System.Web.Helpers.dll
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\System.Web.Mvc.dll
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\System.Web.Optimization.dll
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\System.Web.Razor.dll
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\System.Web.WebPages.Deployment.dll
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\System.Web.WebPages.dll
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\System.Web.WebPages.Razor.dll
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\WebGrease.dll
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\Antlr3.Runtime.pdb
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\Microsoft.AI.DependencyCollector.xml
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\Microsoft.AI.ServerTelemetryChannel.xml
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\Microsoft.AI.Web.xml
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\Microsoft.AI.WindowsServer.xml
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\Microsoft.ApplicationInsights.xml
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\Newtonsoft.Json.xml
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\System.Web.Helpers.xml
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\System.Web.Mvc.xml
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\System.Web.Optimization.xml
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\System.Web.Razor.xml
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\System.Web.WebPages.xml
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\System.Web.WebPages.Deployment.xml
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\System.Web.WebPages.Razor.xml
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\EntityFramework.xml
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\EntityFramework.SqlServer.xml
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\Microsoft.AspNet.Identity.Core.xml
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\Microsoft.AspNet.Identity.Owin.xml
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\Microsoft.AspNet.Identity.EntityFramework.xml
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\Microsoft.Owin.xml
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\Microsoft.Owin.Host.SystemWeb.xml
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\Microsoft.Owin.Security.xml
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\Microsoft.Owin.Security.Facebook.xml
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\Microsoft.Owin.Security.Cookies.xml
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\Microsoft.Owin.Security.OAuth.xml
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\Microsoft.Owin.Security.Google.xml
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\Microsoft.Owin.Security.Twitter.xml
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\obj\Debug\Ustamdan.csprojResolveAssemblyReference.cache
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\obj\Debug\Ustamdan.dll
-c:\Users\PinneraMacMini\Documents\Visual Studio 2015\Projects\Ustamdan\Ustamdan\obj\Debug\Ustamdan.pdb
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\ApplicationInsights.config
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\roslyn\csc.exe
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\roslyn\csc.exe.config
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\roslyn\csc.rsp
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\roslyn\csi.exe
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\roslyn\csi.rsp
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\roslyn\Microsoft.CodeAnalysis.dll
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\roslyn\Microsoft.CSharp.Core.targets
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\roslyn\Microsoft.VisualBasic.Core.targets
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\roslyn\System.AppContext.dll
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\roslyn\System.Collections.Immutable.dll
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\roslyn\System.Diagnostics.StackTrace.dll
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\roslyn\System.IO.FileSystem.dll
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\roslyn\System.IO.FileSystem.Primitives.dll
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\roslyn\System.Reflection.Metadata.dll
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\roslyn\vbc.exe
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\roslyn\vbc.exe.config
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\roslyn\vbc.rsp
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\roslyn\VBCSCompiler.exe
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\roslyn\VBCSCompiler.exe.config
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\Ustamdan.dll.config
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\Ustamdan.dll
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\Ustamdan.pdb
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\Antlr3.Runtime.dll
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\Elmah.dll
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\Elmah.Mvc.dll
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\EntityFramework.dll
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\EntityFramework.SqlServer.dll
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\Microsoft.AI.Agent.Intercept.dll
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\Microsoft.AI.DependencyCollector.dll
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\Microsoft.AI.PerfCounterCollector.dll
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\Microsoft.AI.ServerTelemetryChannel.dll
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\Microsoft.AI.Web.dll
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\Microsoft.AI.WindowsServer.dll
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\Microsoft.ApplicationInsights.dll
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\Microsoft.AspNet.Identity.Core.dll
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\Microsoft.AspNet.Identity.EntityFramework.dll
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\Microsoft.AspNet.Identity.Owin.dll
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\Microsoft.Owin.dll
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\Microsoft.Owin.Host.SystemWeb.dll
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\Microsoft.Owin.Security.Cookies.dll
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\Microsoft.Owin.Security.dll
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\Microsoft.Owin.Security.Facebook.dll
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\Microsoft.Owin.Security.Google.dll
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\Microsoft.Owin.Security.OAuth.dll
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\Microsoft.Owin.Security.Twitter.dll
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\Microsoft.Web.Infrastructure.dll
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\Newtonsoft.Json.dll
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\Owin.dll
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\System.Web.Helpers.dll
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\System.Web.Mvc.dll
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\System.Web.Optimization.dll
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\System.Web.Razor.dll
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\System.Web.WebPages.Deployment.dll
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\System.Web.WebPages.dll
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\System.Web.WebPages.Razor.dll
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\WebGrease.dll
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\Antlr3.Runtime.pdb
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\Microsoft.AI.DependencyCollector.xml
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\Microsoft.AI.ServerTelemetryChannel.xml
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\Microsoft.AI.Web.xml
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\Microsoft.AI.WindowsServer.xml
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\Microsoft.ApplicationInsights.xml
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\Newtonsoft.Json.xml
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\System.Web.Helpers.xml
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\System.Web.Mvc.xml
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\System.Web.Optimization.xml
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\System.Web.Razor.xml
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\System.Web.WebPages.xml
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\System.Web.WebPages.Deployment.xml
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\System.Web.WebPages.Razor.xml
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\EntityFramework.xml
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\EntityFramework.SqlServer.xml
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\Microsoft.AspNet.Identity.Core.xml
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\Microsoft.AspNet.Identity.Owin.xml
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\Microsoft.AspNet.Identity.EntityFramework.xml
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\Microsoft.Owin.xml
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\Microsoft.Owin.Host.SystemWeb.xml
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\Microsoft.Owin.Security.xml
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\Microsoft.Owin.Security.Facebook.xml
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\Microsoft.Owin.Security.Cookies.xml
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\Microsoft.Owin.Security.OAuth.xml
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\Microsoft.Owin.Security.Google.xml
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\Microsoft.Owin.Security.Twitter.xml
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\obj\Debug\Ustamdan.csprojResolveAssemblyReference.cache
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\obj\Debug\Ustamdan.dll
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\obj\Debug\Ustamdan.pdb
 C:\Users\halim\Projects\Ustamdan\Ustamdan\bin\ApplicationInsights.config
 C:\Users\halim\Projects\Ustamdan\Ustamdan\bin\roslyn\csc.exe
 C:\Users\halim\Projects\Ustamdan\Ustamdan\bin\roslyn\csc.exe.config
@@ -224,6 +28,7 @@ C:\Users\halim\Projects\Ustamdan\Ustamdan\bin\roslyn\VBCSCompiler.exe.config
 C:\Users\halim\Projects\Ustamdan\Ustamdan\bin\Ustamdan.dll.config
 C:\Users\halim\Projects\Ustamdan\Ustamdan\bin\Ustamdan.dll
 C:\Users\halim\Projects\Ustamdan\Ustamdan\bin\Ustamdan.pdb
+C:\Users\halim\Projects\Ustamdan\Ustamdan\bin\en\Ustamdan.resources.dll
 C:\Users\halim\Projects\Ustamdan\Ustamdan\bin\Antlr3.Runtime.dll
 C:\Users\halim\Projects\Ustamdan\Ustamdan\bin\Elmah.dll
 C:\Users\halim\Projects\Ustamdan\Ustamdan\bin\Elmah.Mvc.dll
@@ -251,7 +56,10 @@ C:\Users\halim\Projects\Ustamdan\Ustamdan\bin\Microsoft.Owin.Security.OAuth.dll
 C:\Users\halim\Projects\Ustamdan\Ustamdan\bin\Microsoft.Owin.Security.Twitter.dll
 C:\Users\halim\Projects\Ustamdan\Ustamdan\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\halim\Projects\Ustamdan\Ustamdan\bin\Newtonsoft.Json.dll
+C:\Users\halim\Projects\Ustamdan\Ustamdan\bin\NLipsum.Core.dll
 C:\Users\halim\Projects\Ustamdan\Ustamdan\bin\Owin.dll
+C:\Users\halim\Projects\Ustamdan\Ustamdan\bin\PagedList.dll
+C:\Users\halim\Projects\Ustamdan\Ustamdan\bin\PagedList.Mvc.dll
 C:\Users\halim\Projects\Ustamdan\Ustamdan\bin\System.Web.Helpers.dll
 C:\Users\halim\Projects\Ustamdan\Ustamdan\bin\System.Web.Mvc.dll
 C:\Users\halim\Projects\Ustamdan\Ustamdan\bin\System.Web.Optimization.dll
@@ -268,6 +76,9 @@ C:\Users\halim\Projects\Ustamdan\Ustamdan\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\halim\Projects\Ustamdan\Ustamdan\bin\Microsoft.ApplicationInsights.xml
 C:\Users\halim\Projects\Ustamdan\Ustamdan\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\halim\Projects\Ustamdan\Ustamdan\bin\Newtonsoft.Json.xml
+C:\Users\halim\Projects\Ustamdan\Ustamdan\bin\NLipsum.Core.xml
+C:\Users\halim\Projects\Ustamdan\Ustamdan\bin\PagedList.xml
+C:\Users\halim\Projects\Ustamdan\Ustamdan\bin\PagedList.Mvc.xml
 C:\Users\halim\Projects\Ustamdan\Ustamdan\bin\System.Web.Helpers.xml
 C:\Users\halim\Projects\Ustamdan\Ustamdan\bin\System.Web.Mvc.xml
 C:\Users\halim\Projects\Ustamdan\Ustamdan\bin\System.Web.Optimization.xml
@@ -290,129 +101,8 @@ C:\Users\halim\Projects\Ustamdan\Ustamdan\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\halim\Projects\Ustamdan\Ustamdan\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\halim\Projects\Ustamdan\Ustamdan\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\halim\Projects\Ustamdan\Ustamdan\obj\Debug\Ustamdan.csprojResolveAssemblyReference.cache
-C:\Users\halim\Projects\Ustamdan\Ustamdan\obj\Debug\Ustamdan.dll
-C:\Users\halim\Projects\Ustamdan\Ustamdan\obj\Debug\Ustamdan.pdb
-C:\Users\halim\Projects\Ustamdan\Ustamdan\bin\en\Ustamdan.resources.dll
 C:\Users\halim\Projects\Ustamdan\Ustamdan\obj\Debug\Ustamdan.App_GlobalResources.Resource.en.resources
 C:\Users\halim\Projects\Ustamdan\Ustamdan\obj\Debug\Ustamdan.csproj.GenerateResource.Cache
 C:\Users\halim\Projects\Ustamdan\Ustamdan\obj\Debug\en\Ustamdan.resources.dll
-C:\Users\halim\Projects\Ustamdan\Ustamdan\bin\PagedList.dll
-C:\Users\halim\Projects\Ustamdan\Ustamdan\bin\PagedList.Mvc.dll
-C:\Users\halim\Projects\Ustamdan\Ustamdan\bin\PagedList.xml
-C:\Users\halim\Projects\Ustamdan\Ustamdan\bin\PagedList.Mvc.xml
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\en\Ustamdan.resources.dll
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\PagedList.dll
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\PagedList.Mvc.dll
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\PagedList.xml
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\bin\PagedList.Mvc.xml
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\obj\Debug\Ustamdan.App_GlobalResources.Resource.en.resources
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\obj\Debug\Ustamdan.csproj.GenerateResource.Cache
-C:\Users\PinneraMacMini\Documents\Projects\Ustamdan\Ustamdan\obj\Debug\en\Ustamdan.resources.dll
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\ApplicationInsights.config
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\roslyn\csc.exe
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\roslyn\csc.exe.config
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\roslyn\csc.rsp
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\roslyn\csi.exe
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\roslyn\csi.rsp
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\roslyn\Microsoft.CodeAnalysis.dll
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\roslyn\Microsoft.CSharp.Core.targets
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\roslyn\Microsoft.VisualBasic.Core.targets
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\roslyn\System.AppContext.dll
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\roslyn\System.Collections.Immutable.dll
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\roslyn\System.Diagnostics.StackTrace.dll
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\roslyn\System.IO.FileSystem.dll
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\roslyn\System.IO.FileSystem.Primitives.dll
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\roslyn\System.Reflection.Metadata.dll
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\roslyn\vbc.exe
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\roslyn\vbc.exe.config
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\roslyn\vbc.rsp
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\roslyn\VBCSCompiler.exe
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\roslyn\VBCSCompiler.exe.config
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\Ustamdan.dll.config
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\Ustamdan.dll
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\Ustamdan.pdb
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\en\Ustamdan.resources.dll
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\Antlr3.Runtime.dll
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\Elmah.dll
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\Elmah.Mvc.dll
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\EntityFramework.dll
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\EntityFramework.SqlServer.dll
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\Microsoft.AI.Agent.Intercept.dll
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\Microsoft.AI.DependencyCollector.dll
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\Microsoft.AI.PerfCounterCollector.dll
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\Microsoft.AI.ServerTelemetryChannel.dll
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\Microsoft.AI.Web.dll
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\Microsoft.AI.WindowsServer.dll
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\Microsoft.ApplicationInsights.dll
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\Microsoft.AspNet.Identity.Core.dll
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\Microsoft.AspNet.Identity.EntityFramework.dll
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\Microsoft.AspNet.Identity.Owin.dll
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\Microsoft.Owin.dll
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\Microsoft.Owin.Host.SystemWeb.dll
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\Microsoft.Owin.Security.Cookies.dll
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\Microsoft.Owin.Security.dll
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\Microsoft.Owin.Security.Facebook.dll
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\Microsoft.Owin.Security.Google.dll
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\Microsoft.Owin.Security.OAuth.dll
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\Microsoft.Owin.Security.Twitter.dll
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\Microsoft.Web.Infrastructure.dll
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\Newtonsoft.Json.dll
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\Owin.dll
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\PagedList.dll
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\PagedList.Mvc.dll
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\System.Web.Helpers.dll
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\System.Web.Mvc.dll
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\System.Web.Optimization.dll
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\System.Web.Razor.dll
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\System.Web.WebPages.Deployment.dll
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\System.Web.WebPages.dll
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\System.Web.WebPages.Razor.dll
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\WebGrease.dll
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\Antlr3.Runtime.pdb
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\Microsoft.AI.DependencyCollector.xml
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\Microsoft.AI.ServerTelemetryChannel.xml
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\Microsoft.AI.Web.xml
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\Microsoft.AI.WindowsServer.xml
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\Microsoft.ApplicationInsights.xml
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\Newtonsoft.Json.xml
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\PagedList.xml
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\PagedList.Mvc.xml
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\System.Web.Helpers.xml
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\System.Web.Mvc.xml
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\System.Web.Optimization.xml
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\System.Web.Razor.xml
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\System.Web.WebPages.xml
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\System.Web.WebPages.Deployment.xml
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\System.Web.WebPages.Razor.xml
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\EntityFramework.xml
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\EntityFramework.SqlServer.xml
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\Microsoft.AspNet.Identity.Core.xml
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\Microsoft.AspNet.Identity.Owin.xml
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\Microsoft.AspNet.Identity.EntityFramework.xml
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\Microsoft.Owin.xml
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\Microsoft.Owin.Host.SystemWeb.xml
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\Microsoft.Owin.Security.xml
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\Microsoft.Owin.Security.Facebook.xml
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\Microsoft.Owin.Security.Cookies.xml
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\Microsoft.Owin.Security.OAuth.xml
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\Microsoft.Owin.Security.Google.xml
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\Microsoft.Owin.Security.Twitter.xml
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\obj\Debug\Ustamdan.csprojResolveAssemblyReference.cache
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\obj\Debug\Ustamdan.App_GlobalResources.Resource.en.resources
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\obj\Debug\Ustamdan.csproj.GenerateResource.Cache
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\obj\Debug\en\Ustamdan.resources.dll
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\obj\Debug\Ustamdan.dll
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\obj\Debug\Ustamdan.pdb
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\NLipsum.Core.dll
-C:\Users\halim.beyden\Documents\Projects\Ustamdan\Ustamdan\bin\NLipsum.Core.xml
+C:\Users\halim\Projects\Ustamdan\Ustamdan\obj\Debug\Ustamdan.dll
+C:\Users\halim\Projects\Ustamdan\Ustamdan\obj\Debug\Ustamdan.pdb

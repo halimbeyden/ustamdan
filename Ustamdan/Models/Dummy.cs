@@ -77,25 +77,25 @@ namespace Ustamdan.Models
         }
         private static void CreateArea(ApplicationDbContext db)
         {
-            for (int i = 0; i < random.Next(1,7); i++)
+            for (int i = 0; i < random.Next(5,10); i++)
             {
-                Area area = new Area(LipsumGenerator.Generate(1, Features.Words, null, Lipsums.TheRaven));
+                Area area = new Area(LipsumGenerator.Generate(1, Features.Words, null, Lipsums.TheRaven), ((Language)random.Next(2)).GetStringValue());
                 db.Areas.Add(area);
             }
             db.SaveChanges();
         }
         private static void CreateCategory(ApplicationDbContext db)
         {
-            for (int i = 0; i < random.Next(1, 10); i++)
+            for (int i = 0; i < random.Next(5, 10); i++)
             {
-                Category cat = new Category(LipsumGenerator.Generate(1, Features.Words, null, Lipsums.LoremIpsum));
+                Category cat = new Category(LipsumGenerator.Generate(1, Features.Words, null, Lipsums.LoremIpsum), ((Language)random.Next(2)).GetStringValue());
                 db.Categories.Add(cat);
             }
             db.SaveChanges();
         }
         private static void CreateTag(ApplicationDbContext db)
         {
-            for (int i = 0; i < random.Next(1, 10); i++)
+            for (int i = 0; i < random.Next(5, 10); i++)
             {
                 Tag tag = new Tag(LipsumGenerator.Generate(1, Features.Words, null, Lipsums.Faust));
                 db.Tags.Add(tag);

@@ -9,6 +9,7 @@ using Ustamdan.Models.Blog;
 using Ustamdan.ViewModels;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.Net;
 
 namespace Ustamdan.Controllers
 {
@@ -252,41 +253,165 @@ namespace Ustamdan.Controllers
             return RedirectToAction("Users");
         }
         #endregion
+
         #region Category
-        [Authorize(Roles = "Admin")]
-        public JsonResult AddCategory(string name)
+        public ActionResult Category()
         {
-            name = name.Trim();
-            if (String.IsNullOrEmpty(name))
-                return Json(new { Id = -1, isNew = false });
             using (var db = new ApplicationDbContext())
             {
-                Category cat = db.Categories.FirstOrDefault(x=>x.Name.ToLower() == name.ToLower());
-                if(cat != null)
-                    return Json(new { Id = cat.Id, isNew = false});
-                cat = new Category(name);
-                db.Categories.Add(cat);
-                db.SaveChanges();
-                return Json(new { Id = cat.Id, isNew = true });
+                return View(db.Categories.ToList());
             }
         }
-        #endregion
         [Authorize(Roles = "Admin")]
-        public JsonResult AddArea(string name)
+        public ActionResult AddCategory(string categoryName, Language lang)
         {
-            name = name.Trim();
-            if (String.IsNullOrEmpty(name))
-                return Json(new { Id = -1, isNew = false });
+            categoryName = categoryName.Trim();
             using (var db = new ApplicationDbContext())
             {
-                Area area = db.Areas.FirstOrDefault(x => x.Name.ToLower() == name.ToLower());
+                Category category = db.Categories.FirstOrDefault(x => x.Name.ToLower() == categoryName.ToLower());
+                if (category != null)
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest, "This Category already exist.");
+                category = new Category(categoryName, lang.GetStringValue());
+                db.Categories.Add(category);
+                db.SaveChanges();
+                return RedirectToAction("Category");
+            }
+        }
+        [Authorize(Roles = "Admin")]
+        public ActionResult EditCategory(int categoryId, string categoryName, Language lang)
+        {
+            categoryName = categoryName.Trim();
+            using (var db = new ApplicationDbContext())
+            {
+                Category category = db.Categories.FirstOrDefault(x => x.Id == categoryId);
+                if (category == null)
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest, "This Category not found.");
+                category.Name = categoryName;
+                category.Language = lang.GetStringValue();
+                db.SaveChanges();
+                return RedirectToAction("Category");
+            }
+        }
+        [Authorize(Roles = "Admin")]
+        public ActionResult RemoveCategory(int categoryId)
+        {
+            using (var db = new ApplicationDbContext())
+            {
+                Category category = db.Categories.FirstOrDefault(x => x.Id == categoryId);
+                if (category == null)
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest, "This Category not found.");
+                db.Categories.Remove(category);
+                db.SaveChanges();
+                return RedirectToAction("Category");
+            }
+        }
+
+        #endregion
+
+
+        public ActionResult Tag()
+        {
+            using (var db = new ApplicationDbContext())
+            {
+                return View(db.Tags.ToList());
+            }
+        }
+        [Authorize(Roles = "Admin")]
+        public ActionResult AddTag(string tagName, Language lang)
+        {
+            tagName = tagName.Trim();
+            using (var db = new ApplicationDbContext())
+            {
+                Tag tag = db.Tags.FirstOrDefault(x => x.Name.ToLower() == tagName.ToLower());
+                if (tag != null)
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest, "This Tag already exist.");
+                tag = new Tag(tagName, lang.GetStringValue());
+                db.Tags.Add(tag);
+                db.SaveChanges();
+                return RedirectToAction("Tag");
+            }
+        }
+        [Authorize(Roles = "Admin")]
+        public ActionResult EditTag(int tagId, string tagName, Language lang)
+        {
+            tagName = tagName.Trim();
+            using (var db = new ApplicationDbContext())
+            {
+                Tag tag = db.Tags.FirstOrDefault(x => x.Id == tagId);
+                if (tag == null)
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest, "This Tag not found.");
+                tag.Name = tagName;
+                tag.Language = lang.GetStringValue();
+                db.SaveChanges();
+                return RedirectToAction("Tag");
+            }
+        }
+        [Authorize(Roles = "Admin")]
+        public ActionResult RemoveTag(int tagId)
+        {
+            using (var db = new ApplicationDbContext())
+            {
+                Tag tag = db.Tags.FirstOrDefault(x => x.Id == tagId);
+                if (tag == null)
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest, "This Tag not found.");
+                db.Tags.Remove(tag);
+                db.SaveChanges();
+                return RedirectToAction("Tag");
+            }
+        }
+        #region Area
+
+        public ActionResult Area()
+        {
+            using (var db = new ApplicationDbContext())
+            {
+                return View(db.Areas.ToList());
+            }
+        }
+        [Authorize(Roles = "Admin")]
+        public ActionResult AddArea(string areaName, Language lang)
+        {
+            areaName = areaName.Trim();
+            using (var db = new ApplicationDbContext())
+            {
+                Area area = db.Areas.FirstOrDefault(x => x.Name.ToLower() == areaName.ToLower());
                 if (area != null)
-                    return Json(new { Id = area.Id, isNew = false });
-                area = new Area(name);
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest, "This Area already exist.");
+                area = new Area(areaName, lang.GetStringValue());
                 db.Areas.Add(area);
                 db.SaveChanges();
-                return Json(new { Id = area.Id, isNew = true });
+                return RedirectToAction("Area");
             }
         }
+        [Authorize(Roles = "Admin")]
+        public ActionResult EditArea(int areaId, string areaName, Language lang)
+        {
+            areaName = areaName.Trim();
+            using (var db = new ApplicationDbContext())
+            {
+                Area area = db.Areas.FirstOrDefault(x => x.Id == areaId);
+                if (area == null)
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest, "This Area not found.");
+                area.Name = areaName;
+                area.Language = lang.GetStringValue();
+                db.SaveChanges();
+                return RedirectToAction("Area");
+            }
+        }
+        [Authorize(Roles = "Admin")]
+        public ActionResult RemoveArea(int areaId)
+        {
+            using (var db = new ApplicationDbContext())
+            {
+                Area area = db.Areas.FirstOrDefault(x => x.Id == areaId);
+                if (area == null)
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest, "This Area not found.");
+                db.Areas.Remove(area);
+                db.SaveChanges();
+                return RedirectToAction("Area");
+            }
+        } 
+        #endregion
+
     }
 }

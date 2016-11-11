@@ -21,7 +21,11 @@
                             @if (Model != null && Model == cat.Id)
                             {
                                 <input checked type="radio" class="flat" name="areas" value="@cat.Id"> @cat.Name @:(@cat.Language)
-                                    }
+                            }
+                            @if (Model == null && cat.Id == (ViewBag.Areas as List<Area>).First().Id)
+                            {
+                                <input checked type="radio" class="flat" name="areas" value="@cat.Id"> @cat.Name @:(@cat.Language)
+                            }
                             else
                             {
                                 <input type="radio" class="flat" name="areas" value="@cat.Id"> @cat.Name @:(@cat.Language)
@@ -29,14 +33,6 @@
                         </label>
                     </div>
                 }
-            </div>
-        </div>
-        <div class="widget_summary">
-            <div class="input-group ">
-                <input type="text" class="form-control" placeholder="Add New Area">
-                <span class="input-group-btn">
-                    <button id="addArea" type="button" class="btn btn-success"><i class="fa fa-plus"></i></button>
-                </span>
             </div>
         </div>
     </div>
