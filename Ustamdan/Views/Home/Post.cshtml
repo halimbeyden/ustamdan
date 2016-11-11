@@ -12,7 +12,6 @@
 
             <!-- Post Content
             ============================================= -->
-            <div class="postcontent nobottommargin clearfix">
 
                 <div class="single-post nobottommargin">
 
@@ -42,16 +41,44 @@
                         </ul><!-- .entry-meta end -->
                         <!-- Entry Image
                         ============================================= -->
-                        <div class="entry-image">
-                            @if (Model.PostType == PostType.Image)
-                            {
-                                <a href="#"><img src="@Model.MediaURL" alt="@Model.Title"></a>
-                            }
-                            else
-                            {
-                                <iframe src="@Model.MediaURL" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-                            }
-                        </div><!-- .entry-image end -->
+                        @*<div class="entry-image">
+                                @if (Model.PostType == PostType.Image)
+                                {
+                                    <a href="#"><img src="@Model.MediaURL" alt="@Model.Title"></a>
+                                }
+                                else
+                                {
+                                    <iframe src="@Model.MediaURL" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                                }
+                            </div>*@
+                        <div class="col_full portfolio-single-image">
+                            <div class="fslider" data-arrows="true" data-animation="slide">
+                                <div class="flexslider">
+                                    <div class="slider-wrap">
+                                        @foreach (var pm in Model.PostMedia)
+                                        {
+                                            if (pm.Type == PostType.Image)
+                                            {
+                                                <div class="slide">
+                                                    <a href="#">
+                                                        <img src="@pm.MediaUrl" alt="@Model.Title">
+                                                    </a>
+                                                </div>
+                                            }
+                                            else
+                                            {
+                                                <div class="slide">
+                                                    <a href="#">
+                                                        <iframe src="@pm.MediaUrl" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                                                    </a>
+                                                </div>
+                                            }
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- .portfolio-single-image end -->
+                        <!-- .entry-image end -->
                         <!-- Entry Content
                         ============================================= -->
                         <div class="entry-content notopmargin">
@@ -117,105 +144,9 @@
                     </div>
                 </div>
 
-            </div><!-- .postcontent end -->
             <!-- Sidebar
             ============================================= -->
-            <div class="sidebar nobottommargin col_last clearfix">
-                <div class="sidebar-widgets-wrap">
-                    <div class="widget clearfix">
-
-                        <div class="tabs nobottommargin clearfix" id="sidebar-tabs">
-
-                            <ul class="tab-nav clearfix">
-                                <li><a href="#tabs-1">@Resource.PostLatestsTitle</a></li>
-                               @* <li><a href="#tabs-2">@Resource.PostRelatedText</a></li>*@
-                            </ul>
-
-                            <div class="tab-container">
-
-                                <div class="tab-content clearfix" id="tabs-1">
-                                    <div id="popular-post-list-sidebar">
-                                        @foreach (PostViewModel post in ViewBag.RecentPosts)
-                                        {
-                                            <div class="spost clearfix">
-                                                <div class="entry-image">
-                                                    @if (post.PostType == PostType.Image)
-                                                    {
-                                                        <a href="#" class="nobg"><img class="img-circle" src="@post.MediaURL" alt="@post.Title"></a>
-                                                    }
-                                                    else
-                                                    {
-                                                        <a href="@Url.Action("Post",new { id=post.Id})" class="nobg"><i class="icon icon-play-circle"></i></a>
-                                                    }
-                                                </div>
-                                                <div class="entry-c">
-                                                    <div class="entry-title">
-                                                        <h4><a href="@Url.Action("Post",new { id=post.Id})">@post.Title</a></h4>
-                                                    </div>
-                                                    <ul class="entry-meta">
-                                                        <li>
-                                                            <i class="icon-folder-open"></i>
-                                                            @foreach (var cat in post.CategoryNames)
-                                                            {
-                                                                <a href="#">@cat</a>
-                                                            }
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        }
-                                    </div>
-                                </div>
-                                @*<div class="tab-content clearfix" id="tabs-2">
-                                    <div id="recent-post-list-sidebar">
-                                        @foreach (PostViewModel post in ViewBag.RelatedPosts)
-                                        {
-                                            <div class="spost clearfix">
-                                                <div class="entry-image">
-                                                    @if (post.PostType == PostType.Image)
-                                                    {
-                                                        <a href="#" class="nobg"><img class="img-circle" src="@post.MediaURL" alt="@post.Title"></a>
-                                                    }
-                                                    else
-                                                    {
-                                                        <a href="@Url.Action("Post",new { id=post.Id})" class="nobg"><i class="icon icon-play-circle"></i></a>
-                                                    }
-                                                </div>
-                                                <div class="entry-c">
-                                                    <div class="entry-title">
-                                                        <h4><a href="@Url.Action("Post",new { id=post.Id})">@post.Title</a></h4>
-                                                    </div>
-                                                    <ul class="entry-meta">
-                                                        <li>@Model.DateCreated.ToShortDateString()</li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        }
-                                    </div>
-                                </div>*@
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="widget clearfix">
-
-                        <h4>@Resource.PostTagCloudText</h4>
-                        <div class="tagcloud">
-                            @foreach (var tag in Model.TagNames)
-                            {
-                                <a href="#">@tag</a>
-                            }
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div><!-- .sidebar end -->
+            <!-- .sidebar end -->
 
         </div>
 

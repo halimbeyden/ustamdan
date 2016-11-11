@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using Ustamdan.Models;
 
 namespace Ustamdan
 {
@@ -21,7 +22,7 @@ namespace Ustamdan
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional, lang = "tr" }
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional, lang = AppData.DefaultLanguage }
             );
             routes.MapMvcAttributeRoutes();
             AreaRegistration.RegisterAllAreas();
