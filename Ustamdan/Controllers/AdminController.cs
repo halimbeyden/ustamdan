@@ -107,6 +107,7 @@ namespace Ustamdan.Controllers
                     temp.DateModified = DateTime.Now;
                     temp.Categories.Clear();
                     temp.Tags.Clear();
+                    temp.CarouselMedia.Clear();
                 }
                 if (!User.IsInRole("Admin"))
                     temp.IsPublished = false;
@@ -121,11 +122,15 @@ namespace Ustamdan.Controllers
                 temp.Latitude = post.Latitude;
                 temp.Longitude = post.Longitude;
                 temp.Categories = new List<Category>();
+                temp.CarouselMedia = new List<PostMedia>();
                 temp.Tags = new List<Tag>();
                 temp.AreaId = post.AreaId;
                 try
                 {
-                    temp.Categories.AddRange(db.Categories.Where(x => post.Categories.Contains(x.Id)));
+                    if (post.Categories != null && post.Categories.Count() > 0)
+                        temp.Categories.AddRange(db.Categories.Where(x => post.Categories.Contains(x.Id)));
+                    if (post.PostMedia != null && post.PostMedia.Count > 0)
+                        temp.CarouselMedia.AddRange(post.PostMedia);
                     temp.Tags.AddRange(getTags(db, post.TagNames));
                 }
                 catch
@@ -144,8 +149,7 @@ namespace Ustamdan.Controllers
                 Tag tg = db.Tags.FirstOrDefault(x => x.Name.ToLower() == tag.Trim().ToLower());
                 if(tg == null)
                 {
-                    tg = new Tag();
-                    tg.Name = tag;
+                    tg = new Tag(tag);
                     db.Tags.Add(tg);
                     db.SaveChanges();
                 }

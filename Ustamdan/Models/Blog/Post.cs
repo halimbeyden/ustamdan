@@ -75,7 +75,7 @@ namespace Ustamdan.Models.Blog
         public double Latitude { get; set; }
         public double Longitude { get; set; }
         public int? AreaId { get; set; }
-
+        public virtual List<PostMedia> CarouselMedia { get; set; }
 
         [ForeignKey("AuthorId")]
         public virtual ApplicationUser Author { get; set; }
@@ -91,7 +91,7 @@ namespace Ustamdan.Models.Blog
             myString += " " + this.Area.Name;
             List<Post> rposts = new List<Post>();
             Random r = new Random();
-            foreach (var post in db.Posts.Where(x=>x.Id != this.Id && x.Language == this.Language).ToList())
+            foreach (var post in db.Posts.Include("CarouselMedia").Where(x=>x.Id != this.Id && x.Language == this.Language).ToList())
             {
                 if ((post.Categories != null && post.Tags != null && post.Area != null) && 
                     (post.Categories.Any(x => myString.Contains(x.Name))

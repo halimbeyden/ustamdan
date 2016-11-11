@@ -36,7 +36,7 @@ namespace Ustamdan.Models
                 post.PostContent = LipsumGenerator.Generate(random.Next(5,15), Features.Paragraphs, null, Lipsums.LoremIpsum);
                 post.Description = LipsumGenerator.Generate(3, Features.Sentences, null, Lipsums.NagyonFaj);
                 post.Language = ((Language)random.Next(2)).GetStringValue();
-                post.MediaURL = "/Content/Media/katranci.jpg";
+                post.CarouselMedia = CreateMedia();
                 post.Type = PostType.Image;
                 post.HasLocation = true;
                 post.Latitude = random.NextDouble() * 10 + 35;
@@ -62,6 +62,19 @@ namespace Ustamdan.Models
                 db.SaveChanges();
             }
         }
+        private static List<PostMedia> CreateMedia()
+        {
+            var pms = new List<PostMedia>();
+            for (int i = 0; i < random.Next(1, 8); i++)
+            {
+                var n = (PostType)random.Next(2);
+                if(n == PostType.Image)
+                    pms.Add(new PostMedia("/Content/Media/katranci.jpg", n));
+                else
+                    pms.Add(new PostMedia("https://www.youtube.com/embed/QyuzbiegyK0", n));
+            }
+            return pms;
+        }
         private static void CreateArea(ApplicationDbContext db)
         {
             for (int i = 0; i < random.Next(1,7); i++)
@@ -84,8 +97,7 @@ namespace Ustamdan.Models
         {
             for (int i = 0; i < random.Next(1, 10); i++)
             {
-                Tag tag = new Tag();
-                tag.Name = LipsumGenerator.Generate(1, Features.Words, null, Lipsums.Faust);
+                Tag tag = new Tag(LipsumGenerator.Generate(1, Features.Words, null, Lipsums.Faust));
                 db.Tags.Add(tag);
             }
             db.SaveChanges();

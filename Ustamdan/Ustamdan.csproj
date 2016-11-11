@@ -236,10 +236,12 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AppData.cs" />
     <Compile Include="Models\Blog\Area.cs" />
     <Compile Include="Models\Blog\Category.cs" />
     <Compile Include="Models\Blog\Comment.cs" />
     <Compile Include="Models\Blog\Post.cs" />
+    <Compile Include="Models\Blog\PostMedia.cs" />
     <Compile Include="Models\Blog\Tag.cs" />
     <Compile Include="Models\Dummy.cs" />
     <Compile Include="Models\ErrorLog.cs" />
@@ -1247,6 +1249,7 @@
     <Content Include="Scripts\Admin\locationpicker.jquery.js" />
     <Content Include="Scripts\Admin\nprogress.js" />
     <Content Include="Scripts\Admin\pnotify.js" />
+    <Content Include="Scripts\Admin\savepost.js" />
     <Content Include="Scripts\Admin\videourlparser.js" />
     <Content Include="Scripts\ai.0.22.19-build00125.js" />
     <Content Include="Scripts\ai.0.22.19-build00125.min.js" />
@@ -1550,6 +1553,11 @@
     <Content Include="Views\Admin\_MediaPartial.cshtml" />
     <Content Include="Views\Home\Search.cshtml" />
     <Content Include="Views\Home\_PostPartial.cshtml" />
+    <Content Include="Views\Admin\PostPartials\_CategoryPartial.cshtml" />
+    <Content Include="Views\Admin\PostPartials\_AreaPartial.cshtml" />
+    <Content Include="Views\Admin\PostPartials\_TagPartial.cshtml" />
+    <Content Include="Views\Admin\PostPartials\_LanguagePartial.cshtml" />
+    <Content Include="Views\Admin\PostPartials\_StatusPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

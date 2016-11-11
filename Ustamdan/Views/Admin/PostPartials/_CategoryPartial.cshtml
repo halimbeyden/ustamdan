@@ -1,0 +1,43 @@
+﻿@model int[]
+
+<div class="x_panel tile">
+    <div class="x_title">
+        <h2>Categories</h2>
+        <ul class="nav navbar-right panel_toolbox">
+            <li>
+                <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+            </li>
+        </ul>
+        <div class="clearfix"></div>
+    </div>
+    <div class="x_content">
+        <h4>Select Categories</h4>
+        <div class="widget_summary">
+            <div id="categoryList">
+                @foreach (Category cat in ViewBag.Categories)
+                {
+                    <div class="checkbox">
+                        <label>
+                            @if (Model != null && Model.Contains(cat.Id))
+                            {
+                                <input checked type="checkbox" class="flat" name="categories" value="@cat.Id"> @cat.Name @:(@cat.Language)
+                                    }
+                            else
+                            {
+                                <input type="checkbox" class="flat" name="categories" value="@cat.Id"> @cat.Name @:(@cat.Language)
+                                    }
+                        </label>
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="widget_summary">
+            <div class="input-group ">
+                <input type="text" class="form-control" placeholder="Add New Category">
+                <span class="input-group-btn">
+                    <button id="addCategory" type="button" class="btn btn-success"><i class="fa fa-plus"></i></button>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

@@ -10,7 +10,7 @@ namespace Ustamdan
 {
     public class LocalizationAttribute : ActionFilterAttribute
     {
-        private string _DefaultLanguage = "en";
+        private static string _DefaultLanguage = "tr";
 
         public LocalizationAttribute(string defaultLanguage)
         {

@@ -1,12 +1,12 @@
 ﻿@model PostViewModel
     <div class="entry-image">
-        @if (Model.PostType == PostType.Image)
+        @if (Model.PostMedia.First().Type == PostType.Image)
         {
-            <a href="@Model.MediaURL" data-lightbox="image"><img class="image_fade" src="@Model.MediaURL" alt="@Model.Title"></a>
+            <a href="@Model.PostMedia.First().MediaUrl" data-lightbox="image"><img class="image_fade" src="@Model.PostMedia.First().MediaUrl" alt="@Model.Title"></a>
         }
         else
         {
-            <iframe src="@Model.MediaURL" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+            <iframe src="@Model.PostMedia.First().MediaUrl" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
         }
     </div>
     <div class="entry-title">

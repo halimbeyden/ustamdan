@@ -88,9 +88,9 @@
                                         {
                                             <div class="spost clearfix">
                                                 <div class="entry-image">
-                                                    @if (post.PostType == PostType.Image)
+                                                    @if (post.PostMedia.First().Type == PostType.Image)
                                                     {
-                                                        <a href="@Url.Action(" Post",new { id=post.Id})" class="nobg"><img class="img-circle" src="@post.MediaURL" alt="@post.Title"></a>
+                                                        <a href="@Url.Action(" Post",new { id=post.Id})" class="nobg"><img class="img-circle" src="@post.PostMedia.First().MediaUrl" alt="@post.Title"></a>
                                                     }
                                                     else
                                                     {
@@ -430,7 +430,7 @@
             map.setMapTypeId('styled_map');
             @foreach (var p in (ViewBag.AllPosts as List<PostViewModel>))
             {
-                string imgContent = p.PostType == PostType.Image ? "<a href='" + Url.Action("Post", new { id = p.Id }) + "' class='nobg'><img src='" + p.MediaURL+ "' alt=''></a>"
+                string imgContent = p.PostMedia.First().Type == PostType.Image ? "<a href='" + Url.Action("Post", new { id = p.Id }) + "' class='nobg'><img src='" + p.PostMedia.First().MediaUrl+ "' alt=''></a>"
                     :"<a href='" + Url.Action("Post",new { id=p.Id}) + "' class='nobg'><i class='icon icon-play-circle'></i></a>";
                 @:var contentString = '<div id="content">' +
                 @:'<div class="spost clearfix">' +
