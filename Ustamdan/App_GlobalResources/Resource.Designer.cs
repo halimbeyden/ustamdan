@@ -133,6 +133,15 @@ namespace Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to KATEGORİLER.
+        /// </summary>
+        public static string CategoryTitle {
+            get {
+                return ResourceManager.GetString("CategoryTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Adres Bilgilerimiz.
         /// </summary>
         public static string ContactAddressTitle {

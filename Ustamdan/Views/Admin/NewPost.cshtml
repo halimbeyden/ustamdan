@@ -9,6 +9,7 @@
         min-width: 0px;
     }
 </style>
+<link href="~/Content/Admin/pnotify.css" rel="stylesheet" />
 <button type="button" onclick="savePost()" class="btn btn-success pull-right">Save Post</button>
 <h2>NewPost</h2>
 <hr />
@@ -23,18 +24,18 @@
                 <label class="control-label">Post Media (Add at least one media)</label>
             </div>
             @*<div class="form-group">
-                <label class="control-label">Post Image URL</label>
-                <div class="input-group ">
-                    <input type="text" class="form-control" placeholder="Image URL" id="postImageUrl">
-                    <span class="input-group-btn">
-                        <button data-toggle="modal" data-target="#mediaModal" type="button" class="btn btn-default"><i class="fa fa-image"></i></button>
-                    </span>
+                    <label class="control-label">Post Image URL</label>
+                    <div class="input-group ">
+                        <input type="text" class="form-control" placeholder="Image URL" id="postImageUrl">
+                        <span class="input-group-btn">
+                            <button data-toggle="modal" data-target="#mediaModal" type="button" class="btn btn-default"><i class="fa fa-image"></i></button>
+                        </span>
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                <label class="control-label">Post Video URL</label>
-                <input type="text" class="form-control" placeholder="Video URL" id="postVideoUrl">
-            </div>*@
+                <div class="form-group">
+                    <label class="control-label">Post Video URL</label>
+                    <input type="text" class="form-control" placeholder="Video URL" id="postVideoUrl">
+                </div>*@
             <a href="#" data-toggle="modal" data-target="#mediaModal" class="btn btn-app">
                 <i class="fa fa-image"></i>
                 Add Image
@@ -105,7 +106,7 @@
                     <h4 class="modal-title" id="myModalLabel">Double Click to Select Media</h4>
                 </div>
                 <div class="modal-body">
-                    @Html.Partial("_MediaPartial",ViewData["MediaModel"])
+                    @Html.Partial("_MediaPartial", ViewData["MediaModel"])
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
@@ -136,6 +137,7 @@
 @section scripts{
     <script src="~/Scripts/tinymce/tinymce.min.js"></script>
     <script src="~/Scripts/Admin/jquery.tagsinput.js"></script>
+    <script src="~/Scripts/Admin/pnotify.js"></script>
     <script type="text/javascript" src='http://maps.google.com/maps/api/js?key=AIzaSyBo6xedQToKACcfN2BzV54-3br245ytkBo&sensor=false&libraries=places'></script>
     <script src="~/Scripts/Admin/locationpicker.jquery.js"></script>
     <script src="~/Scripts/Admin/nprogress.js"></script>
@@ -194,7 +196,7 @@
                 'Categories': categories,
                 'AreaId': area,
                 'TagNames': tags,
-                'PostMedia':media,
+                'PostMedia': media,
                 'HasLocation': currentLocation.HasLocation,
                 'Latitude': currentLocation.Latitude,
                 'Longitude': currentLocation.Longitude
@@ -211,39 +213,39 @@
         }
     </script>
     @*@if (User.IsInRole("Admin"))
-    {
-        <script>
-            $("#addCategory").on("click", function () {
-                $cat = $(this).parent().parent().find("input").val();
-                if ($cat == "")
-                    return;
-                $.post("AddCategory", { name: $cat }, function (data) {
-                    if (data.Id == -1)
+        {
+            <script>
+                $("#addCategory").on("click", function () {
+                    $cat = $(this).parent().parent().find("input").val();
+                    if ($cat == "")
                         return;
-                    if (data.isNew == true)
-                        $("#categoryList").append('<div class="checkbox"><label><input type="checkbox" checked class="flat" name="categories" value="' + data.Id + '"> ' + $cat + '</label></div>').iCheck({ checkboxClass: 'icheckbox_flat-green' });
-                    else {
-                        $("#categoryList input[value='" + data.Id + "']").iCheck('check');
-                    }
+                    $.post("AddCategory", { name: $cat }, function (data) {
+                        if (data.Id == -1)
+                            return;
+                        if (data.isNew == true)
+                            $("#categoryList").append('<div class="checkbox"><label><input type="checkbox" checked class="flat" name="categories" value="' + data.Id + '"> ' + $cat + '</label></div>').iCheck({ checkboxClass: 'icheckbox_flat-green' });
+                        else {
+                            $("#categoryList input[value='" + data.Id + "']").iCheck('check');
+                        }
+                    });
+                    $(this).parent().parent().find("input").val('');
                 });
-                $(this).parent().parent().find("input").val('');
-            });
-            $("#addArea").on("click", function () {
-                $cat = $(this).parent().parent().find("input").val();
-                if ($cat == "")
-                    return;
-                $.post("AddArea", { name: $cat }, function (data) {
-                    if (data.Id == -1)
+                $("#addArea").on("click", function () {
+                    $cat = $(this).parent().parent().find("input").val();
+                    if ($cat == "")
                         return;
-                    if (data.isNew == true)
-                        $("#areaList").append('<div class="radio"><label><input type="radio" checked class="flat" name="areas" value="' + data.Id + '"> ' + $cat + '</label></div>').iCheck({ radioClass: 'iradio_flat-green' });
-                    else {
-                        $("#areaList input[value='" + data.Id + "']").iCheck('check');
-                    }
+                    $.post("AddArea", { name: $cat }, function (data) {
+                        if (data.Id == -1)
+                            return;
+                        if (data.isNew == true)
+                            $("#areaList").append('<div class="radio"><label><input type="radio" checked class="flat" name="areas" value="' + data.Id + '"> ' + $cat + '</label></div>').iCheck({ radioClass: 'iradio_flat-green' });
+                        else {
+                            $("#areaList input[value='" + data.Id + "']").iCheck('check');
+                        }
+                    });
+                    $(this).parent().parent().find("input").val('');
                 });
-                $(this).parent().parent().find("input").val('');
-            });
-        </script>
-    }*@
+            </script>
+        }*@
 
 }

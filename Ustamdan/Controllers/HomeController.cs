@@ -88,14 +88,7 @@ namespace Ustamdan.Controllers
         {
             return View();
         }
-        public ActionResult Category()
-        {
-            return View();
-        }
-        public ActionResult Tag()
-        {
-            return View();
-        }
+     
         public ActionResult Search(string q, int? a, int? c, int? t)
         {
             string lang = RouteData.Values["lang"].ToString();
