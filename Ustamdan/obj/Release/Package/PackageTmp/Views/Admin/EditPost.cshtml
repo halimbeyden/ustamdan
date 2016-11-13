@@ -46,7 +46,7 @@
                 <label class="control-label">Post Media (Add at least one media)</label>
                 @foreach (PostMedia pm in Model.PostMedia)
                 {
-                    <blockquote data-type="@pm.Type.ToString().ToLower()" data-value="@pm.MediaUrl">@pm.MediaUrl<i style="color:red;cursor:pointer" class="removeMedia pull-right fa fa-remove"></i></blockquote>
+                    <blockquote data-type="@pm.Type.ToString().ToLower(new System.Globalization.CultureInfo("en-US"))" data-value="@pm.MediaUrl">@pm.MediaUrl<i style="color:red;cursor:pointer" class="removeMedia pull-right fa fa-remove"></i></blockquote>
                 }
             </div>
             <a href="#" data-toggle="modal" data-target="#mediaModal" class="btn btn-app">

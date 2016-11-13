@@ -4,7 +4,7 @@
         {
             <a href="@Url.Action("Post",new {id = Model.Id })" data-toggle="tooltip" data-placement="top" title="@Model.Title"  @*data-lightbox="image"*@><img class="image_fade" src="@Model.PostMedia.First().MediaUrl" alt="@Model.Title"></a>
         }
-        else
+        else if (Model.PostMedia.First().Type == PostType.Video)
         {
             <iframe src="@Model.PostMedia.First().MediaUrl" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
         }
