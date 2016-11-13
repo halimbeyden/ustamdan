@@ -367,6 +367,114 @@ namespace Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Türkiye den seçilen üç sosyal girişim Silikon Vadisinde bizi temsil etti..
+        /// </summary>
+        public static string News1Content {
+            get {
+                return ResourceManager.GetString("News1Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Daily Sabah.
+        /// </summary>
+        public static string News1Title {
+            get {
+                return ResourceManager.GetString("News1Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to İki genç mühendisin Anadolu yu gezme tutkusu sayesinde Ustamdan doğdu..
+        /// </summary>
+        public static string News2Content {
+            get {
+                return ResourceManager.GetString("News2Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to FORBES TURKIYE.
+        /// </summary>
+        public static string News2Title {
+            get {
+                return ResourceManager.GetString("News2Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;i&gt;“Bin Yıllık Ellerden Anadolu Zanaatları”&lt;/i&gt; sloganıyla yola çıktılar.
+        /// </summary>
+        public static string News3Content {
+            get {
+                return ResourceManager.GetString("News3Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Anadolu Jet Skylife.
+        /// </summary>
+        public static string News3Title {
+            get {
+                return ResourceManager.GetString("News3Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ABD başkanı Barack Obama tarafından desteklenen ve düzenlediği Obama yönetimi, Küresel Girişimcilik Zirvesi (GES) başarılı üç Türk kadın girişimcileri ağırladı..
+        /// </summary>
+        public static string News4Content {
+            get {
+                return ResourceManager.GetString("News4Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kuşak Haber.
+        /// </summary>
+        public static string News4Title {
+            get {
+                return ResourceManager.GetString("News4Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;a href=&quot;/&quot;&gt;Ustamdan.com&lt;/a&gt; girişimi, yerel pazarların sürdürülebilirliğini artırmak, yörelerin tarihsel ve kültürel değerlerini gelecek nesillere aktarmak bununla birlikte işi hikayeleştirerek yöresel turizme de katkı sağlama amacını taşıyor..
+        /// </summary>
+        public static string News5Content {
+            get {
+                return ResourceManager.GetString("News5Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Webrazzi.
+        /// </summary>
+        public static string News5Title {
+            get {
+                return ResourceManager.GetString("News5Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rakamlar &apos;Gençlerin topluma katılımındaki politikalar eksik&apos; diyor. Çözüm üretmeye çalışan gençlerin hikâyeleri ise umut veriyor..
+        /// </summary>
+        public static string News6Content {
+            get {
+                return ResourceManager.GetString("News6Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ALJAZEERA.
+        /// </summary>
+        public static string News6Title {
+            get {
+                return ResourceManager.GetString("News6Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to HAKKIMIZDA.
         /// </summary>
         public static string OurStoryTitle {
@@ -444,6 +552,87 @@ namespace Resource {
         public static string SendUsEmailText {
             get {
                 return ResourceManager.GetString("SendUsEmailText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kurucu Ortak.
+        /// </summary>
+        public static string TeamPosition1 {
+            get {
+                return ResourceManager.GetString("TeamPosition1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Genel Yayın Yönetmeni.
+        /// </summary>
+        public static string TeamPosition2 {
+            get {
+                return ResourceManager.GetString("TeamPosition2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sosyal Etki Yönetimi ve Yazar.
+        /// </summary>
+        public static string TeamPosition3 {
+            get {
+                return ResourceManager.GetString("TeamPosition3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kurumsal Tasarım ve Yazar.
+        /// </summary>
+        public static string TeamPosition4 {
+            get {
+                return ResourceManager.GetString("TeamPosition4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Proje Sorumlusu.
+        /// </summary>
+        public static string TeamPosition5 {
+            get {
+                return ResourceManager.GetString("TeamPosition5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tercüman.
+        /// </summary>
+        public static string TeamPosition6 {
+            get {
+                return ResourceManager.GetString("TeamPosition6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Araştırmacı.
+        /// </summary>
+        public static string TeamPosition7 {
+            get {
+                return ResourceManager.GetString("TeamPosition7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yazar.
+        /// </summary>
+        public static string TeamPosition8 {
+            get {
+                return ResourceManager.GetString("TeamPosition8", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yazılım Uzmanı.
+        /// </summary>
+        public static string TeamPosition9 {
+            get {
+                return ResourceManager.GetString("TeamPosition9", resourceCulture);
             }
         }
         

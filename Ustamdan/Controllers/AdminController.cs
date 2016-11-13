@@ -89,6 +89,24 @@ namespace Ustamdan.Controllers
             }
             return View(postVM);
         }
+
+        [HttpPost]
+        public ActionResult RemovePost(int id)
+        {
+            using (var db = new ApplicationDbContext())
+            {
+                var post = db.Posts.Find(id);
+                if (post == null)
+                    return HttpNotFound();
+                if (!User.IsInRole("Admin") && post.Author.Id != User.Identity.GetUserId())
+                    return new HttpUnauthorizedResult();
+                db.PostMedias.RemoveRange(post.CarouselMedia);
+                db.Posts.Remove(post);
+                db.SaveChanges();
+            }
+            return RedirectToAction("Posts");
+        }
+
         [HttpPost]
         public JsonResult SavePost(PostViewModel post)
         {

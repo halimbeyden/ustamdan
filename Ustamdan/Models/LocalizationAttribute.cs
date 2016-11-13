@@ -20,17 +20,14 @@ namespace Ustamdan
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             string lang = (string)filterContext.RouteData.Values["lang"] ?? _DefaultLanguage;
-            if (lang != _DefaultLanguage)
+            try
             {
-                try
-                {
-                    Thread.CurrentThread.CurrentCulture = 
-                    Thread.CurrentThread.CurrentUICulture = new CultureInfo(lang);
-                }
-                catch (Exception e)
-                {
-                    throw new NotSupportedException(String.Format("ERROR: Invalid language code '{0}'.", lang));
-                }
+                Thread.CurrentThread.CurrentCulture = 
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo(lang);
+            }
+            catch (Exception e)
+            {
+                throw new NotSupportedException(String.Format("ERROR: Invalid language code '{0}'.", lang));
             }
         }
     }

@@ -216,6 +216,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resource.resx</DependentUpon>
     </Compile>
+    <Compile Include="App_GlobalResources\Resource.tr.designer.cs">
+      <DependentUpon>Resource.tr.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="App_GlobalResources\Resource.en.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -249,9 +254,9 @@
     <Compile Include="Models\LocalizationAttribute.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MultiLanguage\LanguageHelper.cs" />
-    <Compile Include="Models\MultiLanguage\LocalizationAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\EmailViewModel.cs" />
     <Compile Include="ViewModels\HomeViewModel.cs" />
     <Compile Include="ViewModels\PostViewModel.cs" />
     <Compile Include="ViewModels\UserListViewModel.cs" />
@@ -320,6 +325,7 @@
     <Content Include="Content\img\ekip\bilal.png" />
     <Content Include="Content\img\ekip\burcu.gif" />
     <Content Include="Content\img\ekip\gokce.gif" />
+    <Content Include="Content\img\ekip\halim.jpg" />
     <Content Include="Content\img\ekip\merve.gif" />
     <Content Include="Content\img\ekip\pelin.gif" />
     <Content Include="Content\img\ekip\rey-1.gif" />
@@ -1227,6 +1233,7 @@
     <Content Include="Content\theme\responsive.css" />
     <Content Include="Content\theme\style.css" />
     <Content Include="Content\theme\swiper.css" />
+    <Content Include="Content\ustamdan.mp4" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\font-icons-snapchat.svg" />
     <Content Include="fonts\font-icons.svg" />
@@ -1284,6 +1291,12 @@
     <Content Include="Content\images\videos\explore.webm" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <EmbeddedResource Include="App_GlobalResources\Resource.tr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.tr.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+      <CustomToolNamespace>Resource</CustomToolNamespace>
+    </EmbeddedResource>
     <EmbeddedResource Include="App_GlobalResources\Resource.en.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resource.en.Designer.cs</LastGenOutput>
@@ -1308,6 +1321,7 @@
     <Content Include="Content\theme\fonts\Simple-Line-Icons.eot" />
     <Content Include="Content\theme\fonts\Simple-Line-Icons.ttf" />
     <Content Include="Content\theme\fonts\Simple-Line-Icons.woff" />
+    <Content Include="Content\ustamdan.webm" />
     <None Include="Properties\PublishProfiles\file.pubxml" />
     <None Include="Properties\PublishProfiles\halim azure.pubxml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />

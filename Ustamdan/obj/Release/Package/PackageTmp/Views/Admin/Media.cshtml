@@ -1,0 +1,71 @@
+﻿@model List<FileInfo>
+@{
+    ViewBag.Title = "Media";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="page-title">
+    <div class="title_left">
+        <h3> Media Gallery <small></small> </h3>
+    </div>
+    @*<div class="title_right">
+            <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search...">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button">Go!</button>
+                    </span>
+                </div>
+            </div>
+        </div>*@
+</div>
+@Html.Partial("_MediaPartial",Model)
+
+
+@section scripts{
+    <script src="~/Scripts/Admin/nprogress.js"></script>
+    <script>
+        function copyToClipboard(data) {
+            var $temp = $("<input>");
+            $("body").append($temp);
+            $temp.val(data).select();
+            document.execCommand("copy");
+            console.log(data);
+            $temp.remove();
+        }
+        $("#removeMediaModal").on("show.bs.modal", function (e) {
+            $(this).find("img").attr("src", "/Content/Media/" + $(e.relatedTarget).attr("data-nm"));
+            $(this).find("input").val($(e.relatedTarget).attr("data-nm"));
+            $(e.relatedTarget).parent().parent().parent().attr("data-active", 1);
+        });
+        $("#removeMediaModal").on("hide.bs.modal", function (e) {
+            $(".mediaImage").attr("data-active", 0);
+        });
+        $(document).on("click", "#removeMediaBtn", function () {
+            var data = $(this).parent().parent().serialize();
+            $.post("@Url.Action("RemoveMedia")", data, function () {
+                $("[data-active=1]").parent().parent().remove();
+                $("#removeMediaModal").modal("hide");
+            });
+        });
+        $(document).on("click", "#addMediaBtn", function () {
+            var formData = new FormData($("#addMediaModal form")[0]);
+            console.log(formData);
+            $.ajax({
+                url: "@Url.Action("AddMedia")",
+                type: 'POST',
+            data: formData,
+            contentType: false,
+            processData: false,
+            success: function (name) {
+                var template = $(".mediaImage").parent().parent().first().clone();
+                template.find("img").attr("src", "/Content/Media/" + name);
+                template.find(".tools a").first().attr("href", "javascript:copyToClipboard('/Content/Media/" + name + "')");
+                template.find(".tools a").last().attr("data-nm", name);
+                template.find(".caption p").text(name);
+                $(".mediaImage").parent().parent().first().before(template);
+                $("#addMediaModal").modal("hide");
+            }
+        });
+        });
+    </script>
+}

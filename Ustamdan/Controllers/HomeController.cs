@@ -130,5 +130,12 @@ namespace Ustamdan.Controllers
                 return View(posts.ToList().Select(x=>new PostViewModel(x)).ToList());
             }
         }
+
+        [HttpPost]
+        public JsonResult SendMail(EmailViewModel evm)
+        {
+            evm.Ip = Request.UserHostAddress;
+            return Json(evm.sendMail());
+        }
     }
 }
