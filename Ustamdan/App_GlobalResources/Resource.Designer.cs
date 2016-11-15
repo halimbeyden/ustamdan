@@ -583,7 +583,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Kurumsal Tasarım ve Yazar.
+        ///   Looks up a localized string similar to Yazar.
         /// </summary>
         public static string TeamPosition4 {
             get {
@@ -610,7 +610,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Araştırmacı.
+        ///   Looks up a localized string similar to Yazar.
         /// </summary>
         public static string TeamPosition7 {
             get {
@@ -637,7 +637,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Anadolu Kültür Bloğu.
+        ///   Looks up a localized string similar to Anadolu KÜltÜr BloĞu.
         /// </summary>
         public static string WeeklyTitle {
             get {

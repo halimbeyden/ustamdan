@@ -8,6 +8,12 @@
     .highlight-me{
         margin-bottom:5px !important;
     }
+    .category-list{
+        font-size:20px;
+    }
+    .category-list li{
+        margin:15px;;
+    }
 </style>
 <section id="page-title" style="padding:25px 0">
     <div class="container clearfix text-center">
@@ -20,367 +26,325 @@
 
 <section id="page-title" style="padding:25px 0">
     <div class="container clearfix text-center">
-        <h3>@Resource.WeeklyTitle2</h3>
+        @*<h3>@Resource.WeeklyTitle2</h3>*@
+        <ul class="list-inline category-list">
+            @foreach (Category c in ViewBag.Categories)
+            {
+                <li><a href="@Url.Action("Search",new { c = c.Id})"><div>@c.Name</div></a></li>
+            }
+        </ul>
     </div>
 </section><!-- #page-title end -->
-<!-- Content
-============================================= -->
+
 <section id="content">
-
     <div class="content-wrap">
-
-        <div class="container clearfix">
-
-            <!-- Post Content
-            ============================================= -->
-            <div class="postcontent nobottommargin clearfix">
-
-                <!-- Posts
-                ============================================= -->
-                <div id="posts" class="post-grid grid-container grid-3 clearfix" data-layout="fitRows">
-                    @foreach (var post in Model)
-                    {
-                        <div class="entry clearfix">
-                            @Html.Partial("_PostPartial", post)
-                        </div>
-                    }
-
-                </div><!-- #posts end -->
-                <!-- Pagination
-                ============================================= -->
-                <div class="text-center">
-                    @Html.PagedListPager(Model, page => Url.Action("Blog", new { page }))
+        <!-- Content
+        ============================================= -->
+        <div id="posts" class="post-grid grid-container post-masonry post-masonry-full grid-3 clearfix">
+            @foreach (var post in Model)
+            {
+                <div class="entry clearfix">
+                    @Html.Partial("_PostPartialMasonry", post)
                 </div>
-                @*<ul class="pager nomargin">
-                        <li class="previous"><a href="#">&larr; Older</a></li>
-                        <li class="next"><a href="#">Newer &rarr;</a></li>
-                    </ul>*@<!-- .pager end -->
+            }
 
-            </div><!-- .postcontent end -->
-            <!-- Sidebar
-            ============================================= -->
-            <div class="sidebar nobottommargin col_last clearfix">
-                <div class="sidebar-widgets-wrap">
-                    <div id="shortcodes" class="widget widget_links clearfix">
-                        <div class="widget clearfix">
-                            <h4 class="highlight-me">@Resource.CategoryTitle</h4>
-                            <ul>
-                                @foreach (Category c in ViewBag.Categories)
-                                {
-                                    <li><a href="@Url.Action("Search",new { c = c.Id})"><div>@c.Name</div></a></li>
-                                }
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-             <div class="sidebar-widgets-wrap">
-                    <div id="shortcodes" class="widget widget_links clearfix">
-                        <div class="widget clearfix">
-                            <h4 class="highlight-me">@Resource.AreaTitle</h4>
-                            <ul>
-                                @foreach (Area a in ViewBag.Areas)
-                                {
-                                    <li><a href="@Url.Action("Search",new { a = a.Id})"><div>@a.Name</div></a></li>
-                                }
-                            </ul>
-                        </div>
-                      </div>
-                </div>
-            </div><!-- .sidebar end -->
-
+        </div><!-- #posts end -->
+        <!-- Pagination
+        ============================================= -->
+        <div class="text-center" style="margin-top:50px;">
+            @Html.PagedListPager(Model, page => Url.Action("Blog", new { page }))
         </div>
 
     </div>
+</section>
+        @section Scripts{
+            <script>
+            function initMap() {
 
-</section><!-- #content end -->
-@section Scripts{
-    <script>
-        function initMap() {
-
-            // Create a new StyledMapType object, passing it an array of styles,
-            // and the name to be displayed on the map type control.
-            var styledMapType = new google.maps.StyledMapType(
-                [
-            {
-                "elementType": "geometry",
-                "stylers": [
-                  {
-                      "color": "#ebe3cd"
-                  }
-                ]
-            },
-            {
-                "elementType": "labels.text.fill",
-                "stylers": [
-                  {
-                      "color": "#523735"
-                  }
-                ]
-            },
-            {
-                "elementType": "labels.text.stroke",
-                "stylers": [
-                  {
-                      "color": "#f5f1e6"
-                  }
-                ]
-            },
-            {
-                "featureType": "administrative",
-                "elementType": "geometry.stroke",
-                "stylers": [
-                  {
-                      "color": "#c9b2a6"
-                  }
-                ]
-            },
-            {
-                "featureType": "administrative.land_parcel",
-                "elementType": "geometry.stroke",
-                "stylers": [
-                  {
-                      "color": "#dcd2be"
-                  }
-                ]
-            },
-            {
-                "featureType": "administrative.land_parcel",
-                "elementType": "labels.text.fill",
-                "stylers": [
-                  {
-                      "color": "#ae9e90"
-                  }
-                ]
-            },
-            {
-                "featureType": "landscape.natural",
-                "elementType": "geometry",
-                "stylers": [
-                  {
-                      "color": "#dfd2ae"
-                  }
-                ]
-            },
-            {
-                "featureType": "poi",
-                "elementType": "geometry",
-                "stylers": [
-                  {
-                      "color": "#dfd2ae"
-                  }
-                ]
-            },
-            {
-                "featureType": "poi",
-                "elementType": "labels.text.fill",
-                "stylers": [
-                  {
-                      "color": "#93817c"
-                  }
-                ]
-            },
-            {
-                "featureType": "poi.park",
-                "elementType": "geometry.fill",
-                "stylers": [
-                  {
-                      "color": "#a5b076"
-                  }
-                ]
-            },
-            {
-                "featureType": "poi.park",
-                "elementType": "labels.text.fill",
-                "stylers": [
-                  {
-                      "color": "#447530"
-                  }
-                ]
-            },
-            {
-                "featureType": "road",
-                "stylers": [
-                  {
-                      "visibility": "off"
-                  }
-                ]
-            },
-            {
-                "featureType": "road",
-                "elementType": "geometry",
-                "stylers": [
-                  {
-                      "color": "#f5f1e6"
-                  }
-                ]
-            },
-            {
-                "featureType": "road.arterial",
-                "elementType": "geometry",
-                "stylers": [
-                  {
-                      "color": "#fdfcf8"
-                  }
-                ]
-            },
-            {
-                "featureType": "road.highway",
-                "elementType": "geometry",
-                "stylers": [
-                  {
-                      "color": "#f8c967"
-                  }
-                ]
-            },
-            {
-                "featureType": "road.highway",
-                "elementType": "geometry.stroke",
-                "stylers": [
-                  {
-                      "color": "#e9bc62"
-                  }
-                ]
-            },
-            {
-                "featureType": "road.highway.controlled_access",
-                "elementType": "geometry",
-                "stylers": [
-                  {
-                      "color": "#e98d58"
-                  }
-                ]
-            },
-            {
-                "featureType": "road.highway.controlled_access",
-                "elementType": "geometry.stroke",
-                "stylers": [
-                  {
-                      "color": "#db8555"
-                  }
-                ]
-            },
-            {
-                "featureType": "road.local",
-                "elementType": "labels.text.fill",
-                "stylers": [
-                  {
-                      "color": "#806b63"
-                  }
-                ]
-            },
-            {
-                "featureType": "transit.line",
-                "elementType": "geometry",
-                "stylers": [
-                  {
-                      "color": "#dfd2ae"
-                  }
-                ]
-            },
-            {
-                "featureType": "transit.line",
-                "elementType": "labels.text.fill",
-                "stylers": [
-                  {
-                      "color": "#8f7d77"
-                  }
-                ]
-            },
-            {
-                "featureType": "transit.line",
-                "elementType": "labels.text.stroke",
-                "stylers": [
-                  {
-                      "color": "#ebe3cd"
-                  }
-                ]
-            },
-            {
-                "featureType": "transit.station",
-                "elementType": "geometry",
-                "stylers": [
-                  {
-                      "color": "#dfd2ae"
-                  }
-                ]
-            },
-            {
-                "featureType": "water",
-                "elementType": "geometry.fill",
-                "stylers": [
-                  {
-                      "color": "#b9d3c2"
-                  }
-                ]
-            },
-            {
-                "featureType": "water",
-                "elementType": "labels.text.fill",
-                "stylers": [
-                  {
-                      "color": "#92998d"
-                  }
-                ]
-            }
-                ],
-                { name: 'Styled Map' });
-
-            // Create a map object, and include the MapTypeId to add
-            // to the map type control.
-            var map = new google.maps.Map(document.getElementById('google-map'), {
-                center: { lat: 38.939, lng: 35.406 },
-                zoom: 6,
-                scrollwheel: false,
-                navigationControl: false,
-                mapTypeControl: false,
-                scaleControl: false,
-                draggable: true,
-                mapTypeControlOptions: {
-                    mapTypeIds: ['roadmap', 'satellite', 'hybrid', 'terrain',
-                            'styled_map']
+                // Create a new StyledMapType object, passing it an array of styles,
+                // and the name to be displayed on the map type control.
+                var styledMapType = new google.maps.StyledMapType(
+                    [
+                {
+                    "elementType": "geometry",
+                    "stylers": [
+                      {
+                          "color": "#ebe3cd"
+                      }
+                    ]
+                },
+                {
+                    "elementType": "labels.text.fill",
+                    "stylers": [
+                      {
+                          "color": "#523735"
+                      }
+                    ]
+                },
+                {
+                    "elementType": "labels.text.stroke",
+                    "stylers": [
+                      {
+                          "color": "#f5f1e6"
+                      }
+                    ]
+                },
+                {
+                    "featureType": "administrative",
+                    "elementType": "geometry.stroke",
+                    "stylers": [
+                      {
+                          "color": "#c9b2a6"
+                      }
+                    ]
+                },
+                {
+                    "featureType": "administrative.land_parcel",
+                    "elementType": "geometry.stroke",
+                    "stylers": [
+                      {
+                          "color": "#dcd2be"
+                      }
+                    ]
+                },
+                {
+                    "featureType": "administrative.land_parcel",
+                    "elementType": "labels.text.fill",
+                    "stylers": [
+                      {
+                          "color": "#ae9e90"
+                      }
+                    ]
+                },
+                {
+                    "featureType": "landscape.natural",
+                    "elementType": "geometry",
+                    "stylers": [
+                      {
+                          "color": "#dfd2ae"
+                      }
+                    ]
+                },
+                {
+                    "featureType": "poi",
+                    "elementType": "geometry",
+                    "stylers": [
+                      {
+                          "color": "#dfd2ae"
+                      }
+                    ]
+                },
+                {
+                    "featureType": "poi",
+                    "elementType": "labels.text.fill",
+                    "stylers": [
+                      {
+                          "color": "#93817c"
+                      }
+                    ]
+                },
+                {
+                    "featureType": "poi.park",
+                    "elementType": "geometry.fill",
+                    "stylers": [
+                      {
+                          "color": "#a5b076"
+                      }
+                    ]
+                },
+                {
+                    "featureType": "poi.park",
+                    "elementType": "labels.text.fill",
+                    "stylers": [
+                      {
+                          "color": "#447530"
+                      }
+                    ]
+                },
+                {
+                    "featureType": "road",
+                    "stylers": [
+                      {
+                          "visibility": "off"
+                      }
+                    ]
+                },
+                {
+                    "featureType": "road",
+                    "elementType": "geometry",
+                    "stylers": [
+                      {
+                          "color": "#f5f1e6"
+                      }
+                    ]
+                },
+                {
+                    "featureType": "road.arterial",
+                    "elementType": "geometry",
+                    "stylers": [
+                      {
+                          "color": "#fdfcf8"
+                      }
+                    ]
+                },
+                {
+                    "featureType": "road.highway",
+                    "elementType": "geometry",
+                    "stylers": [
+                      {
+                          "color": "#f8c967"
+                      }
+                    ]
+                },
+                {
+                    "featureType": "road.highway",
+                    "elementType": "geometry.stroke",
+                    "stylers": [
+                      {
+                          "color": "#e9bc62"
+                      }
+                    ]
+                },
+                {
+                    "featureType": "road.highway.controlled_access",
+                    "elementType": "geometry",
+                    "stylers": [
+                      {
+                          "color": "#e98d58"
+                      }
+                    ]
+                },
+                {
+                    "featureType": "road.highway.controlled_access",
+                    "elementType": "geometry.stroke",
+                    "stylers": [
+                      {
+                          "color": "#db8555"
+                      }
+                    ]
+                },
+                {
+                    "featureType": "road.local",
+                    "elementType": "labels.text.fill",
+                    "stylers": [
+                      {
+                          "color": "#806b63"
+                      }
+                    ]
+                },
+                {
+                    "featureType": "transit.line",
+                    "elementType": "geometry",
+                    "stylers": [
+                      {
+                          "color": "#dfd2ae"
+                      }
+                    ]
+                },
+                {
+                    "featureType": "transit.line",
+                    "elementType": "labels.text.fill",
+                    "stylers": [
+                      {
+                          "color": "#8f7d77"
+                      }
+                    ]
+                },
+                {
+                    "featureType": "transit.line",
+                    "elementType": "labels.text.stroke",
+                    "stylers": [
+                      {
+                          "color": "#ebe3cd"
+                      }
+                    ]
+                },
+                {
+                    "featureType": "transit.station",
+                    "elementType": "geometry",
+                    "stylers": [
+                      {
+                          "color": "#dfd2ae"
+                      }
+                    ]
+                },
+                {
+                    "featureType": "water",
+                    "elementType": "geometry.fill",
+                    "stylers": [
+                      {
+                          "color": "#b9d3c2"
+                      }
+                    ]
+                },
+                {
+                    "featureType": "water",
+                    "elementType": "labels.text.fill",
+                    "stylers": [
+                      {
+                          "color": "#92998d"
+                      }
+                    ]
                 }
-            });
-            //Associate the styled map with the MapTypeId and set it to display.
-            map.mapTypes.set('styled_map', styledMapType);
-            map.setMapTypeId('styled_map');
-            @foreach (var p in (ViewBag.AllPosts as List<PostViewModel>))
+                    ],
+                    { name: 'Styled Map' });
+
+                // Create a map object, and include the MapTypeId to add
+                // to the map type control.
+                var map = new google.maps.Map(document.getElementById('google-map'), {
+                    center: { lat: 38.939, lng: 35.406 },
+                    zoom: 6,
+                    scrollwheel: false,
+                    navigationControl: false,
+                    mapTypeControl: false,
+                    scaleControl: false,
+                    draggable: true,
+                    mapTypeControlOptions: {
+                        mapTypeIds: ['roadmap', 'satellite', 'hybrid', 'terrain',
+                                'styled_map']
+                    }
+                });
+                //Associate the styled map with the MapTypeId and set it to display.
+                map.mapTypes.set('styled_map', styledMapType);
+                map.setMapTypeId('styled_map');
+                @foreach (var p in (ViewBag.AllPosts as List<PostViewModel>))
             {
                 string imgContent = p.PostMedia.First().Type == PostType.Image ? "<a href='" + Url.Action("Post", new { id = p.Id }) + "' class='nobg'><img src='" + p.PostMedia.First().MediaUrl+ "' alt=''></a>"
                     :"<a href='" + Url.Action("Post",new { id=p.Id}) + "' class='nobg'><i class='icon icon-play-circle'></i></a>";
                 @:var contentString = '<div id="content">' +
-                @:'<div class="spost clearfix">' +
-                @:'<div class="entry-image">' +
-                @:"@(MvcHtmlString.Create(imgContent))" +
-                @:'</div>' +
-                @:'<div class="entry-c">' +
-                @:'<div class="entry-title">' +
-                @:'<h4><a href="@Url.Action("Post", new { id = p.Id })">@p.Title</a></h4>' +
-                @:'</div>' +
-                @:'<ul class="entry-meta">' +
-                @:'<li>@p.DateCreated.ToShortDateString()</li>' +
-                @:'</ul>' +
-                @:'</div>' +
-                @:'</div>';
-                                                                            @:var infowindow = new google.maps.InfoWindow({
-                                                                                                @:    content: contentString
-                                                                                                @:});
-                                                                            @:var myLatlng = new google.maps.LatLng(@(MvcHtmlString.Create(Json.Encode(p.Latitude))),@(MvcHtmlString.Create(Json.Encode(p.Longitude))));
-                                                                            @:var marker = new google.maps.Marker({
-                                                                                                @:    position: myLatlng,
-                                                                                                @:    clickable: true,
-                                                                                                @:    map: map,
-                                                                                                @:    icon: "/Content/images/icons/map-icon-red.png",
-                                                                                                @:    title: '@p.Title'
-                                                                                                    @:});
-                                                            @:google.maps.event.addListener(marker,'click', (function(marker,content,infowindow){
-                                                                    @:return function() {
-                                                                                       @:    infowindow.open(map, marker);
-                                                                            @:};
-                                                                    @:})(marker,content,infowindow));
-                                                            }
+                    @:'<div class="spost clearfix">' +
+                    @:'<div class="entry-image">' +
+                    @:"@(MvcHtmlString.Create(imgContent))" +
+                    @:'</div>' +
+                    @:'<div class="entry-c">' +
+                    @:'<div class="entry-title">' +
+                    @:'<h4><a href="@Url.Action("Post", new { id = p.Id })">@p.Title</a></h4>' +
+                    @:'</div>' +
+                    @:'<ul class="entry-meta">' +
+                    @:'<li>@p.DateCreated.ToShortDateString()</li>' +
+                    @:'</ul>' +
+                    @:'</div>' +
+                    @:'</div>';
+                                                                                            @:var infowindow = new google.maps.InfoWindow({
+                                                                                                                    @:    content: contentString
+                                                                                                                    @:});
+                                                                                            @:var myLatlng = new google.maps.LatLng(@(MvcHtmlString.Create(Json.Encode(p.Latitude))),@(MvcHtmlString.Create(Json.Encode(p.Longitude))));
+                                                                                            @:var marker = new google.maps.Marker({
+                                                                                                                    @:    position: myLatlng,
+                                                                                                                    @:    clickable: true,
+                                                                                                                    @:    map: map,
+                                                                                                                    @:    icon: "/Content/images/icons/map-icon-red.png",
+                                                                                                                    @:    title: '@p.Title'
+                                                                                                                        @:});
+                                                                            @:google.maps.event.addListener(marker,'click', (function(marker,content,infowindow){
+                                                                                        @:return function() {
+                                                                                                               @:    infowindow.open(map, marker);
+                                                                                                    @:};
+                                                                                        @:})(marker,content,infowindow));
+                                                                            }
+            }
+            </script>
+            <script async defer
+                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBo6xedQToKACcfN2BzV54-3br245ytkBo&callback=initMap">
+            </script>
         }
-    </script>
-    <script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBo6xedQToKACcfN2BzV54-3br245ytkBo&callback=initMap">
-    </script>
-}
