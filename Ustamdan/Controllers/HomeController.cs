@@ -22,7 +22,7 @@ namespace Ustamdan.Controllers
                 model.Posts = db.Posts
                     .Where(x => x.IsPublished && x.Language == lang)
                     .OrderByDescending(x => x.DateCreated)
-                    .Take(4).ToList()
+                    .Take(8).ToList()
                     .Select(x => new PostViewModel(x)).ToList();
             }
             return View(model);
@@ -65,13 +65,13 @@ namespace Ustamdan.Controllers
                 if (post == null)
                     return HttpNotFound();
                 model = new PostViewModel(post);
-                ViewBag.RecentPosts = db.Posts
-                    .Include("Categories")
-                    .Include("Tags")
-                    .Where(x => x.IsPublished && x.Language == lang)
-                    .OrderByDescending(x => x.DateCreated).Take(4)
-                    .ToList()
-                    .Select(x => new PostViewModel(x));
+                //ViewBag.RecentPosts = db.Posts
+                //    .Include("Categories")
+                //    .Include("Tags")
+                //    .Where(x => x.IsPublished && x.Language == lang)
+                //    .OrderByDescending(x => x.DateCreated).Take(4)
+                //    .ToList()
+                //    .Select(x => new PostViewModel(x));
 
                 Random rand = new Random();
                 ViewBag.RelatedPosts = post

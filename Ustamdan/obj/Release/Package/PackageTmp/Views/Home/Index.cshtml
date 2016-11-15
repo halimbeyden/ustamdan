@@ -3,7 +3,7 @@
     ViewBag.Title = "Ustamdan";
     ViewBag.IsIndex = true;
 }
-<section id="slider" class="slider-parallax swiper_wrapper full-screen clearfix" data-loop="true">
+<section id="slider" class="slider-parallax swiper_wrapper full-screen clearfix">
     <div class="slider-parallax-inner">
         <div class="swiper-container swiper-parent">
             <div class="swiper-wrapper">
@@ -75,13 +75,11 @@
         </div>
 
         <div class="container clear-bottommargin clearfix">
-            <div class="row">
+            <div id="posts" class="post-grid grid-container clearfix" data-layout="fitRows">
                 @foreach (var post in Model.Posts)
                 {
-                    <div class="col-md-3 col-sm-6 bottommargin">
-                        <div class="ipost clearfix">
-                            @Html.Partial("_PostPartial", post)
-                        </div>
+                    <div class="entry clearfix">
+                        @Html.Partial("_PostPartial", post)
                     </div>
                 }
             </div>
@@ -225,20 +223,19 @@
             <div class="heading-block center">
                 <h3>@Resource.IndexPartnersTitle</h3>
             </div>
-
-            <div id="oc-clients" class="section nobgcolor notopmargin owl-carousel owl-carousel-full image-carousel footer-stick carousel-widget dark" data-margin="80" data-loop="false" data-nav="false" data-autoplay="5000" data-pagi="true" data-items-xxs="3" data-items-xs="4" data-items-sm="4" data-items-md="4" data-items-lg="4">
-                <div class="oc-item"><a href="#"><img src="~/Content/img/destekciler/gir.gif"></a></div>
-                <div class="oc-item"><a href="#"><img src="~/Content/img/destekciler/things.gif"></a></div>
-                <div class="oc-item"><a href="#"><img src="~/Content/img/destekciler/trpe.gif"></a></div>
-                <div class="oc-item"><a href="#"><img src="~/Content/img/destekciler/ay.jpg"></a></div>
-                <div class="oc-item"><a href="#"><img src="~/Content/img/destekciler/bilgi.gif"></a></div>
-                <div class="oc-item"><a href="#"><img src="~/Content/img/destekciler/cek.gif"></a></div>
-                <div class="oc-item"><a href="#"><img src="~/Content/img/destekciler/end.gif"></a></div>
-                <div class="oc-item"><a href="#"><img src="~/Content/img/destekciler/bilgi.jpg"></a></div>
-                <div class="oc-item"><a href="#"><img src="~/Content/img/destekciler/slyvian.jpg"></a></div>
-                <div class="oc-item"><a href="#"><img src="~/Content/img/destekciler/tbt.jpg"></a></div>
+            <div id="oc-clients-full" class="owl-carousel image-carousel carousel-widget owl-loaded owl-drag dark" data-margin="30" data-nav="false" data-loop="true" data-autoplay="5000" data-pagi="true" data-items-xxs="2" data-items-xs="3" data-items-sm="4" data-items-md="5" data-items-lg="6">
+                    <div class="oc-item"><a href="#"><img src="~/Content/img/destekciler/gir.gif"></a></div>
+                    <div class="oc-item"><a href="#"><img src="~/Content/img/destekciler/things.gif"></a></div>
+                    <div class="oc-item"><a href="#"><img src="~/Content/img/destekciler/trpe.gif"></a></div>
+                    <div class="oc-item"><a href="#"><img src="~/Content/img/destekciler/ay.jpg"></a></div>
+                    <div class="oc-item"><a href="#"><img src="~/Content/img/destekciler/bilgi.gif"></a></div>
+                    <div class="oc-item"><a href="#"><img src="~/Content/img/destekciler/cek.gif"></a></div>
+                    <div class="oc-item"><a href="#"><img src="~/Content/img/destekciler/end.gif"></a></div>
+                    <div class="oc-item"><a href="#"><img src="~/Content/img/destekciler/bilgi.jpg"></a></div>
+                    <div class="oc-item"><a href="#"><img src="~/Content/img/destekciler/slyvian.jpg"></a></div>
+                    <div class="oc-item"><a href="#"><img src="~/Content/img/destekciler/tbt.jpg"></a></div>
+                </div>
             </div>
-        </div>
     </div>
 </section><!-- #content end -->
 @section scripts{

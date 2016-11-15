@@ -309,6 +309,8 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\favicon.ico" />
+    <Content Include="Content\favicon.png" />
     <Content Include="Content\img\destekciler\ay.jpg" />
     <Content Include="Content\img\destekciler\ay.png" />
     <Content Include="Content\img\destekciler\bilgi.gif" />
@@ -1206,6 +1208,7 @@
     <Content Include="Content\images\wedding\thumb\28.jpg" />
     <Content Include="Content\images\world-map.png" />
     <Content Include="Content\img\iconlogo.png" />
+    <Content Include="Content\img\iconlogowhite-lg.png" />
     <Content Include="Content\img\iconlogowhite.png" />
     <Content Include="Content\img\loading.svg" />
     <Content Include="Content\img\logo.png" />
@@ -1233,7 +1236,6 @@
     <Content Include="Content\theme\responsive.css" />
     <Content Include="Content\theme\style.css" />
     <Content Include="Content\theme\swiper.css" />
-    <Content Include="Content\ustamdan.mp4" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\font-icons-snapchat.svg" />
     <Content Include="fonts\font-icons.svg" />
@@ -1321,7 +1323,6 @@
     <Content Include="Content\theme\fonts\Simple-Line-Icons.eot" />
     <Content Include="Content\theme\fonts\Simple-Line-Icons.ttf" />
     <Content Include="Content\theme\fonts\Simple-Line-Icons.woff" />
-    <Content Include="Content\ustamdan.webm" />
     <None Include="Properties\PublishProfiles\file.pubxml" />
     <None Include="Properties\PublishProfiles\halim azure.pubxml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
@@ -1575,6 +1576,7 @@
     <Content Include="Views\Admin\Category.cshtml" />
     <Content Include="Views\Admin\Tag.cshtml" />
     <Content Include="Views\Admin\Area.cshtml" />
+    <Content Include="Views\Home\_PostPartialMasonry.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
