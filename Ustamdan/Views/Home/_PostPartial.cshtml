@@ -1,5 +1,6 @@
 ﻿@model PostViewModel
-    <div class="entry-image">
+
+  <div class="entry-image stable">
         @if (Model.PostMedia.First().Type == PostType.Image)
         {
             <a href="@Url.Action("Post",new {id = Model.Id })" data-toggle="tooltip" data-placement="top" title="@Model.Title"  @*data-lightbox="image"*@><img class="image_fade" src="@Model.PostMedia.First().MediaUrl" alt="@Model.Title"></a>
@@ -8,23 +9,26 @@
         {
             <iframe src="@Model.PostMedia.First().MediaUrl" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
         }
+        else
+        {
+            @Model.Id
+        }
     </div>
-    @*<div class="entry-title">
+   <div class="entry-title">
         <h2><a href="@Url.Action("Post",new {id = Model.Id })">@Model.Title</a></h2>
     </div>
-    <ul class="entry-meta clearfix">
+  <ul class="entry-meta clearfix">
         <li><i class="icon-calendar3"></i> @Model.DateCreated.ToShortDateString()</li>
-        <li>
+        @*<li>
             <i class="icon-folder-open"></i>
             @for (int i = 0; i < Model.CategoryNames.Count(); i++)
             {
                 <a href="@Url.Action("Search",new { c= Model.Categories[i]})">@Model.CategoryNames[i]</a>
             }
-        </li>
+        </li>*@
     </ul>
-   
+
     <div class="entry-content">
-        p class="entry-body">@MvcHtmlString.Create(new string(Model.Body.Take(100).ToArray()))...</p>
+        @*<p class="entry-body">@MvcHtmlString.Create(new string(Model.Body.Take(100).ToArray()))...</p>*@
         <a href="@Url.Action("Post",new {id = Model.Id })" class="more-link">@Resource.PostReadMoreText</a>
     </div>
-        *@

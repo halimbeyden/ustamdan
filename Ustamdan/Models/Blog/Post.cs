@@ -87,15 +87,13 @@ namespace Ustamdan.Models.Blog
         public List<Post> getRelatedPosts(ApplicationDbContext db,int count)
         {
             string myString = String.Join(" ",this.Categories.Select(x=>x.Name).ToList());
-            myString += " " + String.Join(" ", this.Tags.Select(x => x.Name).ToList());
             myString += " " + this.Area.Name;
             List<Post> rposts = new List<Post>();
             Random r = new Random();
-            foreach (var post in db.Posts.Include("CarouselMedia").Where(x=>x.Id != this.Id && x.Language == this.Language).ToList())
+            foreach (var post in db.Posts.Include("CarouselMedia").Where(x=>x.Id != this.Id && x.Language == this.Language && x.IsPublished).ToList())
             {
                 if ((post.Categories != null && post.Tags != null && post.Area != null) && 
                     (post.Categories.Any(x => myString.Contains(x.Name))
-                    || post.Tags.Any(x => myString.Contains(x.Name))
                     || myString.Contains(post.Area.Name)))
                     rposts.Add(post);
             }

@@ -13,17 +13,26 @@
     <link href="~/Content/theme/font-icons.css" rel="stylesheet" />
     <link href="~/Content/theme/animate.css" rel="stylesheet" />
     <link href="~/Content/theme/magnific-popup.css" rel="stylesheet" />
-    <link rel="shortcut icon" href="~/Content/favicon.ico" type="image/x-icon">
+    <link href="~/Content/theme/responsive.css" rel="stylesheet" />
+   
+     <link rel="shortcut icon" href="~/Content/favicon.ico" type="image/x-icon">
     <link rel="icon" href="~/Content/favicon.ico" type="image/x-icon">
+
     <!--[if lt IE 9]>
         <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
     <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>@ViewBag.Title</title>
 
     <style>
         body {
             margin: 0;
         }
+        /*#logo img{
+            margin-top:25px;
+            height:50px;
+        }*/
     </style>
 </head>
 <body class="stretched">
@@ -53,7 +62,7 @@
             ============================================= -->
             <div id="logo" class="@(ViewBag.IsIndex?".gotoTop":"")">
                 <a href="@(ViewBag.IsIndex?"#":Url.Action("Index"))" class="standard-logo" data-dark-logo="/Content/img/iconlogowhite.png"><img src="~/Content/img/iconlogowhite.png" alt="Canvas Logo"></a>
-                <a href="@(ViewBag.IsIndex?"#":Url.Action("Index"))" class="retina-logo" data-dark-logo="/Content/img/iconlogowhite.png"><img src="~/Content/img/iconlogowhite.png" alt="Canvas Logo"></a>
+                <a href="@(ViewBag.IsIndex?"#":Url.Action("Index"))" class="retina-logo" data-dark-logo="/Content/img/iconlogowhite-lg.png"><img src="~/Content/img/iconlogowhite-lg.png" alt="Canvas Logo"></a>
             </div><!-- #logo end -->
             <!-- Primary Navigation
             ============================================= -->

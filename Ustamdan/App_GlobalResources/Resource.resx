@@ -211,7 +211,7 @@
     <value>en</value>
   </data>
   <data name="WeeklyTitle" xml:space="preserve">
-    <value>Anadolu Kültür Bloğu</value>
+    <value>Anadolu KÜltÜr BloĞu</value>
   </data>
   <data name="ContactAddressTitle" xml:space="preserve">
     <value>Adres Bilgilerimiz</value>
@@ -298,7 +298,7 @@
     <value>Sosyal Etki Yönetimi ve Yazar</value>
   </data>
   <data name="TeamPosition4" xml:space="preserve">
-    <value>Kurumsal Tasarım ve Yazar</value>
+    <value>Yazar</value>
   </data>
   <data name="TeamPosition5" xml:space="preserve">
     <value>Proje Sorumlusu</value>
@@ -307,7 +307,7 @@
     <value>Tercüman</value>
   </data>
   <data name="TeamPosition7" xml:space="preserve">
-    <value>Araştırmacı</value>
+    <value>Yazar</value>
   </data>
   <data name="TeamPosition8" xml:space="preserve">
     <value>Yazar</value>
