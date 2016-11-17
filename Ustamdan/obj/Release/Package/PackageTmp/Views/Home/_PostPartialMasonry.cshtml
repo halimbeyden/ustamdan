@@ -22,7 +22,7 @@
         @*<li><a href="#"><i class="icon-camera-retro"></i></a></li>*@
     </ul>
     <div class="entry-content">
-        <p></p>
+        <p class="entry-body">@MvcHtmlString.Create(new string(Model.Body.Take(100).ToArray()))...</p>
         <a href="@Url.Action("Post",new {id = Model.Id })" class="more-link">@Resource.PostReadMoreText</a>
     </div>
 
