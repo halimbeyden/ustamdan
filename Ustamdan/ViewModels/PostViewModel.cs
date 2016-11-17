@@ -57,9 +57,12 @@ namespace Ustamdan.ViewModels
                 this.TagNames = post.Tags.Select(x => x.Name).ToArray();
                 this.DateCreated = post.DateCreated;
                 this.DateModified = post.DateModified;
-                this.Author = post.Author.Fullname;
-                this.AuthorUsername = post.Author.UserName;
                 this.PostMedia = post.CarouselMedia.ToList();
+                if (post.Author != null)
+                {
+                    this.Author = post.Author.Fullname;
+                    this.AuthorUsername = post.Author.UserName;
+                }
             }
             catch (Exception ex)
             {

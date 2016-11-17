@@ -227,6 +227,12 @@
     @RenderSection("scripts", false)
     <!-- LightWidget WIDGET -->
     <script src="//lightwidget.com/widgets/lightwidget.js"></script>
+    <script>
+        function clearHtmlTags(st) {
+            var reg = /(<([^>]+)>)/ig;
+            return st.replace(reg, "");
+        }
+    </script>
 </body>
 
 </html>
