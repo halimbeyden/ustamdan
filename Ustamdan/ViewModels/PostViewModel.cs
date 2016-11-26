@@ -13,10 +13,13 @@ namespace Ustamdan.ViewModels
         public string MediaURL { get; set; }
         public PostType PostType { get; set; }
         public PostStatus PostStatus { get; set; }
-        public string Description { get; set; }
+        public string AuthorName { get; set; }
         public string Author { get; set; }
         public string AuthorUsername { get; set; }
-        public string Body { get; set; }
+        public string Description { get; set; }
+        public string PostContent { get; set; }
+        public string PostQuote { get; set; }
+        public string PostContentPartTwo { get; set; }
         public Language Language { get; set; }
         public DateTime DateCreated { get; set; }
         public DateTime DateModified { get; set; }
@@ -39,7 +42,10 @@ namespace Ustamdan.ViewModels
             this.Id = post.Id;
             this.Title = post.Title;
             this.Description = post.Description;
-            this.Body = post.PostContent;
+            this.PostContent = post.PostContent;
+            this.PostQuote = post.PostQuote;
+            this.PostContentPartTwo = post.PostContentPartTwo;
+            this.AuthorName = post.AuthorName;
             this.Language = LanguageHelper.getEnumValue(post.Language);
             this.PostType = post.Type;
             this.PostStatus = post.Status;

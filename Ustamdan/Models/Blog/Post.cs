@@ -59,8 +59,11 @@ namespace Ustamdan.Models.Blog
     {
         public int Id { get; set; }
         public string Title { get; set; }
+        public string AuthorName { get; set; }
         public string Description { get; set; }
         public string PostContent { get; set; }
+        public string PostQuote { get; set; }
+        public string PostContentPartTwo { get; set; }
         public DateTime DateCreated { get; set; }
         public DateTime DateModified { get; set; }
         public string MediaURL { get; set; }

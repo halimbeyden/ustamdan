@@ -64,7 +64,7 @@ $(document).ready(function () {
     });
 });
 tinymce.init({
-    selector: '#postBody',
+    selector: '#postBody,#postBodyPartTwo',
     theme: 'modern',
     plugins: [
        'advlist autolink lists link image charmap print preview hr anchor pagebreak',

@@ -130,9 +130,13 @@ namespace Ustamdan.Controllers
                 }
                 if (!User.IsInRole("Admin"))
                     temp.IsPublished = false;
-                temp.Title = post.Title;
-                temp.PostContent = post.Body;
+                temp.AuthorName = post.AuthorName;
                 temp.Description = post.Description;
+                temp.PostContent = post.PostContent;
+                temp.PostQuote = post.PostQuote;
+                temp.PostContentPartTwo = post.PostContentPartTwo;
+
+                temp.Title = post.Title;
                 temp.Language = post.Language.GetStringValue();
                 temp.MediaURL = post.MediaURL;
                 temp.Type = post.PostType;
