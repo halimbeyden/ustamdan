@@ -47,6 +47,23 @@ namespace Ustamdan
                       "~/Content/Admin/flat/green.css",
                       "~/Content/loading.css",
                       "~/Content/Admin/custom.css"));
+
+
+            bundles.Add(new ScriptBundle("~/Script/Ustamdan").Include(
+                   "~/Scripts/jqueryold-2.2.4.min.js",
+                   "~/Scripts/theme/plugins.js",
+                   "~/Scripts/theme/functions.js"
+                   ));
+
+            bundles.Add(new StyleBundle("~/Css/Ustamdan").Include(
+                     "~/Content/bootstrap.min.css",
+                     "~/Content/theme/style.css",
+                     "~/Content/theme/swiper.css",
+                     "~/Content/theme/dark.css",
+                     "~/Content/theme/dark.css",
+                     "~/Content/theme/magnific-popup.css",
+                     "~/Content/theme/responsive.css",
+                     "~/Content/theme/animate.css"));
         }
     }
 }

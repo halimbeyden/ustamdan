@@ -29,6 +29,10 @@
                 <label class="control-label">Post Title</label>
                 <input type="text" class="form-control" placeholder="Title" id="postTitle" value="@Model.Title">
             </div>
+            <div class="form-group">
+                <label class="control-label">Post Author</label>
+                <input type="text" class="form-control" placeholder="Author" id="postAuthor" value="@Model.AuthorName">
+            </div>
             @*<div class="form-group">
                     <label class="control-label">Post Image URL</label>
                     <div class="input-group ">
@@ -58,7 +62,46 @@
                 Add Video
             </a>
         </form>
-        <textarea style="min-height:500px" id="postBody">@Model.Body</textarea>
+        <div class="x_panel">
+            <div class="x_title">
+                <h2><i class="fa fa-bars"></i> Post Content</h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="" role="tabpanel" data-example-id="togglable-tabs">
+                    <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+                        <li role="presentation" class="active">
+                            <a href="#desc" id="desc-tab" role="tab" data-toggle="tab" aria-expanded="true">Description</a>
+                        </li>
+                        <li role="presentation" class="">
+                            <a href="#contentP1" role="tab" id="contentP1-tab" data-toggle="tab" aria-expanded="false">Content Part 1</a>
+                        </li>
+                        <li role="presentation" class="">
+                            <a href="#que" role="tab" id="que-tab" data-toggle="tab" aria-expanded="false">Quote</a>
+                        </li>
+                        <li role="presentation" class="">
+                            <a href="#contentP2" role="tab" id="contentP2-tab" data-toggle="tab" aria-expanded="false">Content Part 2</a>
+                        </li>
+                    </ul>
+                    <div id="myTabContent" class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade active in" id="desc" aria-labelledby="desc-tab">
+                            <textarea id="postDescription" class="form-control" rows="7" placeholder="Description (Öne çıkan yazı)">@Model.Description</textarea>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="contentP1" aria-labelledby="contentP1-tab">
+                            <textarea style="min-height:500px" id="postBody">@Model.PostContent</textarea>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="que" aria-labelledby="que-tab">
+                            <textarea id="postQuote" class="form-control" rows="7" placeholder="Quote">@Model.PostQuote</textarea>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="contentP2" aria-labelledby="contentP2-tab">
+                            <textarea style="min-height:500px" class="postContent" id="postBodyPartTwo">@Model.PostContentPartTwo</textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+
     </div>
     <div class="col-lg-4 col-md-4 col-sm-2 col-xs-12">
         <div class="x_panel tile">
@@ -172,29 +215,6 @@
     <!-- /jQuery Tags Input -->
 
     <script>
-        tinymce.init({
-            selector: '#postBody',
-            theme: 'modern',
-            plugins: [
-               'advlist autolink lists link image charmap print preview hr anchor pagebreak',
-               'searchreplace wordcount visualblocks visualchars code fullscreen',
-               'insertdatetime media nonbreaking save table contextmenu directionality',
-               'template paste textcolor colorpicker textpattern imagetools'
-            ],
-            toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
-            toolbar2: 'print preview media | forecolor backcolor',
-            image_advtab: true,
-            templates: [
-              { title: 'Test template 1', content: 'Test 1' },
-              { title: 'Test template 2', content: 'Test 2' }
-            ],
-            content_css: [
-              '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
-              '//www.tinymce.com/css/codepen.min.css'
-            ]
-        });
-    </script>
-    <script>
         var currentLocation = {
             HasLocation: @(Model.HasLocation?"true":"false"),
             Latitude: @(MvcHtmlString.Create(Json.Encode(Model.HasLocation?Model.Latitude: 0))),
@@ -214,7 +234,12 @@
             showLoading();
             var title = $("#postTitle").val();
             var media = [];
+            var author = $("#postAuthor").val();
+            var description = $("#postDescription").val();
             var body = tinyMCE.get('postBody').getContent();
+            var quote = $("#postQuote").val();
+            var bodyPartTwo = tinyMCE.get('postBodyPartTwo').getContent();
+
             var lang = $("input[name='lang']:checked").val();
             var status = $("input[name='status']:checked").val();
             var categories = [];
@@ -246,8 +271,11 @@
             var data = {
                 'Id':@Model.Id,
                 'Title': title,
-                'Description': "",
-                'Body': body,
+                'AuthorName':author,
+                'Description': description,
+                'PostContent': body,
+                'PostQuote': quote,
+                'PostContentPartTwo':bodyPartTwo,
                 'Language': lang,
                 'PostStatus': status,
                 'Categories': categories,

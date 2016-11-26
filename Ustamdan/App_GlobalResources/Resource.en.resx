@@ -117,22 +117,203 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AboutStoryP1" xml:space="preserve">
+    <value>"Ustamdan… This adventure begins with Mehmet Usta we met in Gaziantep many years ago. We got on the Anatolian boat together with Mehmet Usta’s love and passion for his craft and his conversation which he granted to his guests. Ustamdan has emerged from the cooperation which brews by searching for our local values beginning with a nice conservation and gains strength when we’re a team.
+"</value>
+  </data>
+  <data name="AboutStoryP2" xml:space="preserve">
+    <value>Ustamdan is a bridge constructed by product and writing to convey the culture and local effort to people by bringing them together with creative ideas. At one side of this bridge, there are hands beating copper and at other side, hands showing respect for labor.</value>
+  </data>
+  <data name="AboutStoryP3" xml:space="preserve">
+    <value>We’re working to become Ustamdan into a lasting and universal media. We’re making a great effort for the Anatolian Culture eagerly.</value>
+  </data>
+  <data name="AboutStoryP4" xml:space="preserve">
+    <value>Hope to meet you in the cultural threshing…</value>
+  </data>
+  <data name="AboutStoryTitle" xml:space="preserve">
+    <value>OUR STORY</value>
+  </data>
+  <data name="AboutTeamTitle" xml:space="preserve">
+    <value>OUR TEAM</value>
+  </data>
+  <data name="AreaTitle" xml:space="preserve">
+    <value>Regions</value>
+  </data>
   <data name="BlogTitle" xml:space="preserve">
     <value>Weekly</value>
   </data>
+  <data name="CategoryTitle" xml:space="preserve">
+    <value>CATEGORIES</value>
+  </data>
+  <data name="ContactAddressTitle" xml:space="preserve">
+    <value>Address</value>
+  </data>
   <data name="ContactTitle" xml:space="preserve">
-    <value>Contact</value>
+    <value>CONTACT</value>
+  </data>
+  <data name="EmailTemplateMessageEmailTemplateMessageEmailTemplateMessageText" xml:space="preserve">
+    <value>Message</value>
+  </data>
+  <data name="EmailTemplateNameText" xml:space="preserve">
+    <value>Name Surname</value>
+  </data>
+  <data name="EmailTemplateSubjectText" xml:space="preserve">
+    <value>Topic</value>
+  </data>
+  <data name="EmailTemplateSubmitText" xml:space="preserve">
+    <value>Send</value>
+  </data>
+  <data name="IndexLatestPostsTitle" xml:space="preserve">
+    <value>Last Articles From Weekly</value>
+  </data>
+  <data name="IndexNewsTitle" xml:space="preserve">
+    <value>WE IN PRESS</value>
+  </data>
+  <data name="IndexPartnersTitle" xml:space="preserve">
+    <value>LIST OF CRAFT-FRIENDLY COMPANIES</value>
+  </data>
+  <data name="IndexService1Text" xml:space="preserve">
+    <value>We create your own craft collection special for your corporate vision. Crafts which come to life with their stories and history are integrated with your corporate identity.</value>
+  </data>
+  <data name="IndexService1Title" xml:space="preserve">
+    <value>Corporation-Craft Collection</value>
+  </data>
+  <data name="IndexService2Text" xml:space="preserve">
+    <value>We create a product selection for your corporate gifts. Make your employees feel special thanks to Ustamdan's unique products.</value>
+  </data>
+  <data name="IndexService2Title" xml:space="preserve">
+    <value>Corporate Gift Solutions</value>
+  </data>
+  <data name="IndexService3Text" xml:space="preserve">
+    <value>We provide local manufacture consultancy special for foreign and domestic corporations and offer the process monitoring service.</value>
+  </data>
+  <data name="IndexService3Title" xml:space="preserve">
+    <value>Craft Manufacture Consultancy</value>
+  </data>
+  <data name="IndexService4Text" xml:space="preserve">
+    <value>Weekly transforms cultural and local values into digital media with our authors who become the members of our family and makes me visible.</value>
+  </data>
+  <data name="IndexService4Title" xml:space="preserve">
+    <value>Cultural content management</value>
+  </data>
+  <data name="IndexServicesTitle" xml:space="preserve">
+    <value>OUR SERVICES</value>
+  </data>
+  <data name="IndexSliderText" xml:space="preserve">
+    <value>Ustamdan is a bridge that meets the culture with creative ideas and conveys it to people.</value>
+  </data>
+  <data name="IndexSliderTitle" xml:space="preserve">
+    <value>THE ANATOLIAN MOSAIC</value>
+  </data>
+  <data name="IndexSubscriptionEmailText" xml:space="preserve">
+    <value>Enter your e-mail</value>
+  </data>
+  <data name="IndexSubscriptionSubmitText" xml:space="preserve">
+    <value>Subscribe Now</value>
+  </data>
+  <data name="IndexSubscriptionSuccessText" xml:space="preserve">
+    <value>Thank you for subscibing…</value>
+  </data>
+  <data name="IndexSubscriptionTitle" xml:space="preserve">
+    <value>SUBSCRIBE TO OUR BULLETIN</value>
   </data>
   <data name="LanguageTitle" xml:space="preserve">
-    <value>tr</value>
+    <value>en</value>
+  </data>
+  <data name="News1Content" xml:space="preserve">
+    <value>Three social enterprises which were chosen from Turkey represented us in Silicon Valley.</value>
+  </data>
+  <data name="News1Title" xml:space="preserve">
+    <value>Daily Sabah</value>
+  </data>
+  <data name="News2Content" xml:space="preserve">
+    <value>Ustamdan has emerged from the passion of two younger engineers for travelling Anatolia.</value>
+  </data>
+  <data name="News2Title" xml:space="preserve">
+    <value>FORBES TURKEY</value>
+  </data>
+  <data name="News3Content" xml:space="preserve">
+    <value>They started with the slogan of &lt;i&gt;“Anatolian Crafts From Thousand-Year Hands”&lt;/i&gt;</value>
+  </data>
+  <data name="News3Title" xml:space="preserve">
+    <value>Anadolu Jet Skylife</value>
+  </data>
+  <data name="News4Content" xml:space="preserve">
+    <value>Global Entrepreneurship Summit (GES) of the Obama Administration supported and organized by US President Barack Obama welcomed three successful Turkish women entrepreneurs.</value>
+  </data>
+  <data name="News4Title" xml:space="preserve">
+    <value>Kuşak Haber</value>
+  </data>
+  <data name="News5Content" xml:space="preserve">
+    <value>&lt;a href="/"&gt;Ustamdan.com&lt;/a&gt; enterprise aims to increase the sustainability of domestic markets, convey historical and cultural values of the regions to future generations and also contribute to regional tourism by making a story of the business.</value>
+  </data>
+  <data name="News5Title" xml:space="preserve">
+    <value>Webrazzi</value>
+  </data>
+  <data name="News6Content" xml:space="preserve">
+    <value>The figures indicate ‘The policies of youth participation in the society are lacking”. The stories of young people who try to produce a solution also give hope to us.</value>
+  </data>
+  <data name="News6Title" xml:space="preserve">
+    <value>ALJAZEERA</value>
   </data>
   <data name="OurStoryTitle" xml:space="preserve">
-    <value>Our Story</value>
+    <value>ABOUT US</value>
+  </data>
+  <data name="PostLatestsTitle" xml:space="preserve">
+    <value>Last posted</value>
+  </data>
+  <data name="PostReadMoreText" xml:space="preserve">
+    <value>Read more</value>
+  </data>
+  <data name="PostRelatedText" xml:space="preserve">
+    <value>Similar Articles</value>
+  </data>
+  <data name="PostShareText" xml:space="preserve">
+    <value>Share this post:</value>
+  </data>
+  <data name="PostTagCloudText" xml:space="preserve">
+    <value>Tag Cloud</value>
   </data>
   <data name="SearchText" xml:space="preserve">
-    <value>Type &amp; Hit Enter..</value>
+    <value>Search…</value>
   </data>
   <data name="SearchTitle" xml:space="preserve">
     <value>Search Results</value>
+  </data>
+  <data name="SendUsEmailText" xml:space="preserve">
+    <value>Send an email to us…</value>
+  </data>
+  <data name="TeamPosition1" xml:space="preserve">
+    <value>Co-founder</value>
+  </data>
+  <data name="TeamPosition2" xml:space="preserve">
+    <value>Executive Editor</value>
+  </data>
+  <data name="TeamPosition3" xml:space="preserve">
+    <value>Social Impact Management and Author</value>
+  </data>
+  <data name="TeamPosition4" xml:space="preserve">
+    <value>Author</value>
+  </data>
+  <data name="TeamPosition5" xml:space="preserve">
+    <value>Project Officer</value>
+  </data>
+  <data name="TeamPosition6" xml:space="preserve">
+    <value>Translator</value>
+  </data>
+  <data name="TeamPosition7" xml:space="preserve">
+    <value>Author</value>
+  </data>
+  <data name="TeamPosition8" xml:space="preserve">
+    <value>Author</value>
+  </data>
+  <data name="TeamPosition9" xml:space="preserve">
+    <value>Software Developer</value>
+  </data>
+  <data name="WeeklyTitle" xml:space="preserve">
+    <value>Anatolia Culture Blog</value>
+  </data>
+  <data name="WeeklyTitle2" xml:space="preserve">
+    <value>Articles</value>
   </data>
 </root>

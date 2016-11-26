@@ -1,8 +1,21 @@
 ﻿@model PostViewModel
 @{
-    ViewBag.Title = "Post";
+    ViewBag.Title = Model.Title;
     ViewBag.TinyFooter = true;
+    ViewBag.Tags = Model.Title + "," + String.Join(",", Model.TagNames) + "," + String.Join(",", Model.CategoryNames);
+    ViewBag.Description = Model.Description;
+    ViewBag.Author = Model.AuthorName;
 }
+<style>
+    .category-list {
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 0px;
+    }
+    .category-list li {
+        margin: 15px;
+    }
+</style>
 <!-- Content
 ============================================= -->
 <section id="content">
@@ -14,136 +27,136 @@
             <!-- Post Content
             ============================================= -->
 
-                <div class="single-post nobottommargin">
+            <div class="single-post nobottommargin">
 
-                    <!-- Single Post
+                <!-- Single Post
+                ============================================= -->
+                <div class="entry clearfix">
+
+                    <!-- Entry Title
                     ============================================= -->
-                    <div class="entry clearfix">
-
-                        <!-- Entry Title
-                        ============================================= -->
-                        <div class="entry-title">
-                            <h2 style="text-transform:none">@Model.Title</h2>
-                        </div><!-- .entry-title end -->
-                        <!-- Entry Meta
-                        ============================================= -->
-                        <ul class="entry-meta clearfix">
-                            <li><i class="icon-calendar3"></i> @Model.DateCreated.ToShortDateString()</li>
-                            <li><a href="#"><i class="icon-user"></i> @Model.Author</a></li>
-                            <li>
+                    <div class="entry-title text-center">
+                        <h2 style="text-transform:none">@Model.Title</h2>
+                        <p class="postDescription">
+                            @Model.Description
+                        </p>
+                    </div><!-- .entry-title end -->
+                    <!-- Entry Meta
+                    ============================================= -->
+                    <ul class="list-inline clearfix text-center category-list">
+                        <li><i class="icon-calendar3"></i> @Model.DateCreated.ToShortDateString()</li>
+                        <li><i class="icon-user"></i> @Model.AuthorName</li>
+                        @*<li>
                                 <i class="icon-folder-open"></i>
                                 @foreach (var cat in Model.CategoryNames)
                                 {
                                     <a href="#">@cat</a>
                                 }
-                            </li>
-                            @*<li><a href="#"><i class="icon-comments"></i> 43 Comments</a></li>*@
-                            @*<li><a href="#"><i class="icon-camera-retro"></i></a></li>*@
-                        </ul><!-- .entry-meta end -->
-                        <!-- Entry Image
-                        ============================================= -->
-                        @*<div class="entry-image">
-                                @if (Model.PostType == PostType.Image)
-                                {
-                                    <a href="#"><img src="@Model.MediaURL" alt="@Model.Title"></a>
-                                }
-                                else
-                                {
-                                    <iframe src="@Model.MediaURL" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-                                }
-                            </div>*@
-                        <div class="col_full portfolio-single-image">
-                            <div class="fslider" data-arrows="true" data-animation="slide">
-                                <div class="flexslider">
-                                    <div class="slider-wrap">
-                                        @foreach (var pm in Model.PostMedia)
+                            </li>*@
+                        @*<li><a href="#"><i class="icon-comments"></i> 43 Comments</a></li>*@
+                        @*<li><a href="#"><i class="icon-camera-retro"></i></a></li>*@
+                    </ul><!-- .entry-meta end -->
+                    <!-- Entry Image
+                    ============================================= -->
+
+                    <div class="col_full portfolio-single-image">
+                        <div class="fslider" data-arrows="true" data-animation="slide">
+                            <div class="flexslider">
+                                <div class="slider-wrap">
+                                    @foreach (var pm in Model.PostMedia)
+                                    {
+                                        if (pm.Type == PostType.Image)
                                         {
-                                            if (pm.Type == PostType.Image)
-                                            {
-                                                <div class="slide">
-                                                    <a href="#">
-                                                        <img src="@pm.MediaUrl" alt="@Model.Title">
-                                                    </a>
-                                                </div>
-                                            }
-                                            else
-                                            {
-                                                <div class="slide">
-                                                    <a href="#">
-                                                        <iframe src="@pm.MediaUrl" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-                                                    </a>
-                                                </div>
-                                            }
+                                            <div class="slide">
+                                                <a href="#">
+                                                    <img src="@pm.MediaUrl" alt="@Model.Title">
+                                                </a>
+                                            </div>
                                         }
-                                    </div>
+                                        else
+                                        {
+                                            <div class="slide">
+                                                <a href="#">
+                                                    <iframe src="@pm.MediaUrl" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                                                </a>
+                                            </div>
+                                        }
+                                    }
                                 </div>
                             </div>
-                        </div><!-- .portfolio-single-image end -->
-                        <!-- .entry-image end -->
-                        <!-- Entry Content
-                        ============================================= -->
-                        <div class="entry-content notopmargin">
-                            @MvcHtmlString.Create(Model.Body)
-                            <!-- Post Single - Content End -->
-                            <!-- Tag Cloud
-                            ============================================= -->
-                            <div class="tagcloud clearfix bottommargin">
-                                @foreach (var tag in Model.TagNames)
-                                {
-                                    <a href="#">@tag</a>
-                                }
-                            </div><!-- .tagcloud end -->
-
-                            <div class="clear"></div>
-
-                            <!-- Post Single - Share
-                            ============================================= -->
-                            <div class="si-share noborder clearfix">
-                                <span>@Resource.PostShareText</span>
-                                <div>
-                                    <a href="#" class="social-icon si-borderless si-facebook">
-                                        <i class="icon-facebook"></i>
-                                        <i class="icon-facebook"></i>
-                                    </a>
-                                    <a href="#" class="social-icon si-borderless si-twitter">
-                                        <i class="icon-twitter"></i>
-                                        <i class="icon-twitter"></i>
-                                    </a>
-                                    <a href="#" class="social-icon si-borderless si-pinterest">
-                                        <i class="icon-pinterest"></i>
-                                        <i class="icon-pinterest"></i>
-                                    </a>
-                                    <a href="#" class="social-icon si-borderless si-gplus">
-                                        <i class="icon-gplus"></i>
-                                        <i class="icon-gplus"></i>
-                                    </a>
-                                    <a href="#" class="social-icon si-borderless si-rss">
-                                        <i class="icon-rss"></i>
-                                        <i class="icon-rss"></i>
-                                    </a>
-                                    <a href="#" class="social-icon si-borderless si-email3">
-                                        <i class="icon-email3"></i>
-                                        <i class="icon-email3"></i>
-                                    </a>
-                                </div>
-                            </div><!-- Post Single - Share End -->
-
                         </div>
-                    </div><!-- .entry end -->
-
-                    <h4>@Resource.PostRelatedText:</h4>
-
-                    <div class="row">
-                        @foreach (PostViewModel post in ViewBag.RelatedPosts)
-                        {
-                            <div class="col-md-4 col-sm-6 bottommargin fixed_height_320">
-                                <div class="ipost clearfix">
-                                    @Html.Partial("_PostPartial", post)
-                                </div>
-                            </div>
-                        }
+                    </div><!-- .portfolio-single-image end -->
+                    <!-- .entry-image end -->
+                    <!-- Entry Content
+                    ============================================= -->
+                    <div class="entry-content notopmargin">
+                        @MvcHtmlString.Create(Model.PostContent)
                     </div>
+                    <div class="postQuote">
+                        @Model.PostQuote
+                    </div>
+                    <div class="entry-content notopmargin">
+                        @MvcHtmlString.Create(Model.PostContentPartTwo)
+                        <!-- Post Single - Content End -->
+                        <!-- Tag Cloud
+                        ============================================= -->
+                        @*<div class="tagcloud clearfix bottommargin">
+                            @foreach (var tag in Model.TagNames)
+                            {
+                                <a href="#">@tag</a>
+                            }
+                        </div>*@<!-- .tagcloud end -->
+
+                        <div class="clear"></div>
+
+                        <!-- Post Single - Share
+                        ============================================= -->
+                        <div class="si-share noborder clearfix">
+                            <span>@Resource.PostShareText</span>
+                            <div>
+                                <a href="#" class="social-icon si-borderless si-facebook">
+                                    <i class="icon-facebook"></i>
+                                    <i class="icon-facebook"></i>
+                                </a>
+                                <a href="#" class="social-icon si-borderless si-twitter">
+                                    <i class="icon-twitter"></i>
+                                    <i class="icon-twitter"></i>
+                                </a>
+                                <a href="#" class="social-icon si-borderless si-pinterest">
+                                    <i class="icon-pinterest"></i>
+                                    <i class="icon-pinterest"></i>
+                                </a>
+                                <a href="#" class="social-icon si-borderless si-gplus">
+                                    <i class="icon-gplus"></i>
+                                    <i class="icon-gplus"></i>
+                                </a>
+                                <a href="#" class="social-icon si-borderless si-rss">
+                                    <i class="icon-rss"></i>
+                                    <i class="icon-rss"></i>
+                                </a>
+                                <a href="#" class="social-icon si-borderless si-email3">
+                                    <i class="icon-email3"></i>
+                                    <i class="icon-email3"></i>
+                                </a>
+                            </div>
+                        </div><!-- Post Single - Share End -->
+
+                    </div>
+                </div><!-- .entry end -->
+
+                <h4>@Resource.PostRelatedText:</h4>
+
+                <div class="row">
+                    @foreach (PostViewModel post in ViewBag.RelatedPosts)
+                    {
+                        <div class="col-md-4 col-sm-6 bottommargin fixed_height_320">
+                            <div class="ipost clearfix">
+                                @Html.Partial("_PostPartial", post)
+                            </div>
+                        </div>
+                    }
                 </div>
+            </div>
 
             <!-- Sidebar
             ============================================= -->
