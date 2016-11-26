@@ -20,6 +20,10 @@
                 <label class="control-label">Post Title</label>
                 <input type="text" class="form-control" placeholder="Title" id="postTitle">
             </div>
+            <div class="form-group">
+                <label class="control-label">Post Author</label>
+                <input type="text" class="form-control" placeholder="Author" id="postAuthor">
+            </div>
             <div class="form-group" id="postMedia">
                 <label class="control-label">Post Media (Add at least one media)</label>
             </div>
@@ -45,7 +49,48 @@
                 Add Video
             </a>
         </form>
-        <textarea style="min-height:500px" id="postBody"></textarea>
+
+        <div class="x_panel">
+            <div class="x_title">
+                <h2><i class="fa fa-bars"></i> Post Content</h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content" style="min-height:500px; ">
+                <div class="" role="tabpanel" data-example-id="togglable-tabs">
+                    <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+                        <li role="presentation" class="active">
+                            <a href="#desc" id="desc-tab" role="tab" data-toggle="tab" aria-expanded="true">Description</a>
+                        </li>
+                        <li role="presentation" class="">
+                            <a href="#contentP1" role="tab" id="contentP1-tab" data-toggle="tab" aria-expanded="false">Content Part 1</a>
+                        </li>
+                        <li role="presentation" class="">
+                            <a href="#que" role="tab" id="que-tab" data-toggle="tab" aria-expanded="false">Quote</a>
+                        </li>
+                        <li role="presentation" class="">
+                            <a href="#contentP2" role="tab" id="contentP2-tab" data-toggle="tab" aria-expanded="false">Content Part 2</a>
+                        </li>
+                    </ul>
+                    <div id="myTabContent" class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade active in" id="desc" aria-labelledby="desc-tab">
+                                <textarea id="postDescription" class="form-control" rows="7" placeholder="Description (Öne çıkan yazı)"></textarea>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="contentP1" aria-labelledby="contentP1-tab">
+                            <textarea style="min-height:500px" class="postContent" id="postBody"></textarea>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="que" aria-labelledby="que-tab">
+                            <textarea id="postQuote" class="form-control" rows="7" placeholder="Quote"></textarea>
+
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="contentP2" aria-labelledby="contentP2-tab">
+                            <textarea style="min-height:500px" class="postContent" id="postBodyPartTwo"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+
     </div>
     <div class="col-lg-4 col-md-4 col-sm-2 col-xs-12">
         <div class="x_panel tile">
@@ -159,7 +204,13 @@
         function savePost() {
             var title = $("#postTitle").val();
             var media = [];
+
+            var author = $("#postAuthor").val();
+            var description = $("#postDescription").val();
             var body = tinyMCE.get('postBody').getContent();
+            var quote = $("#postQuote").val();
+            var bodyPartTwo = tinyMCE.get('postBodyPartTwo').getContent();
+
             var lang = $("input[name='lang']:checked").val();
             var status = $("input[name='status']:checked").val();
             var categories = [];
@@ -189,8 +240,11 @@
             }
             var data = {
                 'Title': title,
-                'Description': "",
-                'Body': body,
+                'AuthorName':author,
+                'Description': description,
+                'PostContent': body,
+                'PostQuote': quote,
+                'PostContentPartTwo':bodyPartTwo,
                 'Language': lang,
                 'PostStatus': status,
                 'Categories': categories,
@@ -212,40 +266,4 @@
             });
         }
     </script>
-    @*@if (User.IsInRole("Admin"))
-        {
-            <script>
-                $("#addCategory").on("click", function () {
-                    $cat = $(this).parent().parent().find("input").val();
-                    if ($cat == "")
-                        return;
-                    $.post("AddCategory", { name: $cat }, function (data) {
-                        if (data.Id == -1)
-                            return;
-                        if (data.isNew == true)
-                            $("#categoryList").append('<div class="checkbox"><label><input type="checkbox" checked class="flat" name="categories" value="' + data.Id + '"> ' + $cat + '</label></div>').iCheck({ checkboxClass: 'icheckbox_flat-green' });
-                        else {
-                            $("#categoryList input[value='" + data.Id + "']").iCheck('check');
-                        }
-                    });
-                    $(this).parent().parent().find("input").val('');
-                });
-                $("#addArea").on("click", function () {
-                    $cat = $(this).parent().parent().find("input").val();
-                    if ($cat == "")
-                        return;
-                    $.post("AddArea", { name: $cat }, function (data) {
-                        if (data.Id == -1)
-                            return;
-                        if (data.isNew == true)
-                            $("#areaList").append('<div class="radio"><label><input type="radio" checked class="flat" name="areas" value="' + data.Id + '"> ' + $cat + '</label></div>').iCheck({ radioClass: 'iradio_flat-green' });
-                        else {
-                            $("#areaList input[value='" + data.Id + "']").iCheck('check');
-                        }
-                    });
-                    $(this).parent().parent().find("input").val('');
-                });
-            </script>
-        }*@
-
 }
