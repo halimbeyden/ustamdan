@@ -50,7 +50,11 @@
                 <label class="control-label">Post Media (Add at least one media)</label>
                 @foreach (PostMedia pm in Model.PostMedia)
                 {
-                    <blockquote data-type="@pm.Type.ToString().ToLower(new System.Globalization.CultureInfo("en-US"))" data-value="@pm.MediaUrl">@pm.MediaUrl<i style="color:red;cursor:pointer" class="removeMedia pull-right fa fa-remove"></i></blockquote>
+                    <blockquote data-type="@pm.Type.ToString().ToLower(new System.Globalization.CultureInfo("en-US"))" data-value="@pm.MediaUrl" data-description="@pm.Description">@pm.MediaUrl
+                        <i style="color:red;cursor:pointer" class="removeMedia pull-right fa fa-remove"></i>
+                        <i style="cursor:pointer" class="descriptionMedia pull-right fa fa-comment-o"></i>
+                        <p>@pm.Description</p>
+                    </blockquote>
                 }
             </div>
             <a href="#" data-toggle="modal" data-target="#mediaModal" class="btn btn-app">
@@ -195,6 +199,26 @@
     <div class="cssload-item cssload-ventilator"></div>
 </div>
 
+<div class="modal fade" id="mediaDescriptionModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-body">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Please write media description here.</h4>
+                </div>
+                <div class="modal-body">
+                    <input type="text" class="form-control" placeholder="Media Description" id="mediaDescription">
+                    <input type="hidden" id="mediaDescriptionIndex" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <button id="okMediaDescriptionModal" type="button" class="btn btn-primary">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 @section scripts{
     <script src="~/Scripts/tinymce/tinymce.min.js"></script>
     <script src="~/Scripts/Admin/jquery.tagsinput.js"></script>
@@ -250,7 +274,7 @@
                     categories.push($(item).val());
                 });
                 $("#postMedia blockquote").each(function (index, item) {
-                    media.push({ MediaUrl: $(item).attr("data-value"), Type: ($(item).attr("data-type") == "image" ? 0 : 1) });
+                    media.push({ MediaUrl: $(item).attr("data-value"), Type: ($(item).attr("data-type") == "image" ? 0 : 1),Description:$(item).attr("data-description") });
                 });
                 tags = $("#tags_1").val().split(",");
             }

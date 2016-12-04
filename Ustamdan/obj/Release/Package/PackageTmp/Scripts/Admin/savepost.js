@@ -1,4 +1,15 @@
-﻿$(document).on("dblclick", ".mediaImage", function () {
+﻿$(document).on("click", ".descriptionMedia", function () {
+    $("#mediaDescriptionIndex").val($(this).parent().index() - 1);
+    $("#mediaDescriptionModal").modal();
+    $("#mediaDescription").val($(this).parent().data("description"));
+});
+$("#okMediaDescriptionModal").on("click", function () {
+    $("#postMedia blockquote:eq(" + $("#mediaDescriptionIndex").val() + ")").attr("data-description", $("#mediaDescription").val());
+    $("#postMedia blockquote:eq(" + $("#mediaDescriptionIndex").val() + ") p").html($("#mediaDescription").val());
+    $("#mediaDescriptionModal").modal('hide');
+});
+
+$(document).on("dblclick", ".mediaImage", function () {
     var src = $(this).find("img").attr("src");
     addMedia(src, "image");
     $("#mediaModal").modal("hide");
@@ -9,7 +20,9 @@ $("#okVideoModal").on("click", function () {
     $("#videoModal").modal("hide");
 });
 function addMedia(src, type) {
-    $("#postMedia").append('<blockquote data-type="' + type + '" data-value="' + src + '">' + src + '<i style="color:red;cursor:pointer" class="removeMedia pull-right fa fa-remove"><i/></blockquote>');
+    $("#postMedia").append('<blockquote data-type="' + type + '" data-value="' + src + '">' + src
+        +'<i style="color:red;cursor:pointer" class="removeMedia pull-right fa fa-remove"></i>'
+        +'<i style="cursor:pointer" class="descriptionMedia pull-right fa fa-comment-o"></i><p></p></blockquote>');
 }
 $(document).on("click", ".removeMedia", function () {
     $(this).parent().remove();

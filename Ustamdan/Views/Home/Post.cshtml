@@ -65,6 +65,7 @@
                                 <div class="slider-wrap">
                                     @foreach (var pm in Model.PostMedia)
                                     {
+                                        <p style="font-weight:bold">@pm.Description</p>
                                         if (pm.Type == PostType.Image)
                                         {
                                             <div class="slide">
