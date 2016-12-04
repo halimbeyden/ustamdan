@@ -592,7 +592,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Proje Sorumlusu.
+        ///   Looks up a localized string similar to Tedarik Sorumlusu.
         /// </summary>
         public static string TeamPosition5 {
             get {
