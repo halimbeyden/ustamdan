@@ -10,6 +10,7 @@ namespace Ustamdan.Models.Blog
         public int Id { get; set; }
         public string MediaUrl { get; set; }
         public PostType Type { get; set; }
+        public string Description { get; set; }
         public PostMedia()
         {
 
