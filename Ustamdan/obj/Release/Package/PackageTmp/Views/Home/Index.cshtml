@@ -48,7 +48,7 @@
 
             <div class="subscribe-widget">
                 <div class="widget-subscribe-form-result"></div>
-                <form id="widget-subscribe-form2" role="form" method="post" class="nobottommargin">
+                <form role="form" method="post" class="nobottommargin widget-subscribe-form2">
                     <div class="input-group input-group-lg divcenter" style="max-width:600px;">
                         <span class="input-group-addon"><i class="icon-email2"></i></span>
                         <input type="email" name="widget-subscribe-form-email" class="form-control required email" placeholder="@Resource.IndexSubscriptionEmailText">
@@ -238,25 +238,3 @@
             </div>
     </div>
 </section><!-- #content end -->
-@section scripts{
-
-    <script>
-        $("#widget-subscribe-form2").on("submit", function (e) {
-            e.preventDefault();
-            var form = $(this);
-            var email = form.find(".email").val();
-            if (validateEmail(email)) {
-                $.post("http://app.mailerlite.com/webforms/submit/i5f6k3", { 'fields[email]': email, 'ml-submit': 1 }, function (data) {
-                    form.find(".success").removeClass("hidden");
-                    form.find("div.input-group").remove();
-                });
-            }
-            return true;
-        });
-        function validateEmail(email) {
-            var re = /^(([^<>()[\]\\.,;:\s@@\"]+(\.[^<>()[\]\\.,;:\s@@\"]+)*)|(\".+\"))@@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-            return re.test(email);
-        }
-
-    </script>
-}

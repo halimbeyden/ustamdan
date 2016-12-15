@@ -91,9 +91,13 @@
                                 <a href="@Url.Action("Contact","Home")"><div>@Resource.ContactTitle</div></a>
                             </li>
                             <li class="current">
+                                <a href="#subscriptionModal" data-lightbox="inline" ><div>@Resource.IndexSubscriptionTitle</div></a>
+                            </li>
+                            <li class="current">
                                 @Url.LangSwitcher(Resource.LanguageTitle, ViewContext.RouteData, Resource.LanguageTitle)
                                 @*<a href="@Url.Action("Index","Home")"><div>EN</div></a>*@
                             </li>
+
                         </ul>
 
                         <!-- Top Search
@@ -112,6 +116,8 @@
             </div>
 
         </header><!-- #header end -->
+        <!-- Modal -->
+       
 
         @RenderBody()
         <!-- Footer
@@ -221,6 +227,23 @@
             </div><!-- #copyrights end -->
 
         </footer><!-- #footer end -->
+        <div class="modal1 mfp-hide subscribe-widget" id="subscriptionModal">
+            <div class="block dark divcenter" style="background:rgba(85,85,85,0.6); background-size: cover; max-width: 700px;" data-height-lg="400">
+                <div style="padding: 50px;">
+                    <div class="heading-block nobottomborder bottommargin-sm" style="max-width:500px;">
+                        <h3>@Resource.IndexSubscriptionTitle</h3>
+                    </div>
+                    <div class="widget-subscribe-form-result"></div>
+                    <form class="widget-subscribe widget-subscribe-form2" role="form" method="post" style="max-width: 350px;">
+                        <input type="email" id="widget-subscribe-form2-email" name="widget-subscribe-form-email" class="form-control input-lg not-dark required email" placeholder="@Resource.IndexSubscriptionEmailText">
+                        <button class="button button-rounded button-border button-light noleftmargin" type="submit" style="margin-top:15px;text-transform:none">@Resource.IndexSubscriptionSubmitText</button>
+                        <div class="success divcenter hidden">
+                            <h4 style="color:#5cb85c;text-align:center">@Resource.IndexSubscriptionSuccessText</h4>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
 
     </div><!-- #wrapper end -->
     <!-- Go To Top
@@ -249,6 +272,26 @@
 
         ga('create', 'UA-61696275-1', 'auto');
         ga('send', 'pageview');
+
+    </script>
+    <script>
+        $(".widget-subscribe-form2").on("submit", function (e) {
+            e.preventDefault();
+            var form = $(this);
+            var email = form.find(".email").val();
+            if (validateEmail(email)) {
+                $.post("http://app.mailerlite.com/webforms/submit/i5f6k3", { 'fields[email]': email, 'ml-submit': 1 }, function (data) {
+                    form.find(".success").removeClass("hidden");
+                    form.find(".email").val('');
+                    form.find("div.input-group").remove();
+                });
+            }
+            return true;
+        });
+        function validateEmail(email) {
+            var re = /^(([^<>()[\]\\.,;:\s@@\"]+(\.[^<>()[\]\\.,;:\s@@\"]+)*)|(\".+\"))@@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(email);
+        }
 
     </script>
 </body>
