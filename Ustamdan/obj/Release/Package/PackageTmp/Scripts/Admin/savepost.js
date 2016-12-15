@@ -1,7 +1,7 @@
 ﻿$(document).on("click", ".descriptionMedia", function () {
     $("#mediaDescriptionIndex").val($(this).parent().index() - 1);
+    $("#mediaDescription").val($(this).parent().attr("data-description"));
     $("#mediaDescriptionModal").modal();
-    $("#mediaDescription").val($(this).parent().data("description"));
 });
 $("#okMediaDescriptionModal").on("click", function () {
     $("#postMedia blockquote:eq(" + $("#mediaDescriptionIndex").val() + ")").attr("data-description", $("#mediaDescription").val());
