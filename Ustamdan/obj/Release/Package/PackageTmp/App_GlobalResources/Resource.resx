@@ -315,4 +315,16 @@
   <data name="TeamPosition9" xml:space="preserve">
     <value>Yazılım Uzmanı</value>
   </data>
+  <data name="AboutUsLink" xml:space="preserve">
+    <value>/tr/hakkimizda</value>
+  </data>
+  <data name="ContactLink" xml:space="preserve">
+    <value>/tr/iletisim</value>
+  </data>
+  <data name="SearchLink" xml:space="preserve">
+    <value>/tr/ara</value>
+  </data>
+  <data name="WeeklyLink" xml:space="preserve">
+    <value>/tr/yazihane</value>
+  </data>
 </root>

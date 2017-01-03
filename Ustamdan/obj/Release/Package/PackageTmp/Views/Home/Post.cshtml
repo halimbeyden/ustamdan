@@ -116,7 +116,7 @@
                         <div class="si-share noborder clearfix">
                             <span>@Resource.PostShareText</span>
                             <div>
-                                <a class="social-icon si-borderless si-facebook" target="_blank" OnClick="window.open(this.href,'targetWindow','toolbar=no,location=0,status=no,menubar=no,scrollbars=yes,resizable=yes,width=600,height=250'); return false;" href="https://www.facebook.com/sharer/sharer.php?u=http://ustamdan.com/@Request.Url.AbsolutePath&title=Ustamdan&description=@Model.Title">
+                                <a class="social-icon si-borderless si-facebook" target="_blank" OnClick="window.open(this.href,'targetWindow','toolbar=no,location=0,status=no,menubar=no,scrollbars=yes,resizable=yes,width=600,height=250'); return false;" href="https://www.facebook.com/sharer/sharer.php?u=@Request.Url.AbsoluteUri&title=@Model.Title&description=@Model.Description">
                                     <i class="icon-facebook"></i>
                                     <i class="icon-facebook"></i>
                                 </a>
