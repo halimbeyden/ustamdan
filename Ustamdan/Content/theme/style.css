@@ -13542,10 +13542,10 @@ body:not(.no-transition) #wrapper,
 .entry-content{
     word-wrap:break-word;
 }
-.entry-content>.entry-body{
+/*.entry-content>.entry-body{
     overflow-y:hidden;
     max-height:100px;
-}
+}*/
 .entry-content{
     font-size:17px;font-family: "Helvetica Neue Ligth", Helvetica;max-width:700px;margin:auto
 }
