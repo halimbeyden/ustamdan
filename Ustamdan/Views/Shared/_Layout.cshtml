@@ -44,7 +44,7 @@
         }*/
     </style>
 </head>
-<body class="stretched">
+<body class="stretched no-transition">
 
     <!-- Document Wrapper
     ============================================= -->
@@ -79,16 +79,16 @@
 
                         <ul>
                             <li>
-                                <a href="@Url.Action("Index","Home")"><div>USTAMDAN</div></a>
+                                <a href="@Url.Action("Index")"><div>USTAMDAN</div></a>
                             </li>
                             <li class="current">
-                                <a href="@Url.Action("Blog","Home")"><div>@Resource.BlogTitle</div></a>
+                                <a href="@Resource.WeeklyLink"><div>@Resource.BlogTitle</div></a>
                             </li>
                             <li class="current">
-                                <a href="@Url.Action("About","Home")"><div>@Resource.OurStoryTitle</div></a>
+                                <a href="@Resource.AboutUsLink"><div>@Resource.OurStoryTitle</div></a>
                             </li>
                             <li class="current">
-                                <a href="@Url.Action("Contact","Home")"><div>@Resource.ContactTitle</div></a>
+                                <a href="@Resource.ContactLink"><div>@Resource.ContactTitle</div></a>
                             </li>
                             <li class="current">
                                 <a href="#subscriptionModal" data-lightbox="inline" ><div>@Resource.IndexSubscriptionTitle</div></a>
@@ -104,7 +104,7 @@
                         ============================================= -->
                         <div id="top-search">
                             <a href="#" id="top-search-trigger"><i class="icon-search3"></i><i class="icon-line-cross"></i></a>
-                            <form action="@Url.Action("Search")" method="get">
+                            <form action="@Resource.SearchLink" method="get">
                                 <input type="text" name="q" class="form-control" value="" placeholder="@Resource.SearchText">
                             </form>
                         </div><!-- #top-search end -->
