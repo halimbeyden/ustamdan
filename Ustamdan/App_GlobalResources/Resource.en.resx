@@ -136,6 +136,9 @@
   <data name="AboutTeamTitle" xml:space="preserve">
     <value>OUR TEAM</value>
   </data>
+  <data name="AboutUsLink" xml:space="preserve">
+    <value>/en/aboutus</value>
+  </data>
   <data name="AreaTitle" xml:space="preserve">
     <value>Regions</value>
   </data>
@@ -147,6 +150,9 @@
   </data>
   <data name="ContactAddressTitle" xml:space="preserve">
     <value>Address</value>
+  </data>
+  <data name="ContactLink" xml:space="preserve">
+    <value>/en/contact</value>
   </data>
   <data name="ContactTitle" xml:space="preserve">
     <value>CONTACT</value>
@@ -274,6 +280,9 @@
   <data name="PostTagCloudText" xml:space="preserve">
     <value>Tag Cloud</value>
   </data>
+  <data name="SearchLink" xml:space="preserve">
+    <value>/en/search</value>
+  </data>
   <data name="SearchText" xml:space="preserve">
     <value>Search…</value>
   </data>
@@ -309,6 +318,9 @@
   </data>
   <data name="TeamPosition9" xml:space="preserve">
     <value>Software Developer</value>
+  </data>
+  <data name="WeeklyLink" xml:space="preserve">
+    <value>/en/weekly</value>
   </data>
   <data name="WeeklyTitle" xml:space="preserve">
     <value>Anatolia Culture Blog</value>

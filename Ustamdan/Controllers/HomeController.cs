@@ -58,6 +58,7 @@ namespace Ustamdan.Controllers
         public ActionResult Post(int id)
         {
             string lang = RouteData.Values["lang"].ToString();
+            ViewBag.Lang = lang;
             PostViewModel model;
             using (var db = new ApplicationDbContext())
             {

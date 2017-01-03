@@ -115,6 +115,15 @@ namespace Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to /tr/hakkimizda.
+        /// </summary>
+        public static string AboutUsLink {
+            get {
+                return ResourceManager.GetString("AboutUsLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Bölgeler.
         /// </summary>
         public static string AreaTitle {
@@ -147,6 +156,15 @@ namespace Resource {
         public static string ContactAddressTitle {
             get {
                 return ResourceManager.GetString("ContactAddressTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /tr/iletisim.
+        /// </summary>
+        public static string ContactLink {
+            get {
+                return ResourceManager.GetString("ContactLink", resourceCulture);
             }
         }
         
@@ -529,6 +547,15 @@ namespace Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to /tr/ara.
+        /// </summary>
+        public static string SearchLink {
+            get {
+                return ResourceManager.GetString("SearchLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Arama Yapın...
         /// </summary>
         public static string SearchText {
@@ -633,6 +660,15 @@ namespace Resource {
         public static string TeamPosition9 {
             get {
                 return ResourceManager.GetString("TeamPosition9", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /tr/yazihane.
+        /// </summary>
+        public static string WeeklyLink {
+            get {
+                return ResourceManager.GetString("WeeklyLink", resourceCulture);
             }
         }
         

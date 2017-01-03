@@ -12,9 +12,10 @@
         font-weight: bold;
         margin-bottom: 0px;
     }
-    .category-list li {
-        margin: 15px;
-    }
+
+        .category-list li {
+            margin: 15px;
+        }
 </style>
 <!-- Content
 ============================================= -->
@@ -102,11 +103,11 @@
                         <!-- Tag Cloud
                         ============================================= -->
                         @*<div class="tagcloud clearfix bottommargin">
-                            @foreach (var tag in Model.TagNames)
-                            {
-                                <a href="#">@tag</a>
-                            }
-                        </div>*@<!-- .tagcloud end -->
+                                @foreach (var tag in Model.TagNames)
+                                {
+                                    <a href="#">@tag</a>
+                                }
+                            </div>*@<!-- .tagcloud end -->
 
                         <div class="clear"></div>
 
@@ -115,30 +116,27 @@
                         <div class="si-share noborder clearfix">
                             <span>@Resource.PostShareText</span>
                             <div>
-                                <a href="#" class="social-icon si-borderless si-facebook">
+                                <a class="social-icon si-borderless si-facebook" target="_blank" OnClick="window.open(this.href,'targetWindow','toolbar=no,location=0,status=no,menubar=no,scrollbars=yes,resizable=yes,width=600,height=250'); return false;" href="https://www.facebook.com/sharer/sharer.php?u=http://ustamdan.com/@Request.Url.AbsolutePath&title=Ustamdan&description=@Model.Title">
                                     <i class="icon-facebook"></i>
                                     <i class="icon-facebook"></i>
                                 </a>
-                                <a href="#" class="social-icon si-borderless si-twitter">
+                                <a href="https://twitter.com/share" class="twitter-share-button social-icon si-borderless si-twitter">
                                     <i class="icon-twitter"></i>
                                     <i class="icon-twitter"></i>
                                 </a>
-                                <a href="#" class="social-icon si-borderless si-pinterest">
-                                    <i class="icon-pinterest"></i>
-                                    <i class="icon-pinterest"></i>
-                                </a>
-                                <a href="#" class="social-icon si-borderless si-gplus">
-                                    <i class="icon-gplus"></i>
-                                    <i class="icon-gplus"></i>
-                                </a>
-                                <a href="#" class="social-icon si-borderless si-rss">
-                                    <i class="icon-rss"></i>
-                                    <i class="icon-rss"></i>
-                                </a>
-                                <a href="#" class="social-icon si-borderless si-email3">
+                                @*<a href="#" class="social-icon si-borderless si-pinterest">
+                                        <i class="icon-pinterest"></i>
+                                        <i class="icon-pinterest"></i>
+                                    </a>*@
+                                
+                                @*<a href="#" class="social-icon si-borderless si-rss">
+                                        <i class="icon-rss"></i>
+                                        <i class="icon-rss"></i>
+                                    </a>*@
+                                @*<a href="#" class="social-icon si-borderless si-email3">
                                     <i class="icon-email3"></i>
                                     <i class="icon-email3"></i>
-                                </a>
+                                </a>*@
                             </div>
                         </div><!-- Post Single - Share End -->
 
@@ -168,3 +166,6 @@
     </div>
 
 </section><!-- #content end -->
+@section scripts{
+    <script async src="//platform.twitter.com/widgets.js" charset="utf-8" data-show-count="true"></script>
+} 

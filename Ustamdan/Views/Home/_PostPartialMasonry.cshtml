@@ -2,7 +2,7 @@
     <div class="entry-image">
         @if (Model.PostMedia.First().Type == PostType.Image)
         {
-            <a href="@Url.Action("Post",new {id = Model.Id })" data-toggle="tooltip" data-placement="top" title="@Model.Title" @*data-lightbox="image"*@><img class="image_fade" src="@Model.PostMedia.First().MediaUrl" alt="@Model.Title"></a>
+            <a href="@Url.Action("Post",new {id = Model.Id,title = Url.Encode(Model.Title.Replace(" ","-")) })" data-toggle="tooltip" data-placement="top" title="@Model.Title" @*data-lightbox="image"*@><img class="image_fade" src="@Model.PostMedia.First().MediaUrl" alt="@Model.Title"></a>
         }
         else if (Model.PostMedia.First().Type == PostType.Video)
         {
@@ -14,13 +14,13 @@
         }
     </div>
     <div class="entry-title">
-        <h2><a href="@Url.Action("Post",new {id = Model.Id })">@Model.Title</a></h2>
+        <h2><a href="@Url.Action("Post",new {id = Model.Id,title = Url.Encode(Model.Title.Replace(" ","-")) })">@Model.Title</a></h2>
     </div>
     <ul class="entry-meta clearfix">
         <li><i class="icon-calendar3"></i> @Model.DateCreated.ToShortDateString()</li>
     </ul>
     <div class="entry-content">
         <p class="entry-body">@Model.Description</p>
-        <a href="@Url.Action("Post",new {id = Model.Id })" class="more-link">@Resource.PostReadMoreText</a>
+        <a href="@Url.Action("Post",new {id = Model.Id,title = Model.Title.Replace(" ","-") })" class="more-link">@Resource.PostReadMoreText</a>
     </div>
 
