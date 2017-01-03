@@ -30,7 +30,7 @@
         <ul class="list-inline category-list">
             @foreach (Category c in ViewBag.Categories)
             {
-                <li><a href="@Url.Action("Search",new { c = c.Id})"><div>@c.Name</div></a></li>
+                <li><a href="@Resource.SearchLink?c=@c.Id"><div>@c.Name</div></a></li>
             }
         </ul>
     </div>
@@ -309,8 +309,8 @@
                 map.setMapTypeId('styled_map');
                 @foreach (var p in (ViewBag.AllPosts as List<PostViewModel>))
                 {
-                    string imgContent = p.PostMedia.First().Type == PostType.Image ? "<a href='" + Url.Action("Post", new { id = p.Id, title = Url.Encode(p.Title.Replace(" ", "-")) }) + "' class='nobg'><img src='" + p.PostMedia.First().MediaUrl+ "' alt=''></a>"
-                        :"<a href='" + Url.Action("Post",new { id=p.Id, title = Url.Encode(p.Title.Replace(" ", "-")) }) + "' class='nobg'><i class='icon icon-play-circle'></i></a>";
+                    string imgContent = p.PostMedia.First().Type == PostType.Image ? "<a href='" + Resource.WeeklyLink + '/' + p.Id +'/'+ p.Title.Replace(" ", "-").Replace(":", "") + "' class='nobg'><img src='" + p.PostMedia.First().MediaUrl+ "' alt=''></a>"
+                        :"<a href='" + Resource.WeeklyLink + '/' + p.Id + '/' + p.Title.Replace(" ", "-").Replace(":", "") + "' class='nobg'><i class='icon icon-play-circle'></i></a>";
                 @:var contentString = '<div id="content">' +
                     @:'<div class="spost clearfix">' +
                     @:'<div class="entry-image">' +
@@ -318,7 +318,7 @@
                     @:'</div>' +
                     @:'<div class="entry-c">' +
                     @:'<div class="entry-title">' +
-                    @:'<h4><a href="@Url.Action("Post", new { id = p.Id, title = Url.Encode(p.Title.Replace(" ", "-")) })">@p.Title</a></h4>' +
+                    @:'<h4><a href="@Resource.WeeklyLink/@p.Id/@p.Title.Replace(" ","-").Replace(":","")">@p.Title</a></h4>' +
                     @:'</div>' +
                     @:'<ul class="entry-meta">' +
                     @:'<li>@p.DateCreated.ToShortDateString()</li>' +
