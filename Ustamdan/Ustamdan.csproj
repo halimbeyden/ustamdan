@@ -252,6 +252,9 @@
     <Compile Include="Models\ErrorLog.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\LocalizationAttribute.cs" />
+    <Compile Include="Models\MailerLite\MailerLiteCampaign.cs" />
+    <Compile Include="Models\MailerLite\MailerLiteGroup.cs" />
+    <Compile Include="Models\MailerLite\MailerLiteHelper.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MultiLanguage\LanguageHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -1579,6 +1582,7 @@
     <Content Include="Views\Admin\Tag.cshtml" />
     <Content Include="Views\Admin\Area.cshtml" />
     <Content Include="Views\Home\_PostPartialMasonry.cshtml" />
+    <Content Include="Views\Admin\Mail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
