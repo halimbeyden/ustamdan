@@ -41,12 +41,12 @@ namespace Ustamdan.Models.MailerLite
             mlc.subject = title;
             mlc.groups = groups;
             JavaScriptSerializer serializer = new JavaScriptSerializer();
-            //var fstep = serializer.Deserialize<MailerLiteCampaign>(POST(MainUrl + "campaigns", serializer.Serialize(mlc), "POST"));
+            var fstep = serializer.Deserialize<MailerLiteCampaign>(POST(MainUrl + "campaigns", serializer.Serialize(mlc), "POST"));
             MailerLiteCampaignSStep mlcss = new MailerLiteCampaignSStep();
             mlcss.html = body;
             mlcss.plain = "Your email client does not support HTML emails. Open newsletter here: {$url}. If you do not want to receive emails from us, click here: {$unsubscribe}";
-            var sstep = POST(MainUrl + "campaigns/"+ 5580340 + "/content", serializer.Serialize(mlcss), "PUT");
-            //var lstep = POST(MainUrl + "campaigns/" + 5580340 + "/actions/send", "", "POST");
+            var sstep = POST(MainUrl + "campaigns/"+ fstep.id + "/content", serializer.Serialize(mlcss), "PUT");
+            var lstep = POST(MainUrl + "campaigns/" + fstep.id + "/actions/send", "", "POST");
         }
         private static string GET(string url)
         {
