@@ -10,6 +10,7 @@ using Ustamdan.ViewModels;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Net;
+using Ustamdan.Models.MailerLite;
 
 namespace Ustamdan.Controllers
 {
@@ -432,8 +433,56 @@ namespace Ustamdan.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Area");
             }
-        } 
+        }
         #endregion
 
+
+        #region MailerLite
+        public ActionResult Mail()
+        {
+            using (var db = new ApplicationDbContext())
+            {
+                ViewBag.Posts = db.Posts.Where(x => x.IsPublished).OrderByDescending(x=>x.Id).ToList();
+            }
+            return View(MailerLiteHelper.getGroups());
+        }
+        [HttpPost]
+        public ActionResult SendMail(int[] groups,int postId)
+        {
+            using (var db = new ApplicationDbContext())
+            {
+                var post = db.Posts.Find(postId);
+                if (post == null || groups.Length == 0)
+                    return HttpNotFound();
+                string tmp = MailerLiteHelper.GetMailTemplateByPost(post);
+                try
+                {
+                    MailerLiteHelper.SendMail(groups, "Ustamdan Havadis Var: " + post.Title, tmp);
+                }
+                catch (Exception ex)
+                {
+                    return new HttpStatusCodeResult(500,ex.Message);
+                }
+            }
+            return RedirectToAction("Mail");
+        }
+
+        public static string RenderViewToString(ControllerContext context, string viewName, object model)
+        {
+            if (string.IsNullOrEmpty(viewName))
+                viewName = context.RouteData.GetRequiredString("action");
+
+            var viewData = new ViewDataDictionary(model);
+
+            using (var sw = new StringWriter())
+            {
+                var viewResult = ViewEngines.Engines.FindPartialView(context, viewName);
+                var viewContext = new ViewContext(context, viewResult.View, viewData, new TempDataDictionary(), sw);
+                viewResult.View.Render(viewContext, sw);
+
+                return sw.GetStringBuilder().ToString();
+            }
+        }
+        #endregion
     }
 }

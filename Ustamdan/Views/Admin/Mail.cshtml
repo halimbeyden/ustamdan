@@ -1,0 +1,29 @@
+﻿@model List<Ustamdan.Models.MailerLite.MailerLiteGroup>
+@{
+    ViewBag.Title = "Mail";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<form action="@Url.Action("SendMail")" method="post">
+    <h2>Group</h2>
+    @foreach (var item in Model)
+    {
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" class="flat" name="groups" value="@item.id"> @item.id - @item.name - (@item.active)
+            </label>
+        </div>
+    }
+    <h2>Post</h2>
+    <div class="col-md-4">
+        <select class="form-control select2-selection--single" name="postId" required>
+            <option>Lütfen Seçiniz</option>
+            @foreach (Post post in ViewBag.Posts)
+            {
+                <option value="@post.Id">@post.Id - @post.Title</option>
+            }
+        </select>
+    </div>
+    <div class="col-md-2">
+        <input class="btn btn-success" type="submit" value="Gönder" />
+    </div>
+</form>
