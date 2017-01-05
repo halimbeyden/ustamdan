@@ -23,7 +23,30 @@
             }
         </select>
     </div>
+    <div class="col-md-1">
+        <button id="previewBtn" type="button" class="btn btn-warning">Preview</button>
+    </div>
     <div class="col-md-2">
-        <input class="btn btn-success" type="submit" value="Gönder" />
+        <input class="btn btn-success" type="submit" value="Send Mail" />
     </div>
 </form>
+
+@section scripts{
+    
+    <script>
+        $("#previewBtn").on("click", function () {
+            var $this = $(this);
+            var pId = $("select[name='postId']").val();
+            if (pId > 0) {
+                $this.prop("disabled", true);
+                $.get("GetMailTemplate", { postId: pId }, function (data) {
+                    if (data != null) {
+                        var myWindow = window.open("", "Mail Preview", "width="+screen.width+",height=" + screen.height);
+                        myWindow.document.write(data);
+                    }
+                    $this.prop("disabled", false);
+                });
+            }
+        });
+    </script>
+    }
