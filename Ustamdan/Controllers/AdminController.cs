@@ -33,20 +33,20 @@ namespace Ustamdan.Controllers
             }
             return View(model);
         }
-        [Authorize(Roles ="Admin")]
+        [Authorize(Roles = "Admin")]
         public ActionResult PendingPosts()
         {
             List<PostViewModel> model;
             using (var db = new ApplicationDbContext())
             {
                 model = db.Posts
-                    .Where(x=>x.Status == PostStatus.Published && !x.IsPublished)
+                    .Where(x => x.Status == PostStatus.Published && !x.IsPublished)
                     .OrderByDescending(x => x.DateCreated).ToList()
                     .Select(x => new PostViewModel(x)).ToList();
             }
             return View(model);
         }
-        [Authorize(Roles ="Admin")]
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult ApprovePost(int id)
         {
@@ -165,13 +165,13 @@ namespace Ustamdan.Controllers
                 return Json(temp.Id);
             }
         }
-        private List<Tag> getTags(ApplicationDbContext db,string []tags)
+        private List<Tag> getTags(ApplicationDbContext db, string[] tags)
         {
             List<Tag> tagIds = new List<Tag>();
             foreach (string tag in tags)
             {
                 Tag tg = db.Tags.FirstOrDefault(x => x.Name.ToLower() == tag.Trim().ToLower());
-                if(tg == null)
+                if (tg == null)
                 {
                     tg = new Tag(tag);
                     db.Tags.Add(tg);
@@ -442,29 +442,40 @@ namespace Ustamdan.Controllers
         {
             using (var db = new ApplicationDbContext())
             {
-                ViewBag.Posts = db.Posts.Where(x => x.IsPublished).OrderByDescending(x=>x.Id).ToList();
+                ViewBag.Posts = db.Posts.Where(x => x.IsPublished).OrderByDescending(x => x.Id).ToList();
             }
             return View(MailerLiteHelper.getGroups());
         }
         [HttpPost]
-        public ActionResult SendMail(int[] groups,int postId)
+        public ActionResult SendMail(int[] groups, int postId)
         {
             using (var db = new ApplicationDbContext())
             {
                 var post = db.Posts.Find(postId);
                 if (post == null || groups.Length == 0)
                     return HttpNotFound();
-                string tmp = MailerLiteHelper.GetMailTemplateByPost(post);
+                string tmp = RenderViewToString(ControllerContext, "_MailTemplate", new MailTemplateViewModel(post));
                 try
                 {
                     MailerLiteHelper.SendMail(groups, "Ustamdan Havadis Var: " + post.Title, tmp);
                 }
                 catch (Exception ex)
                 {
-                    return new HttpStatusCodeResult(500,ex.Message);
+                    return new HttpStatusCodeResult(500, ex.Message);
                 }
             }
             return RedirectToAction("Mail");
+        }
+        [HttpGet]
+        public string GetMailTemplate(int postId)
+        {
+            using (var db = new ApplicationDbContext())
+            {
+                var post = db.Posts.Find(postId);
+                if (post == null)
+                    return null;
+                return RenderViewToString(ControllerContext, "_MailTemplate", new MailTemplateViewModel(post));
+            }
         }
 
         public static string RenderViewToString(ControllerContext context, string viewName, object model)
@@ -483,6 +494,7 @@ namespace Ustamdan.Controllers
                 return sw.GetStringBuilder().ToString();
             }
         }
+
         #endregion
     }
 }
