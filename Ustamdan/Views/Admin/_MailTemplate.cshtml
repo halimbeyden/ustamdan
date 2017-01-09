@@ -280,9 +280,9 @@
                         <tr>
                             <td align="" style="font-family: 'Open sans', Arial, Helvetica, sans-serif; color: #7a7a7a; font-size: 16px; line-height: 22px; text-align: center; padding: 0px 40px;" class="frame" id="content-12">
                                 <div class="text">
-                                    <p style="margin-top: 0px; margin-bottom: 10px;">@Html.Raw(Model.Content)</p>
+                                    <p style="margin-top: 0px; margin-bottom: 10px;">@Html.Raw(Model.Content.Replace("../../../Content", "http://www.ustamdan.com/Content"))</p>
                                     <p style="margin-top: 0px; margin-bottom: 10px; text-align: center;"><span style="color: #3498db;">@Model.Quote</span></p>
-                                    <p style="margin-top: 0px; margin-bottom: 10px;">@Html.Raw(Model.ContentPartTwo)</p>
+                                    <p style="margin-top: 0px; margin-bottom: 10px;">@Html.Raw(Model.ContentPartTwo.Replace("../../../Content", "http://www.ustamdan.com/Content"))</p>
                                 </div>
                             </td>
                         </tr>
