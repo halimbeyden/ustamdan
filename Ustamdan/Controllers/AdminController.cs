@@ -447,14 +447,14 @@ namespace Ustamdan.Controllers
             return View(MailerLiteHelper.getGroups());
         }
         [HttpPost]
-        public ActionResult SendMail(int[] groups, int postId)
+        public ActionResult SendMail(int[] groups, int postId, bool fornewusers = false)
         {
             using (var db = new ApplicationDbContext())
             {
                 var post = db.Posts.Find(postId);
                 if (post == null || groups.Length == 0)
                     return HttpNotFound();
-                string tmp = RenderViewToString(ControllerContext, "_MailTemplate", new MailTemplateViewModel(post));
+                string tmp = RenderViewToString(ControllerContext, "_MailTemplate", new MailTemplateViewModel(post, fornewusers));
                 try
                 {
                     MailerLiteHelper.SendMail(groups, "Ustamdan Havadis Var: " + post.Title, tmp);
@@ -467,14 +467,14 @@ namespace Ustamdan.Controllers
             return RedirectToAction("Mail");
         }
         [HttpGet]
-        public string GetMailTemplate(int postId)
+        public string GetMailTemplate(int postId,bool fornewusers = false)
         {
             using (var db = new ApplicationDbContext())
             {
                 var post = db.Posts.Find(postId);
                 if (post == null)
                     return null;
-                return RenderViewToString(ControllerContext, "_MailTemplate", new MailTemplateViewModel(post));
+                return RenderViewToString(ControllerContext, "_MailTemplate", new MailTemplateViewModel(post,fornewusers));
             }
         }
 

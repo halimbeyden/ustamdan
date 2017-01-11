@@ -17,9 +17,11 @@ namespace Ustamdan.Models.MailerLite
         public string MediaLink { get; set; }
         public string Author { get; set; }
         public string Language { get; set; }
+        public bool ForNewUsers { get; set; }
 
-        public MailTemplateViewModel(Post post)
+        public MailTemplateViewModel(Post post,bool fornewusers = false)
         {
+            ForNewUsers = fornewusers;
             Title = post.Title;
             Content = post.PostContent;
             Description = post.Description;
