@@ -34,6 +34,13 @@ namespace Ustamdan.Models.MailerLite
                     + "<br><a href=\"{$unsubscribe}\">Unsubscribe</a>";
             return body;
         }
+        public static void Subscribe(string email)
+        {
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            var obj = new { email = email };
+            string json = serializer.Serialize(obj);
+            var t = POST(MainUrl + "groups/4715415/subscribers", json, "POST");
+        }
         public static void SendMail(int[] groups, string title, string body)
         {
             MailerLiteCampaign mlc = new MailerLiteCampaign();
@@ -45,7 +52,7 @@ namespace Ustamdan.Models.MailerLite
             MailerLiteCampaignSStep mlcss = new MailerLiteCampaignSStep();
             mlcss.html = body;
             mlcss.plain = "Your email client does not support HTML emails. Open newsletter here: {$url}. If you do not want to receive emails from us, click here: {$unsubscribe}";
-            var sstep = POST(MainUrl + "campaigns/"+ fstep.id + "/content", serializer.Serialize(mlcss), "PUT");
+            var sstep = POST(MainUrl + "campaigns/" + fstep.id + "/content", serializer.Serialize(mlcss), "PUT");
             var lstep = POST(MainUrl + "campaigns/" + fstep.id + "/actions/send", "", "POST");
         }
         private static string GET(string url)
@@ -85,6 +92,7 @@ namespace Ustamdan.Models.MailerLite
                 }
             }
         }
+
     }
 
 }

@@ -168,4 +168,10 @@
 </section><!-- #content end -->
 @section scripts{
     <script async src="//platform.twitter.com/widgets.js" charset="utf-8" data-show-count="true"></script>
+    <script>
+        $(function () {
+            var lang = $("#primary-menu>ul>li:last-child>a").attr("href").substr(0,3);
+            $("#primary-menu>ul>li:last-child>a").attr("href", lang + "/" + (lang == "/en"?"weekly":"yazihane"));
+        });
+    </script>
 } 
