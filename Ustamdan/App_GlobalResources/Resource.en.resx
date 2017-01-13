@@ -295,6 +295,9 @@
   <data name="TeamPosition1" xml:space="preserve">
     <value>Co-founder</value>
   </data>
+  <data name="TeamPosition10" xml:space="preserve">
+    <value>Sales Representative</value>
+  </data>
   <data name="TeamPosition2" xml:space="preserve">
     <value>Executive Editor</value>
   </data>
