@@ -592,6 +592,15 @@ namespace Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Satış Sorumlusu.
+        /// </summary>
+        public static string TeamPosition10 {
+            get {
+                return ResourceManager.GetString("TeamPosition10", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Genel Yayın Yönetmeni.
         /// </summary>
         public static string TeamPosition2 {

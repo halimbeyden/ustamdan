@@ -16,7 +16,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="App_GlobalResources/Resource.resx">
-      <publishTime>01/03/2017 12:05:58</publishTime>
+      <publishTime>01/13/2017 10:57:22</publishTime>
     </File>
     <File Include="App_GlobalResources/Resource.tr.resx">
       <publishTime>11/13/2016 21:11:19</publishTime>
@@ -34,7 +34,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/20/2016 14:46:55</publishTime>
     </File>
     <File Include="bin/en/Ustamdan.resources.dll">
-      <publishTime>01/11/2017 22:02:45</publishTime>
+      <publishTime>01/13/2017 10:59:42</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>10/20/2016 14:46:55</publishTime>
@@ -109,7 +109,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/20/2016 14:46:56</publishTime>
     </File>
     <File Include="bin/NLipsum.Core.dll">
-      <publishTime>05/01/2016 22:00:56</publishTime>
+      <publishTime>01/05/2016 22:00:56</publishTime>
     </File>
     <File Include="bin/Owin.dll">
       <publishTime>10/20/2016 14:46:56</publishTime>
@@ -220,10 +220,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/20/2016 14:46:55</publishTime>
     </File>
     <File Include="bin/tr/Ustamdan.resources.dll">
-      <publishTime>01/11/2017 22:02:45</publishTime>
+      <publishTime>01/13/2017 10:59:41</publishTime>
     </File>
     <File Include="bin/Ustamdan.dll">
-      <publishTime>01/11/2017 22:02:45</publishTime>
+      <publishTime>01/13/2017 10:59:41</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>10/20/2016 14:46:56</publishTime>
@@ -3010,10 +3010,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/img/destekciler/ay.jpg">
-      <publishTime>01/11/2016 16:43:02</publishTime>
+      <publishTime>11/01/2016 16:43:02</publishTime>
     </File>
     <File Include="Content/img/destekciler/ay.png">
-      <publishTime>01/11/2016 16:43:02</publishTime>
+      <publishTime>11/01/2016 16:43:02</publishTime>
     </File>
     <File Include="Content/img/destekciler/bilgi.gif">
       <publishTime>10/20/2016 14:46:53</publishTime>
@@ -3055,7 +3055,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/20/2016 14:46:53</publishTime>
     </File>
     <File Include="Content/img/ekip/fersad.png">
-      <publishTime>06/12/2016 16:09:07</publishTime>
+      <publishTime>12/06/2016 16:09:07</publishTime>
     </File>
     <File Include="Content/img/ekip/gokce.gif">
       <publishTime>10/20/2016 14:46:53</publishTime>
@@ -3307,7 +3307,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/20/2016 14:46:53</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>07/11/2016 16:07:21</publishTime>
+      <publishTime>11/07/2016 16:07:21</publishTime>
     </File>
     <File Include="Scripts/Admin/custom.js">
       <publishTime>10/20/2016 14:46:53</publishTime>
@@ -3346,7 +3346,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/20/2016 14:46:53</publishTime>
     </File>
     <File Include="Scripts/Admin/savepost.js">
-      <publishTime>06/12/2016 16:09:08</publishTime>
+      <publishTime>12/06/2016 16:09:08</publishTime>
     </File>
     <File Include="Scripts/Admin/videourlparser.js">
       <publishTime>10/24/2016 09:21:19</publishTime>
@@ -3394,7 +3394,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/20/2016 14:46:53</publishTime>
     </File>
     <File Include="Scripts/jqueryold-2.2.4.min.js">
-      <publishTime>06/12/2016 16:09:08</publishTime>
+      <publishTime>12/06/2016 16:09:08</publishTime>
     </File>
     <File Include="Scripts/modernizr-2.8.3.js">
       <publishTime>10/20/2016 14:46:53</publishTime>
@@ -3931,7 +3931,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/20/2016 14:46:54</publishTime>
     </File>
     <File Include="Scripts/_references.js">
-      <publishTime>06/12/2016 16:09:08</publishTime>
+      <publishTime>12/06/2016 16:09:08</publishTime>
     </File>
     <File Include="Views/Account/ConfirmEmail.cshtml">
       <publishTime>10/20/2016 14:46:54</publishTime>
@@ -3949,7 +3949,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/20/2016 14:46:54</publishTime>
     </File>
     <File Include="Views/Account/Login.cshtml">
-      <publishTime>07/11/2016 16:28:30</publishTime>
+      <publishTime>11/07/2016 16:28:30</publishTime>
     </File>
     <File Include="Views/Account/Register.cshtml">
       <publishTime>10/20/2016 14:46:54</publishTime>
@@ -3976,7 +3976,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/14/2016 08:53:37</publishTime>
     </File>
     <File Include="Views/Admin/EditPost.cshtml">
-      <publishTime>06/12/2016 16:09:08</publishTime>
+      <publishTime>12/06/2016 16:09:08</publishTime>
     </File>
     <File Include="Views/Admin/EditUser.cshtml">
       <publishTime>10/20/2016 14:46:54</publishTime>
@@ -3991,7 +3991,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/24/2016 09:21:19</publishTime>
     </File>
     <File Include="Views/Admin/NewPost.cshtml">
-      <publishTime>06/12/2016 16:09:08</publishTime>
+      <publishTime>12/06/2016 16:09:08</publishTime>
     </File>
     <File Include="Views/Admin/PendingPosts.cshtml">
       <publishTime>11/17/2016 08:47:06</publishTime>
@@ -4021,13 +4021,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/20/2016 14:46:54</publishTime>
     </File>
     <File Include="Views/Admin/_MailTemplate.cshtml">
-      <publishTime>01/11/2017 21:13:21</publishTime>
+      <publishTime>01/11/2017 22:51:28</publishTime>
     </File>
     <File Include="Views/Admin/_MediaPartial.cshtml">
       <publishTime>10/24/2016 09:21:19</publishTime>
     </File>
     <File Include="Views/Home/About.cshtml">
-      <publishTime>06/12/2016 16:09:08</publishTime>
+      <publishTime>01/13/2017 10:58:43</publishTime>
     </File>
     <File Include="Views/Home/Blog.cshtml">
       <publishTime>01/04/2017 12:59:16</publishTime>
@@ -4042,7 +4042,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/11/2017 10:09:28</publishTime>
     </File>
     <File Include="Views/Home/Search.cshtml">
-      <publishTime>07/11/2016 11:11:05</publishTime>
+      <publishTime>11/07/2016 11:11:05</publishTime>
     </File>
     <File Include="Views/Home/_PostPartial.cshtml">
       <publishTime>01/09/2017 11:02:17</publishTime>

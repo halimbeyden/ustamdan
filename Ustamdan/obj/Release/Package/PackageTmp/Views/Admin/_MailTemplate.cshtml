@@ -241,19 +241,21 @@
                 </selector>
                 <table width="700" cellpadding="0" border="0" cellspacing="0" align="center" class="devicewidth" style="min-width: 700px;" bgcolor="#ffffff">
                     <tr>
-                        <td align="center" height="5" class="small_space">
-                        </td>
+                        <td align="center" height="5" class="small_space"></td>
                     </tr>
                     <tr>
-                        <td align="center" height="40" class="space">
-                            <a href="http://www.ustamdan.com/tr/yazihane"
-                               style="font-family: 'Open sans', Arial, Helvetica, sans-serif;color: #fff;background: #333;padding: 10px 20px 10px 20px;text-decoration: none;">Diğer Yazılar</a>
-                        </td>
                         @if (Model.ForNewUsers)
                         {
                             <td align="center" height="40" class="space">
                                 <a href="http://www.ustamdan.com/Home/Subscribe?email={$email}"
                                    style="font-family: 'Open sans', Arial, Helvetica, sans-serif;color: #fff;background: #333;padding: 10px 20px 10px 20px;text-decoration: none;">Abone Ol</a>
+                            </td>
+                        }
+                        else
+                        {
+                            <td align="center" height="40" class="space">
+                                <a href="http://www.ustamdan.com/tr/yazihane"
+                                   style="font-family: 'Open sans', Arial, Helvetica, sans-serif;color: #fff;background: #333;padding: 10px 20px 10px 20px;text-decoration: none;">Diğer Yazılar</a>
                             </td>
                         }
                     </tr>
@@ -295,6 +297,17 @@
                         </tr>
                     </table>
                 </selector>
+                <table width="700" cellpadding="0" border="0" cellspacing="0" align="center" class="devicewidth" style="min-width: 700px;" bgcolor="#ffffff">
+                    <tr>
+                        @if (Model.ForNewUsers)
+                        {
+                            <td align="center" height="40" class="space">
+                                <a href="http://www.ustamdan.com/tr/yazihane"
+                                   style="font-family: 'Open sans', Arial, Helvetica, sans-serif;color: #fff;background: #333;padding: 10px 20px 10px 20px;text-decoration: none;">Diğer Yazılar</a>
+                            </td>
+                        }
+                    </tr>
+                </table>
                 <table width="700" cellpadding="0" border="0" cellspacing="0" align="center" class="devicewidth" style="min-width: 700px;" bgcolor="#ffffff">
                     <tr>
                         <td align="center" height="30" class="small_space"></td>
