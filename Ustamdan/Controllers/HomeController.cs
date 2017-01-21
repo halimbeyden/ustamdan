@@ -7,6 +7,7 @@ using Ustamdan.Models;
 using PagedList;
 using Ustamdan.Models.Blog;
 using Ustamdan.ViewModels;
+using Ustamdan.Models.MailerLite;
 
 namespace Ustamdan.Controllers
 {
@@ -137,6 +138,24 @@ namespace Ustamdan.Controllers
         {
             evm.Ip = Request.UserHostAddress;
             return Json(evm.sendMail());
+        }
+        public ActionResult Subscribe(string email)
+        {
+            if(IsValidEmail(email))
+                MailerLiteHelper.Subscribe(email);
+            return RedirectToAction("Blog");
+        }
+        bool IsValidEmail(string email)
+        {
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(email);
+                return addr.Address == email;
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }
