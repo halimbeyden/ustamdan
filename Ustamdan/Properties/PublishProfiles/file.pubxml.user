@@ -34,7 +34,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/11/2016 17:52:21</publishTime>
     </File>
     <File Include="bin/en/Ustamdan.resources.dll">
-      <publishTime>01/03/2017 21:30:41</publishTime>
+      <publishTime>01/05/2017 20:43:11</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>09/11/2016 17:52:22</publishTime>
@@ -220,10 +220,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/11/2016 17:52:24</publishTime>
     </File>
     <File Include="bin/tr/Ustamdan.resources.dll">
-      <publishTime>01/03/2017 21:30:41</publishTime>
+      <publishTime>01/05/2017 20:43:11</publishTime>
     </File>
     <File Include="bin/Ustamdan.dll">
-      <publishTime>01/03/2017 21:30:41</publishTime>
+      <publishTime>01/05/2017 20:43:11</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>09/11/2016 17:52:27</publishTime>
@@ -3984,6 +3984,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Views/Admin/Index.cshtml">
       <publishTime>09/11/2016 17:52:18</publishTime>
     </File>
+    <File Include="Views/Admin/Mail.cshtml">
+      <publishTime>01/05/2017 20:42:04</publishTime>
+    </File>
     <File Include="Views/Admin/Media.cshtml">
       <publishTime>10/23/2016 17:41:15</publishTime>
     </File>
@@ -4017,6 +4020,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Views/Admin/Users.cshtml">
       <publishTime>10/08/2016 13:17:37</publishTime>
     </File>
+    <File Include="Views/Admin/_MailTemplate.cshtml">
+      <publishTime>01/05/2017 20:42:04</publishTime>
+    </File>
     <File Include="Views/Admin/_MediaPartial.cshtml">
       <publishTime>10/23/2016 17:32:32</publishTime>
     </File>
@@ -4024,7 +4030,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/04/2016 21:02:10</publishTime>
     </File>
     <File Include="Views/Home/Blog.cshtml">
-      <publishTime>01/03/2017 21:30:41</publishTime>
+      <publishTime>01/03/2017 22:04:06</publishTime>
     </File>
     <File Include="Views/Home/Contact.cshtml">
       <publishTime>11/13/2016 14:50:07</publishTime>
@@ -4039,10 +4045,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/08/2016 18:51:27</publishTime>
     </File>
     <File Include="Views/Home/_PostPartial.cshtml">
-      <publishTime>01/03/2017 21:30:41</publishTime>
+      <publishTime>01/03/2017 21:52:20</publishTime>
     </File>
     <File Include="Views/Home/_PostPartialMasonry.cshtml">
-      <publishTime>01/03/2017 21:30:41</publishTime>
+      <publishTime>01/03/2017 21:52:34</publishTime>
     </File>
     <File Include="Views/Manage/AddPhoneNumber.cshtml">
       <publishTime>09/11/2016 17:52:18</publishTime>
@@ -4069,7 +4075,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/11/2016 17:52:18</publishTime>
     </File>
     <File Include="Views/Shared/_AdminLayout.cshtml">
-      <publishTime>11/11/2016 22:24:28</publishTime>
+      <publishTime>01/04/2017 19:21:26</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
       <publishTime>01/03/2017 21:30:41</publishTime>
@@ -4084,7 +4090,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/11/2016 17:52:18</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>01/03/2017 21:31:41</publishTime>
+      <publishTime>01/05/2017 20:43:21</publishTime>
     </File>
   </ItemGroup>
 </Project>
