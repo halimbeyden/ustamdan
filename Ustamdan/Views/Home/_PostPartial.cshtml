@@ -1,27 +1,28 @@
 ﻿@model PostViewModel
 
-  <div class="entry-image stable">
-        @if (Model.PostMedia.First().Type == PostType.Image)
-        {
-            <a href="@Resource.WeeklyLink/@Model.Id/@Model.Title.Replace(" ","-").Replace(":","")" data-toggle="tooltip" data-placement="top" title="@Model.Title"  @*data-lightbox="image"*@><img class="image_fade" src="@Model.PostMedia.First().MediaUrl" alt="@Model.Title"></a>
-        }
-        else if (Model.PostMedia.First().Type == PostType.Video)
-        {
-            <iframe src="@Model.PostMedia.First().MediaUrl" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-        }
-        else
-        {
-            @Model.Id
-        }
-    </div>
-   <div class="entry-title">
-        <h2><a href="@Resource.WeeklyLink/@Model.Id/@Model.Title.Replace(" ","-").Replace(":","")">@Model.Title</a></h2>
-    </div>
-  <ul class="entry-meta clearfix">
-        <li><i class="icon-calendar3"></i> @Model.DateCreated.ToShortDateString()</li>
-    </ul>
+<div class="entry-image stable">
+    @if (Model.PostMedia.First().Type == PostType.Image)
+    {
+        <a href="@Resource.WeeklyLink/@Model.Id/@Model.Title.Replace(" ","-").Replace(":","")" data-toggle="tooltip" data-placement="top" title="@Model.Title" @*data-lightbox="image"*@><img class="image_fade" src="@Model.PostMedia.First().MediaUrl" alt="@Model.Title"></a>
+    }
+    else if (Model.PostMedia.First().Type == PostType.Video)
+    {
+        <iframe src="@Model.PostMedia.First().MediaUrl" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+    }
+    else
+    {
+        @Model.Id
+    }
+</div>
+<div class="entry-title">
+    <h2><a href="@Resource.WeeklyLink/@Model.Id/@Model.Title.Replace(" ","-").Replace(":","")">@Model.Title</a></h2>
+</div>
+<ul class="entry-meta clearfix">
+    <li><i class="icon-calendar3"></i> @Model.DateCreated.ToShortDateString()</li>
+    <li><i class="icon-user"></i> @Model.AuthorName</li>
+</ul>
 
-    <div class="entry-content">
-        <p class="entry-body">@Model.Description</p>
-        <a href="@Resource.WeeklyLink/@Model.Id/@Model.Title.Replace(" ","-").Replace(":","")" class="more-link">@Resource.PostReadMoreText</a>
-    </div>
+<div class="entry-content">
+    <p class="entry-body">@Model.Description</p>
+    <a href="@Resource.WeeklyLink/@Model.Id/@Model.Title.Replace(" ","-").Replace(":","")" class="more-link">@Resource.PostReadMoreText</a>
+</div>

@@ -327,4 +327,7 @@
   <data name="WeeklyLink" xml:space="preserve">
     <value>/tr/yazihane</value>
   </data>
+  <data name="TeamPosition10" xml:space="preserve">
+    <value>Satış Sorumlusu</value>
+  </data>
 </root>
