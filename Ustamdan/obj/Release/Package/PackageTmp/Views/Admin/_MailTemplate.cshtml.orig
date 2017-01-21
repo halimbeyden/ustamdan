@@ -1,0 +1,847 @@
+<<<<<<< local
+﻿@model Ustamdan.Models.MailerLite.MailTemplateViewModel
+<style>
+    .ReadMsgBody {
+        width: 100%;
+        background-color: #e5e7e9;
+    }
+
+    .ExternalClass {
+        width: 100%;
+        background-color: #e5e7e9;
+    }
+
+        .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {
+            line-height: 110%;
+        }
+
+            .ExternalClass * {
+                line-height: 110%;
+            }
+
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    body, table, td, p, a, li {
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+    }
+
+        table td {
+            border-collapse: collapse;
+        }
+
+    table {
+        border-spacing: 0;
+        border-collapse: collapse;
+        mso-table-lspace: 0pt;
+        mso-table-rspace: 0pt;
+    }
+
+    table, td {
+        mso-table-lspace: 0pt;
+        mso-table-rspace: 0pt;
+    }
+
+
+    @@media screen {
+
+        body {
+            font-family: 'Open sans', Arial, Helvetica, sans-serif !important;
+        }
+    }
+
+    @@media only screen and (max-width: 640px) {
+
+        .margin_bottom {
+            margin: 0px auto 20px !important;
+            float: none !important;
+            min-width: 1px !important;
+        }
+
+        .frame {
+            padding: 0px 20px !important;
+            min-width: 0px !important;
+        }
+
+        .small_frame {
+            padding: 0px 10px !important;
+            min-width: 0px !important;
+        }
+
+        .frame devicewidth {
+            padding: 0px 20px !important;
+            min-width: 0px !important;
+            width: 100% !important;
+            height: auto !important;
+        }
+
+        .no_float {
+            float: none !important;
+            margin: 0 auto !important;
+            min-width: 0px !important;
+        }
+
+            .no_float margin_bottom {
+                float: none !important;
+                margin: 0 auto 20px !important;
+                min-width: 0px !important;
+            }
+
+        .none, .none, .none {
+            display: none !important;
+        }
+
+        .textCenter {
+            text-align: center !important;
+        }
+
+        .devicewidth, .devicewidth {
+            min-width: 1% !important;
+            width: 100% !important;
+            float: none !important;
+            margin: 0 auto !important;
+            height: auto !important;
+        }
+
+            .devicewidth margin_bottom {
+                min-width: 1% !important;
+                width: 100% !important;
+                float: none !important;
+                margin: 0 auto 20px !important;
+            }
+
+        .devicewidthimage, .fullimage {
+            min-width: 1% !important;
+            width: 100% !important;
+            margin: 0 auto !important;
+        }
+
+            .devicewidth img, .devicewidthimage img {
+                margin: 0 auto !important;
+            }
+
+            .fullimage img {
+                width: 100% !important;
+                height: auto !important;
+                margin: 0 auto !important;
+            }
+
+        .space {
+            height: 20px !important;
+        }
+
+        .small_space {
+            height: 10px !important;
+        }
+
+        .auto, .height_auto {
+            height: auto !important;
+        }
+
+        .bodyTitle textCenter, .bodyText textCenter {
+            text-align: center !important;
+            padding: 0px !important;
+        }
+    }
+
+    @@media only screen and (max-width: 340px) {
+        .button a {
+            margin: 0 auto !important;
+            width: auto !important;
+        }
+    }
+
+    @@media only screen and (max-width: 310px) {
+        .devicewidthimage img {
+            width: 100% !important;
+            margin: 0 auto !important;
+        }
+    }
+</style>
+<!--[if mso]>
+<style type="text/css">
+.bodyText div { font-family: Arial, Helvetica, sans-serif!important; }
+.bodyText div { font-family: Arial, Helvetica, sans-serif!important; }
+.bodyText { font-family: Arial, Helvetica, sans-serif!important; }
+.bodyText *, .frame * { font-family: Arial, Helvetica, sans-serif!important; }
+.bodyText, .align-center, .none, .hide-xs, .frame { font-family: Arial, Helvetica, sans-serif!important; }
+.bodyText a, .frame a, .align-center a, .none a { font-family: Arial, Helvetica, sans-serif!important; }
+.bodyText a span, .frame a span, .none a span { font-family: 'Open Sans', Arial, Helvetica, sans-serif!important; }
+.bodyText span, .frame span, .none span { font-family: 'Open Sans', Arial, Helvetica, sans-serif!important; }
+.bodyText p, .frame p  { font-family: 'Open Sans', Arial, Helvetica, sans-serif!important; }
+</style>
+<![endif]-->
+
+<body style="padding:0; margin:0; width:100%!important; -webkit-font-smoothing:antialiased; -webkit-text-size-adjust:none;" bgcolor="#e5e7e9">
+    <!--[if !mso]><!-- -->
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#e5e7e9">
+        <tr>
+            <td align="center" class="small_frame">
+                <!--<![endif]-->
+
+                <table width="700" cellpadding="0" border="0" cellspacing="0" align="center" class="devicewidth" style="min-width: 700px;">
+                    <tr>
+                        <td align="left" valign="middle" height="40" style="font-family: 'Open Sans', Arial, Helvetica, sans-serif; line-height: 18px; font-size: 12px; color: #000000; font-weight: 400;" class="bodyText">Ustamdan ile Keşfet !</td>
+                        <td align="right" valign="middle" height="40" style="font-family: 'Open Sans', Arial, Helvetica, sans-serif; line-height: 18px; font-size: 12px; color: #000000; font-weight: 400;" class="bodyText"></td>
+                    </tr>
+                </table>
+
+                <table width="700" cellpadding="0" border="0" cellspacing="0" align="center" class="devicewidth">
+                    <tr>
+                        <td height="50" align="center" class="fullwidth">
+                            <a href="@Model.Link" target="_blank">
+                                <img src="https://bucket.mlcdn.com/a/560/560601/images/fa87856fc74178d633d190258fa52b12ad6ac8ee.jpeg/7119a359c9998f0e4ecf616843c5ecb77702f598.jpeg" alt="Ustamdan" style="display: block;" border="0">
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                <table width="700" cellpadding="0" border="0" cellspacing="0" align="center" class="devicewidth" style="min-width: 700px;">
+                    <tr>
+                        <td height="40" class="space"></td>
+                    </tr>
+                </table>
+                <table width="700" cellpadding="0" border="0" cellspacing="0" align="center" class="devicewidth" style="min-width: 700px;" bgcolor="#ffffff">
+                    <tr>
+                        <td height="40" class="space"></td>
+                    </tr>
+                </table>
+                <selector>
+                    <table width="700" cellpadding="0" border="0" cellspacing="0" align="center" bgcolor="#0f1f30" class="devicewidth">
+                        <tr>
+                            <td bgcolor="#0f1f30" valign="middle" align="center " class="frame devicewidth">
+                                <table cellpadding="0" border="0" cellspacing="0" align="center" width="620" class="devicewidth">
+                                    <tr>
+                                        <td height="40" align="center" class="space"></td>
+                                    </tr>
+                                    <tr>
+                                        <td align="center" style="font-family: 'Open sans', Arial, Helvetica, sans-serif; color: #ffffff; font-size: 28px; line-height: 34px; font-weight: 700;">@Model.Title</td>
+                                    </tr>
+                                    <tr>
+                                        <td height="40" class="space"></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-family: 'Open sans', Arial, Helvetica, sans-serif; color: #ffffff; font-size: 14px; line-height: 20px; text-align: center;" id="content-6">
+                                            <div class="text">
+                                                <p style="margin-top: 0px; margin-bottom: 10px; text-align: center;"><strong>@Model.Description</strong></p>
+                                                <p style="margin-top: 0px; margin-bottom: 10px; text-align: center;"><em><strong>@(Model.Language == "tr" ? "Yazar" : "Author"): @Model.Author </strong></em></p>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td height="30" class="small_space"></td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </selector>
+                <table width="700" cellpadding="0" border="0" cellspacing="0" align="center" class="devicewidth" style="min-width: 700px;" bgcolor="#ffffff">
+                    <tr>
+                        <td align="center" height="40" class="space"></td>
+                    </tr>
+                </table>
+                <table width="700" cellpadding="0" border="0" cellspacing="0" align="center" class="devicewidth" style="min-width: 700px;" bgcolor="#ffffff">
+                    <tr>
+                        <td align="center" class="fullimage"><img src="@Model.MediaLink" width="700" border="0" style="display: block;"></td>
+                    </tr>
+                </table>
+
+                <table width="700" cellpadding="0" border="0" cellspacing="0" align="center" class="devicewidth" style="min-width: 700px;" bgcolor="#ffffff">
+                    <tr>
+                        <td align="center" height="40" class="space"></td>
+                    </tr>
+                </table>
+                <table width="700" cellpadding="0" border="0" cellspacing="0" align="center" class="devicewidth" style="min-width: 700px;" bgcolor="#ffffff">
+                    <tr>
+                        <td align="center" style="font-family: 'Open sans', Arial, Helvetica, sans-serif; color: #0f1f30; font-size: 28px; line-height: 34px; font-weight: 700; padding: 0px 40px;" class="frame"></td>
+                    </tr>
+                </table>
+                @*<table width="700" cellpadding="0" border="0" cellspacing="0" align="center" class="devicewidth" style="min-width: 700px;" bgcolor="#ffffff">
+                        <tr>
+                            <td align="center" height="40" class="space"></td>
+                        </tr>
+                    </table>*@
+                <selector>
+                    <table width="700" cellpadding="0" border="0" cellspacing="0" align="center" class="devicewidth" style="min-width: 700px;" bgcolor="#ffffff">
+                        <tr>
+                            <td align="" style="font-family: 'Open sans', Arial, Helvetica, sans-serif; color: #7a7a7a; font-size: 16px; line-height: 22px; text-align: center; padding: 0px 40px;" class="frame" id="content-12">
+                                <div class="text">
+                                    <p style="margin-top: 0px; margin-bottom: 10px;">@Html.Raw(Model.Content)</p>
+                                    <p style="margin-top: 0px; margin-bottom: 10px; text-align: center;"><span style="color: #3498db;">@Model.Quote</span></p>
+                                    <p style="margin-top: 0px; margin-bottom: 10px;">@Html.Raw(Model.ContentPartTwo)</p>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </selector>
+                <table width="700" cellpadding="0" border="0" cellspacing="0" align="center" class="devicewidth" style="min-width: 700px;" bgcolor="#ffffff">
+                    <tr>
+                        <td align="center" height="30" class="small_space"></td>
+                    </tr>
+                </table>
+                <table width="700" cellpadding="0" border="0" cellspacing="0" align="center" class="devicewidth">
+                    <tr>
+                        <td height="20" class="small_space"></td>
+                    </tr>
+                </table>
+                <table width="700" cellpadding="0" border="0" cellspacing="0" align="center" class="devicewidth">
+                    <tr>
+                        <td height="20" class="small_space"></td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+                            <table cellpadding="0" border="0" cellspacing="0" align="center" class="devicewidth">
+                                <tr>
+                                    <td align="center">
+                                        <table cellpadding="0" border="0" cellspacing="0" align="center">
+                                            <tr>
+                                                <td width="15"></td>
+                                                <td width="20">
+                                                    <a href="https://www.facebook.com/sharer/sharer.php?u=app.mailerlite.com/o2l0r6" target="_blank">
+                                                        <img src="https://bucket.mlcdn.com/a/0/0/templates/0/255/d2a063de5bed7d563a2c271a610ef0377c67fb65.png" width="20" height="20" border="0" style="display: block;">
+                                                    </a>
+                                                </td>
+                                                <td width="10"></td>
+                                                <td align="left" valign="top" style="line-height: 20px; font-family: 'Open Sans', Arial, Helvetica, sans-serif; color: #000000; font-size: 12px; font-weight: 400; text-transform: uppercase;" class="none">
+                                                    <a style="text-decoration: none; color: #000000;" href="https://www.facebook.com/sharer/sharer.php?u=@Model.Link" target="_blank">
+                                                        <span style="color: #000000;">Paylaş Facebook</span>
+                                                    </a>
+                                                </td>
+                                                <td width="15"></td>
+                                                <td width="15"></td>
+                                                <td width="20">
+                                                    <a href="https://twitter.com/home?status={'$mail.subject'|urlencode} @Model.Link" target="_blank">
+
+                                                        <img src="https://bucket.mlcdn.com/a/0/0/templates/0/255/45392cef4f13770c09c7e2410053513ce8e60a8e.png" width="20" height="20" border="0" style="display: block;">
+
+                                                    </a>
+                                                </td>
+                                                <td width="10"></td>
+                                                <td align="left" valign="top" style="line-height: 20px; font-family: 'Open Sans', Arial, Helvetica, sans-serif; color: #000000; font-size: 12px; font-weight: 400; text-transform: uppercase;" class="none">
+                                                    <a style="text-decoration: none; color: #000000;" href="https://twitter.com/home?status=@Model.Title @Model.Link" target="_blank">
+                                                        <span style="color: #000000;">Paylaş Twitter</span>
+                                                    </a>
+                                                </td>
+                                                <td width="15"></td>
+                                                <td width="15"></td>
+                                                <td width="20">
+                                                    <a href="" target="_blank">
+
+                                                        <img src="https://bucket.mlcdn.com/a/0/0/templates/0/255/c41c393ca8c8e854eb7664a29b23b1e678168d0c.png" width="20" height="20" border="0" style="display: block;">
+
+                                                    </a>
+                                                </td>
+                                                <td width="10"></td>
+                                                <td align="left" valign="top" style="line-height: 20px; font-family: 'Open Sans', Arial, Helvetica, sans-serif; color: #000000; font-size: 12px; font-weight: 400; text-transform: uppercase;" class="none">
+                                                    <a style="text-decoration: none; color: #000000;" href="" target="_blank">
+                                                        <span style="color: #000000;">Paylaş  email</span>
+                                                    </a>
+                                                </td>
+                                                <td width="15"></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td height="20"></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <table width="700" cellpadding="0" border="0" cellspacing="0" align="center" class="devicewidth">
+                    <tr>
+                        <td height="20" class="small_space"></td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+                            <a href="http://www.ustamdan.com" target="_blank">
+                                <img src="https://bucket.mlcdn.com/a/560/560601/images/fa87856fc74178d633d190258fa52b12ad6ac8ee.jpeg/7119a359c9998f0e4ecf616843c5ecb77702f598.jpeg" height="35" alt="Ustamdan" style="display: block;" border="0">
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td height="20"></td>
+                    </tr>
+                    <tr>
+                        <td align="center" style="font-family:'Open Sans', Arial, Helvetica, sans-serif; color: #000000; font-size:12px; line-height:18px; font-weight:400; text-transform:uppercase;" class="frame"><div class="text">Bir Kültür Mozaiği</div></td>
+                    </tr>
+                    <tr>
+                        <td height="20"></td>
+                    </tr>
+                    <tr>
+                        <td align="center" style="font-family:'Open Sans', Arial, Helvetica, sans-serif; color: #000000; font-size:12px; line-height:18px; font-weight:400;" class="frame" id="content-14">
+                            <div class="text">
+                                <p style="margin-top: 0px; margin-bottom: 10px; text-align: center;">BİR SONRAKİ HARMANDA GÖRÜŞMEK ÜZERE!</p>
+                                <p style="margin-top: 0px; margin-bottom: 10px; text-align: center;">Ustamdan Ailesi </p>
+                                <p style="margin-top: 0px; margin-bottom: 10px;">Reşitpaşa, 34467 Sarıyer/İstanbul</p>
+                                <p style="margin-top: 0px; margin-bottom: 10px;"><a href="{$unsubscribe}">Unsubscribe</a></p>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td height="10"></td>
+                    </tr>
+                </table>
+                <table width="700" cellpadding="0" border="0" cellspacing="0" align="center" class="devicewidth">
+                    <tr>
+                        <td height="20" class="small_space"><span class="none" style="white-space:nowrap; font:15px courier; line-height:0;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span></td>
+                    </tr>
+                </table>
+                <!--[if !mso]><!-- -->
+            </td>
+        </tr>
+    </table>
+    <!--<![endif]-->
+</body>=======
+﻿@model Ustamdan.Models.MailerLite.MailTemplateViewModel
+<style>
+    .ReadMsgBody {
+        width: 100%;
+        background-color: #e5e7e9;
+    }
+
+    .ExternalClass {
+        width: 100%;
+        background-color: #e5e7e9;
+    }
+
+        .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {
+            line-height: 110%;
+        }
+
+            .ExternalClass * {
+                line-height: 110%;
+            }
+
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    body, table, td, p, a, li {
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+    }
+
+        table td {
+            border-collapse: collapse;
+        }
+
+    table {
+        border-spacing: 0;
+        border-collapse: collapse;
+        mso-table-lspace: 0pt;
+        mso-table-rspace: 0pt;
+    }
+
+    table, td {
+        mso-table-lspace: 0pt;
+        mso-table-rspace: 0pt;
+    }
+
+
+    @@media screen {
+
+        body {
+            font-family: 'Open sans', Arial, Helvetica, sans-serif !important;
+        }
+    }
+
+    @@media only screen and (max-width: 640px) {
+
+        .margin_bottom {
+            margin: 0px auto 20px !important;
+            float: none !important;
+            min-width: 1px !important;
+        }
+
+        .frame {
+            padding: 0px 20px !important;
+            min-width: 0px !important;
+        }
+
+        .small_frame {
+            padding: 0px 10px !important;
+            min-width: 0px !important;
+        }
+
+        .frame devicewidth {
+            padding: 0px 20px !important;
+            min-width: 0px !important;
+            width: 100% !important;
+            height: auto !important;
+        }
+
+        .no_float {
+            float: none !important;
+            margin: 0 auto !important;
+            min-width: 0px !important;
+        }
+
+            .no_float margin_bottom {
+                float: none !important;
+                margin: 0 auto 20px !important;
+                min-width: 0px !important;
+            }
+
+        .none, .none, .none {
+            display: none !important;
+        }
+
+        .textCenter {
+            text-align: center !important;
+        }
+
+        .devicewidth, .devicewidth {
+            min-width: 1% !important;
+            width: 100% !important;
+            float: none !important;
+            margin: 0 auto !important;
+            height: auto !important;
+        }
+
+            .devicewidth margin_bottom {
+                min-width: 1% !important;
+                width: 100% !important;
+                float: none !important;
+                margin: 0 auto 20px !important;
+            }
+
+        .devicewidthimage, .fullimage {
+            min-width: 1% !important;
+            width: 100% !important;
+            margin: 0 auto !important;
+        }
+
+            .devicewidth img, .devicewidthimage img {
+                margin: 0 auto !important;
+            }
+
+            .fullimage img {
+                width: 100% !important;
+                height: auto !important;
+                margin: 0 auto !important;
+            }
+
+        .space {
+            height: 20px !important;
+        }
+
+        .small_space {
+            height: 10px !important;
+        }
+
+        .auto, .height_auto {
+            height: auto !important;
+        }
+
+        .bodyTitle textCenter, .bodyText textCenter {
+            text-align: center !important;
+            padding: 0px !important;
+        }
+    }
+
+    @@media only screen and (max-width: 340px) {
+        .button a {
+            margin: 0 auto !important;
+            width: auto !important;
+        }
+    }
+
+    @@media only screen and (max-width: 310px) {
+        .devicewidthimage img {
+            width: 100% !important;
+            margin: 0 auto !important;
+        }
+    }
+</style>
+<!--[if mso]>
+<style type="text/css">
+.bodyText div { font-family: Arial, Helvetica, sans-serif!important; }
+.bodyText div { font-family: Arial, Helvetica, sans-serif!important; }
+.bodyText { font-family: Arial, Helvetica, sans-serif!important; }
+.bodyText *, .frame * { font-family: Arial, Helvetica, sans-serif!important; }
+.bodyText, .align-center, .none, .hide-xs, .frame { font-family: Arial, Helvetica, sans-serif!important; }
+.bodyText a, .frame a, .align-center a, .none a { font-family: Arial, Helvetica, sans-serif!important; }
+.bodyText a span, .frame a span, .none a span { font-family: 'Open Sans', Arial, Helvetica, sans-serif!important; }
+.bodyText span, .frame span, .none span { font-family: 'Open Sans', Arial, Helvetica, sans-serif!important; }
+.bodyText p, .frame p  { font-family: 'Open Sans', Arial, Helvetica, sans-serif!important; }
+</style>
+<![endif]-->
+
+<body style="padding:0; margin:0; width:100%!important; -webkit-font-smoothing:antialiased; -webkit-text-size-adjust:none;" bgcolor="#e5e7e9">
+    <!--[if !mso]><!-- -->
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#e5e7e9">
+        <tr>
+            <td align="center" class="small_frame">
+                <!--<![endif]-->
+
+                <table width="700" cellpadding="0" border="0" cellspacing="0" align="center" class="devicewidth" style="min-width: 700px;">
+                    <tr>
+                        <td align="left" valign="middle" height="40" style="font-family: 'Open Sans', Arial, Helvetica, sans-serif; line-height: 18px; font-size: 12px; color: #000000; font-weight: 400;" class="bodyText">Ustamdan ile Keşfet !</td>
+                        <td align="right" valign="middle" height="40" style="font-family: 'Open Sans', Arial, Helvetica, sans-serif; line-height: 18px; font-size: 12px; color: #000000; font-weight: 400;" class="bodyText">
+                            <a href="http://www.ustamdan.com/tr/yazihane">http://www.ustamdan.com/tr/yazihane</a>
+                        </td>
+                    </tr>
+                </table>
+
+                <table width="700" cellpadding="0" border="0" cellspacing="0" align="center" class="devicewidth">
+                    <tr>
+                        <td height="50" align="center" class="fullwidth">
+                            <a href="@Model.Link" target="_blank">
+                                <img src="https://bucket.mlcdn.com/a/560/560601/images/fa87856fc74178d633d190258fa52b12ad6ac8ee.jpeg/7119a359c9998f0e4ecf616843c5ecb77702f598.jpeg" alt="Ustamdan" style="display: block;" border="0">
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                <table width="700" cellpadding="0" border="0" cellspacing="0" align="center" class="devicewidth" style="min-width: 700px;">
+                    <tr>
+                        <td height="40" class="space"></td>
+                    </tr>
+                </table>
+                <table width="700" cellpadding="0" border="0" cellspacing="0" align="center" class="devicewidth" style="min-width: 700px;" bgcolor="#ffffff">
+                    <tr>
+                        <td height="40" class="space"></td>
+                    </tr>
+                </table>
+                <selector>
+                    <table width="700" cellpadding="0" border="0" cellspacing="0" align="center" bgcolor="#0f1f30" class="devicewidth">
+                        <tr>
+                            <td bgcolor="#0f1f30" valign="middle" align="center " class="frame devicewidth">
+                                <table cellpadding="0" border="0" cellspacing="0" align="center" width="620" class="devicewidth">
+                                    <tr>
+                                        <td height="40" align="center" class="space"></td>
+                                    </tr>
+                                    <tr>
+                                        <td align="center" style="font-family: 'Open sans', Arial, Helvetica, sans-serif; color: #ffffff; font-size: 28px; line-height: 34px; font-weight: 700;">@Model.Title</td>
+                                    </tr>
+                                    <tr>
+                                        <td height="40" class="space"></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-family: 'Open sans', Arial, Helvetica, sans-serif; color: #ffffff; font-size: 14px; line-height: 20px; text-align: center;" id="content-6">
+                                            <div class="text">
+                                                <p style="margin-top: 0px; margin-bottom: 10px; text-align: center;"><strong>@Model.Description</strong></p>
+                                                <p style="margin-top: 0px; margin-bottom: 10px; text-align: center;"><em><strong>@(Model.Language == "tr" ? "Yazar" : "Author"): @Model.Author </strong></em></p>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td height="30" class="small_space"></td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </selector>
+                <table width="700" cellpadding="0" border="0" cellspacing="0" align="center" class="devicewidth" style="min-width: 700px;" bgcolor="#ffffff">
+                    <tr>
+                        <td align="center" height="5" class="small_space"></td>
+                    </tr>
+                    <tr>
+                        @if (Model.ForNewUsers)
+                        {
+                            <td align="center" height="40" class="space">
+                                <a href="http://www.ustamdan.com/Home/Subscribe?email={$email}"
+                                   style="font-family: 'Open sans', Arial, Helvetica, sans-serif;color: #fff;background: #333;padding: 10px 20px 10px 20px;text-decoration: none;">Abone Ol</a>
+                            </td>
+                        }
+                        else
+                        {
+                            <td align="center" height="40" class="space">
+                                <a href="http://www.ustamdan.com/tr/yazihane"
+                                   style="font-family: 'Open sans', Arial, Helvetica, sans-serif;color: #fff;background: #333;padding: 10px 20px 10px 20px;text-decoration: none;">Diğer Yazılar</a>
+                            </td>
+                        }
+                    </tr>
+                    <tr>
+                        <td align="center" height="5" class="small_space"></td>
+                    </tr>
+                </table>
+                <table width="700" cellpadding="0" border="0" cellspacing="0" align="center" class="devicewidth" style="min-width: 700px;" bgcolor="#ffffff">
+                    <tr>
+                        <td align="center" class="fullimage"><img src="@Model.MediaLink" width="700" border="0" style="display: block;"></td>
+                    </tr>
+                </table>
+
+                <table width="700" cellpadding="0" border="0" cellspacing="0" align="center" class="devicewidth" style="min-width: 700px;" bgcolor="#ffffff">
+                    <tr>
+                        <td align="center" height="40" class="space"></td>
+                    </tr>
+                </table>
+                <table width="700" cellpadding="0" border="0" cellspacing="0" align="center" class="devicewidth" style="min-width: 700px;" bgcolor="#ffffff">
+                    <tr>
+                        <td align="center" style="font-family: 'Open sans', Arial, Helvetica, sans-serif; color: #0f1f30; font-size: 28px; line-height: 34px; font-weight: 700; padding: 0px 40px;" class="frame"></td>
+                    </tr>
+                </table>
+                @*<table width="700" cellpadding="0" border="0" cellspacing="0" align="center" class="devicewidth" style="min-width: 700px;" bgcolor="#ffffff">
+                        <tr>
+                            <td align="center" height="40" class="space"></td>
+                        </tr>
+                    </table>*@
+                <selector>
+                    <table width="700" cellpadding="0" border="0" cellspacing="0" align="center" class="devicewidth" style="min-width: 700px;" bgcolor="#ffffff">
+                        <tr>
+                            <td align="" style="font-family: 'Open sans', Arial, Helvetica, sans-serif; color: #7a7a7a; font-size: 16px; line-height: 22px; text-align: center; padding: 0px 40px;" class="frame" id="content-12">
+                                <div class="text">
+                                    <p style="margin-top: 0px; margin-bottom: 10px;">@Html.Raw(Model.Content.Replace("../../../Content", "http://www.ustamdan.com/Content"))</p>
+                                    <p style="margin-top: 0px; margin-bottom: 10px; text-align: center;"><span style="color: #3498db;">@Model.Quote</span></p>
+                                    <p style="margin-top: 0px; margin-bottom: 10px;">@Html.Raw(Model.ContentPartTwo.Replace("../../../Content", "http://www.ustamdan.com/Content"))</p>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </selector>
+                <table width="700" cellpadding="0" border="0" cellspacing="0" align="center" class="devicewidth" style="min-width: 700px;" bgcolor="#ffffff">
+                    <tr>
+                        @if (Model.ForNewUsers)
+                        {
+                            <td align="center" height="40" class="space">
+                                <a href="http://www.ustamdan.com/tr/yazihane"
+                                   style="font-family: 'Open sans', Arial, Helvetica, sans-serif;color: #fff;background: #333;padding: 10px 20px 10px 20px;text-decoration: none;">Diğer Yazılar</a>
+                            </td>
+                        }
+                    </tr>
+                </table>
+                <table width="700" cellpadding="0" border="0" cellspacing="0" align="center" class="devicewidth" style="min-width: 700px;" bgcolor="#ffffff">
+                    <tr>
+                        <td align="center" height="30" class="small_space"></td>
+                    </tr>
+                </table>
+                <table width="700" cellpadding="0" border="0" cellspacing="0" align="center" class="devicewidth">
+                    <tr>
+                        <td height="20" class="small_space"></td>
+                    </tr>
+                </table>
+                <table width="700" cellpadding="0" border="0" cellspacing="0" align="center" class="devicewidth">
+                    <tr>
+                        <td height="20" class="small_space"></td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+                            <table cellpadding="0" border="0" cellspacing="0" align="center" class="devicewidth">
+                                <tr>
+                                    <td align="center">
+                                        <table cellpadding="0" border="0" cellspacing="0" align="center">
+                                            <tr>
+                                                <td width="15"></td>
+                                                <td width="20">
+                                                    <a href="https://www.facebook.com/sharer/sharer.php?u=app.mailerlite.com/o2l0r6" target="_blank">
+                                                        <img src="https://bucket.mlcdn.com/a/0/0/templates/0/255/d2a063de5bed7d563a2c271a610ef0377c67fb65.png" width="20" height="20" border="0" style="display: block;">
+                                                    </a>
+                                                </td>
+                                                <td width="10"></td>
+                                                <td align="left" valign="top" style="line-height: 20px; font-family: 'Open Sans', Arial, Helvetica, sans-serif; color: #000000; font-size: 12px; font-weight: 400; text-transform: uppercase;" class="none">
+                                                    <a style="text-decoration: none; color: #000000;" href="https://www.facebook.com/sharer/sharer.php?u=@Model.Link" target="_blank">
+                                                        <span style="color: #000000;">Paylaş Facebook</span>
+                                                    </a>
+                                                </td>
+                                                <td width="15"></td>
+                                                <td width="15"></td>
+                                                <td width="20">
+                                                    <a href="https://twitter.com/home?status={'$mail.subject'|urlencode} @Model.Link" target="_blank">
+
+                                                        <img src="https://bucket.mlcdn.com/a/0/0/templates/0/255/45392cef4f13770c09c7e2410053513ce8e60a8e.png" width="20" height="20" border="0" style="display: block;">
+
+                                                    </a>
+                                                </td>
+                                                <td width="10"></td>
+                                                <td align="left" valign="top" style="line-height: 20px; font-family: 'Open Sans', Arial, Helvetica, sans-serif; color: #000000; font-size: 12px; font-weight: 400; text-transform: uppercase;" class="none">
+                                                    <a style="text-decoration: none; color: #000000;" href="https://twitter.com/home?status=@Model.Title @Model.Link" target="_blank">
+                                                        <span style="color: #000000;">Paylaş Twitter</span>
+                                                    </a>
+                                                </td>
+                                                <td width="15"></td>
+                                                <td width="15"></td>
+                                                <td width="20">
+                                                    <a href="" target="_blank">
+
+                                                        <img src="https://bucket.mlcdn.com/a/0/0/templates/0/255/c41c393ca8c8e854eb7664a29b23b1e678168d0c.png" width="20" height="20" border="0" style="display: block;">
+
+                                                    </a>
+                                                </td>
+                                                <td width="10"></td>
+                                                <td align="left" valign="top" style="line-height: 20px; font-family: 'Open Sans', Arial, Helvetica, sans-serif; color: #000000; font-size: 12px; font-weight: 400; text-transform: uppercase;" class="none">
+                                                    <a style="text-decoration: none; color: #000000;" href="" target="_blank">
+                                                        <span style="color: #000000;">Paylaş  email</span>
+                                                    </a>
+                                                </td>
+                                                <td width="15"></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td height="20"></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <table width="700" cellpadding="0" border="0" cellspacing="0" align="center" class="devicewidth">
+                    <tr>
+                        <td height="20" class="small_space"></td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+                            <a href="http://www.ustamdan.com" target="_blank">
+                                <img src="https://bucket.mlcdn.com/a/560/560601/images/fa87856fc74178d633d190258fa52b12ad6ac8ee.jpeg/7119a359c9998f0e4ecf616843c5ecb77702f598.jpeg" height="35" alt="Ustamdan" style="display: block;" border="0">
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td height="20" class="small_space"></td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+                            <p style="margin-top: 0px; margin-bottom: 10px; text-align: center;">
+                                <a href="https://www.facebook.com/ustamdan" style="margin-right:20px">
+                                    <img width="20" height="20" src="https://cdn1.iconfinder.com/data/icons/logotypes/32/square-facebook-512.png" alt="Facebook" />
+                                </a>
+                                <a href="https://twitter.com/ustamdan">
+                                    <img width="20" height="20" src="https://cdn1.iconfinder.com/data/icons/logotypes/32/twitter-128.png" alt="Twitter" />
+                                </a>
+                                <a href="https://www.instagram.com/ustamdan/" style="margin-left:20px">
+                                    <img width="20" height="20" src="https://cdn1.iconfinder.com/data/icons/logotypes/32/instagram-512.png" alt="Instagram" />
+                                </a>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td height="20"></td>
+                    </tr>
+                    <tr>
+                        <td align="center" style="font-family:'Open Sans', Arial, Helvetica, sans-serif; color: #000000; font-size:12px; line-height:18px; font-weight:400; text-transform:uppercase;" class="frame"><div class="text">Bir Kültür Mozaiği</div></td>
+                    </tr>
+                    <tr>
+                        <td height="20"></td>
+                    </tr>
+                    <tr>
+                        <td align="center" style="font-family:'Open Sans', Arial, Helvetica, sans-serif; color: #000000; font-size:12px; line-height:18px; font-weight:400;" class="frame" id="content-14">
+                            <div class="text">
+                                <p style="margin-top: 0px; margin-bottom: 10px; text-align: center;">BİR SONRAKİ HARMANDA GÖRÜŞMEK ÜZERE!</p>
+                                <p style="margin-top: 0px; margin-bottom: 10px; text-align: center;">Ustamdan Ailesi </p>
+                                <p style="margin-top: 0px; margin-bottom: 10px;">Reşitpaşa, 34467 Sarıyer/İstanbul</p>
+                                <p style="margin-top: 0px; margin-bottom: 10px;"><a href="{$unsubscribe}">Unsubscribe</a></p>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td height="10"></td>
+                    </tr>
+                </table>
+                <table width="700" cellpadding="0" border="0" cellspacing="0" align="center" class="devicewidth">
+                    <tr>
+                        <td height="20" class="small_space"><span class="none" style="white-space:nowrap; font:15px courier; line-height:0;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span></td>
+                    </tr>
+                </table>
+                <!--[if !mso]><!-- -->
+            </td>
+        </tr>
+    </table>
+    <!--<![endif]-->
+</body>>>>>>>> other
