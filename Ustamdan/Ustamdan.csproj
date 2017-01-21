@@ -320,6 +320,7 @@
     <Content Include="Content\img\destekciler\bilgi.gif" />
     <Content Include="Content\img\destekciler\bilgi.jpg" />
     <Content Include="Content\img\destekciler\cek.gif" />
+    <Content Include="Content\img\destekciler\divarese.png" />
     <Content Include="Content\img\destekciler\end.gif" />
     <Content Include="Content\img\destekciler\gir.gif" />
     <Content Include="Content\img\destekciler\slyvian.jpg" />
