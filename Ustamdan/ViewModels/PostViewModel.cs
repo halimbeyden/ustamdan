@@ -23,6 +23,7 @@ namespace Ustamdan.ViewModels
         public Language Language { get; set; }
         public DateTime DateCreated { get; set; }
         public DateTime DateModified { get; set; }
+        public DateTime? PublishDate { get; set; }
         public bool HasLocation { get; set; }
         public double Latitude { get; set; }
         public double Longitude { get; set; }
@@ -53,6 +54,7 @@ namespace Ustamdan.ViewModels
             this.HasLocation = post.HasLocation;
             this.Latitude = post.Latitude;
             this.Longitude = post.Longitude;
+            this.PublishDate = post.PublishDate;
             try
             {
                 this.Area = post.AreaId.HasValue?post.Area.Name:"";
@@ -74,6 +76,10 @@ namespace Ustamdan.ViewModels
             {
                 Console.WriteLine(ex.Message);
             }
+        }
+        public DateTime getDate()
+        {
+            return PublishDate.HasValue ? PublishDate.Value : DateCreated;
         }
     }
 }

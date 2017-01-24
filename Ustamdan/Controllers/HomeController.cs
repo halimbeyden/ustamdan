@@ -22,7 +22,7 @@ namespace Ustamdan.Controllers
             {
                 model.Posts = db.Posts
                     .Where(x => x.IsPublished && x.Language == lang)
-                    .OrderByDescending(x => x.DateCreated)
+                    .OrderByDescending(x => x.PublishDate)
                     .Take(8).ToList()
                     .Select(x => new PostViewModel(x)).ToList();
             }
@@ -39,7 +39,7 @@ namespace Ustamdan.Controllers
                     .Include("Categories")
                     .Include("Tags")
                     .Where(x => x.IsPublished && x.Language == lang)
-                    .OrderByDescending(x => x.DateCreated)
+                    .OrderByDescending(x => x.PublishDate)
                     .ToList()
                     .Select(x => new PostViewModel(x))
                     .ToList();
@@ -47,7 +47,7 @@ namespace Ustamdan.Controllers
                    .Include("Categories")
                    .Include("Tags")
                    .Where(x => x.IsPublished && x.Language == lang)
-                   .OrderByDescending(x => x.DateCreated).Take(4)
+                   .OrderByDescending(x => x.PublishDate).Take(4)
                    .ToList()
                    .Select(x => new PostViewModel(x));
                 ViewBag.Areas = db.Areas.Where(x=>x.Language == lang).OrderByDescending(x=>x.Posts.Count).ToList();
@@ -99,7 +99,7 @@ namespace Ustamdan.Controllers
                 var posts = db.Posts.Include("Categories")
                                     .Include("Tags")
                                     .Where(x => x.IsPublished && x.Language == lang)
-                                    .OrderByDescending(x => x.DateCreated).ToList();
+                                    .OrderByDescending(x => x.PublishDate).ToList();
 
                 if (a != null)
                 {

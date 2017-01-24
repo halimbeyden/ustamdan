@@ -45,7 +45,9 @@
                     <!-- Entry Meta
                     ============================================= -->
                     <ul class="list-inline clearfix text-center category-list">
-                        <li><i class="icon-calendar3"></i> @Model.DateCreated.ToShortDateString()</li>
+                        <li><i class="icon-calendar3"></i> 
+                            @Model.getDate().ToShortDateString()
+                        </li>
                         <li><i class="icon-user"></i> @Model.AuthorName</li>
                         @*<li>
                                 <i class="icon-folder-open"></i>
