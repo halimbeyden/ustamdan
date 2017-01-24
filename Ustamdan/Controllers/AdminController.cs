@@ -56,6 +56,7 @@ namespace Ustamdan.Controllers
                 if (post == null)
                     return Json(1);
                 post.IsPublished = true;
+                post.PublishDate = DateTime.Now;
                 db.SaveChanges();
             }
             return RedirectToAction("PendingPosts");

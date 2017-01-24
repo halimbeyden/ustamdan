@@ -315,6 +315,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\favicon.ico" />
     <Content Include="Content\favicon.png" />
+    <Content Include="Content\img\destekciler\ari.jpg" />
     <Content Include="Content\img\destekciler\ay.jpg" />
     <Content Include="Content\img\destekciler\ay.png" />
     <Content Include="Content\img\destekciler\bilgi.gif" />
@@ -323,6 +324,7 @@
     <Content Include="Content\img\destekciler\divarese.png" />
     <Content Include="Content\img\destekciler\end.gif" />
     <Content Include="Content\img\destekciler\gir.gif" />
+    <Content Include="Content\img\destekciler\gulculer.jpg" />
     <Content Include="Content\img\destekciler\slyvian.jpg" />
     <Content Include="Content\img\destekciler\tbt.jpg" />
     <Content Include="Content\img\destekciler\things.gif" />
