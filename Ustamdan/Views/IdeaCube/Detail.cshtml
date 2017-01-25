@@ -1,0 +1,110 @@
+﻿@model Ustamdan.Models.IdeaCube.Idea
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>
+<div>
+    <div class="x_panel">
+        <div class="x_title">
+            <h2>@Model.Title <small>@Model.CreatedBy.Fullname</small></h2>
+            <ul class="nav navbar-right panel_toolbox">
+                <li class="dropdown">
+                    <a class="link"><i class="fa fa-thumbs-up"></i></a>
+                </li>
+                <li>
+                    <a class="link"><i class="fa fa-thumbs-down"></i></a>
+                </li>
+            </ul>
+            <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+            <div class="dashboard-widget-content">
+
+                <ul class="list-unstyled timeline widget">
+                    <li>
+                        <div class="block">
+                            <div class="block_content">
+                                <h2 class="title">
+                                    <a>@Model.CreatedBy.Fullname</a>
+                                </h2>
+                                <div class="byline">
+                                    <span>@Model.CreationDate.ToString("dd.MM.yyyy HH:mm")</span>
+                                </div>
+                                <p class="excerpt">
+                                    @Model.Description
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="x_panel">
+        <div class="x_title">
+            <h2>New Comment </h2>
+            <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+            <form class="form-horizontal form-label-left" method="post" action="@Url.Action("Comment")">
+                @Html.AntiForgeryToken()
+                <input type="hidden" name="idea" value="@Model.Id" />
+                <div class="form-group">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <textarea name="content" class="form-control" rows="3" placeholder="Start Typing.."></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <button type="submit" class="btn btn-success">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+    <div class="x_panel">
+        <div class="x_title">
+            <h2>Comments <small>@Model.getComments().Count()</small></h2>
+            <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+            <ul class="messages">
+                @foreach (var comment in Model.getComments())
+            {
+                    <li>
+                        <img src="/Content/Admin/user.png" class="avatar" alt="Avatar">
+                        <div class="message_date">
+                            <h3 class="date text-info">@comment.CreationDate.ToString("dd")</h3>
+                            <p class="month">@comment.CreationDate.ToString("MMMM")</p>
+                            <p class="month">@comment.CreationDate.ToString("HH:mm")</p>
+                        </div>
+                        <div class="message_wrapper">
+                            <h4 class="heading">@comment.User.Fullname</h4>
+                            <blockquote class="message">
+                                @comment.Content
+                            </blockquote>
+                            <br>
+                            <p class="url">
+
+                            </p>
+                            @if (comment.CreatedBy == User.Identity.GetUserId())
+                            {
+                                <form action="@Url.Action("DeleteComment")" method="post">
+                                    <input type="hidden" name="idea" value="@Model.Id" />
+                                    <input type="hidden" name="comment" value="@comment.Id" />
+                                    <button class="btn btn-danger btn-sm">Delete Comment</button>
+                                </form>
+                            }
+                        </div>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>

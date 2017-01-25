@@ -53,71 +53,77 @@
                             <h3>USER</h3>
                             @if (User.Identity.IsAuthenticated)
                             {
-                            <ul class="nav side-menu">
-                                <li>
-                                    <a href="@Url.Action("Posts","Admin")">
-                                        <i class="fa fa-file-text-o"></i> Posts
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="@Url.Action("Media")">
-                                        <i class="fa fa-image"></i> Media
-                                    </a>
-                                </li>
-                                @if (User.IsInRole("Admin"))
+                                <ul class="nav side-menu">
+                                    <li>
+                                        <a href="@Url.Action("Posts","Admin")">
+                                            <i class="fa fa-file-text-o"></i> Posts
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("Media","Admin")">
+                                            <i class="fa fa-image"></i> Media
+                                        </a>
+                                    </li>
+                                    @if (User.IsInRole("Admin"))
                                     {
-                                    <li>
-                                        <a href="@Url.Action("Users")">
-                                            <i class="fa fa-users"></i> Users
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="@Url.Action("Category")">
-                                            <i class="fa fa-th-list"></i> Categories
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="@Url.Action("Area")">
-                                            <i class="fa fa-map-signs"></i> Areas
-                                        </a>
-                                    </li>
-                                    @*<li>
-                                        <a href="@Url.Action("Tag")">
-                                            <i class="fa fa-users"></i> Tags
-                                        </a>
-                                    </li>*@
-                                    <li>
-                                        <a href="@Url.Action("Mail")">
-                                            <i class="fa fa-envelope-o"></i> Email
-                                        </a>
-                                    </li>
+                                        <li>
+                                            <a href="@Url.Action("Users","Admin")">
+                                                <i class="fa fa-users"></i> Users
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="@Url.Action("Category","Admin")">
+                                                <i class="fa fa-th-list"></i> Categories
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="@Url.Action("Area","Admin")">
+                                                <i class="fa fa-map-signs"></i> Areas
+                                            </a>
+                                        </li>
+                                        @*<li>
+                                                <a href="@Url.Action("Tag")">
+                                                    <i class="fa fa-users"></i> Tags
+                                                </a>
+                                            </li>*@
+                                        <li>
+                                            <a href="@Url.Action("Mail","Admin")">
+                                                <i class="fa fa-envelope-o"></i> Email
+                                            </a>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li>
+                                            <a href="@Url.Action("PendingPosts","Admin")">
+                                                <i class="fa fa-check"></i> Pending Posts
+                                            </a>
+                                        </li>
+                                    }
                                     <li class="divider"></li>
                                     <li>
-                                        <a href="@Url.Action("PendingPosts")">
-                                            <i class="fa fa-check"></i> Pending Posts
+                                        <a href="@Url.Action("Index","IdeaCube")">
+                                            <i class="fa fa-cube"></i> Idea Cube
                                         </a>
                                     </li>
-                                    }
-                            </ul>
+                                </ul>
                             }
                         </div>
                     </div>
                     <!-- /sidebar menu -->
                     <!-- /menu footer buttons -->
                     @*<div class="sidebar-footer hidden-small">
-                        <a data-toggle="tooltip" data-placement="top" title="Settings">
-                            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-                        </a>
-                        <a data-toggle="tooltip" data-placement="top" title="FullScreen">
-                            <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
-                        </a>
-                        <a data-toggle="tooltip" data-placement="top" title="Lock">
-                            <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
-                        </a>
-                        <a data-toggle="tooltip" data-placement="top" title="Logout">
-                            <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
-                        </a>
-                    </div>*@
+                            <a data-toggle="tooltip" data-placement="top" title="Settings">
+                                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                            </a>
+                            <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+                                <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+                            </a>
+                            <a data-toggle="tooltip" data-placement="top" title="Lock">
+                                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+                            </a>
+                            <a data-toggle="tooltip" data-placement="top" title="Logout">
+                                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+                            </a>
+                        </div>*@
                     <!-- /menu footer buttons -->
                 </div>
             </div>
