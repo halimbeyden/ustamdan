@@ -5,6 +5,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Ustamdan.Models.Blog;
 using Ustamdan.ViewModels;
+using Ustamdan.Models.IdeaCube;
 
 namespace Ustamdan.Models
 {
@@ -42,6 +43,12 @@ namespace Ustamdan.Models
         public DbSet<PostMedia> PostMedias { get; set; }
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Tag> Tags { get; set; }
+
+        public DbSet<Idea> Ideas { get; set; }
+        public DbSet<IdeaComment> IdeaComments { get; set; }
+        public DbSet<IdeaEmoticon> IdeaEmoticons { get; set; }
+
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

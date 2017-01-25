@@ -235,6 +235,7 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IdeaCubeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -250,6 +251,9 @@
     <Compile Include="Models\Blog\Tag.cs" />
     <Compile Include="Models\Dummy.cs" />
     <Compile Include="Models\ErrorLog.cs" />
+    <Compile Include="Models\IdeaCube\Idea.cs" />
+    <Compile Include="Models\IdeaCube\IdeaComment.cs" />
+    <Compile Include="Models\IdeaCube\IdeaEmoticon.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\LocalizationAttribute.cs" />
     <Compile Include="Models\MailerLite\MailerLiteCampaign.cs" />
@@ -262,6 +266,7 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\EmailViewModel.cs" />
     <Compile Include="ViewModels\HomeViewModel.cs" />
+    <Compile Include="ViewModels\IdeaViewModel.cs" />
     <Compile Include="ViewModels\PostViewModel.cs" />
     <Compile Include="ViewModels\UserListViewModel.cs" />
   </ItemGroup>
@@ -1597,6 +1602,9 @@
     <Content Include="Views\Home\_PostPartialMasonry.cshtml" />
     <Content Include="Views\Admin\Mail.cshtml" />
     <Content Include="Views\Admin\_MailTemplate.cshtml" />
+    <Content Include="Views\IdeaCube\Index.cshtml" />
+    <Content Include="Views\IdeaCube\Create.cshtml" />
+    <Content Include="Views\IdeaCube\Detail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
