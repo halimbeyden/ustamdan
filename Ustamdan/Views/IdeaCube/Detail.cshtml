@@ -3,20 +3,24 @@
 @{
     ViewBag.Title = "Detail";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    var likes = Model.IdeaEmoticons.Where(x => x.Type == Ustamdan.Models.IdeaCube.EmotionType.Like);
+    var unlikes = Model.IdeaEmoticons.Where(x => x.Type == Ustamdan.Models.IdeaCube.EmotionType.Unlike);
+    var mychoice = Model.IdeaEmoticons.FirstOrDefault(x => x.CreatedBy == User.Identity.GetUserId());
 }
-<p>
-    @Html.ActionLink("Back to List", "Index")
-</p>
+<a href="@Url.Action("Index","IdeaCube")" class="btn btn-app">
+    <i class="fa fa-arrow-left"></i>
+    Back
+</a>
 <div>
     <div class="x_panel">
         <div class="x_title">
             <h2>@Model.Title <small>@Model.CreatedBy.Fullname</small></h2>
             <ul class="nav navbar-right panel_toolbox">
                 <li class="dropdown">
-                    <a class="link"><i class="fa fa-thumbs-up"></i></a>
+                    <a class="link emotion" data-type="@((int)Ustamdan.Models.IdeaCube.EmotionType.Like)"><i class="fa fa-thumbs-up"></i><span>@likes.Count()</span></a>
                 </li>
                 <li>
-                    <a class="link"><i class="fa fa-thumbs-down"></i></a>
+                    <a class="link emotion" data-type="@((int)Ustamdan.Models.IdeaCube.EmotionType.Unlike)"><i class="fa fa-thumbs-down"></i><span>@unlikes.Count()</span></a>
                 </li>
             </ul>
             <div class="clearfix"></div>
@@ -37,6 +41,7 @@
                                 <p class="excerpt">
                                     @Model.Description
                                 </p>
+                               
                             </div>
                         </div>
                     </li>
@@ -108,3 +113,25 @@
         </div>
     </div>
 </div>
+
+@section scripts{
+    <script>
+        $(function () {
+            @if(mychoice != null)
+            {
+                @:$(".emotion[data-type='@((int)mychoice.Type)']").css("color", "#26B99A");
+            }
+        });
+        $(".emotion").on("click", function () {
+            $this = $(this);
+            $.post("@Url.Action("PutEmotion")",{idea:@Model.Id,emotion:$this.data("type")},function (result) {
+                $(".emotion").css("color","rgb(197, 199, 203)");
+                $this.css("color",result != null?"#26B99A":"rgb(197, 199, 203)");
+                $(".emotion span").text(0);
+                $.each(result,function (index,value) {
+                    $(".emotion[data-type='"+value.Key+"'] span").text(value.Count);
+                });
+            });
+        });
+    </script>
+    }
