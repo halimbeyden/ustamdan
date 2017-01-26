@@ -4,77 +4,56 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+<a href="@Url.Action("Create","IdeaCube")" class="btn btn-app">
+    <i class="fa fa-plus"></i>
+    New Idea
+</a>
+<div class="row">
 
-<h2>Index</h2>
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4 col-sm-6 col-xs-12 profile_details">
+            <div class="well profile_view">
+                <a href="@Url.Action("Detail",new {id = item.Id })">
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.CreatedBy.Fullname)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Score)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Type)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Status)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MediaUrl)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CreationDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UpdateDate)
-        </th>
-        <th></th>
-    </tr>
+                    <div class="col-sm-12">
+                        <h4 class="brief"><i>@item.Title </i> <span class="pull-right">@item.Type</span></h4>
+                        <div class="left col-xs-7">
+                            <h2>@item.CreatedBy.Fullname</h2>
+                            <p>@item.CreationDate.ToString("dd.MM.yyyy HH:mm") </p>
+                            @*<ul class="list-unstyled">
+                                    <li><i class="fa fa-building"></i> Address: </li>
+                                    <li><i class="fa fa-phone"></i> Phone #: </li>
+                                </ul>*@
+                        </div>
+                        <div class="right col-xs-5 text-center">
+                            <img src="~/Content/img/ekip/halim.jpg" alt="" class="img-circle img-responsive">
+                        </div>
+                    </div>
+                </a>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreatedBy.Fullname)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Score)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Type)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Status)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MediaUrl)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreationDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UpdateDate)
-        </td>
-        <td>
-            @Html.ActionLink("Details", "Detail", new { id=item.Id })
-        </td>
-    </tr>
-}
+                <div class="col-xs-12 bottom text-center">
+                    <div class="col-xs-12 col-sm-6 emphasis">
+                        <p class="ratings">
+                            <a href="#">Point: </a>
+                            <a>@item.Score</a>
+                        </p>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 emphasis">
+                        <button type="button" class="btn btn-success btn-xs">
+                            <i class="fa fa-comments-o"></i>
+                            @item.getComments().Count
+                        </button>
+                        <button type="button" class="btn btn-primary btn-xs">
+                            <i class="fa fa-thumbs-up"> </i> @item.IdeaEmoticons.Where(x => x.Type == Ustamdan.Models.IdeaCube.EmotionType.Like).Count()
+                        </button>
+                        <button type="button" class="btn btn-primary btn-xs">
+                            <i class="fa fa-thumbs-down"> </i> @item.IdeaEmoticons.Where(x => x.Type == Ustamdan.Models.IdeaCube.EmotionType.Unlike).Count()
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
 
-</table>
+</div>
