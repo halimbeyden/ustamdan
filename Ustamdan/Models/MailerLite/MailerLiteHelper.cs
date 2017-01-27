@@ -41,7 +41,7 @@ namespace Ustamdan.Models.MailerLite
             string json = serializer.Serialize(obj);
             var t = POST(MainUrl + "groups/4715415/subscribers", json, "POST");
         }
-        public static void SendMail(int[] groups, string title, string body)
+        public static void SendMail(int[] groups, string title, string body, DateTime? date = null)
         {
             MailerLiteCampaign mlc = new MailerLiteCampaign();
             mlc.type = "regular";
@@ -53,7 +53,16 @@ namespace Ustamdan.Models.MailerLite
             mlcss.html = body;
             mlcss.plain = "Your email client does not support HTML emails. Open newsletter here: {$url}. If you do not want to receive emails from us, click here: {$unsubscribe}";
             var sstep = POST(MainUrl + "campaigns/" + fstep.id + "/content", serializer.Serialize(mlcss), "PUT");
-            var lstep = POST(MainUrl + "campaigns/" + fstep.id + "/actions/send", "", "POST");
+
+            if (!date.HasValue)//send now{
+            {
+                var lstep = POST(MainUrl + "campaigns/" + fstep.id + "/actions/send", "", "POST");
+            }
+            else
+            {
+                var model = new { type=2,date= date.Value.ToString("yyyy-MM-dd HH:mm:ss") };
+                var lstep = POST(MainUrl + "campaigns/" + fstep.id + "/actions/send", serializer.Serialize(model), "POST");
+            }
         }
         private static string GET(string url)
         {
