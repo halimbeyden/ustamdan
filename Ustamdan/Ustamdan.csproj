@@ -276,6 +276,7 @@
     <Content Include="Content\Admin\custom.css" />
     <Content Include="Content\Admin\Datatable\dataTables.bootstrap.min.css" />
     <Content Include="Content\Admin\Datatable\responsive.bootstrap.min.css" />
+    <Content Include="Content\Admin\daterangepicker.css" />
     <Content Include="Content\Admin\dropzone.min.css" />
     <Content Include="Content\Admin\flat\aero%402x.png" />
     <Content Include="Content\Admin\flat\aero.css" />
@@ -1273,11 +1274,13 @@
     <Content Include="Scripts\Admin\Datatable\dataTables.responsive.min.js" />
     <Content Include="Scripts\Admin\Datatable\jquery.dataTables.min.js" />
     <Content Include="Scripts\Admin\Datatable\responsive.bootstrap.js" />
+    <Content Include="Scripts\Admin\daterangepicker.js" />
     <Content Include="Scripts\Admin\dropzone.min.js" />
     <Content Include="Scripts\Admin\fastclick.js" />
     <Content Include="Scripts\Admin\icheck.min.js" />
     <Content Include="Scripts\Admin\jquery.tagsinput.js" />
     <Content Include="Scripts\Admin\locationpicker.jquery.js" />
+    <Content Include="Scripts\Admin\moment.min.js" />
     <Content Include="Scripts\Admin\nprogress.js" />
     <Content Include="Scripts\Admin\pnotify.js" />
     <Content Include="Scripts\Admin\savepost.js" />

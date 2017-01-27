@@ -54,18 +54,19 @@
                             @if (User.Identity.IsAuthenticated)
                             {
                                 <ul class="nav side-menu">
-                                    <li>
-                                        <a href="@Url.Action("Posts","Admin")">
-                                            <i class="fa fa-file-text-o"></i> Posts
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="@Url.Action("Media","Admin")">
-                                            <i class="fa fa-image"></i> Media
-                                        </a>
-                                    </li>
                                     @if (User.IsInRole("Admin"))
                                     {
+                                        <li>
+                                            <a href="@Url.Action("Posts","Admin")">
+                                                <i class="fa fa-file-text-o"></i> Posts
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="@Url.Action("Media","Admin")">
+                                                <i class="fa fa-image"></i> Media
+                                            </a>
+                                        </li>
+
                                         <li>
                                             <a href="@Url.Action("Users","Admin")">
                                                 <i class="fa fa-users"></i> Users
