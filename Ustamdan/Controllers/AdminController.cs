@@ -14,7 +14,7 @@ using Ustamdan.Models.MailerLite;
 
 namespace Ustamdan.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     public class AdminController : Controller
     {
         // GET: Admin
@@ -448,7 +448,7 @@ namespace Ustamdan.Controllers
             return View(MailerLiteHelper.getGroups());
         }
         [HttpPost]
-        public ActionResult SendMail(int[] groups, int postId, bool fornewusers = false)
+        public ActionResult SendMail(int[] groups, int postId, DateTime? schedule, bool fornewusers = false)
         {
             using (var db = new ApplicationDbContext())
             {
@@ -458,7 +458,7 @@ namespace Ustamdan.Controllers
                 string tmp = RenderViewToString(ControllerContext, "_MailTemplate", new MailTemplateViewModel(post, fornewusers));
                 try
                 {
-                    MailerLiteHelper.SendMail(groups, "Ustamdan Havadis Var: " + post.Title, tmp);
+                    MailerLiteHelper.SendMail(groups, "Ustamdan Havadis Var: " + post.Title, tmp, schedule);
                 }
                 catch (Exception ex)
                 {
