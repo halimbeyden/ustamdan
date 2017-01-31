@@ -3,6 +3,7 @@
     ViewBag.Title = "Mail";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+<link href="~/Content/Admin/daterangepicker.css" rel="stylesheet" />
 <form action="@Url.Action("SendMail")" method="post">
     <h2>Group</h2>
     @foreach (var item in Model)
@@ -22,11 +23,16 @@
                 <option value="@post.Id">@post.Id - @post.Title</option>
             }
         </select>
-    </div>  
+    </div>
     <div class="col-md-3">
         <div class="checkbox">
             <label>
                 <input id="fornewusers" type="checkbox" class="flat" name="fornewusers" value="true"> Abone Ol Butonu Gözüksün mü?
+            </label>
+        </div>
+        <div class="checkbox">
+            <label id="scheduleLabel">
+                <input id="scheduleChx" type="checkbox" class="flat" name="scheduleChx" value="true"> Zamanla <i></i>
             </label>
         </div>
     </div>
@@ -36,19 +42,77 @@
     <div class="col-md-2">
         <input class="btn btn-success" type="submit" value="Send Mail" />
     </div>
+    <input id="scheduleInp" type="hidden" name="schedule" value="" />
 </form>
 
+<div id="scheduleModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">Schedule Post</h4>
+            </div>
+            <div class="modal-body">
+                <div class="control-group row">
+                    <div class="controls">
+                        <div class="col-md-11 xdisplay_inputx form-group has-feedback">
+                            <input type="text" class="form-control has-feedback-left" id="single_cal4" placeholder="Date" aria-describedby="inputSuccess2Status4">
+                            <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
+                            <span id="inputSuccess2Status4" class="sr-only">(success)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button id="scheduleOK" type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
 @section scripts{
-    
+
+    <script src="~/Scripts/Admin/moment.min.js"></script>
+    <script src="~/Scripts/Admin/daterangepicker.js"></script>
     <script>
+        $(function () {
+            $('#single_cal4').daterangepicker({
+                "singleDatePicker": true,
+                "timePicker": true,
+                "timePicker24Hour": true,
+                locale: {
+                    format: 'DD/MM/YYYY HH:mm'
+                }
+            }, function (start, end, label) {
+
+            });
+        });
+        $("#scheduleChx").on("ifChanged", function () {
+            if ($("#scheduleChx").is(":checked")) {
+                $("#scheduleModal").modal();
+            } else {
+                $("#scheduleLabel i").text("");
+                $("#scheduleInp").val('');
+            }
+        });
+        $("#scheduleOK").on("click", function () {
+            $("#scheduleInp").val($('#single_cal4').data('daterangepicker').startDate.format('DD/MM/YYYY HH:mm'));
+            $("#scheduleLabel i").text($('#single_cal4').data('daterangepicker').startDate.format('DD/MM/YYYY HH:mm'));
+        });
         $("#previewBtn").on("click", function () {
             var $this = $(this);
             var pId = $("select[name='postId']").val();
             if (pId > 0) {
                 $this.prop("disabled", true);
-                $.get("GetMailTemplate", { postId: pId, fornewusers : $("#fornewusers").is(":checked") }, function (data) {
+                $.get("GetMailTemplate", { postId: pId, fornewusers: $("#fornewusers").is(":checked") }, function (data) {
                     if (data != null) {
-                        var myWindow = window.open("", "Mail Preview", "width="+screen.width+",height=" + screen.height);
+                        var myWindow = window.open("", "Mail Preview", "width=" + screen.width + ",height=" + screen.height);
                         myWindow.document.write(data);
                     }
                     $this.prop("disabled", false);
@@ -56,4 +120,4 @@
             }
         });
     </script>
-    }
+}
