@@ -33,6 +33,7 @@ namespace Ustamdan
             bundles.Add(new ScriptBundle("~/Script/Admin").Include(
                     "~/Scripts/jquery-{version}.js",
                     "~/Scripts/jquery.validate*",
+                    "~/Scripts/jquery.unobtrusive-ajax.min.js",
                     "~/Scripts/bootstrap.js",
                     "~/Scripts/respond.js",
                     "~/Scripts/Admin/fastclick.js",
