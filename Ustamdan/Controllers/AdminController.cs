@@ -11,6 +11,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Net;
 using Ustamdan.Models.MailerLite;
+using PagedList;
 
 namespace Ustamdan.Controllers
 {
@@ -69,7 +70,7 @@ namespace Ustamdan.Controllers
                 ViewBag.Categories = db.Categories.ToList();
                 ViewBag.Areas = db.Areas.ToList();
                 ViewBag.Tags = db.Tags.ToList();
-                ViewData["MediaModel"] = GetMediaModel();
+                ViewData["MediaModel"] = GetMediaModel(null);
             }
             return View();
         }
@@ -87,7 +88,7 @@ namespace Ustamdan.Controllers
                 ViewBag.Areas = db.Areas.ToList();
                 ViewBag.Categories = db.Categories.ToList();
                 ViewBag.Tags = db.Tags.ToList();
-                ViewData["MediaModel"] = GetMediaModel();
+                ViewData["MediaModel"] = GetMediaModel(null);
             }
             return View(postVM);
         }
@@ -185,18 +186,23 @@ namespace Ustamdan.Controllers
         #endregion
 
         #region Media
-        public ActionResult Media()
+        public ActionResult Media(int? page)
         {
-            return View(GetMediaModel());
+            var model = GetMediaModel(page);
+            return Request.IsAjaxRequest()? (ActionResult)PartialView("_MediaPartial", model) : View(model);
         }
-        public List<FileInfo> GetMediaModel()
+        public PagedList<FileInfo> GetMediaModel(int? page)
         {
+            page = page ?? 1;
             string mediaDirectory = HttpContext.Server.MapPath("~/Content/Media/");
             DirectoryInfo dirInfo = new DirectoryInfo(mediaDirectory);
             List<FileInfo> files = dirInfo.GetFiles().ToList();
             string[] imageExtensions = { ".jpg", ".jpeg", ".png", ".gif" };
             files = files.Where(x => imageExtensions.Contains(x.Extension.ToLower())).OrderByDescending(x => x.CreationTime).ToList();
-            return files;
+            var model = (PagedList<FileInfo>)files.ToPagedList(page.Value, 20);
+            ViewBag.PageCount = model.PageCount;
+            ViewBag.CurrentPage = page;
+            return model;
         }
         public string AddMedia(HttpPostedFileBase media)
         {
