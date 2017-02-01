@@ -17,6 +17,7 @@
 /// <reference path="admin/videourlparser.js" />
 /// <reference path="ai.0.22.19-build00125.min.js" />
 /// <reference path="bootstrap.min.js" />
+/// <reference path="jquery.unobtrusive-ajax.min.js" />
 /// <reference path="jquery.validate.min.js" />
 /// <reference path="jquery.validate.unobtrusive.js" />
 /// <reference path="jquery-3.1.1.js" />

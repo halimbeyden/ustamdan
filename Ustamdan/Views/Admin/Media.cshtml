@@ -1,4 +1,4 @@
-﻿@model List<FileInfo>
+﻿@model PagedList.IPagedList<FileInfo>
 @{
     ViewBag.Title = "Media";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -18,8 +18,9 @@
             </div>
         </div>*@
 </div>
-@Html.Partial("_MediaPartial",Model)
-
+<div id="unobtrusive">
+    @Html.Partial("_MediaPartial", Model)
+</div>
 
 @section scripts{
     <script src="~/Scripts/Admin/nprogress.js"></script>
