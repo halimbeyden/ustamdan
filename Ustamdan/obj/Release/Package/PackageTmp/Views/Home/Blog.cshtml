@@ -309,19 +309,16 @@
                 map.setMapTypeId('styled_map');
                 @foreach (var p in (ViewBag.AllPosts as List<PostViewModel>))
                 {
-                    string imgContent = p.PostMedia.First().Type == PostType.Image ? "<a href='" + Resource.WeeklyLink + '/' + p.Id +'/'+ p.Title.Replace(" ", "-").Replace(":", "") + "' class='nobg'><img src='" + p.PostMedia.First().MediaUrl+ "' alt=''></a>"
-                        :"<a href='" + Resource.WeeklyLink + '/' + p.Id + '/' + p.Title.Replace(" ", "-").Replace(":", "") + "' class='nobg'><i class='icon icon-play-circle'></i></a>";
                 @:var contentString = '<div id="content">' +
                     @:'<div class="spost clearfix">' +
-                    @:'<div class="entry-image">' +
-                    @:"@(MvcHtmlString.Create(imgContent))" +
-                    @:'</div>' +
+                    
                     @:'<div class="entry-c">' +
                     @:'<div class="entry-title">' +
                     @:'<h4><a href="@Resource.WeeklyLink/@p.Id/@p.Title.Replace(" ","-").Replace(":","")">@p.Title</a></h4>' +
                     @:'</div>' +
                     @:'<ul class="entry-meta">' +
                     @:'<li>@p.DateCreated.ToShortDateString()</li>' +
+                    @:'<li>@p.AuthorName</li>' +
                     @:'</ul>' +
                     @:'</div>' +
                     @:'</div>';
