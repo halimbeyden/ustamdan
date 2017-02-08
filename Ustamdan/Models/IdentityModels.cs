@@ -14,6 +14,7 @@ namespace Ustamdan.Models
     {
         public string Fullname { get; set; }
         public UserType Type { get; set; }
+        public string ProfileImage { get; set; }
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType

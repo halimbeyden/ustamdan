@@ -18,6 +18,7 @@ namespace Ustamdan.ViewModels
         public string Id { get; set; }
         public string Fullname { get; set; }
         public string Email { get; set; }
+        public string ProfileImage { get; set; }
         public UserType UserType { get; set; }
         public UserListViewModel()
         {
@@ -29,6 +30,7 @@ namespace Ustamdan.ViewModels
             this.Fullname = user.Fullname;
             this.Email = user.Email;
             this.UserType = user.Type;
+            this.ProfileImage = user.ProfileImage;
         }
     }
 }
