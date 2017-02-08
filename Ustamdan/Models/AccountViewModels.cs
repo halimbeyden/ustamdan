@@ -78,6 +78,9 @@ namespace Ustamdan.Models
         [Display(Name = "User Type")]
         public UserType UserType { get; set; }
 
+        [Display(Name = "Profile Image")]
+        public string ProfileImage { get; set; }
+
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         [DataType(DataType.Password)]
