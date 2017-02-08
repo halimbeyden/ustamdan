@@ -251,6 +251,12 @@ namespace Ustamdan.Controllers
                 var user = db.Users.Find(id);
                 if (user == null)
                     return HttpNotFound();
+                string mediaDirectory = HttpContext.Server.MapPath("~/Content/img/ekip/");
+                DirectoryInfo dirInfo = new DirectoryInfo(mediaDirectory);
+                List<FileInfo> files = dirInfo.GetFiles().ToList();
+                string[] imageExtensions = { ".jpg", ".jpeg", ".png", ".gif" };
+                files = files.Where(x => imageExtensions.Contains(x.Extension.ToLower())).OrderByDescending(x => x.CreationTime).ToList();
+                ViewBag.TeamImages = files;
                 model = new UserListViewModel(user);
             }
             return View(model);
@@ -266,6 +272,7 @@ namespace Ustamdan.Controllers
                     return HttpNotFound();
                 user.Email = model.Email;
                 user.Fullname = model.Fullname;
+                user.ProfileImage = model.ProfileImage;
                 if (user.Type != model.UserType)
                 {
                     var manager = new ApplicationUserManager(new UserStore<ApplicationUser>(db));
