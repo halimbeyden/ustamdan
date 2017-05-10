@@ -15,6 +15,7 @@ namespace Ustamdan.Models.MailerLite
         public string ContentPartTwo { get; set; }
         public string Link { get; set; }
         public string MediaLink { get; set; }
+        public string MediaDescription { get; set; }
         public string Author { get; set; }
         public string Language { get; set; }
         public bool ForNewUsers { get; set; }
@@ -36,7 +37,10 @@ namespace Ustamdan.Models.MailerLite
                     + (post.Title.Replace(" ", "-").Replace(":", ""));
             PostMedia pm = post.CarouselMedia.FirstOrDefault(x => x.Type == PostType.Image);
             if (pm != null)
+            {
                 MediaLink = "http://www.ustamdan.com" + pm.MediaUrl;
+                MediaDescription = pm.Description;
+            }
         }
 
     }
