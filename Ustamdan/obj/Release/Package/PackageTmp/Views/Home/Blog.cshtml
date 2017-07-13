@@ -59,6 +59,17 @@
 </section>
         @section Scripts{
             <script>
+                $(function () {
+                    if(window.location.hash.substring(1) == "subscribemail")
+                        showSubscribePopup();
+                });
+                function showSubscribePopup() { 
+                    $("a[href='#subscriptionModal']").click();
+                }
+            </script>
+
+
+            <script>
             function initMap() {
 
                 // Create a new StyledMapType object, passing it an array of styles,
