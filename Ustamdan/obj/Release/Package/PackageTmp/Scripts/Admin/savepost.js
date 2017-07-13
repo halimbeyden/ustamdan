@@ -29,7 +29,10 @@ $(document).on("click", ".removeMedia", function () {
 });
 $(document).on("click", "#addMediaBtn", function () {
     var formData = new FormData($("#addMediaModal form")[0]);
-    console.log(formData);
+    if ($("#addMediaModal input[name='media']").val() == '') {
+        alert("Please select a valid file.");
+        return;
+    }
     $.ajax({
         url: "/Admin/AddMedia",
         type: 'POST',
@@ -46,6 +49,21 @@ $(document).on("click", "#addMediaBtn", function () {
             $("#addMediaModal").modal("hide");
         }
     });
+});
+$(document).on("change", "#addMediaModal input[name='media']", function (e) {
+    var count = 1;
+    var files = e.currentTarget.files; // puts all files into an array
+    var approvedHTML = "";
+    // call them as such; files[0].size will get you the file size of the 0th file
+
+    var filesize = ((files[0].size / 1024)).toFixed(4); // KB
+
+    if (files[0].name != "item" && typeof files[0].name != "undefined" && filesize <= 300) {
+
+    } else {
+        alert("Maximum File Size: 300KB");
+        $(this).val('');
+    }
 });
 function copyToClipboard(data) {
     var $temp = $("<input>");

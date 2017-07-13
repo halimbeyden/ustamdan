@@ -10,7 +10,7 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -22,7 +22,7 @@
                 @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
             </div>
         </div>
-         <div class="form-group">
+        <div class="form-group">
             @Html.LabelFor(model => model.Fullname, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Fullname, new { htmlAttributes = new { @class = "form-control" } })
@@ -33,6 +33,14 @@
             @Html.LabelFor(m => m.UserType, new { @class = "col-md-2 control-label" })
             <div class="col-md-10">
                 @Html.EnumDropDownListFor(m => m.UserType, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.ProfileImage, new { @class = "col-md-2 control-label" })
+            <input type="hidden" name="ProfileImage" value="@Model.ProfileImage" />
+            <div id="profilePictureDiv" class="col-md-10">
+                <a class="btn btn-primary" href="#" data-toggle="modal" data-target="#selectProfileImageModal">Select </a>
+                <img height="100" width="100" src="~/Content/img/ekip/@Model.ProfileImage" />
             </div>
         </div>
         <div class="form-group">
@@ -53,3 +61,41 @@
 <div>
     @Html.ActionLink("Back to List", "Users")
 </div>
+
+<div id="selectProfileImageModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">Select Profile Image?</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    @foreach (FileInfo file in ViewBag.TeamImages)
+                    {
+                        <div class="col-md-3 teamMember" data-src="/Content/img/ekip/@file.Name">
+                            <img style="max-height:100px" src="~/Content/img/ekip/@file.Name" />
+                            <div>@file.Name</div>
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        $(document).on("dblclick", ".teamMember", function () {
+            var src = $(this).data("src");
+            $("input[name='ProfileImage']").val(src);
+            $("#profilePictureDiv img").attr("src", src);
+            $("#selectProfileImageModal").modal('hide');
+        });
+    </script>
+}
