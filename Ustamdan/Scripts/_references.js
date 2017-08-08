@@ -6,6 +6,7 @@
 /// <reference path="admin/datatable/responsive.bootstrap.js" />
 /// <reference path="admin/daterangepicker.js" />
 /// <reference path="admin/dropzone.min.js" />
+/// <reference path="admin/echarts.simple.min.js" />
 /// <reference path="admin/fastclick.js" />
 /// <reference path="admin/icheck.min.js" />
 /// <reference path="admin/jquery.tagsinput.js" />

@@ -247,6 +247,7 @@
     <Compile Include="Models\Blog\Category.cs" />
     <Compile Include="Models\Blog\Comment.cs" />
     <Compile Include="Models\Blog\Post.cs" />
+    <Compile Include="Models\Blog\PostLog.cs" />
     <Compile Include="Models\Blog\PostMedia.cs" />
     <Compile Include="Models\Blog\Tag.cs" />
     <Compile Include="Models\Dummy.cs" />
@@ -267,6 +268,7 @@
     <Compile Include="ViewModels\EmailViewModel.cs" />
     <Compile Include="ViewModels\HomeViewModel.cs" />
     <Compile Include="ViewModels\IdeaViewModel.cs" />
+    <Compile Include="ViewModels\PostLogViewModel.cs" />
     <Compile Include="ViewModels\PostViewModel.cs" />
     <Compile Include="ViewModels\UserListViewModel.cs" />
   </ItemGroup>
@@ -1281,6 +1283,7 @@
     <Content Include="Scripts\Admin\Datatable\responsive.bootstrap.js" />
     <Content Include="Scripts\Admin\daterangepicker.js" />
     <Content Include="Scripts\Admin\dropzone.min.js" />
+    <Content Include="Scripts\Admin\echarts.simple.min.js" />
     <Content Include="Scripts\Admin\fastclick.js" />
     <Content Include="Scripts\Admin\icheck.min.js" />
     <Content Include="Scripts\Admin\jquery.tagsinput.js" />
