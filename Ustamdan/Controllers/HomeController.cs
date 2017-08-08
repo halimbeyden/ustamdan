@@ -79,6 +79,14 @@ namespace Ustamdan.Controllers
                 ViewBag.RelatedPosts = post
                     .getRelatedPosts(db,3)
                     .Select(x => new PostViewModel(x));
+                try
+                {
+                    db.PostLogs.Add(new PostLog(post.Id, Request.UserHostAddress, Request.UserAgent, "Visiting the Post"));
+                    db.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                }
             }
             return View(model);
         }

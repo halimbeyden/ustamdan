@@ -48,6 +48,8 @@ namespace Ustamdan.Models
         public DbSet<Idea> Ideas { get; set; }
         public DbSet<IdeaComment> IdeaComments { get; set; }
         public DbSet<IdeaEmoticon> IdeaEmoticons { get; set; }
+        public DbSet<PostLog> PostLogs { get; set; }
+
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
