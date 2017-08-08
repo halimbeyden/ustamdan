@@ -23,6 +23,16 @@ namespace Ustamdan.Controllers
         {
             return View();
         }
+        [HttpGet]
+        public JsonResult GetChartData()
+        {
+            PostLogViewModel model;
+            using (var db = new ApplicationDbContext())
+            {
+                model = new PostLogViewModel(db);
+            }
+            return Json(model, JsonRequestBehavior.AllowGet);
+        }
         #region Post
 
         public ActionResult Posts()
@@ -189,7 +199,7 @@ namespace Ustamdan.Controllers
         public ActionResult Media(int? page)
         {
             var model = GetMediaModel(page);
-            return Request.IsAjaxRequest()? (ActionResult)PartialView("_MediaPartial", model) : View(model);
+            return Request.IsAjaxRequest() ? (ActionResult)PartialView("_MediaPartial", model) : View(model);
         }
         public PagedList<FileInfo> GetMediaModel(int? page)
         {
@@ -481,14 +491,14 @@ namespace Ustamdan.Controllers
             return RedirectToAction("Mail");
         }
         [HttpGet]
-        public string GetMailTemplate(int postId,bool fornewusers = false)
+        public string GetMailTemplate(int postId, bool fornewusers = false)
         {
             using (var db = new ApplicationDbContext())
             {
                 var post = db.Posts.Find(postId);
                 if (post == null)
                     return null;
-                return RenderViewToString(ControllerContext, "_MailTemplate", new MailTemplateViewModel(post,fornewusers));
+                return RenderViewToString(ControllerContext, "_MailTemplate", new MailTemplateViewModel(post, fornewusers));
             }
         }
 
