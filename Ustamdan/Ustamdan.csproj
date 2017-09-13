@@ -1283,6 +1283,7 @@
     <Content Include="Scripts\Admin\Datatable\responsive.bootstrap.js" />
     <Content Include="Scripts\Admin\daterangepicker.js" />
     <Content Include="Scripts\Admin\dropzone.min.js" />
+    <Content Include="Scripts\Admin\echarts.min.js" />
     <Content Include="Scripts\Admin\echarts.simple.min.js" />
     <Content Include="Scripts\Admin\fastclick.js" />
     <Content Include="Scripts\Admin\icheck.min.js" />
@@ -1292,6 +1293,8 @@
     <Content Include="Scripts\Admin\nprogress.js" />
     <Content Include="Scripts\Admin\pnotify.js" />
     <Content Include="Scripts\Admin\savepost.js" />
+    <Content Include="Scripts\Admin\timeme.min.js" />
+    <Content Include="Scripts\Admin\ua-parser.js" />
     <Content Include="Scripts\Admin\videourlparser.js" />
     <Content Include="Scripts\ai.0.22.19-build00125.js" />
     <Content Include="Scripts\ai.0.22.19-build00125.min.js" />

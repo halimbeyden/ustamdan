@@ -171,10 +171,23 @@
 </section><!-- #content end -->
 @section scripts{
     <script async src="//platform.twitter.com/widgets.js" charset="utf-8" data-show-count="true"></script>
+    <script src="~/Scripts/Admin/timeme.min.js"></script>
     <script>
-        $(function () {
-            var lang = $("#primary-menu>ul>li:last-child>a").attr("href").substr(0,3);
-            $("#primary-menu>ul>li:last-child>a").attr("href", lang + "/" + (lang == "/en"?"weekly":"yazihane"));
+        var run = setInterval(saveElapsedTime, 5000);
+        TimeMe.initialize({
+            currentPageName: "post-page",
+            idleTimeoutInSeconds: 5
         });
+        $(function () {
+            var lang = $("#primary-menu>ul>li:last-child>a").attr("href").substr(0, 3);
+            $("#primary-menu>ul>li:last-child>a").attr("href", lang + "/" + (lang == "/en" ? "weekly" : "yazihane"));
+        });
+
+        window.onbeforeunload = function () {
+            saveElapsedTime();
+        };
+        function saveElapsedTime() {
+            $.post("@Url.Action("GoodBye","Home")", { plid: "@ViewBag.PostLogId", tm: TimeMe.getTimeOnCurrentPageInSeconds().toFixed(2) }, function (d) { return; });
+        }
     </script>
 } 
