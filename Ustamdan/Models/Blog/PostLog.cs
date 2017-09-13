@@ -13,6 +13,7 @@ namespace Ustamdan.Models.Blog
         public string UserAgent { get; set; }
         public string Description { get; set; }
         public DateTime Date { get; set; }
+        public float ElapsedTime { get; set; }
         public int? PostId { get; set; }
 
         [ForeignKey("PostId")]

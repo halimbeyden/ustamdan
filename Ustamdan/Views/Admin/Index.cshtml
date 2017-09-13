@@ -3,3 +3,186 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+<div class="row">
+    <div class="col-md-12">
+        <label>Most Viewed 10 Posts</label>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Post Title</th>
+                    <th>Author</th>
+                    <th>Read Count</th>
+                    <th>Time (In Seconds)</th>
+                </tr>
+            </thead>
+            <tbody id="postList"></tbody>
+        </table>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div id="timeLineChart" style="width: 900px;height:450px;"></div>
+    </div>
+    <div class="col-md-12">
+        <div id="authorChart" style="width: 900px;height:450px;"></div>
+    </div>
+    <div class="col-md-12">
+        <div id="browserChart" style="width: 900px;height:450px;"></div>
+    </div>
+</div>
+
+@section scripts{
+    
+<script src="~/Scripts/Admin/echarts.min.js"></script>
+@*<script src="~/Scripts/Admin/echarts.simple.min.js"></script>*@
+<script src="~/Scripts/Admin/ua-parser.js"></script>
+    <script>
+        var browserChart = echarts.init(document.getElementById('browserChart'));
+        var authorChart = echarts.init(document.getElementById('authorChart'));
+        var timeLineChart = echarts.init(document.getElementById('timeLineChart'));
+        var parser = new UAParser();
+        $(function () {
+            $.get("@Url.Action("GetChartData","Admin")", {}, function (data) {
+                var postList = data.MostViewed10Posts.map(function (value) {
+                    return { Title:value.Item1.Title, Author:value.Item1.AuthorName,Count:value.Item2,ElapsedTime:value.Item3  };
+                });
+                $("#postList").empty();
+                $.each(postList, function (index,value) {
+                    $("#postList").append("<tr><td>" + value.Title + "</td><td>" + value.Author + "</td><td>" + value.Count + "</td><td>" + value.ElapsedTime + "</td></tr>");
+                });
+                //UserAgents
+                var decodedData = data.UserAgents.map(function (value) {
+                    parser.setUA(value.Item1);
+                    return {UserAgent: parser.getResult(),Count:value.Item2};
+                });
+                var browsers = {};
+                decodedData.map(function (value) {
+                    var a = value.UserAgent.browser.name;
+                    if (a in browsers) browsers[a]++; else browsers[a] = value.Count;
+                });
+                fillBarChart(Object.keys(browsers), Object.values(browsers), browserChart,'Browsers');
+                ////////
+                //Authors
+                var authors = data.Authors.map(function (value) {
+                    return value.Item1;
+                });
+                var postReadCounts = data.Authors.map(function (value) {
+                    return value.Item2;
+                });
+                fillBarChart(authors, postReadCounts, authorChart,'Authors and Read Counts');
+                ///////
+                //TimeLine
+                var months = data.MonthlyPostCounts.map(function (value) {
+                    return value.Item1;
+                });
+                postReadCounts = data.MonthlyPostCounts.map(function (value) {
+                    return value.Item2;
+                });
+                var postReadCountsDistinct = data.MonthlyPostCounts.map(function (value) {
+                    return value.Item3;
+                });
+                fillLineChart(postReadCounts,months,postReadCountsDistinct, timeLineChart,'Month Based Read Counts');
+                /////////
+            })
+
+        });
+
+        //charts
+        function fillBarChart(names,values,chart,title) {
+            option = {
+                title: {
+                    text: title,
+                    subtext: ''
+                },
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {
+                        type: 'shadow'
+                    }
+                },
+                legend: {
+                    data: ['Count']
+                },
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '3%',
+                    containLabel: true
+                },
+                xAxis: {
+                    type: 'value',
+                    boundaryGap: [0, 0.01]
+                },
+                yAxis: {
+                    type: 'category',
+                    data:names
+                },
+                series: [
+                    {
+                        name: 'Count',
+                        type: 'bar',
+                        data:values
+                    }
+                ]
+            };
+            chart.setOption(option);
+        }
+        function fillLineChart(values, names, values2, chart, title) {
+            
+            option = {
+                title: {
+                    text: title
+                },
+                tooltip: {
+                    trigger: 'axis'
+                },
+                legend: {
+                    data: ['Count', 'UniqueCount']
+                },
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '3%',
+                    containLabel: true
+                },
+                toolbox: {
+                    feature: {
+                        saveAsImage: {}
+                    }
+                },
+                xAxis: {
+                    type: 'category',
+                    boundaryGap: false,
+                    data: names
+                },
+                yAxis: {
+                    type: 'value'
+                },
+                series: [
+                    {
+                        name: 'Count',
+                        type: 'line',
+                        //stack: 'red',
+                        data:values
+                    },
+                    {
+                        name: 'UniqueCount',
+                        type: 'line',
+                        //stack: 'red',
+                        data: values2
+                    }
+                ]
+            };
+            chart.setOption(option);
+
+        }
+
+        /////////
+        var groupBy = function (xs, key) {
+            return xs.reduce(function (rv, x) {
+                (rv[x[key]] = rv[x[key]] || []).push(x);
+                return rv;
+            }, {});
+        };
+    </script>
+    }

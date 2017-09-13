@@ -50,10 +50,10 @@ namespace Ustamdan.Controllers
                    .OrderByDescending(x => x.PublishDate).Take(4)
                    .ToList()
                    .Select(x => new PostViewModel(x));
-                ViewBag.Areas = db.Areas.Where(x=>x.Language == lang).OrderByDescending(x=>x.Posts.Count).ToList();
+                ViewBag.Areas = db.Areas.Where(x => x.Language == lang).OrderByDescending(x => x.Posts.Count).ToList();
                 ViewBag.Categories = db.Categories.Where(x => x.Language == lang).OrderByDescending(x => x.Posts.Count).ToList();
             }
-            ViewBag.AllPosts = posts.Where(x=>x.HasLocation).ToList();
+            ViewBag.AllPosts = posts.Where(x => x.HasLocation).ToList();
             return View(posts.ToPagedList(page.Value, 9));
         }
         public ActionResult Post(int id)
@@ -77,12 +77,13 @@ namespace Ustamdan.Controllers
 
                 Random rand = new Random();
                 ViewBag.RelatedPosts = post
-                    .getRelatedPosts(db,3)
+                    .getRelatedPosts(db, 3)
                     .Select(x => new PostViewModel(x));
                 try
                 {
-                    db.PostLogs.Add(new PostLog(post.Id, Request.UserHostAddress, Request.UserAgent, "Visiting the Post"));
+                    var PL = db.PostLogs.Add(new PostLog(post.Id, Request.UserHostAddress, Request.UserAgent, "Visiting the Post"));
                     db.SaveChanges();
+                    ViewBag.PostLogId = PL.Id;
                 }
                 catch (Exception ex)
                 {
@@ -98,7 +99,7 @@ namespace Ustamdan.Controllers
         {
             return View();
         }
-     
+
         public ActionResult Search(string q, int? a, int? c, int? t)
         {
             string lang = RouteData.Values["lang"].ToString();
@@ -135,9 +136,10 @@ namespace Ustamdan.Controllers
                 }
                 if (!String.IsNullOrEmpty(q))
                 {
-                    posts = posts.Where(x => (x.Title + x.PostContent).ToLower().Contains(q.ToLower())).ToList();
+                    q = q.Trim();
+                    posts = posts.Where(x => (x.AuthorName + x.Title + x.PostContent).ToLower().Contains(q.ToLower())).ToList();
                 }
-                return View(posts.ToList().Select(x=>new PostViewModel(x)).ToList());
+                return View(posts.ToList().Select(x => new PostViewModel(x)).ToList());
             }
         }
 
@@ -149,7 +151,7 @@ namespace Ustamdan.Controllers
         }
         public ActionResult Subscribe(string email)
         {
-            if(IsValidEmail(email))
+            if (IsValidEmail(email))
                 MailerLiteHelper.Subscribe(email);
             return RedirectToAction("Blog");
         }
@@ -164,6 +166,19 @@ namespace Ustamdan.Controllers
             {
                 return false;
             }
+        }
+        [HttpPost]
+        public int GoodBye(int plid, string tm)
+        {
+            using (var db = new ApplicationDbContext())
+            {
+                var pl = db.PostLogs.Find(plid);
+                if (pl == null)
+                    return 0;
+                pl.ElapsedTime = float.Parse(tm.Replace(".",","));
+                db.SaveChanges();
+            }
+            return 1;
         }
     }
 }
